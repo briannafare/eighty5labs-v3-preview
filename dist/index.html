@@ -358,15 +358,74 @@
       /* Focus */
       :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
 
+      /* Hero grid pattern overlay */
+      .hero-pattern {
+        position: relative;
+      }
+      .hero-pattern::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(15,23,42,0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(15,23,42,0.04) 1px, transparent 1px);
+        background-size: 52px 52px;
+        mask-image: radial-gradient(ellipse 90% 85% at 68% 35%, black 0%, transparent 70%);
+        -webkit-mask-image: radial-gradient(ellipse 90% 85% at 68% 35%, black 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+      }
+      .hero-pattern > * { position: relative; z-index: 1; }
+
+      /* Dark section variant: bg1 instead of bg0 */
+      .section-dark-alt {
+        padding-block: clamp(80px, 9vw, 136px);
+        position: relative;
+        background: var(--bg1);
+        color: var(--t1);
+      }
+      .section-dark-alt .section-label { color: var(--t4); }
+      .section-dark-alt .section-label::before { background: var(--t4); }
+      .section-dark-alt .section-heading { color: var(--t1); }
+      .section-dark-alt .section-sub { color: var(--t3); }
+
+      /* Light section top border (matches V2) */
+      .section-light { border-top: 1px solid var(--ls-border); }
+      .section-white { border-top: 1px solid var(--ls-border); }
+
       /* Mobile */
       @media (max-width: 768px) {
         .hide-mobile { display: none !important; }
+        .hero-grid { grid-template-columns: 1fr !important; }
+        .gaps-calc-grid { grid-template-columns: 1fr !important; }
       }
       @media (min-width: 769px) {
         .hide-desktop { display: none !important; }
       }
+
+      /* Range slider thumb styling */
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid rgba(255,255,255,0.3);
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      }
+      input[type="range"]::-moz-range-thumb {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid rgba(255,255,255,0.3);
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      }
     </style>
-    <script type="module" crossorigin src="/assets/index-DLrScOA0.js"></script>
+    <script type="module" crossorigin src="/assets/index-DF_IulAU.js"></script>
   </head>
   <body>
     <div id="grid-overlay" aria-hidden="true"></div>

@@ -137,7 +137,7 @@ export const Homepage: React.FC = () => {
       {/* ═══════════════════════════════════════════
           01 — HERO (white bg, 2-column — matches V2)
       ═══════════════════════════════════════════ */}
-      <section style={{
+      <section className="hero-pattern" style={{
         background: '#fff',
         paddingTop: 'calc(var(--nav-h) + clamp(48px, 6vw, 80px))',
         paddingBottom: 'clamp(60px, 8vw, 100px)',
@@ -162,23 +162,23 @@ export const Homepage: React.FC = () => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 8,
-                background: '#F0F4FF',
-                border: '1px solid #DDE5F2',
+                background: 'rgba(79,142,247,0.09)',
+                border: '1px solid rgba(79,142,247,0.2)',
                 borderRadius: 999,
                 padding: '5px 14px 5px 5px',
-                marginBottom: 24,
+                marginBottom: 22,
               }}>
                 <span style={{
-                  background: 'var(--blue)',
+                  background: 'var(--blue2)',
                   color: '#fff',
-                  fontSize: '0.625rem',
+                  fontSize: '0.58rem',
                   fontWeight: 800,
-                  padding: '3px 9px',
+                  padding: '3px 8px',
                   borderRadius: 999,
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                 }}>New</span>
-                <span style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--td2)' }}>
+                <span style={{ fontSize: '0.78rem', fontWeight: 500, color: 'var(--blue2)' }}>
                   Now visible in ChatGPT, Gemini &amp; Perplexity
                 </span>
               </div>
@@ -219,10 +219,10 @@ export const Homepage: React.FC = () => {
                       display: 'flex',
                       alignItems: 'center',
                       gap: 12,
-                      padding: '8px 14px',
-                      background: '#F7F9FF',
-                      border: '1px solid #EEF2FB',
-                      borderRadius: 8,
+                      padding: '10px 14px',
+                      background: '#F8FAFF',
+                      border: '1px solid #E4E9F2',
+                      borderRadius: 'var(--rd)',
                     }}
                   >
                     <div style={{ width: 4, height: 28, borderRadius: 2, background: gap.color, flexShrink: 0 }} />
@@ -242,14 +242,19 @@ export const Homepage: React.FC = () => {
               </div>
 
               {/* CTAs */}
-              <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 14 }}>
+              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 10 }}>
                 <motion.a
                   href="#/audit"
                   onClick={e => { e.preventDefault(); navigate('#/audit'); }}
-                  className="btn btn-primary"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  style={{ fontSize: '0.95rem', padding: '13px 26px' }}
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: 7,
+                    fontFamily: 'var(--fd)', fontSize: '0.9375rem', fontWeight: 800,
+                    color: '#fff', background: 'var(--blue2)', border: 'none',
+                    borderRadius: 'var(--rd)', padding: '13px 26px',
+                    textDecoration: 'none', cursor: 'pointer',
+                  }}
                 >
                   Get Your Free Audit
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -260,26 +265,18 @@ export const Homepage: React.FC = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: 6,
-                    padding: '13px 22px',
-                    borderRadius: 10,
-                    border: '1.5px solid var(--ls-border)',
-                    background: 'transparent',
-                    color: 'var(--td1)',
-                    fontFamily: 'var(--fd)',
-                    fontWeight: 700,
-                    fontSize: '0.95rem',
-                    textDecoration: 'none',
-                    cursor: 'pointer',
+                    display: 'inline-flex', alignItems: 'center', gap: 7,
+                    fontSize: '0.9375rem', fontWeight: 500, color: 'var(--td2)',
+                    background: 'none', border: '1.5px solid var(--ls-border)',
+                    borderRadius: 'var(--rd)', padding: '12px 22px',
+                    textDecoration: 'none', cursor: 'pointer',
                     transition: 'border-color 0.15s',
                   }}
                 >
                   See How It Works
                 </motion.a>
               </div>
-              <p style={{ fontSize: '0.78rem', color: 'var(--td3)' }}>Free · No commitment · Yours to keep regardless</p>
+              <p style={{ fontSize: '0.76rem', color: '#94A3B8' }}>Free · No commitment · Yours to keep regardless</p>
             </motion.div>
 
             {/* RIGHT — Dashboard Mockup */}
@@ -297,9 +294,9 @@ export const Homepage: React.FC = () => {
       </section>
 
       {/* ═══════════════════════════════════════════
-          02 — GAPS + CALCULATOR (dark bg, 2-column)
+          02 — GAPS + CALCULATOR (dark bg1, 2-column)
       ═══════════════════════════════════════════ */}
-      <section className="section-dark">
+      <section className="section-dark-alt">
         <div className="wrap">
           <Reveal>
             <div className="section-label">The Three Gaps</div>
@@ -413,9 +410,9 @@ export const Homepage: React.FC = () => {
       </section>
 
       {/* ═══════════════════════════════════════════
-          05 — PROCESS (light bg — matches V2)
+          05 — PROCESS (white bg — matches V2)
       ═══════════════════════════════════════════ */}
-      <section className="section-light">
+      <section className="section-white">
         <div className="wrap">
           <Reveal>
             <div className="section-label">How It Works</div>
@@ -443,9 +440,9 @@ export const Homepage: React.FC = () => {
       </section>
 
       {/* ═══════════════════════════════════════════
-          06 — INDUSTRIES (dark bg)
+          06 — INDUSTRIES (dark bg1)
       ═══════════════════════════════════════════ */}
-      <section className="section-dark">
+      <section className="section-dark-alt">
         <div className="wrap">
           <Reveal>
             <div className="section-label">Industries</div>
@@ -503,9 +500,9 @@ export const Homepage: React.FC = () => {
       </section>
 
       {/* ═══════════════════════════════════════════
-          07 — TESTIMONIALS (light bg — matches V2)
+          07 — TESTIMONIALS (white bg — matches V2)
       ═══════════════════════════════════════════ */}
-      <section className="section-light">
+      <section className="section-white">
         <div className="wrap">
           <Reveal>
             <div className="section-label">Results</div>

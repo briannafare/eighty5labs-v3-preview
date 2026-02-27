@@ -7,7 +7,7 @@ const NAV_LINKS = [
   { label: 'Industries', route: '#/industries' },
   { label: 'Pricing', route: '#/pricing' },
   { label: 'Resources', route: '#/resources' },
-  { label: 'About', route: '#/about' },
+  { label: 'About 85', route: '#/about' },
   { label: 'Blog', route: '#/blog' },
 ];
 
@@ -79,14 +79,23 @@ export const Navbar: React.FC = () => {
                 </a>
               ))}
             </div>
-            <a
-              href="#/audit"
-              onClick={e => { e.preventDefault(); navigate('#/audit'); }}
-              className="btn-nav btn-nav-primary"
-            >
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <a
+                href="#"
+                className="btn-nav btn-nav-ghost"
+                style={{ fontSize: '0.8125rem', fontWeight: 500 }}
+              >
+                Log in
+              </a>
+              <a
+                href="#/audit"
+                onClick={e => { e.preventDefault(); navigate('#/audit'); }}
+                className="btn-nav btn-nav-primary"
+              >
               Free Audit
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
+            </div>
           </div>
 
           {/* Mobile hamburger */}
