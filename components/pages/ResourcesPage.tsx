@@ -101,7 +101,7 @@ export default function ResourcesPage() {
               <span style={{ display: 'inline-block', background: 'rgba(27,79,255,0.1)', color: 'var(--blue)', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '4px 10px', borderRadius: 6, marginBottom: 12 }}>⚡ Featured Resource</span>
               <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', fontWeight: 900, letterSpacing: '-0.03em', color: 'var(--t1)', marginBottom: 12 }}>{FEATURED.title}</h2>
               <p style={{ color: 'var(--t3)', lineHeight: 1.7, marginBottom: 20, fontSize: '0.9375rem' }}>{FEATURED.desc}</p>
-              <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }} className="btn-primary" style={{ fontSize: '0.9rem', padding: '11px 22px' }}>
+              <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} className="btn btn-primary">
                 {FEATURED.cta}
               </motion.button>
             </div>
@@ -151,7 +151,7 @@ export default function ResourcesPage() {
           {filtered.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '60px 0', color: 'var(--t4)' }}>
               <p style={{ fontSize: '1rem', marginBottom: 8 }}>No resources found</p>
-              <p style={{ fontSize: '0.875rem' }}>Try a different search term or browse all topics.</p>
+              <p>Try a different search term or browse all topics.</p>
             </div>
           ) : (
             <AnimatePresence mode="popLayout">
@@ -188,7 +188,7 @@ export default function ResourcesPage() {
           <Reveal>
             <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.125rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--t1)', marginBottom: 14 }}>Ready to Put This Into Practice?</h2>
             <p style={{ color: 'var(--t3)', marginBottom: 28, lineHeight: 1.7 }}>Get a free AI Visibility Audit and see exactly where your business is leaking revenue — and what to fix first.</p>
-            <motion.button whileHover={{ scale: 1.02, boxShadow: '0 8px 32px rgba(27,79,255,0.35)' }} whileTap={{ scale: 0.97 }} onClick={() => navigate('#/audit')} className="btn-primary" style={{ fontSize: '0.9375rem', padding: '13px 28px' }}>
+            <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')} className="btn btn-primary">
               Get Your Free Audit →
             </motion.button>
             <p style={{ marginTop: 14, fontSize: '0.8125rem', color: 'var(--t4)' }}>No contracts · No credit card · Results in 48 hours</p>

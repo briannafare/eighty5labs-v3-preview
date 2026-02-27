@@ -12,14 +12,7 @@ const NAV_LINKS = [
 ];
 
 export const Navbar: React.FC = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -29,7 +22,7 @@ export const Navbar: React.FC = () => {
   return (
     <>
       <motion.nav
-        initial={{ y: -20, opacity: 0 }}
+        initial={{ y: -16, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
         style={{
@@ -41,10 +34,10 @@ export const Navbar: React.FC = () => {
           height: 'var(--nav-h)',
           display: 'flex',
           alignItems: 'center',
-          transition: 'background 0.25s ease, border-color 0.25s ease, backdrop-filter 0.25s ease',
-          background: scrolled ? 'rgba(8,12,23,0.88)' : 'transparent',
-          backdropFilter: scrolled ? 'blur(16px)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(255,255,255,0.07)' : '1px solid transparent',
+          background: 'rgba(255,255,255,0.96)',
+          backdropFilter: 'blur(16px)',
+          WebkitBackdropFilter: 'blur(16px)',
+          borderBottom: '1px solid var(--ls-border)',
         }}
       >
         <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -56,17 +49,17 @@ export const Navbar: React.FC = () => {
               fontFamily: 'var(--fd)',
               fontSize: '1.125rem',
               fontWeight: 900,
-              color: 'var(--t1)',
+              color: 'var(--td1)',
               textDecoration: 'none',
               letterSpacing: '-0.04em',
             }}
           >
-            eighty<span style={{ color: 'var(--blue3)' }}>5</span>labs
+            eighty<span style={{ color: 'var(--blue)' }}>5</span>labs
           </a>
 
           {/* Desktop Nav */}
-          <div className="hide-mobile" style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
+          <div className="hide-mobile" style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 26 }}>
               {NAV_LINKS.map(link => (
                 <a
                   key={link.label}
@@ -75,12 +68,12 @@ export const Navbar: React.FC = () => {
                   style={{
                     fontSize: '0.8125rem',
                     fontWeight: 500,
-                    color: 'var(--t3)',
+                    color: 'var(--td3)',
                     textDecoration: 'none',
                     transition: 'color 0.15s',
                   }}
-                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--t1)')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'var(--t3)')}
+                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--td1)')}
+                  onMouseLeave={e => (e.currentTarget.style.color = 'var(--td3)')}
                 >
                   {link.label}
                 </a>
@@ -89,10 +82,10 @@ export const Navbar: React.FC = () => {
             <a
               href="#/audit"
               onClick={e => { e.preventDefault(); navigate('#/audit'); }}
-              className="btn btn-primary btn-sm"
+              className="btn-nav btn-nav-primary"
             >
               Free Audit
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
           </div>
 
@@ -101,12 +94,12 @@ export const Navbar: React.FC = () => {
             className="hide-desktop"
             onClick={() => setMobileOpen(!mobileOpen)}
             style={{
-              background: 'var(--surface)',
-              border: '1px solid var(--border)',
-              borderRadius: 'var(--rd)',
+              background: 'transparent',
+              border: '1px solid var(--ls-border)',
+              borderRadius: 'var(--rd-nav)',
               padding: '8px 10px',
               cursor: 'pointer',
-              color: 'var(--t1)',
+              color: 'var(--td2)',
               display: 'flex',
               alignItems: 'center',
             }}
@@ -135,31 +128,31 @@ export const Navbar: React.FC = () => {
               left: 0,
               right: 0,
               zIndex: 99,
-              background: 'rgba(8,12,23,0.97)',
+              background: 'rgba(255,255,255,0.98)',
               backdropFilter: 'blur(20px)',
-              borderBottom: '1px solid var(--border)',
-              padding: '24px',
+              borderBottom: '1px solid var(--ls-border)',
+              padding: '20px 24px 28px',
               display: 'flex',
               flexDirection: 'column',
-              gap: 4,
+              gap: 0,
             }}
           >
             {NAV_LINKS.map((link, i) => (
               <motion.a
                 key={link.label}
-                initial={{ opacity: 0, x: -10 }}
+                initial={{ opacity: 0, x: -8 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.04 }}
                 href={link.route}
                 onClick={e => { e.preventDefault(); navigate(link.route); setMobileOpen(false); }}
                 style={{
-                  padding: '14px 0',
+                  padding: '13px 0',
                   fontFamily: 'var(--fd)',
-                  fontSize: '1.125rem',
+                  fontSize: '1rem',
                   fontWeight: 700,
-                  color: 'var(--t2)',
+                  color: 'var(--td2)',
                   textDecoration: 'none',
-                  borderBottom: '1px solid var(--border)',
+                  borderBottom: '1px solid var(--ls-border)',
                 }}
               >
                 {link.label}

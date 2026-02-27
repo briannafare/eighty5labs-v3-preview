@@ -264,11 +264,11 @@ export const Homepage: React.FC = () => {
       </section>
 
       {/* ─── REVENUE GAPS ─── */}
-      <section className="section" style={{ background: 'var(--bg1)' }}>
+      <section className="section-light">
         <div className="wrap">
           <Reveal>
             <div className="section-label">The Problem</div>
-            <h2 className="section-heading">Where Revenue Leaks — <span style={{ color: 'var(--t3)' }}>And How We Close It</span></h2>
+            <h2 className="section-heading">Where Revenue Leaks — <span style={{ color: 'var(--td3)' }}>And How We Close It</span></h2>
             <p className="section-sub" style={{ marginBottom: 56 }}>Three specific points where local businesses lose customers every day.</p>
           </Reveal>
 
@@ -309,7 +309,7 @@ export const Homepage: React.FC = () => {
               },
             ].map((gap, i) => (
               <Reveal key={i} delay={i * 0.1}>
-                <div className="card" style={{ border: `1.5px solid ${gap.border}`, height: '100%' }}>
+                <div style={{ background: 'var(--ls-card)', border: `1.5px solid ${gap.border}`, borderRadius: 'var(--rdl)', padding: '28px', height: '100%', boxShadow: '0 2px 16px rgba(15,23,42,0.07)', transition: 'box-shadow 0.2s, transform 0.2s' }}>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
                     <span style={{
                       fontSize: '0.6875rem',
@@ -324,11 +324,11 @@ export const Homepage: React.FC = () => {
                     }}>{gap.label}</span>
                     <span style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '2rem', color: gap.border, letterSpacing: '-0.04em' }}>{gap.num}</span>
                   </div>
-                  <h3 style={{ fontFamily: 'var(--fd)', fontSize: '1.375rem', fontWeight: 800, color: 'var(--t1)', marginBottom: 12, letterSpacing: '-0.02em' }}>{gap.title}</h3>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--t3)', lineHeight: 1.65, marginBottom: 24 }}>{gap.body}</p>
-                  <div style={{ paddingTop: 20, borderTop: '1px solid var(--border)' }}>
+                  <h3 style={{ fontFamily: 'var(--fd)', fontSize: '1.375rem', fontWeight: 800, color: 'var(--td1)', marginBottom: 12, letterSpacing: '-0.02em' }}>{gap.title}</h3>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--td2)', lineHeight: 1.65, marginBottom: 24 }}>{gap.body}</p>
+                  <div style={{ paddingTop: 20, borderTop: '1px solid var(--ls-border)' }}>
                     <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.75rem', color: gap.color, letterSpacing: '-0.03em' }}>{gap.stat}</div>
-                    <div style={{ fontSize: '0.8125rem', color: 'var(--t4)', marginTop: 4 }}>{gap.statLabel}</div>
+                    <div style={{ fontSize: '0.8125rem', color: 'var(--td3)', marginTop: 4 }}>{gap.statLabel}</div>
                   </div>
                 </div>
               </Reveal>
@@ -338,14 +338,14 @@ export const Homepage: React.FC = () => {
       </section>
 
       {/* ─── VOICE AI DEMO / CHLOE ─── */}
-      <section className="section">
+      <section className="section-white">
         <div className="wrap" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px,1fr))', gap: 60, alignItems: 'center' }}>
           <Reveal>
             <div className="section-label">Voice AI</div>
             <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 900, letterSpacing: '-0.04em', marginBottom: 20, lineHeight: 1.05 }}>
-              Meet Chloe.<br/><span style={{ color: 'var(--t3)' }}>Your 24/7 AI Receptionist.</span>
+              Meet Chloe.<br/><span style={{ color: 'var(--td3)' }}>Your 24/7 AI Receptionist.</span>
             </h2>
-            <p style={{ color: 'var(--t3)', lineHeight: 1.7, marginBottom: 32 }}>
+            <p style={{ color: 'var(--td2)', lineHeight: 1.7, marginBottom: 32 }}>
               She answers every call, qualifies every lead, and books appointments around the clock. While you're on a job, sleeping, or on vacation — she's working.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
@@ -365,7 +365,7 @@ export const Homepage: React.FC = () => {
                   style={{ display: 'flex', alignItems: 'flex-start', gap: 14 }}
                 >
                   <span style={{ fontSize: '1.125rem' }}>{step.icon}</span>
-                  <span style={{ fontSize: '0.9375rem', color: 'var(--t2)', lineHeight: 1.5 }}>{step.text}</span>
+                  <span style={{ fontSize: '0.9375rem', color: 'var(--td1)', lineHeight: 1.5 }}>{step.text}</span>
                 </motion.div>
               ))}
             </div>
@@ -454,7 +454,7 @@ export const Homepage: React.FC = () => {
       </section>
 
       {/* ─── SERVICES GRID ─── */}
-      <section className="section" style={{ background: 'var(--bg1)' }}>
+      <section className="section-dark">
         <div className="wrap">
           <Reveal>
             <div className="section-label">The Platform</div>
@@ -519,7 +519,7 @@ export const Homepage: React.FC = () => {
       </section>
 
       {/* ─── INDUSTRIES ─── */}
-      <section className="section">
+      <section className="section-light">
         <div className="wrap">
           <Reveal>
             <div className="section-label">Industries</div>
@@ -540,9 +540,9 @@ export const Homepage: React.FC = () => {
                   fontFamily: 'var(--fd)',
                   fontWeight: 700,
                   fontSize: '0.875rem',
-                  border: activeIndustry === i ? '1.5px solid var(--blue-border)' : '1.5px solid var(--border)',
-                  background: activeIndustry === i ? 'var(--blue-lt)' : 'var(--surface)',
-                  color: activeIndustry === i ? 'var(--blue3)' : 'var(--t3)',
+                  border: activeIndustry === i ? '1.5px solid var(--blue-border)' : '1.5px solid var(--ls-border)',
+                  background: activeIndustry === i ? 'var(--blue-lt)' : 'var(--ls-card)',
+                  color: activeIndustry === i ? 'var(--blue3)' : 'var(--td2)',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
@@ -604,7 +604,7 @@ export const Homepage: React.FC = () => {
               ].map(([label, color], i) => (
                 <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                   <div style={{ width: 8, height: 8, borderRadius: '50%', background: color, flexShrink: 0 }}/>
-                  <span style={{ fontSize: '0.875rem', color: 'var(--t2)' }}>{label}</span>
+                  <span style={{ fontSize: '0.875rem', color: 'var(--td2)' }}>{label}</span>
                 </div>
               ))}
             </div>
@@ -613,7 +613,7 @@ export const Homepage: React.FC = () => {
       </section>
 
       {/* ─── PROCESS ─── */}
-      <section className="section" style={{ background: 'var(--bg1)' }}>
+      <section className="section-white">
         <div className="wrap">
           <Reveal>
             <div className="section-label">How It Works</div>
@@ -642,8 +642,8 @@ export const Homepage: React.FC = () => {
                     lineHeight: 1,
                   }}>{step.step}</div>
                   <div style={{ position: 'relative', paddingTop: 40 }}>
-                    <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.125rem', color: 'var(--t1)', marginBottom: 10 }}>{step.title}</h3>
-                    <p style={{ fontSize: '0.875rem', color: 'var(--t3)', lineHeight: 1.65 }}>{step.body}</p>
+                    <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.125rem', color: 'var(--td1)', marginBottom: 10 }}>{step.title}</h3>
+                    <p style={{ fontSize: '0.875rem', color: 'var(--td2)', lineHeight: 1.65 }}>{step.body}</p>
                   </div>
                 </div>
               </Reveal>
@@ -653,7 +653,7 @@ export const Homepage: React.FC = () => {
       </section>
 
       {/* ─── TESTIMONIALS ─── */}
-      <section className="section">
+      <section className="section-dark">
         <div className="wrap">
           <Reveal>
             <div className="section-label">Results</div>
@@ -687,7 +687,7 @@ export const Homepage: React.FC = () => {
       </section>
 
       {/* ─── FAQ ─── */}
-      <section className="section" style={{ background: 'var(--bg1)' }}>
+      <section className="section-light">
         <div className="wrap" style={{ maxWidth: 760 }}>
           <Reveal>
             <div className="section-label">FAQ</div>
@@ -697,12 +697,12 @@ export const Homepage: React.FC = () => {
             {FAQS.map((faq, i) => (
               <Reveal key={i} delay={i * 0.05}>
                 <div style={{
-                  background: 'var(--bg2)',
-                  border: '1.5px solid var(--border)',
+                  background: 'var(--ls-card)',
+                  border: '1.5px solid var(--ls-border)',
                   borderRadius: 'var(--rd)',
                   overflow: 'hidden',
                   transition: 'border-color 0.2s',
-                  borderColor: openFaq === i ? 'var(--blue-border)' : 'var(--border)',
+                  borderColor: openFaq === i ? 'var(--blue-border)' : 'var(--ls-border)',
                 }}>
                   <button
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
@@ -715,7 +715,7 @@ export const Homepage: React.FC = () => {
                       background: 'transparent',
                       border: 'none',
                       cursor: 'pointer',
-                      color: 'var(--t1)',
+                      color: 'var(--td1)',
                       fontFamily: 'var(--fd)',
                       fontWeight: 700,
                       fontSize: '0.9375rem',
@@ -741,7 +741,7 @@ export const Homepage: React.FC = () => {
       </section>
 
       {/* ─── FINAL CTA ─── */}
-      <section className="section" style={{ textAlign: 'center' }}>
+      <section className="section-dark" style={{ textAlign: 'center' }}>
         <div className="wrap">
           <Reveal>
             <div style={{
@@ -817,7 +817,7 @@ const AnimatedAnswer: React.FC<{ open: boolean; answer: string }> = ({ open, ans
       transition={{ duration: 0.25, ease: 'easeInOut' }}
       style={{ overflow: 'hidden' }}
     >
-      <p style={{ padding: '0 22px 20px', fontSize: '0.9rem', color: 'var(--t3)', lineHeight: 1.65 }}>{answer}</p>
+      <p style={{ padding: '0 22px 20px', fontSize: '0.9rem', color: 'var(--td2)', lineHeight: 1.65 }}>{answer}</p>
     </motion.div>
   );
 };

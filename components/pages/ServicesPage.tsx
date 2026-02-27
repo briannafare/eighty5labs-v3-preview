@@ -161,7 +161,7 @@ export const ServicesPage: React.FC = () => {
               const ac = activeTab === s.id;
               const c = GAP_COLORS[s.gap];
               return (
-                <motion.button key={s.id} onClick={() => setActiveTab(s.id)} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }}
+                <motion.button key={s.id} onClick={() => setActiveTab(s.id)} whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }}
                   style={{ fontFamily: 'var(--fd)', fontSize: '0.8125rem', fontWeight: 800, padding: '8px 16px', borderRadius: 8, border: ac ? `1.5px solid ${c}` : '1.5px solid var(--border)', background: ac ? `${c}18` : 'transparent', color: ac ? c : 'var(--t3)', cursor: 'pointer', whiteSpace: 'nowrap' as const, transition: 'all 0.18s ease' }}>
                   {s.name}
                 </motion.button>
@@ -223,7 +223,7 @@ export const ServicesPage: React.FC = () => {
                   </div>
                   <div style={{ marginTop: 32, paddingTop: 24, borderTop: '1px solid var(--border)' }}>
                     <p style={{ fontSize: '0.875rem', color: 'var(--t3)', marginBottom: 14 }}>{svc.cta}</p>
-                    <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')}
+                    <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')}
                       style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.875rem', color: 'white', background: color, border: 'none', borderRadius: 10, padding: '11px 22px', cursor: 'pointer', letterSpacing: '-0.01em' }}>
                       Get Your Free Audit →
                     </motion.button>
@@ -274,7 +274,7 @@ export const ServicesPage: React.FC = () => {
           <Reveal>
             <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.75rem,3.5vw,2.5rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--t1)', marginBottom: 16 }}>Find Out Where You're Leaking Revenue</h2>
             <p style={{ color: 'var(--t3)', marginBottom: 32, lineHeight: 1.7, fontSize: '0.9375rem' }}>Free AI Visibility Audit — 30 minutes, no pitch, no commitment. Yours to keep regardless of what you decide.</p>
-            <motion.button whileHover={{ scale: 1.02, boxShadow: '0 8px 32px rgba(27,79,255,0.35)' }} whileTap={{ scale: 0.97 }} onClick={() => navigate('#/audit')} className="btn-primary" style={{ fontSize: '1rem', padding: '14px 32px' }}>
+            <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')} className="btn btn-primary">
               Book Your Free Audit →
             </motion.button>
             <p style={{ marginTop: 16, fontSize: '0.8125rem', color: 'var(--t4)' }}>We take on a limited number of new audits each month.</p>

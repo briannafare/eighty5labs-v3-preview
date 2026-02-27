@@ -245,8 +245,8 @@ export default function BlogPage() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 <input value={email} onChange={e => setEmail(e.target.value)} placeholder="your@email.com"
                   style={{ padding: '9px 12px', border: '1.5px solid var(--border)', borderRadius: 8, background: 'var(--bg2)', color: 'var(--t1)', fontSize: '0.875rem', outline: 'none' }} />
-                <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }}
-                  onClick={() => email && setSubscribed(true)} className="btn-primary" style={{ fontSize: '0.875rem', padding: '10px 16px' }}>
+                <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }}
+                  onClick={() => email && setSubscribed(true)} className="btn btn-primary">
                   Subscribe Free →
                 </motion.button>
                 <p style={{ fontSize: '0.72rem', color: 'var(--t4)' }}>Unsubscribe anytime. We don't spam.</p>
@@ -291,7 +291,7 @@ export default function BlogPage() {
           <div style={{ padding: '20px 24px', background: 'rgba(27,79,255,0.06)', border: '1.5px solid rgba(27,79,255,0.2)', borderRadius: 14, textAlign: 'center' }}>
             <p style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '0.9375rem', color: 'var(--t1)', marginBottom: 8 }}>Stop Guessing. Get the Audit.</p>
             <p style={{ fontSize: '0.8125rem', color: 'var(--t3)', marginBottom: 16, lineHeight: 1.5 }}>Free AI Visibility Audit — 30 minutes, no pitch.</p>
-            <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }} onClick={() => navigate('#/audit')} className="btn-primary" style={{ fontSize: '0.875rem', padding: '10px 18px', width: '100%' }}>
+            <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')} className="btn btn-primary">
               Book Free Audit →
             </motion.button>
           </div>

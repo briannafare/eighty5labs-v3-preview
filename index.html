@@ -10,54 +10,78 @@
     <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
       :root {
-        /* Dark palette */
+        /* ── Dark section palette (hero, dark bands) */
         --bg0: #080C17;
         --bg1: #0F1623;
         --bg2: #161E2E;
         --bg3: #1C2540;
-        --surface: rgba(255,255,255,0.04);
-        --surface-hover: rgba(255,255,255,0.07);
+        --surface: rgba(255,255,255,0.05);
+        --surface-hover: rgba(255,255,255,0.09);
 
-        /* Brand */
+        /* ── Light section palette (alternating bands) */
+        --ls0: #FFFFFF;          /* pure white sections */
+        --ls1: #F7F9FF;          /* off-white / very light blue-grey */
+        --ls2: #EEF2FB;          /* subtle section divider */
+        --ls-border: #DDE5F2;    /* border on light bg */
+        --ls-surface: rgba(27,79,255,0.05);
+        --ls-card: #FFFFFF;
+
+        /* ── Light section text */
+        --td1: #0F172A;          /* primary text on light */
+        --td2: #334155;          /* secondary text on light */
+        --td3: #64748B;          /* muted text on light */
+
+        /* ── Brand */
         --blue: #1B4FFF;
         --blue2: #2B5FFF;
         --blue3: #4F8EF7;
-        --blue-lt: rgba(27,79,255,0.12);
-        --blue-border: rgba(27,79,255,0.3);
+        --blue-lt: rgba(27,79,255,0.10);
+        --blue-border: rgba(27,79,255,0.25);
 
-        /* Gap colors */
+        /* ── Gap / accent colors */
         --gap1: #10B981;
-        --gap1-lt: rgba(16,185,129,0.12);
+        --gap1-lt: rgba(16,185,129,0.10);
+        --gap1-lt-d: rgba(16,185,129,0.15);
         --gap1-border: rgba(16,185,129,0.25);
         --gap2: #4F8EF7;
-        --gap2-lt: rgba(79,142,247,0.12);
+        --gap2-lt: rgba(79,142,247,0.10);
+        --gap2-lt-d: rgba(79,142,247,0.15);
         --gap2-border: rgba(79,142,247,0.22);
-        --gap3: #A78BFA;
-        --gap3-lt: rgba(167,139,250,0.12);
-        --gap3-border: rgba(167,139,250,0.22);
+        --gap3: #8B5CF6;
+        --gap3-lt: rgba(139,92,246,0.10);
+        --gap3-lt-d: rgba(139,92,246,0.15);
+        --gap3-border: rgba(139,92,246,0.22);
 
-        /* Text */
+        /* ── Text (dark sections) */
         --t1: #FFFFFF;
         --t2: rgba(255,255,255,0.80);
-        --t3: rgba(255,255,255,0.55);
-        --t4: rgba(255,255,255,0.35);
+        --t3: rgba(255,255,255,0.52);
+        --t4: rgba(255,255,255,0.30);
 
-        /* Borders */
+        /* ── Borders (dark sections) */
         --border: rgba(255,255,255,0.08);
-        --border-strong: rgba(255,255,255,0.14);
+        --border-strong: rgba(255,255,255,0.15);
 
-        /* Radius */
+        /* ── Radius
+             --rd-nav  : nav CTA / small utility (sharp, 6px)
+             --rd      : body cards, inputs (10px)
+             --rd-btn  : body CTA buttons (full pill, 999px)
+             --rdl     : cards (14px)
+             --rdxl    : large modals (20px)
+        */
+        --rd-nav: 6px;
         --rd: 10px;
+        --rd-btn: 999px;
         --rdl: 14px;
         --rdxl: 20px;
 
-        /* Fonts */
+        /* ── Fonts */
         --fd: 'Epilogue', sans-serif;
         --fb: 'Inter', sans-serif;
 
-        /* Layout */
+        /* ── Layout */
         --max-w: 1140px;
-        --nav-h: 68px;
+        --nav-h: 64px;
       }
 
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -65,8 +89,8 @@
       html { scroll-behavior: smooth; }
 
       body {
-        background: var(--bg0);
-        color: var(--t1);
+        background: var(--ls0);
+        color: var(--td1);
         font-family: var(--fb);
         font-size: 16px;
         line-height: 1.6;
@@ -74,22 +98,23 @@
         overflow-x: hidden;
       }
 
-      /* Grid noise overlay */
+      /* Grid noise overlay — hero only via mask */
       #grid-overlay {
         position: fixed;
         inset: 0;
         pointer-events: none;
         z-index: 0;
         background-image:
-          linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px);
+          linear-gradient(to right, rgba(255,255,255,0.022) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255,255,255,0.022) 1px, transparent 1px);
         background-size: 72px 72px;
-        mask-image: radial-gradient(ellipse at top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 75%);
+        mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 80%);
+        -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 80%);
       }
 
       #root { position: relative; z-index: 1; min-height: 100vh; }
 
-      /* Container */
+      /* ── Container */
       .wrap {
         max-width: var(--max-w);
         margin-inline: auto;
@@ -97,16 +122,63 @@
         width: 100%;
       }
 
-      /* Typography */
+      /* ── Typography */
       h1, h2, h3, h4, h5 { font-family: var(--fd); letter-spacing: -0.03em; line-height: 1.08; }
 
-      /* Buttons */
+      /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         BUTTON SYSTEM — intentional hierarchy
+         
+         Two families:
+         1. .btn-nav-*   → nav CTA (sharp: 6px radius, compact)
+         2. .btn         → body CTAs (pill: 999px radius, generous padding)
+         
+         Within .btn: primary (solid blue) and ghost (outline)
+         Ghost adapts to context: dark bg vs light bg via modifier
+         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+      /* Nav CTA — sharp corners, compact, utility feel */
+      .btn-nav {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: var(--rd-nav);
+        font-family: var(--fd);
+        font-size: 0.8125rem;
+        font-weight: 800;
+        cursor: pointer;
+        border: none;
+        transition: all 0.15s ease;
+        text-decoration: none;
+        white-space: nowrap;
+        letter-spacing: 0.01em;
+      }
+      .btn-nav-primary {
+        background: var(--blue);
+        color: #fff;
+        box-shadow: 0 2px 12px rgba(27,79,255,0.30);
+      }
+      .btn-nav-primary:hover {
+        background: var(--blue2);
+        box-shadow: 0 4px 20px rgba(27,79,255,0.42);
+      }
+      .btn-nav-ghost {
+        background: transparent;
+        color: var(--td2);
+        border: 1px solid var(--ls-border);
+      }
+      .btn-nav-ghost:hover {
+        background: var(--ls1);
+        border-color: #C5D0E8;
+      }
+
+      /* Body CTAs — pill shape, generous, confident */
       .btn {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        padding: 12px 22px;
-        border-radius: var(--rd);
+        padding: 14px 28px;
+        border-radius: var(--rd-btn);
         font-family: var(--fd);
         font-size: 0.9375rem;
         font-weight: 800;
@@ -115,34 +187,73 @@
         transition: all 0.18s ease;
         text-decoration: none;
         white-space: nowrap;
+        letter-spacing: 0.01em;
       }
+      /* Primary — blue fill, works on any bg */
       .btn-primary {
         background: var(--blue);
         color: #fff;
-        box-shadow: 0 4px 20px rgba(27,79,255,0.35);
+        box-shadow: 0 4px 24px rgba(27,79,255,0.32);
       }
       .btn-primary:hover {
-        background: #1440e0;
+        background: var(--blue2);
         transform: translateY(-1px);
-        box-shadow: 0 8px 32px rgba(27,79,255,0.45);
+        box-shadow: 0 8px 36px rgba(27,79,255,0.44);
       }
+      /* Ghost on dark bg */
       .btn-ghost {
-        background: var(--surface);
+        background: rgba(255,255,255,0.06);
         color: var(--t1);
-        border: 1.5px solid var(--border);
+        border: 1.5px solid rgba(255,255,255,0.16);
       }
       .btn-ghost:hover {
-        background: var(--surface-hover);
-        border-color: var(--border-strong);
+        background: rgba(255,255,255,0.10);
+        border-color: rgba(255,255,255,0.28);
         transform: translateY(-1px);
       }
-      .btn-sm { padding: 9px 18px; font-size: 0.8125rem; }
+      /* Ghost on light bg */
+      .btn-ghost-light {
+        background: transparent;
+        color: var(--td1);
+        border: 1.5px solid var(--ls-border);
+      }
+      .btn-ghost-light:hover {
+        background: var(--ls1);
+        border-color: #C5D0E8;
+        transform: translateY(-1px);
+      }
+      /* Smaller body button variant */
+      .btn-sm {
+        padding: 10px 20px;
+        font-size: 0.875rem;
+      }
 
-      /* Section */
+      /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SECTION SYSTEM
+         Dark (.section-dark) and light (.section, .section-light)
+         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
       .section {
-        padding-block: clamp(64px, 8vw, 120px);
+        padding-block: clamp(80px, 9vw, 136px);
         position: relative;
       }
+      .section-dark {
+        padding-block: clamp(80px, 9vw, 136px);
+        position: relative;
+        background: var(--bg0);
+        color: var(--t1);
+      }
+      .section-light {
+        padding-block: clamp(80px, 9vw, 136px);
+        position: relative;
+        background: var(--ls1);
+      }
+      .section-white {
+        padding-block: clamp(80px, 9vw, 136px);
+        position: relative;
+        background: var(--ls0);
+      }
+
+      /* Section labels — adapt to bg */
       .section-label {
         display: inline-flex;
         align-items: center;
@@ -151,31 +262,53 @@
         font-weight: 700;
         letter-spacing: 0.13em;
         text-transform: uppercase;
-        color: var(--t4);
-        margin-bottom: 18px;
+        margin-bottom: 16px;
       }
       .section-label::before {
         content: '';
         display: block;
-        width: 20px;
+        width: 18px;
         height: 1px;
-        background: var(--t4);
       }
+      /* label on dark bg */
+      .section-dark .section-label,
+      .dark-section .section-label { color: var(--t4); }
+      .section-dark .section-label::before,
+      .dark-section .section-label::before { background: var(--t4); }
+      /* label on light bg (default) */
+      .section-label { color: var(--td3); }
+      .section-label::before { background: var(--td3); }
+
+      /* Section headings */
       .section-heading {
-        font-size: clamp(2rem, 4vw, 3.2rem);
+        font-size: clamp(2rem, 4vw, 3rem);
         font-weight: 900;
-        color: var(--t1);
-        margin-bottom: 20px;
-        max-width: 16ch;
+        margin-bottom: 18px;
+        max-width: 18ch;
+        line-height: 1.06;
       }
+      .section-heading-dark { color: var(--t1); }
+      .section-heading-light { color: var(--td1); }
+      /* Default (light bg) */
+      .section-heading { color: var(--td1); }
+      /* Override for dark sections */
+      .section-dark .section-heading { color: var(--t1); }
+
       .section-sub {
         font-size: 1.0625rem;
-        color: var(--t3);
-        line-height: 1.7;
+        line-height: 1.75;
         max-width: 54ch;
       }
+      .section-sub-dark { color: var(--t3); }
+      /* Default (light bg) */
+      .section-sub { color: var(--td2); }
+      /* Override for dark sections */
+      .section-dark .section-sub { color: var(--t3); }
 
-      /* Cards */
+      /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         CARDS
+         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+      /* Card on dark bg */
       .card {
         background: var(--bg1);
         border: 1.5px solid var(--border);
@@ -185,29 +318,47 @@
       }
       .card:hover {
         border-color: var(--border-strong);
-        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+        transform: translateY(-2px);
+      }
+      /* Card on light bg */
+      .card-light {
+        background: var(--ls-card);
+        border: 1.5px solid var(--ls-border);
+        border-radius: var(--rdl);
+        padding: 28px;
+        box-shadow: 0 2px 12px rgba(15,23,42,0.06);
+        transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      }
+      .card-light:hover {
+        border-color: #C5D0E8;
+        box-shadow: 0 8px 36px rgba(15,23,42,0.10);
         transform: translateY(-2px);
       }
 
-      /* Dividers */
+      /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         UTILITIES
+         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
       hr { border: none; border-top: 1px solid var(--border); }
+      hr.hr-light { border-top-color: var(--ls-border); }
 
-      /* Utilities */
       .text-blue { color: var(--blue3); }
+      .text-blue-dark { color: var(--blue2); }
       .text-green { color: var(--gap1); }
       .text-purple { color: var(--gap3); }
       .text-muted { color: var(--t3); }
+      .text-muted-light { color: var(--td3); }
       .text-center { text-align: center; }
 
       /* Scrollbar */
       ::-webkit-scrollbar { width: 6px; }
-      ::-webkit-scrollbar-track { background: var(--bg0); }
-      ::-webkit-scrollbar-thumb { background: var(--bg3); border-radius: 3px; }
+      ::-webkit-scrollbar-track { background: var(--ls1); }
+      ::-webkit-scrollbar-thumb { background: #C5D0E8; border-radius: 3px; }
 
       /* Focus */
       :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
 
-      /* Mobile base */
+      /* Mobile */
       @media (max-width: 768px) {
         .hide-mobile { display: none !important; }
       }

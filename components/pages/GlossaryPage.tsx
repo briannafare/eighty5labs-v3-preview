@@ -213,7 +213,7 @@ export default function GlossaryPage() {
             <p style={{ color: 'var(--t3)', lineHeight: 1.7 }}>Our team stays at the forefront of AI search, local visibility, and marketing automation so you don't have to.</p>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-start' }}>
-            <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }} onClick={() => navigate('#/audit')} className="btn-primary" style={{ fontSize: '0.9375rem', padding: '13px 28px' }}>
+            <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')} className="btn btn-primary">
               Get Your Free Audit →
             </motion.button>
             <p style={{ fontSize: '0.8125rem', color: 'var(--t4)' }}>No contracts · No credit card · Results in 48 hours</p>

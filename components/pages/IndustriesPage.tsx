@@ -83,10 +83,10 @@ export const IndustriesPage: React.FC = () => (
         </Reveal>
         <Reveal delay={0.2}>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const }}>
-            <motion.button whileHover={{ scale: 1.02, boxShadow: '0 8px 32px rgba(27,79,255,0.35)' }} whileTap={{ scale: 0.97 }} onClick={() => navigate('#/audit')} className="btn-primary" style={{ fontSize: '0.9375rem', padding: '13px 28px' }}>
+            <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')} className="btn btn-primary">
               Get Your Free Audit →
             </motion.button>
-            <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }} onClick={() => navigate('#/pricing')} className="btn-ghost" style={{ fontSize: '0.9375rem', padding: '13px 28px' }}>
+            <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/pricing')} className="btn btn-ghost">
               View Pricing
             </motion.button>
           </div>
@@ -126,7 +126,7 @@ export const IndustriesPage: React.FC = () => (
                 style={{ padding: '32px 32px 28px', background: 'var(--bg1)', border: '1.5px solid var(--border)', borderRadius: 'var(--rdl)', cursor: 'pointer', transition: 'border-color 0.2s', height: '100%', display: 'flex', flexDirection: 'column' }}
               >
                 <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 16 }}>
-                  <span style={{ fontSize: '2rem' }}>{ind.icon}</span>
+                  <span>{ind.icon}</span>
                   <span style={{ fontSize: '0.75rem', color: 'var(--t4)', fontWeight: 500 }}>{ind.sub}</span>
                 </div>
                 <h3 style={{ fontFamily: 'var(--fd)', fontSize: '1.375rem', fontWeight: 900, letterSpacing: '-0.03em', color: 'var(--t1)', marginBottom: 10 }}>{ind.label}</h3>
@@ -158,7 +158,7 @@ export const IndustriesPage: React.FC = () => (
         <Reveal>
           <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--t1)', marginBottom: 16 }}>Not sure which plan fits your industry?</h2>
           <p style={{ color: 'var(--t3)', marginBottom: 32, lineHeight: 1.7 }}>Get a free AI Visibility Audit — we'll show you exactly where your business stands across all three gaps.</p>
-          <motion.button whileHover={{ scale: 1.02, boxShadow: '0 8px 32px rgba(27,79,255,0.35)' }} whileTap={{ scale: 0.97 }} onClick={() => navigate('#/audit')} className="btn-primary" style={{ fontSize: '1rem', padding: '14px 32px' }}>
+          <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')} className="btn btn-primary">
             Get Your Free Audit →
           </motion.button>
           <p style={{ marginTop: 16, fontSize: '0.8125rem', color: 'var(--t4)' }}>No contracts · No credit card · Results in 48 hours</p>

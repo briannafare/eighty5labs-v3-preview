@@ -94,7 +94,7 @@ const RevenueCalc: React.FC = () => {
           <p style={{ fontSize: '0.7rem', color: 'var(--t4)', marginBottom: 4 }}>Annual Upside</p>
           <p style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.5rem', color: 'var(--blue)', letterSpacing: '-0.03em' }}>${annualUpside.toLocaleString()}</p>
         </div>
-        <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} onClick={() => navigate('#/audit')}
+        <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')}
           style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.8125rem', color: 'white', background: 'var(--blue)', border: 'none', borderRadius: 8, padding: '10px 16px', cursor: 'pointer', whiteSpace: 'nowrap' as const }}>
           Get My Analysis →
         </motion.button>
@@ -157,7 +157,7 @@ export const IndustryPage: React.FC<{ data: IndustryPageData }> = ({ data }) => 
               </Reveal>
               <Reveal delay={0.18}>
                 <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' as const }}>
-                  <motion.button whileHover={{ scale: 1.02, boxShadow: '0 8px 32px rgba(27,79,255,0.35)' }} whileTap={{ scale: 0.97 }} onClick={() => navigate('#/audit')} className="btn-primary" style={{ fontSize: '0.9375rem', padding: '13px 26px' }}>
+                  <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')} className="btn btn-primary">
                     Get Your Free Audit →
                   </motion.button>
                 </div>
@@ -263,7 +263,7 @@ export const IndustryPage: React.FC<{ data: IndustryPageData }> = ({ data }) => 
           <Reveal>
             <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--t1)', marginBottom: 16 }}>{data.ctaTitle}</h2>
             <p style={{ color: 'var(--t3)', marginBottom: 32, lineHeight: 1.7, fontSize: '0.9375rem' }}>{data.ctaBody}</p>
-            <motion.button whileHover={{ scale: 1.02, boxShadow: '0 8px 32px rgba(27,79,255,0.35)' }} whileTap={{ scale: 0.97 }} onClick={() => navigate('#/audit')} className="btn-primary" style={{ fontSize: '1rem', padding: '14px 32px' }}>
+            <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')} className="btn btn-primary">
               Book Your Free Audit →
             </motion.button>
             <p style={{ marginTop: 16, fontSize: '0.8125rem', color: 'var(--t4)' }}>We take on a limited number of new audits each month. No pressure — just clarity.</p>
