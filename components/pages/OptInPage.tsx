@@ -66,10 +66,10 @@ export const OptInPage: React.FC = () => {
     width: '100%',
     padding: '10px 14px',
     borderRadius: 8,
-    border: '1px solid rgba(0,0,0,0.1)',
-    background: 'white',
+    border: '1px solid var(--border)',
+    background: 'var(--bg1)',
     fontSize: '0.875rem',
-    color: '#111',
+    color: 'var(--t1)',
     outline: 'none',
     fontFamily: 'inherit',
     boxSizing: 'border-box',
@@ -79,13 +79,13 @@ export const OptInPage: React.FC = () => {
     display: 'block',
     fontSize: '0.875rem',
     fontWeight: 600,
-    color: '#111',
+    color: 'var(--t1)',
     marginBottom: 6,
   };
 
   if (submitted) {
     return (
-      <div style={{ minHeight: '100vh', background: '#fbfbfa', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px' }}>
+      <div style={{ minHeight: '100vh', background: 'var(--bg0)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px' }}>
         <div style={{ maxWidth: 480, width: '100%', textAlign: 'center' }}>
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
             <div style={{
@@ -96,16 +96,16 @@ export const OptInPage: React.FC = () => {
             }}>
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgb(16,185,129)" strokeWidth="2.5"><path d="M20 6L9 17l-5-5"/></svg>
             </div>
-            <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#111', marginBottom: 10 }}>You're Subscribed!</h2>
-            <p style={{ color: '#52525b', fontSize: '0.875rem', marginBottom: 18, lineHeight: 1.6 }}>
+            <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--t1)', marginBottom: 10 }}>You're Subscribed!</h2>
+            <p style={{ color: 'var(--t2)', fontSize: '0.875rem', marginBottom: 18, lineHeight: 1.6 }}>
               Thank you for signing up. You'll start receiving text messages from Aida LLC.
             </p>
-            <div style={{ background: '#fafafa', borderRadius: 8, padding: '12px 16px', fontSize: '0.875rem', color: '#52525b', maxWidth: 280, margin: '0 auto 24px' }}>
+            <div style={{ background: 'var(--surface)', borderRadius: 8, padding: '12px 16px', fontSize: '0.875rem', color: 'var(--t2)', maxWidth: 280, margin: '0 auto 24px' }}>
               <p style={{ fontWeight: 700, marginBottom: 4 }}>Remember:</p>
               <p>Reply <strong>STOP</strong> to opt out anytime</p>
               <p>Reply <strong>HELP</strong> for assistance</p>
             </div>
-            <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{ fontSize: '0.875rem', fontWeight: 600, color: '#f36421', textDecoration: 'none' }}>
+            <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--blue3)', textDecoration: 'none' }}>
               Return to Homepage
             </a>
           </motion.div>
@@ -115,40 +115,35 @@ export const OptInPage: React.FC = () => {
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: '#fbfbfa', padding: '24px 16px 48px' }}>
+    <div style={{ minHeight: '100vh', background: 'var(--bg0)', padding: 'calc(var(--nav-h) + 32px) 16px 64px' }}>
       <div style={{ maxWidth: 560, marginInline: 'auto' }}>
 
         {/* Logo */}
         <div style={{ textAlign: 'center', marginBottom: 20 }}>
           <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{
-            display: 'inline-flex', alignItems: 'center', gap: 8,
-            fontSize: '1.125rem', fontWeight: 900, color: '#111', textDecoration: 'none',
+            fontFamily: 'var(--fd)',
+            fontSize: '1.125rem', fontWeight: 900, color: 'var(--t1)', textDecoration: 'none',
             letterSpacing: '-0.04em',
           }}>
-            <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
-              <rect width="32" height="32" rx="8" fill="#1b4fff"/>
-              <path d="M8 22L16 8L24 22" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M11 18H21" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-            </svg>
-            eighty<span style={{ color: '#f36421' }}>5</span>labs
+            eighty<span style={{ color: 'var(--blue3)' }}>5</span>labs
           </a>
         </div>
 
         {/* Heading */}
         <div style={{ textAlign: 'center', marginBottom: 24 }}>
-          <h1 style={{ fontSize: 'clamp(1.375rem, 3.5vw, 2rem)', fontWeight: 900, letterSpacing: '-0.03em', color: '#111', marginBottom: 10 }}>
+          <h1 style={{ fontSize: 'clamp(1.375rem, 3.5vw, 2rem)', fontWeight: 900, letterSpacing: '-0.03em', color: 'var(--t1)', marginBottom: 10 }}>
             Aida LLC &ndash; Appointment Updates &amp; SMS Alerts
           </h1>
-          <p style={{ fontSize: '0.875rem', color: '#52525b', lineHeight: 1.65, maxWidth: '50ch', marginInline: 'auto' }}>
+          <p style={{ fontSize: '0.875rem', color: 'var(--t2)', lineHeight: 1.65, maxWidth: '50ch', marginInline: 'auto' }}>
             Aida LLC. Use this form to join the Aida LLC SMS program for updates related to our services.
           </p>
         </div>
 
         {/* Form Card */}
         <div style={{
-          background: 'white',
+          background: 'var(--bg1)',
           borderRadius: 16,
-          border: '1px solid rgba(0,0,0,0.08)',
+          border: '1px solid var(--border)',
           boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
           padding: 'clamp(24px, 4vw, 36px)',
         }}>
@@ -222,11 +217,11 @@ export const OptInPage: React.FC = () => {
 
             {/* Terms & Privacy */}
             <div style={{ fontSize: '0.875rem' }}>
-              <a href="#/terms" onClick={e => { e.preventDefault(); navigate('#/terms'); }} style={{ color: '#f36421', fontWeight: 500, textDecoration: 'none' }}>
+              <a href="#/terms" onClick={e => { e.preventDefault(); navigate('#/terms'); }} style={{ color: 'var(--blue3)', fontWeight: 500, textDecoration: 'none' }}>
                 Terms of Service
               </a>
               {' '}&amp;{' '}
-              <a href="#/privacy" onClick={e => { e.preventDefault(); navigate('#/privacy'); }} style={{ color: '#f36421', fontWeight: 500, textDecoration: 'none' }}>
+              <a href="#/privacy" onClick={e => { e.preventDefault(); navigate('#/privacy'); }} style={{ color: 'var(--blue3)', fontWeight: 500, textDecoration: 'none' }}>
                 Privacy Policy
               </a>
             </div>
@@ -262,14 +257,14 @@ export const OptInPage: React.FC = () => {
         </div>
 
         {/* Contact Info */}
-        <div style={{ marginTop: 24, textAlign: 'center', fontSize: '0.875rem', color: '#71717a' }}>
-          <p style={{ fontWeight: 700, color: '#111', marginBottom: 4 }}>Aida LLC</p>
+        <div style={{ marginTop: 24, textAlign: 'center', fontSize: '0.875rem', color: 'var(--t3)' }}>
+          <p style={{ fontWeight: 700, color: 'var(--t1)', marginBottom: 4 }}>Aida LLC</p>
           <p>
             Email:{' '}
-            <a href="mailto:bri@eighty5labs.com" style={{ color: '#f36421', textDecoration: 'none' }}>bri@eighty5labs.com</a>
+            <a href="mailto:bri@eighty5labs.com" style={{ color: 'var(--blue3)', textDecoration: 'none' }}>bri@eighty5labs.com</a>
             {' '}|{' '}
             Phone:{' '}
-            <a href="tel:5037043755" style={{ color: '#f36421', textDecoration: 'none' }}>503-704-3755</a>
+            <a href="tel:5037043755" style={{ color: 'var(--blue3)', textDecoration: 'none' }}>503-704-3755</a>
           </p>
         </div>
 

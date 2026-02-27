@@ -2,46 +2,41 @@ import React from 'react';
 import { navigate } from '../../router';
 
 const SectionTitle: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <h2 style={{ fontSize: 'clamp(1.125rem, 2vw, 1.375rem)', fontWeight: 800, letterSpacing: '-0.02em', color: '#111', marginTop: 40, marginBottom: 16 }}>{children}</h2>
+  <h2 style={{ fontSize: 'clamp(1.125rem, 2vw, 1.375rem)', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--t1)', marginTop: 40, marginBottom: 16, borderBottom: '1px solid var(--border)', paddingBottom: 12 }}>{children}</h2>
 );
 
 const SubSection: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
   <div style={{ marginTop: 24 }}>
-    <h3 style={{ fontSize: '1.0625rem', fontWeight: 700, color: '#111', marginBottom: 12 }}>{title}</h3>
+    <h3 style={{ fontSize: '1.0625rem', fontWeight: 700, color: 'var(--t1)', marginBottom: 12 }}>{title}</h3>
     {children}
   </div>
 );
 
-const p: React.CSSProperties = { color: '#52525b', lineHeight: 1.7, marginBottom: 12 };
-const ul: React.CSSProperties = { paddingLeft: 24, color: '#52525b', lineHeight: 1.7, marginBottom: 12 };
-const link: React.CSSProperties = { color: '#f36421', textDecoration: 'none' };
+const p: React.CSSProperties = { color: 'var(--t2)', lineHeight: 1.7, marginBottom: 12 };
+const ul: React.CSSProperties = { paddingLeft: 24, color: 'var(--t2)', lineHeight: 1.7, marginBottom: 12 };
+const link: React.CSSProperties = { color: 'var(--blue3)', textDecoration: 'none' };
 
 export const PrivacyPage: React.FC = () => (
-  <div style={{ minHeight: '100vh', background: '#fbfbfa', padding: '64px 16px 96px' }}>
+  <div style={{ minHeight: '100vh', background: 'var(--bg0)', padding: 'calc(var(--nav-h) + 48px) 16px 96px' }}>
     <div style={{ maxWidth: 768, marginInline: 'auto' }}>
 
-      {/* Header */}
       <div style={{ marginBottom: 48 }}>
-        <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '1.125rem', fontWeight: 700, color: '#111', textDecoration: 'none', marginBottom: 32 }}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 21h22L12 2z"/></svg>
-          eighty5labs
+        <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{
+          display: 'inline-block', fontSize: '0.8125rem', fontWeight: 600,
+          color: 'var(--t3)', textDecoration: 'none', marginBottom: 32,
+        }}>
+          ← Back to eighty<span style={{ color: 'var(--blue3)' }}>5</span>labs
         </a>
-        <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 900, letterSpacing: '-0.05em', color: '#111', marginBottom: 16 }}>Privacy Policy</h1>
-        <p style={{ fontSize: '0.875rem', color: '#71717a', fontWeight: 500 }}>Last Updated: January 28, 2026</p>
+        <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 900, letterSpacing: '-0.05em', color: 'var(--t1)', marginBottom: 16 }}>Privacy Policy</h1>
+        <p style={{ fontSize: '0.875rem', color: 'var(--t3)', fontWeight: 500 }}>Last Updated: January 28, 2026</p>
       </div>
 
-      {/* Content Card */}
-      <div style={{ background: 'white', borderRadius: 16, border: '1px solid rgba(0,0,0,0.08)', boxShadow: '0 1px 4px rgba(0,0,0,0.06)', padding: 'clamp(32px, 5vw, 48px)' }}>
+      <div style={{ background: 'var(--bg1)', borderRadius: 16, border: '1px solid var(--border)', padding: 'clamp(32px, 5vw, 48px)' }}>
 
-        <p style={p}>
-          Eighty5 Labs, a DBA of Aida LLC ("we," "us," "our," or "Company"), is committed to protecting your privacy and ensuring you have a positive experience on our website and services. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website eighty5labs.com (the "Website") and use our services, including SMS/text messaging services.
-        </p>
-        <p style={p}>
-          Please read this Privacy Policy carefully. If you do not agree with our policies and practices, please do not use our Website or Services.
-        </p>
+        <p style={p}>Eighty5 Labs, a DBA of Aida LLC ("we," "us," "our," or "Company"), is committed to protecting your privacy and ensuring you have a positive experience on our website and services. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website eighty5labs.com (the "Website") and use our services, including SMS/text messaging services.</p>
+        <p style={p}>Please read this Privacy Policy carefully. If you do not agree with our policies and practices, please do not use our Website or Services.</p>
 
         <SectionTitle>1. Information We Collect</SectionTitle>
-
         <SubSection title="1.1 Information You Provide Directly">
           <p style={p}>We collect information you voluntarily provide to us, including but not limited to:</p>
           <ul style={ul}>
@@ -53,7 +48,6 @@ export const PrivacyPage: React.FC = () => (
             <li><strong>Website Activity:</strong> Information you provide through forms, surveys, or other interactive features</li>
           </ul>
         </SubSection>
-
         <SubSection title="1.2 Information Collected Automatically">
           <p style={p}>When you visit our Website, we automatically collect certain technical information:</p>
           <ul style={ul}>
@@ -63,7 +57,6 @@ export const PrivacyPage: React.FC = () => (
             <li><strong>Analytics Data:</strong> Information collected through Google Analytics and similar tools to understand how you use our Website</li>
           </ul>
         </SubSection>
-
         <SubSection title="1.3 Information from Third Parties">
           <p style={p}>We may receive information about you from third parties, including:</p>
           <ul style={ul}>
@@ -89,11 +82,8 @@ export const PrivacyPage: React.FC = () => (
         </ul>
 
         <SectionTitle>3. Sharing and Disclosure of Information</SectionTitle>
-
         <SubSection title="3.1 How We Share Your Information">
-          <p style={{ ...p, fontWeight: 600 }}>
-            We are committed to protecting your privacy. <strong>We will NOT share your mobile contact information with third parties or affiliates for marketing or promotional purposes.</strong>
-          </p>
+          <p style={{ ...p, fontWeight: 600 }}>We are committed to protecting your privacy. <strong>We will NOT share your mobile contact information with third parties or affiliates for marketing or promotional purposes.</strong></p>
           <p style={p}>However, we may share your information in the following limited circumstances:</p>
           <p style={p}><strong>Service Providers:</strong> We share information with third-party service providers who assist us in operating our Website and delivering our Services, including:</p>
           <ul style={ul}>
@@ -115,18 +105,14 @@ export const PrivacyPage: React.FC = () => (
           <p style={p}><strong>Business Transfers:</strong> If Eighty5 Labs (Aida LLC) is involved in a merger, acquisition, bankruptcy, or sale of assets, your information may be transferred as part of that transaction. You will be notified of any such change and any choices you may have regarding your information.</p>
           <p style={p}><strong>With Your Consent:</strong> We may share your information with third parties if you explicitly consent to such sharing.</p>
         </SubSection>
-
         <SubSection title="3.2 Non-Sharing Clause">
-          <div style={{ background: '#fef3ed', border: '1px solid rgba(243,100,33,0.2)', borderRadius: 8, padding: 20, marginBottom: 16 }}>
-            <p style={{ color: '#111', fontWeight: 700, marginBottom: 8 }}>Non-Sharing Clause</p>
-            <p style={{ color: '#3f3f46', lineHeight: 1.7, margin: 0 }}>
-              No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. Information sharing with subcontractors in support services, such as customer service, is permitted. All other use case categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.
-            </p>
+          <div style={{ background: 'rgba(27,79,255,0.08)', border: '1px solid var(--blue-border)', borderRadius: 8, padding: 20, marginBottom: 16 }}>
+            <p style={{ color: 'var(--t1)', fontWeight: 700, marginBottom: 8 }}>Non-Sharing Clause</p>
+            <p style={{ color: 'var(--t2)', lineHeight: 1.7, margin: 0 }}>No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. Information sharing with subcontractors in support services, such as customer service, is permitted. All other use case categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.</p>
           </div>
         </SubSection>
 
         <SectionTitle>4. SMS/Text Messaging Terms</SectionTitle>
-
         <SubSection title="4.1 Opt-In Consent">
           <p style={p}>When you provide your mobile phone number and opt in to receive text messages from Eighty5 Labs, you are providing express written consent to receive SMS/text messages at that phone number.</p>
           <p style={p}>By opting in, you agree to:</p>
@@ -136,7 +122,6 @@ export const PrivacyPage: React.FC = () => (
           </ul>
           <p style={{ ...p, fontWeight: 500 }}>Your consent is voluntary and is NOT a condition of purchasing any goods or services from us.</p>
         </SubSection>
-
         <SubSection title="4.2 Message Frequency and Content">
           <p style={p}>The frequency of text messages will vary based on your interactions with our services and the types of messages you opt in to receive. You may receive:</p>
           <ul style={ul}>
@@ -146,18 +131,12 @@ export const PrivacyPage: React.FC = () => (
             <li>Customer support and informational messages</li>
           </ul>
         </SubSection>
-
         <SubSection title="4.3 Message and Data Rates">
-          <div style={{ background: '#fafafa', border: '1px solid rgba(0,0,0,0.08)', borderRadius: 8, padding: 16 }}>
-            <p style={{ color: '#3f3f46', fontWeight: 600, marginBottom: 8 }}>
-              IMPORTANT: Message and data rates may apply. Your wireless carrier may charge you standard messaging rates for each text message you send or receive.
-            </p>
-            <p style={{ color: '#52525b', lineHeight: 1.7, margin: 0 }}>
-              We are not responsible for any charges your wireless carrier may impose. Please contact your wireless carrier if you have questions about your rate plan.
-            </p>
+          <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 8, padding: 16 }}>
+            <p style={{ color: 'var(--t1)', fontWeight: 600, marginBottom: 8 }}>IMPORTANT: Message and data rates may apply. Your wireless carrier may charge you standard messaging rates for each text message you send or receive.</p>
+            <p style={{ color: 'var(--t2)', lineHeight: 1.7, margin: 0 }}>We are not responsible for any charges your wireless carrier may impose. Please contact your wireless carrier if you have questions about your rate plan.</p>
           </div>
         </SubSection>
-
         <SubSection title="4.4 How to Opt Out">
           <p style={p}>You can stop receiving text messages from Eighty5 Labs at any time:</p>
           <ul style={ul}>
@@ -166,7 +145,6 @@ export const PrivacyPage: React.FC = () => (
           </ul>
           <p style={p}>After you opt out, we will no longer send you marketing text messages. However, we may continue to send you transactional messages related to your account, orders, or customer service.</p>
         </SubSection>
-
         <SubSection title="4.5 Help and Support">
           <p style={p}><strong>Text "HELP" to any message:</strong> Reply "HELP" to any text message from us to receive more information about our text messaging service.</p>
           <p style={p}>For additional support, contact us at:</p>
@@ -198,7 +176,6 @@ export const PrivacyPage: React.FC = () => (
         <p style={p}>You may request deletion of your information by contacting us at <a href="mailto:bri@eighty5labs.com" style={link}>bri@eighty5labs.com</a>, subject to legal retention requirements.</p>
 
         <SectionTitle>7. Your Rights and Choices</SectionTitle>
-
         <SubSection title="7.1 Access and Correction">
           <p style={p}>You have the right to:</p>
           <ul style={ul}>
@@ -207,7 +184,6 @@ export const PrivacyPage: React.FC = () => (
             <li>Request deletion of your information (subject to legal obligations)</li>
           </ul>
         </SubSection>
-
         <SubSection title="7.2 Opt-Out Options">
           <ul style={ul}>
             <li><strong>SMS Messages:</strong> Reply "STOP" to any text message or contact us</li>
@@ -216,7 +192,6 @@ export const PrivacyPage: React.FC = () => (
             <li><strong>Do Not Track:</strong> If your browser supports Do Not Track signals, we honor them where technically feasible</li>
           </ul>
         </SubSection>
-
         <SubSection title="7.3 California Privacy Rights (CCPA)">
           <p style={p}>If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA):</p>
           <ul style={ul}>
@@ -243,8 +218,8 @@ export const PrivacyPage: React.FC = () => (
 
         <SectionTitle>12. Contact Us</SectionTitle>
         <p style={p}>If you have questions about this Privacy Policy, our privacy practices, or wish to exercise your privacy rights, please contact us:</p>
-        <div style={{ background: '#fafafa', borderRadius: 8, padding: 24, border: '1px solid rgba(0,0,0,0.06)' }}>
-          <p style={{ fontWeight: 700, color: '#111', marginBottom: 8 }}>Eighty5 Labs (Aida LLC)</p>
+        <div style={{ background: 'var(--surface)', borderRadius: 8, padding: 24, border: '1px solid var(--border)' }}>
+          <p style={{ fontWeight: 700, color: 'var(--t1)', marginBottom: 8 }}>Eighty5 Labs (Aida LLC)</p>
           <ul style={{ ...ul, listStyle: 'none', paddingLeft: 0, marginBottom: 0 }}>
             <li>Email: <a href="mailto:bri@eighty5labs.com" style={link}>bri@eighty5labs.com</a></li>
             <li>Phone: <a href="tel:5037043755" style={link}>503-704-3755</a></li>
@@ -254,13 +229,8 @@ export const PrivacyPage: React.FC = () => (
 
       </div>
 
-      {/* Back to Home */}
       <div style={{ marginTop: 32, textAlign: 'center' }}>
-        <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{
-          display: 'inline-block', background: '#111', color: 'white',
-          padding: '12px 32px', borderRadius: 100, fontSize: '0.875rem', fontWeight: 600,
-          textDecoration: 'none',
-        }}>
+        <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} className="btn btn-primary">
           Return to Homepage
         </a>
       </div>

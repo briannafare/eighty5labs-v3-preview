@@ -59,12 +59,8 @@ export const Navbar: React.FC = () => {
               color: 'var(--t1)',
               textDecoration: 'none',
               letterSpacing: '-0.04em',
-              display: 'flex',
-              alignItems: 'center',
-              gap: 8,
             }}
           >
-            <LogoMark />
             eighty<span style={{ color: 'var(--blue3)' }}>5</span>labs
           </a>
 
