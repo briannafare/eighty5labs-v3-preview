@@ -1,62 +1,113 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Reveal } from '../ui/Reveal';
 import { navigate } from '../../router';
 
 export const OptInPage: React.FC = () => {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    marketingConsent: false,
+    nonMarketingConsent: false,
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [form, setForm] = useState({ firstName: '', lastName: '', phone: '', email: '', consent: false });
-  const [errors, setErrors] = useState<Record<string, string>>({});
-
-  const validate = () => {
-    const e: Record<string, string> = {};
-    if (!form.firstName.trim()) e.firstName = 'Required';
-    if (!form.lastName.trim()) e.lastName = 'Required';
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = 'Valid email required';
-    if (!/^\+?[\d\s\-().]{10,}$/.test(form.phone)) e.phone = 'Valid US mobile number required';
-    if (!form.consent) e.consent = 'You must agree to receive SMS messages';
-    return e;
-  };
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const errs = validate();
-    if (Object.keys(errs).length) { setErrors(errs); return; }
-    setErrors({});
-    setLoading(true);
+    setError('');
+
+    if (!formData.marketingConsent && !formData.nonMarketingConsent) {
+      setError('Please select at least one consent option.');
+      return;
+    }
+
+    setIsSubmitting(true);
+
     try {
-      await fetch('https://services.leadconnectorhq.com/hooks/YOUR_HOOK_ID/webhook-trigger/sms-optin', {
+      const webhookUrl = 'https://services.leadconnectorhq.com/hooks/n21oYUwglqe3bTsxL2RS/webhook-trigger/94bbb4c3-cab5-4aef-98f3-754b9e225ae8';
+
+      const tags = ['sms-optin'];
+      if (formData.marketingConsent) tags.push('marketing-consent');
+      if (formData.nonMarketingConsent) tags.push('transactional-consent');
+
+      const nameParts = formData.fullName.trim().split(' ');
+      const firstName = nameParts[0] || '';
+      const lastName = nameParts.slice(1).join(' ') || '';
+
+      await fetch(webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, source: 'sms-optin-page', timestamp: new Date().toISOString() }),
-      }).catch(() => {});
-    } finally {
-      setLoading(false);
+        body: JSON.stringify({
+          full_name: formData.fullName,
+          first_name: firstName,
+          last_name: lastName,
+          email: formData.email,
+          phone: formData.phone,
+          marketing_consent: formData.marketingConsent,
+          transactional_consent: formData.nonMarketingConsent,
+          consent_timestamp: new Date().toISOString(),
+          source: 'sms-optin-form',
+          tags,
+        }),
+      });
+
       setSubmitted(true);
+    } catch (err) {
+      console.error('Error submitting form:', err);
+      setError('There was an error submitting your information. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
-  const set = (field: string, value: string | boolean) => setForm(prev => ({ ...prev, [field]: value }));
+  const inputStyle: React.CSSProperties = {
+    width: '100%',
+    padding: '10px 14px',
+    borderRadius: 8,
+    border: '1px solid rgba(0,0,0,0.1)',
+    background: 'white',
+    fontSize: '0.875rem',
+    color: '#111',
+    outline: 'none',
+    fontFamily: 'inherit',
+    boxSizing: 'border-box',
+  };
+
+  const labelStyle: React.CSSProperties = {
+    display: 'block',
+    fontSize: '0.875rem',
+    fontWeight: 600,
+    color: '#111',
+    marginBottom: 6,
+  };
 
   if (submitted) {
     return (
-      <div style={{ paddingTop: 'var(--nav-h)', minHeight: '85vh', display: 'flex', alignItems: 'center' }}>
-        <div className="wrap" style={{ textAlign: 'center', maxWidth: 480, marginInline: 'auto' }}>
+      <div style={{ minHeight: '100vh', background: '#fbfbfa', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px' }}>
+        <div style={{ maxWidth: 480, width: '100%', textAlign: 'center' }}>
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
             <div style={{
               width: 64, height: 64, borderRadius: '50%',
-              background: 'var(--gap1-lt)', border: '2px solid var(--gap1-border)',
+              background: 'rgba(16,185,129,0.1)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              margin: '0 auto 24px',
+              margin: '0 auto 20px',
             }}>
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gap1)" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgb(16,185,129)" strokeWidth="2.5"><path d="M20 6L9 17l-5-5"/></svg>
             </div>
-            <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.75rem', letterSpacing: '-0.03em', marginBottom: 14 }}>You're opted in!</h2>
-            <p style={{ color: 'var(--t3)', lineHeight: 1.65, marginBottom: 24 }}>
-              You'll receive a confirmation text shortly. Reply STOP at any time to unsubscribe.
+            <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#111', marginBottom: 10 }}>You're Subscribed!</h2>
+            <p style={{ color: '#52525b', fontSize: '0.875rem', marginBottom: 18, lineHeight: 1.6 }}>
+              Thank you for signing up. You'll start receiving text messages from Aida LLC.
             </p>
-            <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{ color: 'var(--blue3)', textDecoration: 'none' }}>← Back to eighty5labs</a>
+            <div style={{ background: '#fafafa', borderRadius: 8, padding: '12px 16px', fontSize: '0.875rem', color: '#52525b', maxWidth: 280, margin: '0 auto 24px' }}>
+              <p style={{ fontWeight: 700, marginBottom: 4 }}>Remember:</p>
+              <p>Reply <strong>STOP</strong> to opt out anytime</p>
+              <p>Reply <strong>HELP</strong> for assistance</p>
+            </div>
+            <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{ fontSize: '0.875rem', fontWeight: 600, color: '#f36421', textDecoration: 'none' }}>
+              Return to Homepage
+            </a>
           </motion.div>
         </div>
       </div>
@@ -64,113 +115,167 @@ export const OptInPage: React.FC = () => {
   }
 
   return (
-    <div style={{ paddingTop: 'var(--nav-h)', minHeight: '90vh' }}>
-      <section className="section">
-        <div className="wrap" style={{ maxWidth: 640, marginInline: 'auto' }}>
-          <Reveal>
-            <div style={{ textAlign: 'center', marginBottom: 40 }}>
-              <div className="section-label" style={{ justifyContent: 'center' }}>SMS Communications</div>
-              <h1 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', letterSpacing: '-0.04em', marginBottom: 16 }}>
-                Subscribe to SMS Updates from eighty<span style={{ color: 'var(--blue3)' }}>5</span>labs
-              </h1>
-              <p style={{ color: 'var(--t3)', lineHeight: 1.65, maxWidth: '50ch', marginInline: 'auto' }}>
-                Get your free Revenue Audit report, AI search updates, and actionable local marketing tips via text. No spam. Unsubscribe anytime.
-              </p>
-            </div>
-          </Reveal>
+    <div style={{ minHeight: '100vh', background: '#fbfbfa', padding: '24px 16px 48px' }}>
+      <div style={{ maxWidth: 560, marginInline: 'auto' }}>
 
-          <Reveal delay={0.1}>
-            <div style={{
-              background: 'var(--bg1)',
-              border: '1.5px solid var(--border)',
-              borderRadius: 'var(--rdxl)',
-              padding: 'clamp(28px, 4vw, 44px)',
-            }}>
-              <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
-                  <FormField label="First Name" error={errors.firstName}>
-                    <input value={form.firstName} onChange={e => set('firstName', e.target.value)} placeholder="Jane" />
-                  </FormField>
-                  <FormField label="Last Name" error={errors.lastName}>
-                    <input value={form.lastName} onChange={e => set('lastName', e.target.value)} placeholder="Smith" />
-                  </FormField>
-                </div>
-                <FormField label="Mobile Phone Number" error={errors.phone}>
-                  <input type="tel" value={form.phone} onChange={e => set('phone', e.target.value)} placeholder="(555) 000-0000" />
-                </FormField>
-                <FormField label="Email Address" error={errors.email}>
-                  <input type="email" value={form.email} onChange={e => set('email', e.target.value)} placeholder="jane@example.com" />
-                </FormField>
-
-                {/* A2P Compliant Consent */}
-                <div style={{
-                  background: 'var(--bg2)',
-                  border: `1.5px solid ${errors.consent ? '#ef4444' : 'var(--border)'}`,
-                  borderRadius: 'var(--rd)',
-                  padding: '18px',
-                }}>
-                  <label style={{ display: 'flex', alignItems: 'flex-start', gap: 12, cursor: 'pointer' }}>
-                    <input
-                      type="checkbox"
-                      checked={form.consent}
-                      onChange={e => set('consent', e.target.checked)}
-                      style={{ marginTop: 3, width: 17, height: 17, accentColor: 'var(--blue)', flexShrink: 0 }}
-                    />
-                    <span style={{ fontSize: '0.8125rem', color: 'var(--t3)', lineHeight: 1.6 }}>
-                      I agree to receive recurring automated marketing text messages (e.g., promotions, updates, audit results)
-                      from <strong style={{ color: 'var(--t2)' }}>eighty5labs</strong> at the mobile number provided.
-                      Consent is not a condition of purchase. Message frequency varies. Message and data rates may apply.
-                      Reply <strong style={{ color: 'var(--t2)' }}>STOP</strong> to cancel.
-                      Reply <strong style={{ color: 'var(--t2)' }}>HELP</strong> for help.
-                      View our{' '}
-                      <a href="#/terms" onClick={e => { e.stopPropagation(); e.preventDefault(); navigate('#/terms'); }} style={{ color: 'var(--blue3)' }}>Terms of Service</a>
-                      {' '}and{' '}
-                      <a href="#/privacy" onClick={e => { e.stopPropagation(); e.preventDefault(); navigate('#/privacy'); }} style={{ color: 'var(--blue3)' }}>Privacy Policy</a>.
-                    </span>
-                  </label>
-                  {errors.consent && <p style={{ fontSize: '0.75rem', color: '#ef4444', marginTop: 10 }}>{errors.consent}</p>}
-                </div>
-
-                <motion.button
-                  type="submit"
-                  disabled={loading}
-                  whileHover={{ scale: loading ? 1 : 1.02 }}
-                  whileTap={{ scale: loading ? 1 : 0.98 }}
-                  className="btn btn-primary"
-                  style={{ width: '100%', justifyContent: 'center', fontSize: '1rem', padding: '14px', opacity: loading ? 0.7 : 1 }}
-                >
-                  {loading ? 'Subscribing…' : 'Subscribe to SMS Updates'}
-                </motion.button>
-
-                <p style={{ fontSize: '0.75rem', color: 'var(--t4)', textAlign: 'center', lineHeight: 1.55 }}>
-                  eighty5labs · hello@eighty5labs.com<br />
-                  You can opt out at any time by replying STOP. Carriers are not liable for delayed or undelivered messages.
-                </p>
-              </form>
-            </div>
-          </Reveal>
+        {/* Logo */}
+        <div style={{ textAlign: 'center', marginBottom: 20 }}>
+          <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{
+            display: 'inline-flex', alignItems: 'center', gap: 8,
+            fontSize: '1.125rem', fontWeight: 900, color: '#111', textDecoration: 'none',
+            letterSpacing: '-0.04em',
+          }}>
+            <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+              <rect width="32" height="32" rx="8" fill="#1b4fff"/>
+              <path d="M8 22L16 8L24 22" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M11 18H21" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+            eighty<span style={{ color: '#f36421' }}>5</span>labs
+          </a>
         </div>
-      </section>
+
+        {/* Heading */}
+        <div style={{ textAlign: 'center', marginBottom: 24 }}>
+          <h1 style={{ fontSize: 'clamp(1.375rem, 3.5vw, 2rem)', fontWeight: 900, letterSpacing: '-0.03em', color: '#111', marginBottom: 10 }}>
+            Aida LLC &ndash; Appointment Updates &amp; SMS Alerts
+          </h1>
+          <p style={{ fontSize: '0.875rem', color: '#52525b', lineHeight: 1.65, maxWidth: '50ch', marginInline: 'auto' }}>
+            Aida LLC. Use this form to join the Aida LLC SMS program for updates related to our services.
+          </p>
+        </div>
+
+        {/* Form Card */}
+        <div style={{
+          background: 'white',
+          borderRadius: 16,
+          border: '1px solid rgba(0,0,0,0.08)',
+          boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
+          padding: 'clamp(24px, 4vw, 36px)',
+        }}>
+          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+
+            <div>
+              <label htmlFor="fullName" style={labelStyle}>Full Name</label>
+              <input
+                id="fullName"
+                type="text"
+                required
+                value={formData.fullName}
+                onChange={e => setFormData({ ...formData, fullName: e.target.value })}
+                placeholder="Type your full name"
+                style={inputStyle}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="email" style={labelStyle}>Email*</label>
+              <input
+                id="email"
+                type="email"
+                required
+                value={formData.email}
+                onChange={e => setFormData({ ...formData, email: e.target.value })}
+                placeholder="Enter your email"
+                style={inputStyle}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="phone" style={labelStyle}>Phone Number</label>
+              <input
+                id="phone"
+                type="tel"
+                value={formData.phone}
+                onChange={e => setFormData({ ...formData, phone: e.target.value })}
+                placeholder="Enter your phone number here"
+                style={inputStyle}
+              />
+            </div>
+
+            {/* Marketing Consent */}
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
+              <input
+                id="marketingConsent"
+                type="checkbox"
+                checked={formData.marketingConsent}
+                onChange={e => setFormData({ ...formData, marketingConsent: e.target.checked })}
+                style={{ marginTop: 3, width: 16, height: 16, flexShrink: 0, accentColor: '#f36421' }}
+              />
+              <label htmlFor="marketingConsent" style={{ fontSize: '0.875rem', color: '#3f3f46', lineHeight: 1.65, cursor: 'pointer' }}>
+                I consent to receive marketing and promotional text messages from Aida LLC, DBA eighty5lab, at the phone number provided via SMS, which include special offers, discounts, and new product updates, among others. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.
+              </label>
+            </div>
+
+            {/* Non-Marketing Consent */}
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
+              <input
+                id="nonMarketingConsent"
+                type="checkbox"
+                checked={formData.nonMarketingConsent}
+                onChange={e => setFormData({ ...formData, nonMarketingConsent: e.target.checked })}
+                style={{ marginTop: 3, width: 16, height: 16, flexShrink: 0, accentColor: '#f36421' }}
+              />
+              <label htmlFor="nonMarketingConsent" style={{ fontSize: '0.875rem', color: '#3f3f46', lineHeight: 1.65, cursor: 'pointer' }}>
+                I consent to receive non-marketing text messages from Aida LLC, DBA eighty5lab, which may include account updates, service alerts, and support-related communications. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.
+              </label>
+            </div>
+
+            {/* Terms & Privacy */}
+            <div style={{ fontSize: '0.875rem' }}>
+              <a href="#/terms" onClick={e => { e.preventDefault(); navigate('#/terms'); }} style={{ color: '#f36421', fontWeight: 500, textDecoration: 'none' }}>
+                Terms of Service
+              </a>
+              {' '}&amp;{' '}
+              <a href="#/privacy" onClick={e => { e.preventDefault(); navigate('#/privacy'); }} style={{ color: '#f36421', fontWeight: 500, textDecoration: 'none' }}>
+                Privacy Policy
+              </a>
+            </div>
+
+            {error && (
+              <div style={{ padding: '10px 14px', borderRadius: 8, background: '#fef2f2', border: '1px solid #fecaca', color: '#b91c1c', fontSize: '0.875rem' }}>
+                {error}
+              </div>
+            )}
+
+            <motion.button
+              type="submit"
+              disabled={isSubmitting}
+              whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+              whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+              style={{
+                width: '100%',
+                background: '#f36421',
+                color: 'white',
+                border: 'none',
+                borderRadius: 8,
+                padding: '12px',
+                fontSize: '1rem',
+                fontWeight: 600,
+                cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                opacity: isSubmitting ? 0.6 : 1,
+                fontFamily: 'inherit',
+              }}
+            >
+              {isSubmitting ? 'Submitting...' : 'Submit'}
+            </motion.button>
+          </form>
+        </div>
+
+        {/* Contact Info */}
+        <div style={{ marginTop: 24, textAlign: 'center', fontSize: '0.875rem', color: '#71717a' }}>
+          <p style={{ fontWeight: 700, color: '#111', marginBottom: 4 }}>Aida LLC</p>
+          <p>
+            Email:{' '}
+            <a href="mailto:bri@eighty5labs.com" style={{ color: '#f36421', textDecoration: 'none' }}>bri@eighty5labs.com</a>
+            {' '}|{' '}
+            Phone:{' '}
+            <a href="tel:5037043755" style={{ color: '#f36421', textDecoration: 'none' }}>503-704-3755</a>
+          </p>
+        </div>
+
+      </div>
     </div>
   );
 };
 
-const FormField: React.FC<{ label: string; error?: string; children: React.ReactNode }> = ({ label, error, children }) => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
-    <label style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'var(--t2)' }}>{label}</label>
-    {React.cloneElement(children as React.ReactElement, {
-      style: {
-        width: '100%',
-        background: 'var(--bg2)',
-        border: `1.5px solid ${error ? '#ef4444' : 'var(--border)'}`,
-        borderRadius: 'var(--rd)',
-        padding: '10px 14px',
-        color: 'var(--t1)',
-        fontSize: '0.9375rem',
-        fontFamily: 'var(--fb)',
-        outline: 'none',
-      },
-    })}
-    {error && <p style={{ fontSize: '0.75rem', color: '#ef4444', marginTop: 2 }}>{error}</p>}
-  </div>
-);
+export default OptInPage;

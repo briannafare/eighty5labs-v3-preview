@@ -76,34 +76,35 @@ const INDUSTRIES = [
 
 const TESTIMONIALS = [
   {
-    quote: "We went from 23% call answer rate to 100%. The ROI was obvious in week one.",
-    author: "Jason M.",
-    role: "HVAC Owner, Phoenix AZ",
-    metric: "+77%",
-    metricLabel: "Call answer rate",
-  },
-  {
-    quote: "ChatGPT started recommending my law firm within 6 weeks. I didn't believe it until the calls started.",
-    author: "Rachel T.",
-    role: "Family Law Attorney, Austin TX",
-    metric: "6 weeks",
-    metricLabel: "To AI search visibility",
-  },
-  {
-    quote: "My Google Map Pack ranking went from page 3 to top 3 in 45 days. The review system is unreal.",
-    author: "Marcus B.",
-    role: "Med Spa Owner, Miami FL",
+    quote: "Within 30 days I had more Google reviews than I'd collected in the previous two years. Showed up in Map Pack top 3 for the first time ever.",
+    author: "[Client Name]",
+    role: "HVAC Company · Portland, OR",
     metric: "Top 3",
-    metricLabel: "Map Pack in 45 days",
+    metricLabel: "Map Pack in 30 days",
+  },
+  {
+    quote: "We were losing leads every night to voicemail. Voice AI changed that overnight. I wake up to booked appointments instead of missed calls.",
+    author: "[Client Name]",
+    role: "Personal Injury Attorney · Portland, OR",
+    metric: "0",
+    metricLabel: "Missed calls since launch",
+  },
+  {
+    quote: "Map Pack went from #7 to #2 in 60 days. We're also showing up when people ask ChatGPT for a dentist in our area. That didn't happen before.",
+    author: "[Client Name]",
+    role: "Dental Practice · Portland, OR",
+    metric: "#2",
+    metricLabel: "Map Pack in 60 days",
   },
 ];
 
 const FAQS = [
-  { q: 'How long does setup take?', a: 'Most clients are fully live within 5–7 business days. We handle 100% of the technical setup — you just answer a quick onboarding questionnaire.' },
-  { q: 'Do I need to change my existing software?', a: "No. eighty5.OS integrates with your existing CRM, calendar, and phone system. We're built to layer on top of what's already working." },
-  { q: 'What makes this different from a marketing agency?', a: 'Agencies charge for activities. We charge for outcomes. Our system runs 24/7 and you can see exactly what it does in your dashboard — no mystery, no reports that don\'t connect to revenue.' },
-  { q: 'Is there a contract?', a: 'No long-term contracts. Monthly billing, cancel anytime. We keep clients because results keep them — not paperwork.' },
-  { q: 'What industries do you work with?', a: 'We specialize in local service businesses: HVAC, plumbing, electrical, medical/wellness, legal, mortgage, and real estate. Vertical-specific playbooks for each.' },
+  { q: "Why does my competitor show up on Google Maps and I don't?", a: "If your competitor ranks higher in Google Maps, it's usually because their Google Business Profile is more clearly aligned with the search query. Google ranks on relevance, distance, and prominence. Most businesses lose visibility because their primary category is too broad, services aren't clearly listed, or business information is inconsistent online. Google promotes clarity. Generic profiles get buried." },
+  { q: 'I have more reviews — why am I still ranked lower?', a: "Having more Google reviews does not automatically improve your ranking. Reviews strengthen prominence, but Google ranks on relevance and category alignment first. If a competitor ranks above you with fewer reviews, their primary category matches the search more precisely. Reviews amplify visibility — they don't create it." },
+  { q: 'How do I show up when people ask ChatGPT for businesses in my area?', a: 'Optimize your Google Business Profile, publish educational problem-solving content, maintain consistent business information across all platforms, and earn mentions on trusted local websites. AI systems recommend businesses that appear credible, consistent, and clearly specialized.' },
+  { q: 'What kind of content actually makes me show up in AI search?', a: 'AI search platforms favor content that directly answers real customer questions. The best structure: start with the question, provide a direct concise answer, expand with clear steps, and avoid promotional filler. Educational content that solves problems outperforms promotional pages. AI ranks answers, not advertisements.' },
+  { q: 'Should I add an AI chatbot or voice agent to my website?', a: "An AI chatbot or voice agent can significantly increase lead capture by improving response time and handling after-hours inquiries. Benefits include 24/7 availability, instant responses, automated appointment booking, and reduced missed calls. AI agents don't replace your team — they prevent the revenue that walks out the door every time a call goes to voicemail." },
+  { q: 'Can AI actually help my business get more customers?', a: 'Yes — but only when implemented strategically. AI helps by improving online visibility, automating lead capture, accelerating response time, and personalizing customer interactions. Businesses that combine clear positioning, a strong Google presence, educational content, and automation will consistently outperform competitors relying on outdated SEO tactics.' },
 ];
 
 export const Homepage: React.FC = () => {
@@ -353,6 +354,7 @@ export const Homepage: React.FC = () => {
                 { icon: '🎯', text: 'Qualify the lead — needs, urgency, location' },
                 { icon: '📅', text: 'Book the appointment — direct to your calendar' },
                 { icon: '✉️', text: 'Send confirmation + update your CRM' },
+                { icon: '⚡', text: 'All in under 90 seconds.' },
               ].map((step, i) => (
                 <motion.div
                   key={i}
@@ -616,15 +618,15 @@ export const Homepage: React.FC = () => {
           <Reveal>
             <div className="section-label">How It Works</div>
             <h2 className="section-heading">From Audit to Autopilot</h2>
-            <p className="section-sub" style={{ marginBottom: 56 }}>Most clients are fully live in under a week.</p>
+            <p className="section-sub" style={{ marginBottom: 56 }}>Four steps. No tech headaches. Running on autopilot in days.</p>
           </Reveal>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 20 }}>
             {[
-              { step: '01', title: 'Free Audit', body: 'We analyze your current visibility, reputation, and conversion gaps. You see exactly where you\'re losing money — for free.' },
-              { step: '02', title: 'Custom Build', body: 'We configure eighty5.OS for your specific business, industry, and market. No templates. No DIY.' },
-              { step: '03', title: 'Go Live', body: 'Your system is deployed and active within 5–7 days. We monitor everything and handle all setup.' },
-              { step: '04', title: 'Autopilot', body: 'The OS runs 24/7. Your leads get captured, nurtured, and booked. You focus on delivery and growth.' },
+              { step: '01', title: 'Free AI Visibility Audit', body: 'We map your Google Business Profile, Map Pack rank, review velocity, and AI search visibility across ChatGPT, Gemini, and Perplexity.' },
+              { step: '02', title: 'Custom eighty5.OS Setup', body: 'We configure your OS with automated workflows, missed call text-back, review sequences, calendar sync, and a Voice agent that sounds like your brand.' },
+              { step: '03', title: 'We Manage It. You Do the Work.', body: 'Calls, texts, web chats, social messages — one system, responding in seconds, around the clock.' },
+              { step: '04', title: 'Monthly Performance Review', body: 'Monthly Map Pack movement, AI visibility checks, and lead capture performance review. The system gets better every month.' },
             ].map((step, i) => (
               <Reveal key={i} delay={i * 0.1}>
                 <div style={{ position: 'relative', paddingTop: 16 }}>
@@ -768,10 +770,10 @@ export const Homepage: React.FC = () => {
                   maxWidth: '18ch',
                   marginInline: 'auto',
                 }}>
-                  Stop Losing Revenue to Gaps You Can Fix.
+                  Ready to Dominate Local Search?
                 </h2>
                 <p style={{ color: 'var(--t3)', fontSize: '1.0625rem', lineHeight: 1.65, marginBottom: 36, maxWidth: '50ch', marginInline: 'auto' }}>
-                  Free audit shows you exactly where you're bleeding money. Takes 30 seconds. Results in 48 hours. No consultant will call you.
+                  Join the businesses already using eighty5.OS to dominate local Google Maps, show up in AI search, and grow without adding headcount.
                 </p>
                 <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
                   <motion.a
@@ -782,7 +784,7 @@ export const Homepage: React.FC = () => {
                     whileTap={{ scale: 0.97 }}
                     style={{ fontSize: '1rem', padding: '14px 32px' }}
                   >
-                    Get Your Free Revenue Audit
+                    Start Your Trial Today →
                   </motion.a>
                   <motion.a
                     href="#/pricing"
@@ -796,7 +798,7 @@ export const Homepage: React.FC = () => {
                   </motion.a>
                 </div>
                 <p style={{ marginTop: 20, fontSize: '0.8125rem', color: 'var(--t4)' }}>
-                  No contracts · No credit card · Cancel anytime
+                  No long-term contracts · Cancel anytime · Setup in days
                 </p>
               </div>
             </div>
