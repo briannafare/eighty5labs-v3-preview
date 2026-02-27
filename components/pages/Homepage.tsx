@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Reveal, Stagger } from '../ui/Reveal';
 import { navigate } from '../../router';
+import { VoiceAIDemo } from '../VoiceAIDemo';
 
 const SERVICES = [
   {
@@ -339,117 +340,8 @@ export const Homepage: React.FC = () => {
 
       {/* ─── VOICE AI DEMO / CHLOE ─── */}
       <section className="section-white">
-        <div className="wrap" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px,1fr))', gap: 60, alignItems: 'center' }}>
-          <Reveal>
-            <div className="section-label">Voice AI</div>
-            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 900, letterSpacing: '-0.04em', marginBottom: 20, lineHeight: 1.05 }}>
-              Meet Chloe.<br/><span style={{ color: 'var(--td3)' }}>Your 24/7 AI Receptionist.</span>
-            </h2>
-            <p style={{ color: 'var(--td2)', lineHeight: 1.7, marginBottom: 32 }}>
-              She answers every call, qualifies every lead, and books appointments around the clock. While you're on a job, sleeping, or on vacation — she's working.
-            </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-              {[
-                { icon: '📞', text: 'Answer the call — within 2 rings, every time' },
-                { icon: '🎯', text: 'Qualify the lead — needs, urgency, location' },
-                { icon: '📅', text: 'Book the appointment — direct to your calendar' },
-                { icon: '✉️', text: 'Send confirmation + update your CRM' },
-                { icon: '⚡', text: 'All in under 90 seconds.' },
-              ].map((step, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -12 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: '-40px' }}
-                  transition={{ delay: i * 0.1, duration: 0.4 }}
-                  style={{ display: 'flex', alignItems: 'flex-start', gap: 14 }}
-                >
-                  <span style={{ fontSize: '1.125rem' }}>{step.icon}</span>
-                  <span style={{ fontSize: '0.9375rem', color: 'var(--td1)', lineHeight: 1.5 }}>{step.text}</span>
-                </motion.div>
-              ))}
-            </div>
-          </Reveal>
-
-          {/* Phone UI mock */}
-          <Reveal delay={0.2}>
-            <div style={{ position: 'relative', maxWidth: 340, margin: '0 auto' }}>
-              <div style={{
-                background: 'var(--bg2)',
-                border: '1.5px solid var(--border)',
-                borderRadius: 24,
-                overflow: 'hidden',
-                boxShadow: '0 24px 80px rgba(0,0,0,0.5)',
-              }}>
-                {/* Call header */}
-                <div style={{
-                  background: 'var(--bg1)',
-                  padding: '20px 24px 18px',
-                  borderBottom: '1px solid var(--border)',
-                  textAlign: 'center',
-                }}>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--t4)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 8 }}>Incoming Call</div>
-                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.125rem', color: 'var(--t1)' }}>Customer — (555) 429-0011</div>
-                  <motion.div
-                    animate={{ opacity: [0.5, 1, 0.5] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    style={{ fontSize: '0.8125rem', color: 'var(--gap1)', marginTop: 6 }}
-                  >
-                    ● Chloe answering…
-                  </motion.div>
-                </div>
-
-                {/* Chat bubbles */}
-                <div style={{ padding: '20px 18px', display: 'flex', flexDirection: 'column', gap: 12 }}>
-                  {[
-                    { from: 'ai', text: "Hi, thank you for calling! I'm Chloe. How can I help you today?" },
-                    { from: 'user', text: "My AC went out — it's 94 degrees and I have two kids here." },
-                    { from: 'ai', text: "Oh no, let's get someone out there ASAP. I have an opening at 3pm today — does that work?" },
-                    { from: 'user', text: "Yes! Perfect." },
-                    { from: 'ai', text: "Booked! You'll get a confirmation text now and a call 30 min before arrival." },
-                  ].map((msg, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, y: 6 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.15, duration: 0.35 }}
-                      style={{
-                        alignSelf: msg.from === 'ai' ? 'flex-start' : 'flex-end',
-                        maxWidth: '82%',
-                        background: msg.from === 'ai' ? 'var(--bg3)' : 'var(--blue)',
-                        padding: '10px 14px',
-                        borderRadius: msg.from === 'ai' ? '4px 14px 14px 14px' : '14px 4px 14px 14px',
-                        fontSize: '0.8125rem',
-                        color: 'var(--t1)',
-                        lineHeight: 1.5,
-                      }}
-                    >
-                      {msg.text}
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* Booked confirmation */}
-                <div style={{
-                  margin: '0 18px 18px',
-                  background: 'var(--gap1-lt)',
-                  border: '1px solid var(--gap1-border)',
-                  borderRadius: 10,
-                  padding: '12px 14px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 10,
-                }}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gap1)" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  <div>
-                    <div style={{ fontSize: '0.8125rem', fontWeight: 700, color: 'var(--gap1)' }}>Appointment Booked</div>
-                    <div style={{ fontSize: '0.75rem', color: 'var(--t3)' }}>Today 3:00 PM · CRM Updated</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Reveal>
+        <div className="wrap">
+          <VoiceAIDemo />
         </div>
       </section>
 
@@ -613,38 +505,58 @@ export const Homepage: React.FC = () => {
       </section>
 
       {/* ─── PROCESS ─── */}
-      <section className="section-white">
+      <section className="section-dark">
         <div className="wrap">
           <Reveal>
             <div className="section-label">How It Works</div>
             <h2 className="section-heading">From Audit to Autopilot</h2>
-            <p className="section-sub" style={{ marginBottom: 56 }}>Four steps. No tech headaches. Running on autopilot in days.</p>
+            <p className="section-sub" style={{ marginBottom: 52 }}>Four steps. No tech headaches. Running on autopilot in days.</p>
           </Reveal>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 20 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 14, marginTop: 8 }}>
             {[
-              { step: '01', title: 'Free AI Visibility Audit', body: 'We map your Google Business Profile, Map Pack rank, review velocity, and AI search visibility across ChatGPT, Gemini, and Perplexity.' },
-              { step: '02', title: 'Custom eighty5.OS Setup', body: 'We configure your OS with automated workflows, missed call text-back, review sequences, calendar sync, and a Voice agent that sounds like your brand.' },
-              { step: '03', title: 'We Manage It. You Do the Work.', body: 'Calls, texts, web chats, social messages — one system, responding in seconds, around the clock.' },
-              { step: '04', title: 'Monthly Performance Review', body: 'Monthly Map Pack movement, AI visibility checks, and lead capture performance review. The system gets better every month.' },
+              { num: '01', sub: 'Free AI Visibility Audit', title: 'Audit', body: 'We map your Google Business Profile, Map Pack rank, review velocity, and AI search visibility across ChatGPT, Gemini, and Perplexity.' },
+              { num: '02', sub: 'Custom eighty5.OS Setup', title: 'Build', body: 'We configure your OS with automated workflows, missed call text-back, review sequences, calendar sync, and a Voice agent that sounds like your brand.' },
+              { num: '03', sub: 'We Manage It. You Do the Work.', title: 'Deploy', body: 'Calls, texts, web chats, social messages — one system, responding in seconds, around the clock.' },
+              { num: '04', sub: 'Monthly Performance Review', title: 'Optimize', body: 'Monthly Map Pack movement, AI visibility checks, and lead capture performance review. The system gets better every month.' },
             ].map((step, i) => (
               <Reveal key={i} delay={i * 0.1}>
-                <div style={{ position: 'relative', paddingTop: 16 }}>
+                <div style={{
+                  background: 'var(--bg2)',
+                  border: '1px solid var(--border)',
+                  borderRadius: 'var(--rdl)',
+                  padding: '26px 22px',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  height: '100%',
+                }}>
+                  {/* Large step number — visible muted on dark bg */}
                   <div style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
                     fontFamily: 'var(--fd)',
                     fontWeight: 900,
-                    fontSize: '3.5rem',
-                    color: 'rgba(27,79,255,0.08)',
-                    letterSpacing: '-0.04em',
+                    fontSize: '2.4rem',
+                    color: 'rgba(255,255,255,0.1)',
+                    letterSpacing: '-0.05em',
                     lineHeight: 1,
-                  }}>{step.step}</div>
-                  <div style={{ position: 'relative', paddingTop: 40 }}>
-                    <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.125rem', color: 'var(--td1)', marginBottom: 10 }}>{step.title}</h3>
-                    <p style={{ fontSize: '0.875rem', color: 'var(--td2)', lineHeight: 1.65 }}>{step.body}</p>
-                  </div>
+                    marginBottom: 8,
+                  }}>{step.num}</div>
+                  {/* Step sub-label */}
+                  <div style={{
+                    fontSize: '0.6rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    color: 'var(--blue3)',
+                    marginBottom: 5,
+                  }}>{step.sub}</div>
+                  {/* Step title */}
+                  <div style={{
+                    fontFamily: 'var(--fd)',
+                    fontWeight: 800,
+                    fontSize: '1.0625rem',
+                    color: 'var(--t1)',
+                    marginBottom: 8,
+                  }}>{step.title}</div>
+                  <p style={{ fontSize: '0.8125rem', color: 'var(--t3)', lineHeight: 1.75 }}>{step.body}</p>
                 </div>
               </Reveal>
             ))}

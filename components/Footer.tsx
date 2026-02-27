@@ -31,18 +31,11 @@ export const Footer: React.FC = () => {
                 color: 'var(--t1)',
                 textDecoration: 'none',
                 letterSpacing: '-0.04em',
-                display: 'flex',
-                alignItems: 'center',
-                gap: 8,
+                display: 'inline-block',
                 marginBottom: 14,
               }}
             >
-              <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
-                <rect width="32" height="32" rx="8" fill="var(--blue)"/>
-                <path d="M8 22L16 8L24 22" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M11 18H21" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-              </svg>
-              eighty<span style={{ color: 'var(--blue3)' }}>5</span>labs
+              eighty<span style={{ color: 'var(--blue)' }}>5</span>labs
             </a>
             <p style={{ fontSize: '0.875rem', color: 'var(--t3)', lineHeight: 1.65, maxWidth: '32ch' }}>
               AI operating system for local service businesses. Closing the visibility, reputation, and conversion gaps.
