@@ -361,9 +361,33 @@
       /* Mobile */
       @media (max-width: 768px) {
         .hide-mobile { display: none !important; }
+        .hero-grid { grid-template-columns: 1fr !important; }
+        .gaps-calc-grid { grid-template-columns: 1fr !important; }
       }
       @media (min-width: 769px) {
         .hide-desktop { display: none !important; }
+      }
+
+      /* Range slider thumb styling */
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid rgba(255,255,255,0.3);
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      }
+      input[type="range"]::-moz-range-thumb {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid rgba(255,255,255,0.3);
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
       }
     </style>
   </head>
