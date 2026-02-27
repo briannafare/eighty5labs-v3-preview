@@ -75,12 +75,12 @@ function TermCard({ term }: { term: Term }) {
   const color = CAT_COLOR[term.category] || '#1B4FFF';
 
   return (
-    <div style={{ border: '1.5px solid var(--border)', borderRadius: 12, overflow: 'hidden', transition: 'border-color 0.2s', borderColor: open ? color : 'var(--border)' }}>
+    <div style={{ border: '1.5px solid #DDE5F2', borderRadius: 12, overflow: 'hidden', transition: 'border-color 0.2s', borderColor: open ? color : '#DDE5F2' }}>
       <button onClick={() => setOpen(o => !o)}
-        style={{ width: '100%', padding: '18px 20px', background: open ? `${color}08` : 'var(--bg1)', border: 'none', textAlign: 'left', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 16 }}>
+        style={{ width: '100%', padding: '18px 20px', background: open ? `${color}08` : '#F7F9FF', border: 'none', textAlign: 'left', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 16 }}>
         <div style={{ flex: 1 }}>
           <span style={{ display: 'inline-block', background: `${color}18`, color, fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', padding: '2px 7px', borderRadius: 4, marginBottom: 8 }}>{term.badge}</span>
-          <p style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '0.9375rem', color: 'var(--t1)', lineHeight: 1.4, letterSpacing: '-0.01em', margin: 0 }}>{term.q}</p>
+          <p style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '0.9375rem', color: '#0F172A', lineHeight: 1.4, letterSpacing: '-0.01em', margin: 0 }}>{term.q}</p>
         </div>
         <motion.span animate={{ rotate: open ? 45 : 0 }} transition={{ duration: 0.2 }}
           style={{ color, fontSize: '1.25rem', fontWeight: 300, lineHeight: 1, flexShrink: 0, marginTop: 2 }}>+</motion.span>
@@ -91,7 +91,7 @@ function TermCard({ term }: { term: Term }) {
             style={{ overflow: 'hidden' }}>
             <div style={{ padding: '0 20px 20px', borderTop: `1px solid ${color}25` }}>
               {term.a.split('\n\n').map((para, i) => (
-                <p key={i} style={{ fontSize: '0.8875rem', color: 'var(--t3)', lineHeight: 1.75, marginTop: 14, margin: i === 0 ? '14px 0 0' : '12px 0 0' }}>{para}</p>
+                <p key={i} style={{ fontSize: '0.8875rem', color: '#64748B', lineHeight: 1.75, marginTop: 14, margin: i === 0 ? '14px 0 0' : '12px 0 0' }}>{para}</p>
               ))}
             </div>
           </motion.div>
@@ -123,32 +123,32 @@ export default function GlossaryPage() {
   }, [filtered, activeCategory]);
 
   return (
-    <div style={{ paddingTop: 'var(--nav-h)', paddingBottom: 80 }}>
+    <div style={{ paddingTop: 'var(--nav-h)', paddingBottom: 80, background: '#FFFFFF', color: '#0F172A' }}>
 
       {/* Hero */}
-      <section style={{ padding: 'clamp(48px,5vw,80px) 0 40px', background: 'var(--bg1)', borderBottom: '1px solid var(--border)' }}>
+      <section style={{ padding: 'clamp(48px,5vw,80px) 0 40px', background: '#F7F9FF', borderBottom: '1px solid #DDE5F2' }}>
         <div className="wrap" style={{ maxWidth: 680, textAlign: 'center' }}>
           <Reveal>
             <span style={{ display: 'inline-block', background: 'rgba(167,139,250,0.1)', color: '#A78BFA', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '5px 12px', borderRadius: 6, marginBottom: 16 }}>2026 Edition · Published by eighty5labs</span>
-            <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--t1)', marginBottom: 16 }}>
+            <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>
               The AI & Local Search<br />Glossary
             </h1>
-            <p style={{ color: 'var(--t3)', fontSize: '1rem', lineHeight: 1.7, marginBottom: 20 }}>
+            <p style={{ color: '#64748B', fontSize: '1rem', lineHeight: 1.7, marginBottom: 20 }}>
               Every term a business owner needs to understand about AI search, local visibility, and modern marketing — structured as the questions you're already asking.
             </p>
-            <p style={{ fontSize: '0.8125rem', color: 'var(--t4)' }}>41 terms across 8 categories · Last updated: February 25, 2026</p>
+            <p style={{ fontSize: '0.8125rem', color: '#94A3B8' }}>41 terms across 8 categories · Last updated: February 25, 2026</p>
           </Reveal>
         </div>
       </section>
 
       {/* Search + Category Filter */}
-      <section style={{ padding: '28px 0 0', position: 'sticky', top: 'var(--nav-h)', zIndex: 10, background: 'var(--bg1)', borderBottom: '1px solid var(--border)' }}>
+      <section style={{ padding: '28px 0 0', position: 'sticky', top: 'var(--nav-h)', zIndex: 10, background: '#F7F9FF', borderBottom: '1px solid #DDE5F2' }}>
         <div className="wrap">
           <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 16, flexWrap: 'wrap' }}>
             <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search terms..."
-              style={{ flex: '1 1 200px', minWidth: 160, maxWidth: 320, padding: '8px 14px', border: '1.5px solid var(--border)', borderRadius: 8, background: 'var(--bg2)', color: 'var(--t1)', fontSize: '0.875rem', outline: 'none' }} />
-            {search && <button onClick={() => setSearch('')} style={{ background: 'none', border: 'none', color: 'var(--t4)', cursor: 'pointer', fontSize: '0.875rem' }}>✕ Clear</button>}
-            <span style={{ fontSize: '0.8125rem', color: 'var(--t4)', marginLeft: 'auto' }}>{filtered.length} term{filtered.length !== 1 ? 's' : ''}</span>
+              style={{ flex: '1 1 200px', minWidth: 160, maxWidth: 320, padding: '8px 14px', border: '1.5px solid #DDE5F2', borderRadius: 8, background: '#F7F9FF', color: '#0F172A', fontSize: '0.875rem', outline: 'none' }} />
+            {search && <button onClick={() => setSearch('')} style={{ background: 'none', border: 'none', color: '#94A3B8', cursor: 'pointer', fontSize: '0.875rem' }}>✕ Clear</button>}
+            <span style={{ fontSize: '0.8125rem', color: '#94A3B8', marginLeft: 'auto' }}>{filtered.length} term{filtered.length !== 1 ? 's' : ''}</span>
           </div>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', paddingBottom: 16, overflowX: 'auto' }}>
             {CATEGORIES.map(cat => {
@@ -156,7 +156,7 @@ export default function GlossaryPage() {
               const active = activeCategory === cat;
               return (
                 <button key={cat} onClick={() => setActiveCategory(cat)}
-                  style={{ padding: '5px 14px', borderRadius: 20, border: '1.5px solid', borderColor: active ? color : 'var(--border)', background: active ? `${color}18` : 'transparent', color: active ? color : 'var(--t4)', fontSize: '0.8rem', fontWeight: active ? 700 : 400, cursor: 'pointer', whiteSpace: 'nowrap', transition: 'all 0.15s' }}>
+                  style={{ padding: '5px 14px', borderRadius: 20, border: '1.5px solid', borderColor: active ? color : '#DDE5F2', background: active ? `${color}18` : 'transparent', color: active ? color : '#94A3B8', fontSize: '0.8rem', fontWeight: active ? 700 : 400, cursor: 'pointer', whiteSpace: 'nowrap', transition: 'all 0.15s' }}>
                   {cat}
                 </button>
               );
@@ -169,30 +169,30 @@ export default function GlossaryPage() {
       <section style={{ padding: 'clamp(32px,3vw,48px) 0' }}>
         <div className="wrap" style={{ maxWidth: 860 }}>
           {filtered.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '60px 0', color: 'var(--t4)' }}>
+            <div style={{ textAlign: 'center', padding: '60px 0', color: '#94A3B8' }}>
               <p style={{ fontSize: '1rem', marginBottom: 8 }}>No matching terms found.</p>
-              <button onClick={() => { setSearch(''); setActiveCategory('All Terms'); }} style={{ background: 'none', border: 'none', color: 'var(--blue)', cursor: 'pointer', fontSize: '0.875rem' }}>Clear search</button>
+              <button onClick={() => { setSearch(''); setActiveCategory('All Terms'); }} style={{ background: 'none', border: 'none', color: '#1B4FFF', cursor: 'pointer', fontSize: '0.875rem' }}>Clear search</button>
             </div>
           ) : (
             Object.entries(grouped).map(([cat, terms]) => (
               <div key={cat} style={{ marginBottom: 48 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
                   <div style={{ width: 4, height: 28, borderRadius: 2, background: CAT_COLOR[cat] || 'var(--blue)' }} />
-                  <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.125rem', color: 'var(--t1)', letterSpacing: '-0.02em' }}>{cat}</h2>
-                  <span style={{ fontSize: '0.8rem', color: 'var(--t4)', background: 'var(--bg2)', border: '1px solid var(--border)', borderRadius: 20, padding: '2px 10px' }}>{terms.length}</span>
+                  <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.125rem', color: '#0F172A', letterSpacing: '-0.02em' }}>{cat}</h2>
+                  <span style={{ fontSize: '0.8rem', color: '#94A3B8', background: '#F7F9FF', border: '1px solid #DDE5F2', borderRadius: 20, padding: '2px 10px' }}>{terms.length}</span>
                 </div>
                 {cat === 'GEO, AEO & AI Visibility' && activeCategory === 'All Terms' && (
-                  <p style={{ fontSize: '0.875rem', color: 'var(--t4)', marginBottom: 16, lineHeight: 1.6 }}>
+                  <p style={{ fontSize: '0.875rem', color: '#94A3B8', marginBottom: 16, lineHeight: 1.6 }}>
                     In 2026, AI doesn't just rank links — it synthesizes answers. These are the terms that define how your business gets discovered, cited, and recommended by AI-powered search platforms.
                   </p>
                 )}
                 {cat === 'AI Agents & Voice AI' && activeCategory === 'All Terms' && (
-                  <p style={{ fontSize: '0.875rem', color: 'var(--t4)', marginBottom: 16, lineHeight: 1.6 }}>
+                  <p style={{ fontSize: '0.875rem', color: '#94A3B8', marginBottom: 16, lineHeight: 1.6 }}>
                     The shift from simple chatbots to autonomous, goal-oriented agents is transforming how businesses interact with customers around the clock.
                   </p>
                 )}
                 {cat === 'Google Business Profile' && activeCategory === 'All Terms' && (
-                  <p style={{ fontSize: '0.875rem', color: 'var(--t4)', marginBottom: 16, lineHeight: 1.6 }}>
+                  <p style={{ fontSize: '0.875rem', color: '#94A3B8', marginBottom: 16, lineHeight: 1.6 }}>
                     Your Google Business Profile is the primary "ground truth" that AI platforms use to answer local queries.
                   </p>
                 )}
@@ -206,17 +206,17 @@ export default function GlossaryPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section style={{ padding: 'clamp(48px,5vw,72px) 0', background: 'var(--bg1)', borderTop: '1px solid var(--border)' }}>
+      <section style={{ padding: 'clamp(48px,5vw,72px) 0', background: '#F7F9FF', borderTop: '1px solid #DDE5F2' }}>
         <div className="wrap" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: 32, alignItems: 'center' }}>
           <div>
-            <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', letterSpacing: '-0.03em', color: 'var(--t1)', marginBottom: 10 }}>Can't find a term? Have a question?</h2>
-            <p style={{ color: 'var(--t3)', lineHeight: 1.7 }}>Our team stays at the forefront of AI search, local visibility, and marketing automation so you don't have to.</p>
+            <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 10 }}>Can't find a term? Have a question?</h2>
+            <p style={{ color: '#64748B', lineHeight: 1.7 }}>Our team stays at the forefront of AI search, local visibility, and marketing automation so you don't have to.</p>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-start' }}>
             <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')} className="btn btn-primary">
               Get Your Free Audit →
             </motion.button>
-            <p style={{ fontSize: '0.8125rem', color: 'var(--t4)' }}>No contracts · No credit card · Results in 48 hours</p>
+            <p style={{ fontSize: '0.8125rem', color: '#94A3B8' }}>No contracts · No credit card · Results in 48 hours</p>
           </div>
         </div>
       </section>

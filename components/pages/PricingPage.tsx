@@ -116,9 +116,18 @@ const FAQS = [
 ];
 
 const CellIcon: React.FC<{ val: boolean | string }> = ({ val }) => {
-  if (val === true) return <span style={{ color: 'var(--gap1)', fontWeight: 700 }}>✓</span>;
-  if (val === false) return <span style={{ color: 'var(--t4)' }}>—</span>;
-  return <span style={{ color: 'var(--gap2)', fontSize: '0.8125rem', fontWeight: 600 }}>{val}</span>;
+  if (val === true) return <span style={{ color: '#10B981', fontWeight: 700 }}>✓</span>;
+  if (val === false) return <span style={{ color: '#DDE5F2' }}>—</span>;
+  return <span style={{ color: '#4F8EF7', fontSize: '0.8125rem', fontWeight: 600 }}>{val}</span>;
+};
+
+/* ── V2 light-page tokens ── */
+const L = {
+  bg: '#FFFFFF', bg2: '#F7F9FF',
+  border: '#DDE5F2', blueBorder: '#C7D9FF', blueLt: '#EEF3FF',
+  t1: '#0F172A', t2: '#334155', t3: '#64748B', t4: '#94A3B8',
+  blue: '#1B4FFF', blue2: '#4F8EF7',
+  greenLt: '#D1FAE5', greenText: '#065F46',
 };
 
 export const PricingPage: React.FC = () => {
@@ -126,64 +135,42 @@ export const PricingPage: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <div style={{ paddingTop: 'var(--nav-h)' }}>
-      {/* Hero */}
-      <section className="section" style={{ textAlign: 'center', paddingBottom: 0 }}>
+    <div style={{ paddingTop: 'var(--nav-h)', background: L.bg, color: L.t1 }}>
+
+      {/* ═══ HERO ═══ */}
+      <section style={{ padding: '72px 48px 0', textAlign: 'center', borderBottom: `1px solid ${L.border}` }}>
         <Reveal>
-          <div className="section-label" style={{ justifyContent: 'center' }}>Transparent Pricing</div>
-          <h1 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(2.5rem, 5vw, 3.75rem)', letterSpacing: '-0.04em', marginBottom: 16 }}>
+          <div className="section-label" style={{ justifyContent: 'center', color: L.blue2 }}>
+            <div style={{ width: 5, height: 5, borderRadius: '50%', background: L.blue2 }} />
+            Transparent Pricing
+          </div>
+          <h1 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(2.2rem, 4.5vw, 3.2rem)', letterSpacing: '-0.04em', color: L.t1, marginBottom: 14, lineHeight: 1.07 }}>
             Simple Plans. Real Results.
           </h1>
-          <p style={{ color: 'var(--t3)', fontSize: '1.0625rem', lineHeight: 1.65, maxWidth: '50ch', marginInline: 'auto', marginBottom: 36 }}>
+          <p style={{ color: L.t2, fontSize: '1.0625rem', lineHeight: 1.8, maxWidth: 520, marginInline: 'auto', marginBottom: 36 }}>
             Everything you need to close the visibility, reputation, and conversion gaps — fully managed for you.
           </p>
+
           {/* Toggle */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginBottom: 12 }}>
-            <div style={{
-              display: 'flex',
-              background: 'var(--bg1)',
-              border: '1px solid var(--border)',
-              borderRadius: 9999,
-              padding: 4,
-            }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14, marginBottom: 52 }}>
+            <div style={{ display: 'flex', background: L.bg2, border: `1px solid ${L.border}`, borderRadius: 100, padding: 4 }}>
               {['Monthly', 'Annual'].map(opt => {
                 const isActive = (opt === 'Annual') === annual;
                 return (
-                  <button
-                    key={opt}
-                    onClick={() => setAnnual(opt === 'Annual')}
-                    style={{
-                      padding: '8px 22px',
-                      borderRadius: 9999,
-                      border: 'none',
-                      background: isActive ? 'var(--blue)' : 'transparent',
-                      color: isActive ? '#fff' : 'var(--t3)',
-                      fontFamily: 'var(--fd)',
-                      fontWeight: 700,
-                      fontSize: '0.875rem',
-                      cursor: 'pointer',
-                      transition: 'all 0.2s',
-                    }}
-                  >
-                    {opt}
-                  </button>
+                  <button key={opt} onClick={() => setAnnual(opt === 'Annual')} style={{
+                    padding: '8px 26px', borderRadius: 100, border: 'none',
+                    background: isActive ? L.bg : 'transparent',
+                    color: isActive ? L.t1 : L.t3,
+                    fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '0.8125rem',
+                    cursor: 'pointer', transition: 'all 0.2s',
+                    boxShadow: isActive ? '0 1px 4px rgba(15,23,42,0.1)' : 'none',
+                  }}>{opt}</button>
                 );
               })}
             </div>
             {annual && (
-              <motion.span
-                initial={{ opacity: 0, x: -8 }}
-                animate={{ opacity: 1, x: 0 }}
-                style={{
-                  background: 'var(--gap1-lt)',
-                  border: '1px solid var(--gap1-border)',
-                  color: 'var(--gap1)',
-                  fontSize: '0.75rem',
-                  fontWeight: 700,
-                  padding: '4px 12px',
-                  borderRadius: 9999,
-                }}
-              >
+              <motion.span initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }}
+                style={{ background: L.greenLt, color: L.greenText, fontSize: '0.65rem', fontWeight: 700, padding: '3px 10px', borderRadius: 100 }}>
                 Save 20%
               </motion.span>
             )}
@@ -191,89 +178,85 @@ export const PricingPage: React.FC = () => {
         </Reveal>
       </section>
 
-      {/* Cards */}
-      <section className="section" style={{ paddingTop: 48 }}>
+      {/* ═══ PLAN CARDS ═══ */}
+      <section style={{ padding: '52px 48px 60px', background: L.bg }}>
         <div className="wrap">
           <Stagger>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24, alignItems: 'start' }}>
-              {PLANS.map((plan, i) => (
-                <motion.div
-                  key={plan.name}
-                  whileHover={{ y: -4 }}
-                  transition={{ type: 'spring', stiffness: 300, damping: 28 }}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, alignItems: 'start' }} className="pricing-grid">
+              {PLANS.map(plan => (
+                <motion.div key={plan.name} whileHover={{ y: -2 }} transition={{ type: 'spring', stiffness: 300, damping: 28 }}
                   style={{
-                    background: plan.featured ? 'var(--bg1)' : 'var(--bg1)',
-                    border: `${plan.featured ? 2 : 1.5}px solid ${plan.featured ? 'var(--blue)' : 'var(--border)'}`,
-                    borderRadius: 'var(--rdxl)',
-                    padding: 32,
-                    position: 'relative',
-                    boxShadow: plan.featured ? '0 0 0 1px var(--blue)20, 0 24px 64px rgba(27,79,255,0.12)' : 'none',
-                  }}
-                >
+                    background: L.bg,
+                    border: `${plan.featured ? 2 : 1.5}px solid ${plan.featured ? L.blue : L.border}`,
+                    borderRadius: 'var(--rxl)', padding: '32px 28px 26px',
+                    position: 'relative', display: 'flex', flexDirection: 'column' as const,
+                    boxShadow: plan.featured ? '0 8px 40px rgba(27,79,255,0.14)' : '0 1px 4px rgba(15,23,42,0.04)',
+                    transform: plan.featured ? 'translateY(-8px)' : 'none',
+                    transition: 'border-color 0.2s, box-shadow 0.2s, transform 0.2s',
+                  }}>
                   {plan.featured && (
                     <div style={{
-                      position: 'absolute',
-                      top: -1,
-                      left: '50%',
-                      transform: 'translateX(-50%) translateY(-50%)',
-                      background: 'var(--blue)',
-                      color: '#fff',
-                      fontSize: '0.6875rem',
-                      fontWeight: 800,
-                      letterSpacing: '0.08em',
-                      textTransform: 'uppercase',
-                      padding: '5px 16px',
-                      borderRadius: 9999,
-                    }}>
-                      Most Popular
-                    </div>
+                      position: 'absolute', top: -14, left: '50%', transform: 'translateX(-50%)',
+                      background: L.blue, color: '#fff', fontSize: '0.6rem', fontWeight: 900,
+                      letterSpacing: '0.1em', textTransform: 'uppercase',
+                      padding: '5px 20px', borderRadius: 100, whiteSpace: 'nowrap',
+                      boxShadow: '0 2px 10px rgba(27,79,255,0.3)',
+                    }}>Most Popular</div>
                   )}
 
-                  <div style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--t4)', marginBottom: 4 }}>{plan.tier}</div>
-                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.75rem', letterSpacing: '-0.04em', marginBottom: 8 }}>{plan.name}</div>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--t3)', lineHeight: 1.55, marginBottom: 24 }}>{plan.tag}</p>
+                  <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: plan.featured ? L.blue2 : L.t4, marginBottom: 7 }}>{plan.tier}</div>
+                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.45rem', color: L.t1, letterSpacing: '-0.03em', marginBottom: 5 }}>{plan.name}</div>
+                  <p style={{ fontSize: '0.8125rem', color: L.t2, lineHeight: 1.6, marginBottom: 22, minHeight: 42 }}>{plan.tag}</p>
 
                   {/* Price */}
-                  <div style={{ marginBottom: 8 }}>
+                  <div style={{ marginBottom: 3 }}>
                     {plan.monthlyPrice ? (
-                      <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>
-                        <span style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--t2)' }}>$</span>
-                        <span style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '3rem', letterSpacing: '-0.05em' }}>
+                      <div style={{ display: 'flex', alignItems: 'baseline', gap: 2 }}>
+                        <span style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.1rem', color: L.t2, paddingTop: 7 }}>$</span>
+                        <span style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '3.2rem', color: L.t1, letterSpacing: '-0.05em', lineHeight: 1 }}>
                           {annual ? plan.annualPrice : plan.monthlyPrice}
                         </span>
-                        <span style={{ color: 'var(--t3)', fontSize: '0.9rem' }}>/mo</span>
+                        <span style={{ fontSize: '0.8125rem', color: L.t4, marginLeft: 3 }}>/mo</span>
                       </div>
                     ) : (
-                      <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '2.5rem', letterSpacing: '-0.04em' }}>Custom</div>
+                      <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '2.8rem', letterSpacing: '-0.04em', color: L.t1 }}>Custom</div>
                     )}
-                    <div style={{ fontSize: '0.8rem', color: 'var(--t3)', marginTop: 4, minHeight: 20 }}>
-                      {annual && plan.annualPrice ? `Billed annually · ${plan.annualSave} vs monthly` : plan.monthlyPrice ? 'Billed monthly' : 'Scoped to your business'}
+                    <div style={{ fontSize: '0.74rem', color: L.t4, marginBottom: 3, minHeight: 18 }}>
+                      {annual && plan.annualPrice ? 'Billed annually' : plan.monthlyPrice ? 'Billed monthly' : 'Scoped to your business'}
+                    </div>
+                    <div style={{ fontSize: '0.74rem', fontWeight: 600, color: L.greenText, marginBottom: 20, minHeight: 18 }}>
+                      {annual && plan.annualSave ? `Save ${plan.annualSave}` : ''}
                     </div>
                   </div>
 
-                  <div style={{ borderTop: '1px solid var(--border)', margin: '20px 0' }} />
+                  <div style={{ height: 1, background: L.border, margin: '4px 0 18px' }} />
 
-                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 28 }}>
+                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 26, flex: 1 }}>
                     {plan.features.map((f, fi) => (
-                      <li key={fi} style={{ display: 'flex', gap: 10, fontSize: '0.875rem', color: f.included ? 'var(--t2)' : 'var(--t4)' }}>
-                        <span style={{ flexShrink: 0, fontWeight: 700, color: f.included ? 'var(--gap1)' : 'var(--t4)' }}>
-                          {f.included ? '✓' : '—'}
-                        </span>
+                      <li key={fi} style={{ display: 'flex', alignItems: 'flex-start', gap: 9, fontSize: '0.8125rem', color: f.included ? L.t2 : L.t4, lineHeight: 1.5 }}>
+                        <span style={{
+                          width: 17, height: 17, borderRadius: 5, flexShrink: 0,
+                          display: 'flex', alignItems: 'center', justifyContent: 'center',
+                          fontSize: f.included ? '0.65rem' : '0.85rem', fontWeight: 800,
+                          background: f.included ? L.greenLt : L.bg2,
+                          color: f.included ? L.greenText : L.t4, marginTop: 1,
+                        }}>{f.included ? '✓' : '—'}</span>
                         {f.label}
                       </li>
                     ))}
                   </ul>
 
-                  <button
-                    onClick={() => navigate('#/audit')}
-                    className={`btn ${plan.ctaPrimary ? 'btn-primary' : 'btn-ghost'}`}
-                    style={{ width: '100%', justifyContent: 'center' }}
-                  >
-                    {plan.cta}
-                  </button>
-                  <p style={{ fontSize: '0.75rem', color: plan.noteGreen ? 'var(--gap1)' : 'var(--t4)', textAlign: 'center', marginTop: 12, lineHeight: 1.5 }}>
-                    {plan.note}
-                  </p>
+                  <button onClick={() => navigate('#/audit')} style={{
+                    display: 'block', width: '100%', padding: '13px 20px',
+                    borderRadius: 'var(--rd)', fontFamily: 'var(--fd)', fontSize: '0.9375rem',
+                    fontWeight: 800, textAlign: 'center', cursor: 'pointer',
+                    letterSpacing: '-0.01em', transition: 'all 0.2s',
+                    border: plan.ctaPrimary ? 'none' : `1.5px solid ${L.border}`,
+                    background: plan.ctaPrimary ? L.blue : L.bg2,
+                    color: plan.ctaPrimary ? '#fff' : L.t1,
+                    boxShadow: plan.ctaPrimary ? '0 4px 16px rgba(27,79,255,0.28)' : 'none',
+                  }}>{plan.cta}</button>
+                  <p style={{ fontSize: '0.68rem', color: plan.noteGreen ? L.greenText : L.t4, textAlign: 'center', marginTop: 9, lineHeight: 1.5, fontWeight: plan.noteGreen ? 600 : 400 }}>{plan.note}</p>
                 </motion.div>
               ))}
             </div>
@@ -281,57 +264,54 @@ export const PricingPage: React.FC = () => {
 
           {/* Trust strip */}
           <Reveal delay={0.2}>
-            <div style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
-              gap: '12px 32px',
-              marginTop: 40,
-            }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '12px 40px', marginTop: 32, paddingTop: 28, borderTop: `1px solid ${L.border}` }}>
               {['🔒 No long-term contracts', '⚡ Setup in 5–7 business days', '🇺🇸 US-based support team', '✓ Cancel anytime, no penalties'].map(item => (
-                <span key={item} style={{ fontSize: '0.875rem', color: 'var(--t3)' }}>{item}</span>
+                <span key={item} style={{ fontSize: '0.8rem', color: L.t3 }}>{item}</span>
               ))}
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* Comparison Table */}
-      <section className="section" style={{ background: 'var(--bg1)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+      {/* ═══ COMPARISON TABLE ═══ */}
+      <section style={{ background: L.bg2, padding: '64px 48px', borderTop: `1px solid ${L.border}` }}>
         <div className="wrap">
           <Reveal>
-            <div style={{ textAlign: 'center', marginBottom: 48 }}>
-              <div className="section-label" style={{ justifyContent: 'center' }}>Full Comparison</div>
-              <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)', letterSpacing: '-0.04em' }}>
+            <div style={{ textAlign: 'center', marginBottom: 44 }}>
+              <div className="section-label" style={{ justifyContent: 'center', color: L.blue2 }}>
+                <div style={{ width: 5, height: 5, borderRadius: '50%', background: L.blue2 }} />
+                Full Comparison
+              </div>
+              <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.75rem, 3vw, 2.4rem)', letterSpacing: '-0.04em', color: L.t1, lineHeight: 1.07 }}>
                 What's Included in Each Plan
               </h2>
             </div>
           </Reveal>
           <Reveal delay={0.1}>
             <div style={{ overflowX: 'auto' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
+              <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: 0, background: L.bg, borderRadius: 'var(--rl)', overflow: 'hidden', boxShadow: '0 2px 16px rgba(15,23,42,0.06)', fontSize: '0.875rem' }}>
                 <thead>
-                  <tr style={{ borderBottom: '2px solid var(--border)' }}>
-                    <th style={{ textAlign: 'left', padding: '12px 16px', color: 'var(--t3)', fontWeight: 600, width: '40%' }}>Feature</th>
-                    <th style={{ textAlign: 'center', padding: '12px 16px', color: 'var(--t2)', fontWeight: 800, fontFamily: 'var(--fd)' }}>Visibility</th>
-                    <th style={{ textAlign: 'center', padding: '12px 16px', color: 'var(--blue3)', fontWeight: 800, fontFamily: 'var(--fd)', background: 'rgba(27,79,255,0.06)' }}>Growth</th>
-                    <th style={{ textAlign: 'center', padding: '12px 16px', color: 'var(--t2)', fontWeight: 800, fontFamily: 'var(--fd)' }}>Dominate</th>
+                  <tr>
+                    <th style={{ textAlign: 'left', padding: '16px 20px', color: L.t3, fontWeight: 500, fontSize: '0.74rem', borderBottom: `2px solid ${L.border}`, width: '38%' }}>Feature</th>
+                    <th style={{ textAlign: 'center', padding: '16px 20px', fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '0.8125rem', color: L.t1, borderBottom: `2px solid ${L.border}` }}>Visibility</th>
+                    <th style={{ textAlign: 'center', padding: '16px 20px', fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '0.8125rem', color: L.blue, background: L.blueLt, borderBottom: `2px solid ${L.border}` }}>Growth</th>
+                    <th style={{ textAlign: 'center', padding: '16px 20px', fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '0.8125rem', color: L.t1, borderBottom: `2px solid ${L.border}` }}>Dominate</th>
                   </tr>
                 </thead>
                 <tbody>
                   {TABLE_ROWS.map(section => (
                     <React.Fragment key={section.group}>
-                      <tr style={{ background: 'var(--bg2)' }}>
-                        <td colSpan={4} style={{ padding: '10px 16px', fontSize: '0.6875rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--t4)' }}>
+                      <tr>
+                        <td colSpan={4} style={{ padding: '12px 20px 5px', fontSize: '0.58rem', fontWeight: 800, letterSpacing: '0.16em', textTransform: 'uppercase', color: L.t4, background: L.bg2, borderTop: `1px solid ${L.border}` }}>
                           {section.group}
                         </td>
                       </tr>
                       {section.rows.map((row, ri) => (
-                        <tr key={ri} style={{ borderBottom: '1px solid var(--border)' }}>
-                          <td style={{ padding: '11px 16px', color: 'var(--t2)' }}>{row.feat}</td>
-                          <td style={{ padding: '11px 16px', textAlign: 'center' }}><CellIcon val={row.v} /></td>
-                          <td style={{ padding: '11px 16px', textAlign: 'center', background: 'rgba(27,79,255,0.04)' }}><CellIcon val={row.g} /></td>
-                          <td style={{ padding: '11px 16px', textAlign: 'center' }}><CellIcon val={row.d} /></td>
+                        <tr key={ri}>
+                          <td style={{ padding: '11px 20px', color: L.t1, fontWeight: 500, borderBottom: `1px solid ${L.border}` }}>{row.feat}</td>
+                          <td style={{ padding: '11px 20px', textAlign: 'center', borderBottom: `1px solid ${L.border}` }}><CellIcon val={row.v} /></td>
+                          <td style={{ padding: '11px 20px', textAlign: 'center', background: 'rgba(27,79,255,0.03)', borderBottom: `1px solid ${L.border}` }}><CellIcon val={row.g} /></td>
+                          <td style={{ padding: '11px 20px', textAlign: 'center', borderBottom: `1px solid ${L.border}` }}><CellIcon val={row.d} /></td>
                         </tr>
                       ))}
                     </React.Fragment>
@@ -343,50 +323,54 @@ export const PricingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Add-ons */}
-      <section className="section">
+      {/* ═══ ADD-ONS ═══ */}
+      <section style={{ background: L.bg, padding: '64px 48px', borderTop: `1px solid ${L.border}` }}>
         <div className="wrap">
           <Reveal>
-            <div style={{ textAlign: 'center', marginBottom: 48 }}>
-              <div className="section-label" style={{ justifyContent: 'center' }}>Optional Add-Ons</div>
-              <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)', letterSpacing: '-0.04em' }}>
+            <div style={{ textAlign: 'center', marginBottom: 44 }}>
+              <div className="section-label" style={{ justifyContent: 'center', color: L.blue2 }}>
+                <div style={{ width: 5, height: 5, borderRadius: '50%', background: L.blue2 }} />
+                Optional Add-Ons
+              </div>
+              <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.75rem, 3vw, 2.4rem)', letterSpacing: '-0.04em', color: L.t1, lineHeight: 1.07 }}>
                 Build Your Own Stack
               </h2>
-              <p style={{ color: 'var(--t3)', marginTop: 12 }}>Add individual modules to any plan. Pay only for what you need.</p>
+              <p style={{ color: L.t2, marginTop: 12 }}>Add individual modules to any plan. Pay only for what you need.</p>
             </div>
           </Reveal>
           <Stagger>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }} className="addons-grid">
               {[
-                { icon: '📍', name: 'Additional Location', tag: 'Multi-location coverage', body: 'Full eighty5.OS for each additional business location — separate GBP, reviews AI, Voice AI, and reporting.', price: '$297 /mo per location' },
-                { icon: '✍️', name: 'Content Accelerator', tag: '4× content output', body: 'Daily GBP posts, expanded FAQ library, blog articles, and monthly AI search authority pieces to dominate answer engines.', price: '$197 /mo' },
-                { icon: '🔁', name: 'Re-engagement Campaigns', tag: 'Reactivate past customers', body: 'Automated past-customer outreach, seasonal campaigns, win-back sequences, and referral triggers to re-monetize your list.', price: '$147 /mo' },
+                { icon: '📍', name: 'Additional Location', tag: 'Multi-location coverage', body: 'Full eighty5.OS for each additional business location — separate GBP, reviews AI, Voice AI, and reporting.', price: '$297', per: '/mo per location' },
+                { icon: '✍️', name: 'Content Accelerator', tag: '4× content output', body: 'Daily GBP posts, expanded FAQ library, blog articles, and monthly AI search authority pieces to dominate answer engines.', price: '$197', per: '/mo' },
+                { icon: '🔁', name: 'Re-engagement Campaigns', tag: 'Reactivate past customers', body: 'Automated past-customer outreach, seasonal campaigns, win-back sequences, and referral triggers to re-monetize your list.', price: '$147', per: '/mo' },
               ].map(addon => (
-                <div key={addon.name} style={{
-                  background: 'var(--bg1)',
-                  border: '1.5px solid var(--border)',
-                  borderRadius: 'var(--rdl)',
-                  padding: 28,
-                }}>
-                  <div style={{ fontSize: '1.75rem', marginBottom: 14 }}>{addon.icon}</div>
-                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.0625rem', marginBottom: 6 }}>{addon.name}</div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--blue3)', fontWeight: 600, marginBottom: 12 }}>{addon.tag}</div>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--t3)', lineHeight: 1.65, marginBottom: 16 }}>{addon.body}</p>
-                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.25rem', color: 'var(--t1)' }}>{addon.price}</div>
-                </div>
+                <motion.div key={addon.name} whileHover={{ y: -2 }} transition={{ duration: 0.2 }}
+                  style={{ background: L.bg2, border: `1.5px solid ${L.border}`, borderRadius: 'var(--rl)', padding: '26px 24px', transition: 'all 0.2s' }}>
+                  <div style={{ fontSize: '1.25rem', marginBottom: 13 }}>{addon.icon}</div>
+                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '0.975rem', color: L.t1, marginBottom: 3, letterSpacing: '-0.02em' }}>{addon.name}</div>
+                  <div style={{ fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: L.blue2, marginBottom: 9 }}>{addon.tag}</div>
+                  <p style={{ fontSize: '0.8125rem', color: L.t2, lineHeight: 1.75, marginBottom: 16 }}>{addon.body}</p>
+                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.1rem', color: L.t1 }}>
+                    {addon.price}<span style={{ fontSize: '0.78rem', color: L.t4, fontWeight: 400 }}>{addon.per}</span>
+                  </div>
+                </motion.div>
               ))}
             </div>
           </Stagger>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="section" style={{ background: 'var(--bg1)', borderTop: '1px solid var(--border)' }}>
-        <div className="wrap" style={{ maxWidth: 720, marginInline: 'auto' }}>
+      {/* ═══ FAQ ═══ */}
+      <section style={{ background: L.bg2, padding: '64px 48px', borderTop: `1px solid ${L.border}` }}>
+        <div style={{ maxWidth: 780, marginInline: 'auto' }}>
           <Reveal>
-            <div style={{ textAlign: 'center', marginBottom: 48 }}>
-              <div className="section-label" style={{ justifyContent: 'center' }}>FAQ</div>
-              <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)', letterSpacing: '-0.04em' }}>
+            <div style={{ textAlign: 'center', marginBottom: 44 }}>
+              <div className="section-label" style={{ justifyContent: 'center', color: L.blue2 }}>
+                <div style={{ width: 5, height: 5, borderRadius: '50%', background: L.blue2 }} />
+                Frequently Asked Questions
+              </div>
+              <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.75rem, 3vw, 2.4rem)', letterSpacing: '-0.04em', color: L.t1, lineHeight: 1.07 }}>
                 Pricing Questions
               </h2>
             </div>
@@ -394,49 +378,23 @@ export const PricingPage: React.FC = () => {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             {FAQS.map((faq, i) => (
               <Reveal key={i} delay={i * 0.04}>
-                <div style={{
-                  background: 'var(--bg2)',
-                  border: '1.5px solid var(--border)',
-                  borderRadius: 'var(--rd)',
-                  overflow: 'hidden',
-                }}>
-                  <button
-                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                    style={{
-                      width: '100%',
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                      padding: '16px 20px',
-                      background: 'none',
-                      border: 'none',
-                      color: 'var(--t1)',
-                      textAlign: 'left',
-                      cursor: 'pointer',
-                      fontFamily: 'var(--fd)',
-                      fontWeight: 700,
-                      fontSize: '0.9375rem',
-                    }}
-                  >
+                <div style={{ border: `1px solid ${L.border}`, borderRadius: 'var(--rd)', overflow: 'hidden', background: L.bg, transition: 'border-color 0.2s' }}>
+                  <button onClick={() => setOpenFaq(openFaq === i ? null : i)} style={{
+                    width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                    padding: '18px 22px', background: 'none', border: 'none', color: L.t1,
+                    textAlign: 'left', cursor: 'pointer', fontFamily: 'var(--fd)',
+                    fontWeight: 700, fontSize: '0.9375rem', letterSpacing: '-0.015em', gap: 16,
+                  }}>
                     {faq.q}
-                    <motion.span
-                      animate={{ rotate: openFaq === i ? 45 : 0 }}
-                      transition={{ duration: 0.2 }}
-                      style={{ fontSize: '1.25rem', flexShrink: 0, marginLeft: 12, color: 'var(--t3)' }}
-                    >
-                      +
-                    </motion.span>
+                    <motion.span animate={{ rotate: openFaq === i ? 45 : 0 }} transition={{ duration: 0.2 }}
+                      style={{ fontSize: '1.25rem', flexShrink: 0, color: L.blue2, fontWeight: 300 }}>+</motion.span>
                   </button>
                   <AnimatePresence initial={false}>
                     {openFaq === i && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.25, ease: 'easeInOut' }}
-                        style={{ overflow: 'hidden' }}
-                      >
-                        <p style={{ padding: '0 20px 18px', color: 'var(--t3)', fontSize: '0.9rem', lineHeight: 1.7 }}>{faq.a}</p>
+                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25, ease: 'easeInOut' }}
+                        style={{ overflow: 'hidden' }}>
+                        <p style={{ padding: '0 22px 18px', color: L.t2, fontSize: '0.875rem', lineHeight: 1.8 }}>{faq.a}</p>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -447,18 +405,12 @@ export const PricingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section">
+      {/* ═══ CTA ═══ */}
+      <section style={{ background: 'var(--bg1)', padding: 'clamp(60px, 8vw, 100px) 48px' }}>
         <div className="wrap">
           <Reveal>
-            <div style={{
-              background: 'linear-gradient(135deg, var(--bg2) 0%, rgba(27,79,255,0.08) 100%)',
-              border: '1.5px solid var(--blue-border)',
-              borderRadius: 'var(--rdxl)',
-              padding: 'clamp(40px, 6vw, 72px)',
-              textAlign: 'center',
-            }}>
-              <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.04em', marginBottom: 16 }}>
+            <div style={{ textAlign: 'center' }}>
+              <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.04em', color: 'var(--t1)', marginBottom: 14 }}>
                 Ready to Close All Three Gaps?
               </h2>
               <p style={{ color: 'var(--t3)', lineHeight: 1.65, marginBottom: 32, fontSize: '1.0625rem', maxWidth: '45ch', marginInline: 'auto' }}>

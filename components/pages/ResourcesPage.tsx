@@ -71,20 +71,20 @@ export default function ResourcesPage() {
   }, [activeTopic, search]);
 
   return (
-    <div style={{ paddingTop: 'var(--nav-h)', paddingBottom: 80 }}>
+    <div style={{ paddingTop: 'var(--nav-h)', paddingBottom: 80, background: '#FFFFFF', color: '#0F172A' }}>
 
       {/* Hero */}
-      <section style={{ padding: 'clamp(48px,5vw,80px) 0 40px', background: 'var(--bg1)', borderBottom: '1px solid var(--border)' }}>
+      <section style={{ padding: 'clamp(48px,5vw,80px) 0 40px', background: '#F7F9FF', borderBottom: '1px solid #DDE5F2' }}>
         <div className="wrap" style={{ maxWidth: 700, textAlign: 'center' }}>
           <Reveal>
-            <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--blue)', marginBottom: 12 }}>Resources</p>
-            <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--t1)', marginBottom: 16 }}>
+            <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#1B4FFF', marginBottom: 12 }}>Resources</p>
+            <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>
               Everything You Need to<br />Win in Local Search
             </h1>
-            <p style={{ color: 'var(--t3)', fontSize: '1rem', lineHeight: 1.7, marginBottom: 24 }}>
+            <p style={{ color: '#64748B', fontSize: '1rem', lineHeight: 1.7, marginBottom: 24 }}>
               Guides, tools, glossaries, case studies, and playbooks — built for local service businesses navigating AI search, Google Maps, and reputation management.
             </p>
-            <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap', fontSize: '0.8125rem', color: 'var(--t4)' }}>
+            <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap', fontSize: '0.8125rem', color: '#94A3B8' }}>
               <span>Last updated: February 25, 2026</span>
               <span>·</span>
               <span>20 resources · Actively maintained</span>
@@ -94,13 +94,13 @@ export default function ResourcesPage() {
       </section>
 
       {/* Featured */}
-      <section style={{ padding: 'clamp(32px,3vw,48px) 0', background: 'linear-gradient(135deg, rgba(27,79,255,0.06) 0%, rgba(167,139,250,0.04) 100%)', borderBottom: '1px solid var(--border)' }}>
+      <section style={{ padding: 'clamp(32px,3vw,48px) 0', background: 'linear-gradient(135deg, rgba(27,79,255,0.06) 0%, rgba(167,139,250,0.04) 100%)', borderBottom: '1px solid #DDE5F2' }}>
         <div className="wrap">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: 32, alignItems: 'center' }}>
             <div>
-              <span style={{ display: 'inline-block', background: 'rgba(27,79,255,0.1)', color: 'var(--blue)', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '4px 10px', borderRadius: 6, marginBottom: 12 }}>⚡ Featured Resource</span>
-              <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', fontWeight: 900, letterSpacing: '-0.03em', color: 'var(--t1)', marginBottom: 12 }}>{FEATURED.title}</h2>
-              <p style={{ color: 'var(--t3)', lineHeight: 1.7, marginBottom: 20, fontSize: '0.9375rem' }}>{FEATURED.desc}</p>
+              <span style={{ display: 'inline-block', background: 'rgba(27,79,255,0.1)', color: '#1B4FFF', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '4px 10px', borderRadius: 6, marginBottom: 12 }}>⚡ Featured Resource</span>
+              <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', fontWeight: 900, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 12 }}>{FEATURED.title}</h2>
+              <p style={{ color: '#64748B', lineHeight: 1.7, marginBottom: 20, fontSize: '0.9375rem' }}>{FEATURED.desc}</p>
               <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} className="btn btn-primary">
                 {FEATURED.cta}
               </motion.button>
@@ -111,9 +111,9 @@ export default function ResourcesPage() {
                 { val: '4.2×', label: 'more likely to be recommended in AI search with optimized GBP + content' },
                 { val: '$1,200', label: 'average monthly revenue recovered from missed calls alone' },
               ].map(s => (
-                <div key={s.val} style={{ textAlign: 'center', padding: '16px 12px', background: 'var(--bg1)', border: '1px solid var(--border)', borderRadius: 12 }}>
-                  <p style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.5rem', color: 'var(--blue)', letterSpacing: '-0.03em', marginBottom: 6 }}>{s.val}</p>
-                  <p style={{ fontSize: '0.7rem', color: 'var(--t4)', lineHeight: 1.4 }}>{s.label}</p>
+                <div key={s.val} style={{ textAlign: 'center', padding: '16px 12px', background: '#F7F9FF', border: '1px solid #DDE5F2', borderRadius: 12 }}>
+                  <p style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.5rem', color: '#1B4FFF', letterSpacing: '-0.03em', marginBottom: 6 }}>{s.val}</p>
+                  <p style={{ fontSize: '0.7rem', color: '#94A3B8', lineHeight: 1.4 }}>{s.label}</p>
                 </div>
               ))}
             </div>
@@ -122,22 +122,22 @@ export default function ResourcesPage() {
       </section>
 
       {/* Filter + Search */}
-      <section style={{ padding: '32px 0 0', position: 'sticky', top: 'var(--nav-h)', zIndex: 10, background: 'var(--bg1)', borderBottom: '1px solid var(--border)' }}>
+      <section style={{ padding: '32px 0 0', position: 'sticky', top: 'var(--nav-h)', zIndex: 10, background: '#F7F9FF', borderBottom: '1px solid #DDE5F2' }}>
         <div className="wrap">
           <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 16, flexWrap: 'wrap' }}>
             <input
               value={search} onChange={e => setSearch(e.target.value)}
               placeholder="Search resources..."
-              style={{ flex: '1 1 200px', minWidth: 160, maxWidth: 280, padding: '8px 14px', border: '1.5px solid var(--border)', borderRadius: 8, background: 'var(--bg2)', color: 'var(--t1)', fontSize: '0.875rem', outline: 'none' }}
+              style={{ flex: '1 1 200px', minWidth: 160, maxWidth: 280, padding: '8px 14px', border: '1.5px solid #DDE5F2', borderRadius: 8, background: '#F7F9FF', color: '#0F172A', fontSize: '0.875rem', outline: 'none' }}
             />
             {search && (
-              <button onClick={() => setSearch('')} style={{ background: 'none', border: 'none', color: 'var(--t4)', cursor: 'pointer', fontSize: '0.875rem' }}>✕ Clear</button>
+              <button onClick={() => setSearch('')} style={{ background: 'none', border: 'none', color: '#94A3B8', cursor: 'pointer', fontSize: '0.875rem' }}>✕ Clear</button>
             )}
           </div>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', paddingBottom: 16, overflowX: 'auto' }}>
             {TOPICS.map(t => (
               <button key={t} onClick={() => setActiveTopic(t)}
-                style={{ padding: '5px 14px', borderRadius: 20, border: '1.5px solid', borderColor: activeTopic === t ? 'var(--blue)' : 'var(--border)', background: activeTopic === t ? 'rgba(27,79,255,0.1)' : 'transparent', color: activeTopic === t ? 'var(--blue)' : 'var(--t4)', fontSize: '0.8rem', fontWeight: activeTopic === t ? 700 : 400, cursor: 'pointer', whiteSpace: 'nowrap', transition: 'all 0.15s' }}>
+                style={{ padding: '5px 14px', borderRadius: 20, border: '1.5px solid', borderColor: activeTopic === t ? '#1B4FFF' : '#DDE5F2', background: activeTopic === t ? 'rgba(27,79,255,0.1)' : 'transparent', color: activeTopic === t ? '#1B4FFF' : '#94A3B8', fontSize: '0.8rem', fontWeight: activeTopic === t ? 700 : 400, cursor: 'pointer', whiteSpace: 'nowrap', transition: 'all 0.15s' }}>
                 {t}
               </button>
             ))}
@@ -149,7 +149,7 @@ export default function ResourcesPage() {
       <section style={{ padding: 'clamp(32px,3vw,48px) 0' }}>
         <div className="wrap">
           {filtered.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '60px 0', color: 'var(--t4)' }}>
+            <div style={{ textAlign: 'center', padding: '60px 0', color: '#94A3B8' }}>
               <p style={{ fontSize: '1rem', marginBottom: 8 }}>No resources found</p>
               <p>Try a different search term or browse all topics.</p>
             </div>
@@ -158,19 +158,19 @@ export default function ResourcesPage() {
               <motion.div layout style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(300px,1fr))', gap: 20 }}>
                 {filtered.map(r => (
                   <motion.div key={r.title} layout initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.2 }}
-                    style={{ padding: '22px 24px', background: 'var(--bg1)', border: '1.5px solid var(--border)', borderRadius: 14, display: 'flex', flexDirection: 'column', gap: 10, transition: 'border-color 0.2s, box-shadow 0.2s', cursor: 'default' }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = TYPE_COLOR[r.type] || 'var(--blue)'; (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 20px ${TYPE_COLOR[r.type]}20`; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border)'; (e.currentTarget as HTMLElement).style.boxShadow = 'none'; }}>
+                    style={{ padding: '22px 24px', background: '#F7F9FF', border: '1.5px solid #DDE5F2', borderRadius: 14, display: 'flex', flexDirection: 'column', gap: 10, transition: 'border-color 0.2s, box-shadow 0.2s', cursor: 'default' }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = TYPE_COLOR[r.type] || '#1B4FFF'; (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 20px ${TYPE_COLOR[r.type]}20`; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = '#DDE5F2'; (e.currentTarget as HTMLElement).style.boxShadow = 'none'; }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: TYPE_COLOR[r.type] || 'var(--blue)', background: `${TYPE_COLOR[r.type] || '#1B4FFF'}14`, padding: '3px 8px', borderRadius: 5 }}>{r.type}</span>
-                      {r.interactive && <span style={{ fontSize: '0.68rem', color: 'var(--t4)', background: 'var(--bg2)', border: '1px solid var(--border)', borderRadius: 4, padding: '2px 7px' }}>Interactive</span>}
+                      <span style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: TYPE_COLOR[r.type] || '#1B4FFF', background: `${TYPE_COLOR[r.type] || '#1B4FFF'}14`, padding: '3px 8px', borderRadius: 5 }}>{r.type}</span>
+                      {r.interactive && <span style={{ fontSize: '0.68rem', color: '#94A3B8', background: '#F7F9FF', border: '1px solid #DDE5F2', borderRadius: 4, padding: '2px 7px' }}>Interactive</span>}
                     </div>
-                    <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.9375rem', color: 'var(--t1)', lineHeight: 1.35, letterSpacing: '-0.01em' }}>{r.title}</h3>
-                    <p style={{ fontSize: '0.8375rem', color: 'var(--t3)', lineHeight: 1.6, flex: 1 }}>{r.desc}</p>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 8, borderTop: '1px solid var(--border)' }}>
-                      <span style={{ fontSize: '0.75rem', color: 'var(--t4)' }}>{r.meta}</span>
+                    <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.9375rem', color: '#0F172A', lineHeight: 1.35, letterSpacing: '-0.01em' }}>{r.title}</h3>
+                    <p style={{ fontSize: '0.8375rem', color: '#64748B', lineHeight: 1.6, flex: 1 }}>{r.desc}</p>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 8, borderTop: '1px solid #DDE5F2' }}>
+                      <span style={{ fontSize: '0.75rem', color: '#94A3B8' }}>{r.meta}</span>
                       <button onClick={() => r.topic === 'Glossary' ? navigate('#/glossary') : r.interactive ? navigate('#/audit') : undefined}
-                        style={{ background: 'none', border: 'none', color: TYPE_COLOR[r.type] || 'var(--blue)', fontSize: '0.8125rem', fontWeight: 700, cursor: 'pointer', padding: 0 }}>
+                        style={{ background: 'none', border: 'none', color: TYPE_COLOR[r.type] || '#1B4FFF', fontSize: '0.8125rem', fontWeight: 700, cursor: 'pointer', padding: 0 }}>
                         {r.cta}
                       </button>
                     </div>
@@ -183,15 +183,15 @@ export default function ResourcesPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section style={{ padding: 'clamp(48px,5vw,72px) 0', background: 'var(--bg1)', borderTop: '1px solid var(--border)' }}>
+      <section style={{ padding: 'clamp(48px,5vw,72px) 0', background: '#F7F9FF', borderTop: '1px solid #DDE5F2' }}>
         <div className="wrap" style={{ maxWidth: 560, textAlign: 'center' }}>
           <Reveal>
-            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.125rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--t1)', marginBottom: 14 }}>Ready to Put This Into Practice?</h2>
-            <p style={{ color: 'var(--t3)', marginBottom: 28, lineHeight: 1.7 }}>Get a free AI Visibility Audit and see exactly where your business is leaking revenue — and what to fix first.</p>
+            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.125rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 14 }}>Ready to Put This Into Practice?</h2>
+            <p style={{ color: '#64748B', marginBottom: 28, lineHeight: 1.7 }}>Get a free AI Visibility Audit and see exactly where your business is leaking revenue — and what to fix first.</p>
             <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')} className="btn btn-primary">
               Get Your Free Audit →
             </motion.button>
-            <p style={{ marginTop: 14, fontSize: '0.8125rem', color: 'var(--t4)' }}>No contracts · No credit card · Results in 48 hours</p>
+            <p style={{ marginTop: 14, fontSize: '0.8125rem', color: '#94A3B8' }}>No contracts · No credit card · Results in 48 hours</p>
           </Reveal>
         </div>
       </section>

@@ -2,38 +2,38 @@ import React from 'react';
 import { navigate } from '../../router';
 
 const SectionTitle: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <h2 style={{ fontSize: 'clamp(1.125rem, 2vw, 1.375rem)', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--t1)', marginTop: 40, marginBottom: 16 }}>{children}</h2>
+  <h2 style={{ fontSize: 'clamp(1.125rem, 2vw, 1.375rem)', fontWeight: 800, letterSpacing: '-0.02em', color: '#0F172A', marginTop: 40, marginBottom: 16 }}>{children}</h2>
 );
 
 const SubSection: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
   <div style={{ marginTop: 24 }}>
-    <h3 style={{ fontSize: '1.0625rem', fontWeight: 700, color: 'var(--t1)', marginBottom: 12 }}>{title}</h3>
+    <h3 style={{ fontSize: '1.0625rem', fontWeight: 700, color: '#0F172A', marginBottom: 12 }}>{title}</h3>
     {children}
   </div>
 );
 
-const p: React.CSSProperties = { color: 'var(--t2)', lineHeight: 1.7, marginBottom: 12 };
-const ul: React.CSSProperties = { paddingLeft: 24, color: 'var(--t2)', lineHeight: 1.7, marginBottom: 12 };
-const link: React.CSSProperties = { color: 'var(--blue3)', textDecoration: 'none' };
+const p: React.CSSProperties = { color: '#334155', lineHeight: 1.7, marginBottom: 12 };
+const ul: React.CSSProperties = { paddingLeft: 24, color: '#334155', lineHeight: 1.7, marginBottom: 12 };
+const link: React.CSSProperties = { color: '#4F8EF7', textDecoration: 'none' };
 
 export const TermsPage: React.FC = () => (
-  <div style={{ minHeight: '100vh', background: 'var(--bg0)', padding: 'calc(var(--nav-h) + 48px) 16px 96px' }}>
+  <div style={{ minHeight: '100vh', background: '#FFFFFF', padding: 'calc(var(--nav-h) + 48px) 16px 96px' }}>
     <div style={{ maxWidth: 768, marginInline: 'auto' }}>
 
       {/* Header */}
       <div style={{ marginBottom: 48 }}>
         <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{
           display: 'inline-block', fontSize: '0.8125rem', fontWeight: 600,
-          color: 'var(--t3)', textDecoration: 'none', marginBottom: 32,
+          color: '#64748B', textDecoration: 'none', marginBottom: 32,
         }}>
-          ← Back to eighty<span style={{ color: 'var(--blue3)' }}>5</span>labs
+          ← Back to eighty<span style={{ color: '#4F8EF7' }}>5</span>labs
         </a>
-        <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 900, letterSpacing: '-0.05em', color: 'var(--t1)', marginBottom: 16 }}>Terms and Conditions</h1>
-        <p style={{ fontSize: '0.875rem', color: 'var(--t3)', fontWeight: 500 }}>Last Updated: January 28, 2026</p>
+        <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 900, letterSpacing: '-0.05em', color: '#0F172A', marginBottom: 16 }}>Terms and Conditions</h1>
+        <p style={{ fontSize: '0.875rem', color: '#64748B', fontWeight: 500 }}>Last Updated: January 28, 2026</p>
       </div>
 
       {/* Content Card */}
-      <div style={{ background: 'var(--bg1)', borderRadius: 16, border: '1px solid var(--border)', padding: 'clamp(32px, 5vw, 48px)' }}>
+      <div style={{ background: '#F7F9FF', borderRadius: 16, border: '1px solid #DDE5F2', padding: 'clamp(32px, 5vw, 48px)' }}>
 
         <p style={p}>
           These Terms and Conditions ("Terms," "Agreement," or "T&C") govern your use of the website eighty5labs.com (the "Website") and all services, products, and content offered by Eighty5 Labs, a DBA of Aida LLC ("Company," "we," "us," or "our").
@@ -111,11 +111,11 @@ export const TermsPage: React.FC = () => (
         </SubSection>
 
         <SubSection title="2.5 Message and Data Rates">
-          <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 8, padding: 16 }}>
-            <p style={{ color: 'var(--t2)', fontWeight: 600, marginBottom: 8 }}>
+          <div style={{ background: 'var(--surface)', border: '1px solid #DDE5F2', borderRadius: 8, padding: 16 }}>
+            <p style={{ color: '#334155', fontWeight: 600, marginBottom: 8 }}>
               IMPORTANT NOTICE: Message and data rates may apply. Standard messaging rates charged by your wireless carrier will apply to all SMS messages you send to and receive from us. Eighty5 Labs is not responsible for any charges imposed by your wireless carrier.
             </p>
-            <p style={{ color: 'var(--t2)', lineHeight: 1.7, margin: 0 }}>
+            <p style={{ color: '#334155', lineHeight: 1.7, margin: 0 }}>
               Please review your wireless carrier's messaging plan to understand potential charges. Contact your carrier if you have questions about your rate plan or messaging costs.
             </p>
           </div>
@@ -323,8 +323,8 @@ export const TermsPage: React.FC = () => (
 
         <SectionTitle>16. Contact Us</SectionTitle>
         <p style={p}>If you have questions about these Terms and Conditions, need clarification, or wish to report a violation, please contact us:</p>
-        <div style={{ background: 'var(--surface)', borderRadius: 8, padding: 24, border: '1px solid var(--border)' }}>
-          <p style={{ fontWeight: 700, color: 'var(--t1)', marginBottom: 8 }}>Eighty5 Labs (Aida LLC)</p>
+        <div style={{ background: 'var(--surface)', borderRadius: 8, padding: 24, border: '1px solid #DDE5F2' }}>
+          <p style={{ fontWeight: 700, color: '#0F172A', marginBottom: 8 }}>Eighty5 Labs (Aida LLC)</p>
           <ul style={{ ...ul, listStyle: 'none', paddingLeft: 0, marginBottom: 0 }}>
             <li>Email: <a href="mailto:bri@eighty5labs.com" style={link}>bri@eighty5labs.com</a></li>
             <li>Phone: <a href="tel:5037043755" style={link}>503-704-3755</a></li>
@@ -340,7 +340,7 @@ export const TermsPage: React.FC = () => (
 
       {/* Footer links */}
       <div style={{ marginTop: 32, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
-        <a href="#/privacy" onClick={e => { e.preventDefault(); navigate('#/privacy'); }} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: '0.875rem', fontWeight: 600, color: 'var(--blue3)', textDecoration: 'none' }}>
+        <a href="#/privacy" onClick={e => { e.preventDefault(); navigate('#/privacy'); }} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: '0.875rem', fontWeight: 600, color: '#4F8EF7', textDecoration: 'none' }}>
           View our Privacy Policy
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>

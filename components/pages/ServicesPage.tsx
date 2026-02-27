@@ -6,6 +6,14 @@ import { navigate } from '../../router';
 const GAP_COLORS: Record<number, string> = { 1: '#10B981', 2: '#1B4FFF', 3: '#A78BFA' };
 const GAP_LABELS: Record<number, string> = { 1: 'Gap 1 — Visibility', 2: 'Gap 2 — Reputation', 3: 'Gap 3 — Conversion' };
 
+/* V2 light tokens */
+const L = {
+  bg: '#FFFFFF', bg2: '#F7F9FF',
+  border: '#DDE5F2', blueBorder: '#C7D9FF',
+  t1: '#0F172A', t2: '#334155', t3: '#64748B', t4: '#94A3B8',
+  blue: '#1B4FFF', blue2: '#4F8EF7',
+};
+
 const SERVICES = [
   {
     id: 'content', gap: 1,
@@ -129,24 +137,24 @@ export const ServicesPage: React.FC = () => {
   const color = GAP_COLORS[svc.gap];
 
   return (
-    <div style={{ paddingTop: 'var(--nav-h)', paddingBottom: 80 }}>
+    <div style={{ paddingTop: 'var(--nav-h)', paddingBottom: 80, background: L.bg, color: L.t1 }}>
 
       {/* Hero */}
       <section style={{ padding: 'clamp(48px,6vw,80px) 0 40px', textAlign: 'center' }}>
         <div className="wrap">
           <Reveal>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: 'var(--blue)', marginBottom: 20 }}>
-              <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--blue)', display: 'inline-block' }} />
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: L.blue2, marginBottom: 20 }}>
+              <span style={{ width: 6, height: 6, borderRadius: '50%', background: L.blue2, display: 'inline-block' }} />
               The Platform
             </span>
           </Reveal>
           <Reveal delay={0.08}>
-            <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1.1, color: 'var(--t1)', marginBottom: 20 }}>
+            <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1.1, color: L.t1, marginBottom: 20 }}>
               Six AI Systems.<br />Every Gap Closed.
             </h1>
           </Reveal>
           <Reveal delay={0.14}>
-            <p style={{ fontSize: 'clamp(1rem,1.5vw,1.125rem)', color: 'var(--t3)', maxWidth: 600, margin: '0 auto', lineHeight: 1.7 }}>
+            <p style={{ fontSize: 'clamp(1rem,1.5vw,1.125rem)', color: L.t3, maxWidth: 600, margin: '0 auto', lineHeight: 1.7 }}>
               eighty5.OS is built from six purpose-built AI systems — each targeting a specific revenue leak. Together, they make sure you get found, get chosen, and never lose a lead.
             </p>
           </Reveal>
@@ -154,7 +162,7 @@ export const ServicesPage: React.FC = () => {
       </section>
 
       {/* Sticky Tab Nav */}
-      <div style={{ position: 'sticky', top: 'var(--nav-h)', zIndex: 40, background: 'var(--bg0)', borderBottom: '1px solid var(--border)' }}>
+      <div style={{ position: 'sticky', top: 'var(--nav-h)', zIndex: 40, background: L.bg, borderBottom: `1px solid ${L.border}`, boxShadow: '0 2px 8px rgba(15,23,42,0.04)' }}>
         <div className="wrap">
           <div style={{ display: 'flex', gap: 4, overflowX: 'auto', padding: '12px 0', scrollbarWidth: 'none' as const }}>
             {SERVICES.map(s => {
@@ -162,7 +170,7 @@ export const ServicesPage: React.FC = () => {
               const c = GAP_COLORS[s.gap];
               return (
                 <motion.button key={s.id} onClick={() => setActiveTab(s.id)} whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }}
-                  style={{ fontFamily: 'var(--fd)', fontSize: '0.8125rem', fontWeight: 800, padding: '8px 16px', borderRadius: 8, border: ac ? `1.5px solid ${c}` : '1.5px solid var(--border)', background: ac ? `${c}18` : 'transparent', color: ac ? c : 'var(--t3)', cursor: 'pointer', whiteSpace: 'nowrap' as const, transition: 'all 0.18s ease' }}>
+                  style={{ fontFamily: 'var(--fd)', fontSize: '0.8125rem', fontWeight: 800, padding: '8px 16px', borderRadius: 8, border: ac ? `1.5px solid ${c}` : `1.5px solid ${L.border}`, background: ac ? `${c}12` : 'transparent', color: ac ? c : L.t3, cursor: 'pointer', whiteSpace: 'nowrap' as const, transition: 'all 0.18s ease' }}>
                   {s.name}
                 </motion.button>
               );
@@ -178,27 +186,27 @@ export const ServicesPage: React.FC = () => {
             <motion.div key={svc.id} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.25 }}>
 
               {/* Header card */}
-              <div style={{ padding: 'clamp(28px,4vw,40px)', background: 'var(--bg1)', border: '1.5px solid var(--border)', borderRadius: 'var(--rdl)', marginBottom: 3 }}>
-                <span style={{ display: 'inline-block', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color, background: `${color}18`, border: `1px solid ${color}40`, borderRadius: 6, padding: '4px 10px', marginBottom: 16 }}>
+              <div style={{ padding: 'clamp(28px,4vw,40px)', background: L.bg2, border: `1.5px solid ${L.border}`, borderRadius: 'var(--rdl)', marginBottom: 3 }}>
+                <span style={{ display: 'inline-block', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color, background: `${color}12`, border: `1px solid ${color}30`, borderRadius: 6, padding: '4px 10px', marginBottom: 16 }}>
                   Closes {GAP_LABELS[svc.gap]}
                 </span>
-                <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,2.5vw,2rem)', fontWeight: 900, letterSpacing: '-0.03em', color: 'var(--t1)', marginBottom: 12 }}>{svc.name}</h2>
-                <p style={{ fontSize: '1.0625rem', color: 'var(--t2)', fontWeight: 500, marginBottom: 20, maxWidth: 680 }}>{svc.tagline}</p>
-                <p style={{ fontSize: '0.9375rem', color: 'var(--t3)', lineHeight: 1.75, maxWidth: 720 }}>{svc.body}</p>
+                <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,2.5vw,2rem)', fontWeight: 900, letterSpacing: '-0.03em', color: L.t1, marginBottom: 12 }}>{svc.name}</h2>
+                <p style={{ fontSize: '1.0625rem', color: L.t2, fontWeight: 500, marginBottom: 20, maxWidth: 680 }}>{svc.tagline}</p>
+                <p style={{ fontSize: '0.9375rem', color: L.t3, lineHeight: 1.75, maxWidth: 720 }}>{svc.body}</p>
               </div>
 
               {/* How It Works + Features */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: 3 }}>
                 {/* Steps */}
-                <div style={{ padding: 'clamp(24px,3vw,36px)', background: 'var(--bg1)', border: '1.5px solid var(--border)', borderRadius: 'var(--rdl)' }}>
-                  <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: 'var(--t4)', marginBottom: 24 }}>How It Works</p>
+                <div style={{ padding: 'clamp(24px,3vw,36px)', background: L.bg2, border: `1.5px solid ${L.border}`, borderRadius: 'var(--rdl)' }}>
+                  <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: L.t4, marginBottom: 24 }}>How It Works</p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
                     {svc.steps.map(step => (
                       <div key={step.num} style={{ display: 'flex', gap: 16 }}>
                         <span style={{ fontFamily: 'var(--fd)', fontSize: '0.8125rem', fontWeight: 900, color, minWidth: 28, paddingTop: 2 }}>{step.num}</span>
                         <div>
-                          <p style={{ fontWeight: 600, color: 'var(--t1)', marginBottom: 6, fontSize: '0.9375rem' }}>{step.title}</p>
-                          <p style={{ fontSize: '0.875rem', color: 'var(--t3)', lineHeight: 1.65 }}>{step.body}</p>
+                          <p style={{ fontWeight: 600, color: L.t1, marginBottom: 6, fontSize: '0.9375rem' }}>{step.title}</p>
+                          <p style={{ fontSize: '0.875rem', color: L.t3, lineHeight: 1.65 }}>{step.body}</p>
                         </div>
                       </div>
                     ))}
@@ -206,23 +214,23 @@ export const ServicesPage: React.FC = () => {
                 </div>
 
                 {/* Features + CTA */}
-                <div style={{ padding: 'clamp(24px,3vw,36px)', background: 'var(--bg1)', border: '1.5px solid var(--border)', borderRadius: 'var(--rdl)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <div style={{ padding: 'clamp(24px,3vw,36px)', background: L.bg2, border: `1.5px solid ${L.border}`, borderRadius: 'var(--rdl)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                   <div>
-                    <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: 'var(--t4)', marginBottom: 24 }}>What's Included</p>
+                    <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: L.t4, marginBottom: 24 }}>What's Included</p>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                       {svc.features.map(f => (
                         <div key={f.label} style={{ display: 'flex', gap: 12 }}>
                           <span style={{ color, fontSize: '1rem', paddingTop: 1, minWidth: 16 }}>✦</span>
                           <div>
-                            <p style={{ fontWeight: 600, color: 'var(--t1)', fontSize: '0.9rem', marginBottom: 4 }}>{f.label}</p>
-                            <p style={{ fontSize: '0.8125rem', color: 'var(--t3)', lineHeight: 1.6 }}>{f.desc}</p>
+                            <p style={{ fontWeight: 600, color: L.t1, fontSize: '0.9rem', marginBottom: 4 }}>{f.label}</p>
+                            <p style={{ fontSize: '0.8125rem', color: L.t3, lineHeight: 1.6 }}>{f.desc}</p>
                           </div>
                         </div>
                       ))}
                     </div>
                   </div>
-                  <div style={{ marginTop: 32, paddingTop: 24, borderTop: '1px solid var(--border)' }}>
-                    <p style={{ fontSize: '0.875rem', color: 'var(--t3)', marginBottom: 14 }}>{svc.cta}</p>
+                  <div style={{ marginTop: 32, paddingTop: 24, borderTop: `1px solid ${L.border}` }}>
+                    <p style={{ fontSize: '0.875rem', color: L.t3, marginBottom: 14 }}>{svc.cta}</p>
                     <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')}
                       style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.875rem', color: 'white', background: color, border: 'none', borderRadius: 10, padding: '11px 22px', cursor: 'pointer', letterSpacing: '-0.01em' }}>
                       Get Your Free Audit →
@@ -237,25 +245,25 @@ export const ServicesPage: React.FC = () => {
       </section>
 
       {/* Gap Overview */}
-      <section style={{ padding: 'clamp(48px,5vw,72px) 0', background: 'var(--bg1)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+      <section style={{ padding: 'clamp(48px,5vw,72px) 0', background: L.bg2, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
         <div className="wrap">
           <Reveal>
-            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 900, letterSpacing: '-0.03em', color: 'var(--t1)', marginBottom: 8 }}>Three gaps. Six systems. One OS.</h2>
-            <p style={{ color: 'var(--t3)', marginBottom: 40, fontSize: '0.9375rem' }}>Every system targets a specific revenue leak in sequence.</p>
+            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 900, letterSpacing: '-0.03em', color: L.t1, marginBottom: 8 }}>Three gaps. Six systems. One OS.</h2>
+            <p style={{ color: L.t3, marginBottom: 40, fontSize: '0.9375rem' }}>Every system targets a specific revenue leak in sequence.</p>
           </Reveal>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))', gap: 16 }}>
             {GAP_GROUPS.map(g => {
               const c = GAP_COLORS[g.gap];
               return (
                 <Reveal key={g.gap}>
-                  <div style={{ padding: '28px 32px', background: 'var(--bg2)', border: `1.5px solid ${c}30`, borderRadius: 'var(--rdl)' }}>
-                    <span style={{ display: 'inline-block', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: c, background: `${c}18`, border: `1px solid ${c}40`, borderRadius: 6, padding: '3px 8px', marginBottom: 16 }}>{g.label}</span>
-                    <h3 style={{ fontFamily: 'var(--fd)', fontSize: '1.125rem', fontWeight: 900, color: 'var(--t1)', marginBottom: 6, letterSpacing: '-0.02em' }}>{g.subtitle}</h3>
-                    <p style={{ fontSize: '0.8125rem', color: 'var(--t4)', marginBottom: 20 }}>{g.count}</p>
+                  <div style={{ padding: '28px 32px', background: L.bg, border: `1.5px solid ${c}25`, borderRadius: 'var(--rdl)', boxShadow: '0 1px 4px rgba(15,23,42,0.04)' }}>
+                    <span style={{ display: 'inline-block', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: c, background: `${c}12`, border: `1px solid ${c}30`, borderRadius: 6, padding: '3px 8px', marginBottom: 16 }}>{g.label}</span>
+                    <h3 style={{ fontFamily: 'var(--fd)', fontSize: '1.125rem', fontWeight: 900, color: L.t1, marginBottom: 6, letterSpacing: '-0.02em' }}>{g.subtitle}</h3>
+                    <p style={{ fontSize: '0.8125rem', color: L.t4, marginBottom: 20 }}>{g.count}</p>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                       {g.services.map(s => (
                         <button key={s.id} onClick={() => { setActiveTab(s.id); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                          style={{ textAlign: 'left', background: 'none', border: '1px solid var(--border)', borderRadius: 8, padding: '10px 14px', color: 'var(--t2)', fontSize: '0.875rem', fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between', transition: 'all 0.15s' }}>
+                          style={{ textAlign: 'left', background: L.bg, border: `1px solid ${L.border}`, borderRadius: 8, padding: '10px 14px', color: L.t2, fontSize: '0.875rem', fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between', transition: 'all 0.15s' }}>
                           {s.name} <span style={{ opacity: 0.4 }}>→</span>
                         </button>
                       ))}
@@ -268,8 +276,8 @@ export const ServicesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section style={{ padding: 'clamp(60px,7vw,96px) 0', textAlign: 'center' }}>
+      {/* CTA — dark section like homepage */}
+      <section style={{ padding: 'clamp(60px,7vw,96px) 0', textAlign: 'center', background: 'var(--bg1)' }}>
         <div className="wrap" style={{ maxWidth: 640 }}>
           <Reveal>
             <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.75rem,3.5vw,2.5rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--t1)', marginBottom: 16 }}>Find Out Where You're Leaking Revenue</h2>

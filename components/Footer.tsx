@@ -6,8 +6,8 @@ export const Footer: React.FC = () => {
 
   return (
     <footer style={{
-      background: 'var(--bg1)',
-      borderTop: '1px solid var(--border)',
+      background: '#F7F9FF',
+      borderTop: '1px solid #DDE5F2',
       paddingTop: 'clamp(48px,6vw,80px)',
       paddingBottom: 36,
     }}>
@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
           gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
           gap: '48px 32px',
           paddingBottom: 48,
-          borderBottom: '1px solid var(--border)',
+          borderBottom: '1px solid #DDE5F2',
         }}>
           {/* Brand */}
           <div style={{ gridColumn: 'span 2' }}>
@@ -28,7 +28,7 @@ export const Footer: React.FC = () => {
                 fontFamily: 'var(--fd)',
                 fontSize: '1.125rem',
                 fontWeight: 900,
-                color: 'var(--t1)',
+                color: '#0F172A',
                 textDecoration: 'none',
                 letterSpacing: '-0.04em',
                 display: 'inline-block',
@@ -37,7 +37,7 @@ export const Footer: React.FC = () => {
             >
               eighty<span style={{ color: 'var(--blue)' }}>5</span>labs
             </a>
-            <p style={{ fontSize: '0.875rem', color: 'var(--t3)', lineHeight: 1.65, maxWidth: '32ch' }}>
+            <p style={{ fontSize: '0.875rem', color: '#64748B', lineHeight: 1.65, maxWidth: '32ch' }}>
               AI operating system for local service businesses. Closing the visibility, reputation, and conversion gaps.
             </p>
           </div>
@@ -74,7 +74,7 @@ export const Footer: React.FC = () => {
           flexWrap: 'wrap',
           gap: 16,
         }}>
-          <span style={{ fontSize: '0.8125rem', color: 'var(--t4)' }}>
+          <span style={{ fontSize: '0.8125rem', color: '#94A3B8' }}>
             © {year} eighty5labs. All rights reserved.
           </span>
           <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
@@ -87,9 +87,9 @@ export const Footer: React.FC = () => {
                 key={l.label}
                 href={l.route}
                 onClick={e => { e.preventDefault(); navigate(l.route); }}
-                style={{ fontSize: '0.8125rem', color: 'var(--t4)', textDecoration: 'none', transition: 'color 0.15s' }}
-                onMouseEnter={e => (e.currentTarget.style.color = 'var(--t2)')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'var(--t4)')}
+                style={{ fontSize: '0.8125rem', color: '#94A3B8', textDecoration: 'none', transition: 'color 0.15s' }}
+                onMouseEnter={e => (e.currentTarget.style.color = '#334155')}
+                onMouseLeave={e => (e.currentTarget.style.color = '#94A3B8')}
               >
                 {l.label}
               </a>
@@ -109,7 +109,7 @@ const FooterCol = ({ title, links }: { title: string; links: { label: string; ro
       fontWeight: 800,
       letterSpacing: '0.12em',
       textTransform: 'uppercase',
-      color: 'var(--t4)',
+      color: '#94A3B8',
       marginBottom: 18,
     }}>{title}</h4>
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -118,9 +118,9 @@ const FooterCol = ({ title, links }: { title: string; links: { label: string; ro
           key={l.label}
           href={l.route}
           onClick={e => { e.preventDefault(); navigate(l.route); }}
-          style={{ fontSize: '0.875rem', color: 'var(--t3)', textDecoration: 'none', transition: 'color 0.15s' }}
-          onMouseEnter={e => (e.currentTarget.style.color = 'var(--t1)')}
-          onMouseLeave={e => (e.currentTarget.style.color = 'var(--t3)')}
+          style={{ fontSize: '0.875rem', color: '#64748B', textDecoration: 'none', transition: 'color 0.15s' }}
+          onMouseEnter={e => (e.currentTarget.style.color = '#0F172A')}
+          onMouseLeave={e => (e.currentTarget.style.color = '#64748B')}
         >
           {l.label}
         </a>

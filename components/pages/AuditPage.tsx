@@ -74,7 +74,7 @@ export const AuditPage: React.FC = () => {
 
   if (submitted) {
     return (
-      <div style={{ paddingTop: 'var(--nav-h)', minHeight: '90vh', display: 'flex', alignItems: 'center' }}>
+      <div style={{ paddingTop: 'var(--nav-h)', minHeight: '90vh', background: '#FFFFFF', color: '#0F172A', display: 'flex', alignItems: 'center' }}>
         <div className="wrap" style={{ textAlign: 'center', maxWidth: 540, marginInline: 'auto' }}>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -97,10 +97,10 @@ export const AuditPage: React.FC = () => {
             <h1 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '2.25rem', letterSpacing: '-0.04em', marginBottom: 16 }}>
               Your Audit Is Being Built Now.
             </h1>
-            <p style={{ color: 'var(--t3)', lineHeight: 1.7, marginBottom: 32, fontSize: '1.0625rem' }}>
+            <p style={{ color: '#64748B', lineHeight: 1.7, marginBottom: 32, fontSize: '1.0625rem' }}>
               You'll get an email within 48 hours with your full Revenue Gap Report — no fluff, just the gaps and what to fix.
             </p>
-            <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{ color: 'var(--blue3)', textDecoration: 'none', fontSize: '0.9375rem' }}>
+            <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{ color: '#4F8EF7', textDecoration: 'none', fontSize: '0.9375rem' }}>
               ← Back to eighty5labs
             </a>
           </motion.div>
@@ -110,7 +110,7 @@ export const AuditPage: React.FC = () => {
   }
 
   return (
-    <div style={{ paddingTop: 'var(--nav-h)' }}>
+    <div style={{ paddingTop: 'var(--nav-h)', background: '#FFFFFF', color: '#0F172A' }}>
       <section className="section">
         <div className="wrap" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 60, alignItems: 'start' }}>
           {/* Left — Value prop */}
@@ -126,7 +126,7 @@ export const AuditPage: React.FC = () => {
             }}>
               Find Out Exactly Where You're Bleeding Revenue.
             </h1>
-            <p style={{ color: 'var(--t3)', lineHeight: 1.7, marginBottom: 36, fontSize: '1.0625rem' }}>
+            <p style={{ color: '#64748B', lineHeight: 1.7, marginBottom: 36, fontSize: '1.0625rem' }}>
               Most local businesses lose $8K–$15K/month to three fixable gaps. In 48 hours, you'll know which ones are hitting you — and what to do first.
             </p>
 
@@ -140,31 +140,31 @@ export const AuditPage: React.FC = () => {
                 <div key={i} style={{ display: 'flex', gap: 16 }}>
                   <span style={{ fontSize: '1.25rem', flexShrink: 0, paddingTop: 2 }}>{item.icon}</span>
                   <div>
-                    <div style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '0.9375rem', color: 'var(--t1)', marginBottom: 4 }}>{item.title}</div>
-                    <div style={{ fontSize: '0.875rem', color: 'var(--t3)', lineHeight: 1.55 }}>{item.body}</div>
+                    <div style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '0.9375rem', color: '#0F172A', marginBottom: 4 }}>{item.title}</div>
+                    <div style={{ fontSize: '0.875rem', color: '#64748B', lineHeight: 1.55 }}>{item.body}</div>
                   </div>
                 </div>
               ))}
             </div>
 
             <div style={{
-              background: 'var(--bg2)',
-              border: '1px solid var(--border)',
+              background: '#F7F9FF',
+              border: '1px solid #DDE5F2',
               borderRadius: 'var(--rdl)',
               padding: '16px 20px',
               fontSize: '0.8125rem',
-              color: 'var(--t3)',
+              color: '#64748B',
               lineHeight: 1.6,
             }}>
-              <strong style={{ color: 'var(--t2)' }}>Promise:</strong> Takes 30 seconds. We do the rest. No consultant will call you trying to close a deal.
+              <strong style={{ color: '#334155' }}>Promise:</strong> Takes 30 seconds. We do the rest. No consultant will call you trying to close a deal.
             </div>
           </Reveal>
 
           {/* Right — Form */}
           <Reveal delay={0.15}>
             <div style={{
-              background: 'var(--bg1)',
-              border: '1.5px solid var(--border)',
+              background: '#F7F9FF',
+              border: '1.5px solid #DDE5F2',
               borderRadius: 'var(--rdxl)',
               padding: 'clamp(28px, 4vw, 44px)',
             }}>
@@ -209,8 +209,8 @@ export const AuditPage: React.FC = () => {
 
                 {/* SMS Consent */}
                 <div style={{
-                  background: 'var(--bg2)',
-                  border: `1.5px solid ${errors.consentSMS ? '#ef4444' : 'var(--border)'}`,
+                  background: '#F7F9FF',
+                  border: `1.5px solid ${errors.consentSMS ? '#ef4444' : '#DDE5F2'}`,
                   borderRadius: 'var(--rd)',
                   padding: '16px',
                 }}>
@@ -221,10 +221,10 @@ export const AuditPage: React.FC = () => {
                       onChange={e => set('consentSMS', e.target.checked)}
                       style={{ marginTop: 2, width: 16, height: 16, accentColor: 'var(--blue)', flexShrink: 0 }}
                     />
-                    <span style={{ fontSize: '0.8125rem', color: 'var(--t3)', lineHeight: 1.55 }}>
+                    <span style={{ fontSize: '0.8125rem', color: '#64748B', lineHeight: 1.55 }}>
                       I agree to receive my Revenue Audit report and related follow-up via SMS and email from eighty5labs. Message frequency varies. Reply STOP to opt out. Message and data rates may apply.{' '}
-                      <a href="#/terms" onClick={e => { e.preventDefault(); navigate('#/terms'); }} style={{ color: 'var(--blue3)' }}>Terms</a>{' '}·{' '}
-                      <a href="#/privacy" onClick={e => { e.preventDefault(); navigate('#/privacy'); }} style={{ color: 'var(--blue3)' }}>Privacy</a>
+                      <a href="#/terms" onClick={e => { e.preventDefault(); navigate('#/terms'); }} style={{ color: '#4F8EF7' }}>Terms</a>{' '}·{' '}
+                      <a href="#/privacy" onClick={e => { e.preventDefault(); navigate('#/privacy'); }} style={{ color: '#4F8EF7' }}>Privacy</a>
                     </span>
                   </label>
                   {errors.consentSMS && <p style={{ fontSize: '0.75rem', color: '#ef4444', marginTop: 8 }}>{errors.consentSMS}</p>}
@@ -241,9 +241,9 @@ export const AuditPage: React.FC = () => {
                   {loading ? 'Submitting…' : 'Get My Free Revenue Audit →'}
                 </motion.button>
 
-                <p style={{ fontSize: '0.75rem', color: 'var(--t4)', textAlign: 'center', lineHeight: 1.55 }}>
+                <p style={{ fontSize: '0.75rem', color: '#94A3B8', textAlign: 'center', lineHeight: 1.55 }}>
                   By submitting you agree to our{' '}
-                  <a href="#/privacy" onClick={e => { e.preventDefault(); navigate('#/privacy'); }} style={{ color: 'var(--t3)' }}>Privacy Policy</a>.
+                  <a href="#/privacy" onClick={e => { e.preventDefault(); navigate('#/privacy'); }} style={{ color: '#64748B' }}>Privacy Policy</a>.
                   {' '}We don't sell your data, ever.
                 </p>
               </form>
@@ -257,18 +257,18 @@ export const AuditPage: React.FC = () => {
 
 const Field: React.FC<{ label: string; error?: string; children: React.ReactNode }> = ({ label, error, children }) => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
-    <label style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'var(--t2)' }}>{label}</label>
+    <label style={{ fontSize: '0.8125rem', fontWeight: 600, color: '#334155' }}>{label}</label>
     <div style={{
       position: 'relative',
     }}>
       {React.cloneElement(children as React.ReactElement, {
         style: {
           width: '100%',
-          background: 'var(--bg2)',
-          border: `1.5px solid ${error ? '#ef4444' : 'var(--border)'}`,
+          background: '#F7F9FF',
+          border: `1.5px solid ${error ? '#ef4444' : '#DDE5F2'}`,
           borderRadius: 'var(--rd)',
           padding: '10px 14px',
-          color: 'var(--t1)',
+          color: '#0F172A',
           fontSize: '0.9375rem',
           fontFamily: 'var(--fb)',
           outline: 'none',

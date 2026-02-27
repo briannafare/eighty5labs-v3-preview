@@ -148,17 +148,17 @@ export default function BlogPage() {
   const filtered = activeTag === 'All' ? POSTS : POSTS.filter(p => p.tag === activeTag);
 
   return (
-    <div style={{ paddingTop: 'var(--nav-h)', paddingBottom: 80 }}>
+    <div style={{ paddingTop: 'var(--nav-h)', paddingBottom: 80, background: '#FFFFFF', color: '#0F172A' }}>
 
       {/* Hero */}
-      <section style={{ padding: 'clamp(48px,5vw,80px) 0 40px', background: 'var(--bg1)', borderBottom: '1px solid var(--border)' }}>
+      <section style={{ padding: 'clamp(48px,5vw,80px) 0 40px', background: '#F7F9FF', borderBottom: '1px solid #DDE5F2' }}>
         <div className="wrap" style={{ maxWidth: 680, textAlign: 'center' }}>
           <Reveal>
-            <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--blue)', marginBottom: 12 }}>Blog & Resources</p>
-            <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--t1)', marginBottom: 16 }}>
+            <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#1B4FFF', marginBottom: 12 }}>Blog & Resources</p>
+            <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>
               Insights for Local Businesses<br />That Want to Win.
             </h1>
-            <p style={{ color: 'var(--t3)', fontSize: '1rem', lineHeight: 1.7 }}>
+            <p style={{ color: '#64748B', fontSize: '1rem', lineHeight: 1.7 }}>
               AI search, Google Maps rankings, Voice AI, and everything else your competitors don't know yet.
             </p>
           </Reveal>
@@ -166,12 +166,12 @@ export default function BlogPage() {
       </section>
 
       {/* Tags */}
-      <div style={{ borderBottom: '1px solid var(--border)', background: 'var(--bg1)', position: 'sticky', top: 'var(--nav-h)', zIndex: 10 }}>
+      <div style={{ borderBottom: '1px solid #DDE5F2', background: '#F7F9FF', position: 'sticky', top: 'var(--nav-h)', zIndex: 10 }}>
         <div className="wrap" style={{ padding: '0 var(--wrap-px)' }}>
           <div style={{ display: 'flex', gap: 0, overflowX: 'auto' }}>
             {(['All', ...TAGS] as (Tag | 'All')[]).map(tag => (
               <button key={tag} onClick={() => setActiveTag(tag)}
-                style={{ padding: '14px 18px', background: 'none', border: 'none', borderBottom: `2px solid ${activeTag === tag ? 'var(--blue)' : 'transparent'}`, color: activeTag === tag ? 'var(--blue)' : 'var(--t4)', fontSize: '0.8375rem', fontWeight: activeTag === tag ? 700 : 400, cursor: 'pointer', whiteSpace: 'nowrap', transition: 'all 0.15s' }}>
+                style={{ padding: '14px 18px', background: 'none', border: 'none', borderBottom: `2px solid ${activeTag === tag ? '#1B4FFF' : 'transparent'}`, color: activeTag === tag ? '#1B4FFF' : '#94A3B8', fontSize: '0.8375rem', fontWeight: activeTag === tag ? 700 : 400, cursor: 'pointer', whiteSpace: 'nowrap', transition: 'all 0.15s' }}>
                 {tag}
               </button>
             ))}
@@ -189,19 +189,19 @@ export default function BlogPage() {
               <div style={{ marginBottom: 36, padding: '28px 32px', background: 'linear-gradient(135deg,rgba(167,139,250,0.08) 0%,rgba(27,79,255,0.06) 100%)', border: '1.5px solid rgba(167,139,250,0.25)', borderRadius: 16, position: 'relative', overflow: 'hidden' }}>
                 <div style={{ position: 'absolute', top: 0, right: 0, width: 120, height: 120, borderRadius: '50%', background: 'rgba(167,139,250,0.08)', transform: 'translate(30px,-30px)' }} />
                 <span style={{ display: 'inline-block', background: 'rgba(167,139,250,0.15)', color: '#A78BFA', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', padding: '4px 10px', borderRadius: 6, marginBottom: 14 }}>⭐ Featured Article</span>
-                <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.25rem,2.5vw,1.625rem)', fontWeight: 900, letterSpacing: '-0.03em', color: 'var(--t1)', marginBottom: 12 }}>{FEATURED_POST.title}</h2>
-                <p style={{ color: 'var(--t3)', lineHeight: 1.7, marginBottom: 20, fontSize: '0.9375rem' }}>{FEATURED_POST.desc}</p>
+                <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.25rem,2.5vw,1.625rem)', fontWeight: 900, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 12 }}>{FEATURED_POST.title}</h2>
+                <p style={{ color: '#64748B', lineHeight: 1.7, marginBottom: 20, fontSize: '0.9375rem' }}>{FEATURED_POST.desc}</p>
                 <div style={{ display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
-                  <span style={{ fontSize: '0.8125rem', color: 'var(--t4)' }}>{FEATURED_POST.author} · {FEATURED_POST.read}</span>
+                  <span style={{ fontSize: '0.8125rem', color: '#94A3B8' }}>{FEATURED_POST.author} · {FEATURED_POST.read}</span>
                   <span style={{ display: 'inline-block', background: `${TAG_COLOR['AI Search']}18`, color: TAG_COLOR['AI Search'], fontSize: '0.7rem', fontWeight: 700, padding: '3px 8px', borderRadius: 5 }}>AI Search</span>
                   <button style={{ background: 'none', border: 'none', color: '#A78BFA', fontWeight: 700, fontSize: '0.875rem', cursor: 'pointer', padding: 0 }}>Read Article →</button>
                 </div>
                 {FEATURED_POST.stat && (
                   <div style={{ marginTop: 20, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
                     {FEATURED_POST.stat.map(s => (
-                      <div key={s.val} style={{ background: 'var(--bg1)', border: '1px solid var(--border)', borderRadius: 8, padding: '10px 14px', fontSize: '0.8rem' }}>
-                        <span style={{ fontFamily: 'var(--fd)', fontWeight: 800, color: 'var(--t1)' }}>{s.val}</span>
-                        {s.label && <span style={{ color: 'var(--t4)', marginLeft: 6 }}>{s.label}</span>}
+                      <div key={s.val} style={{ background: '#F7F9FF', border: '1px solid #DDE5F2', borderRadius: 8, padding: '10px 14px', fontSize: '0.8rem' }}>
+                        <span style={{ fontFamily: 'var(--fd)', fontWeight: 800, color: '#0F172A' }}>{s.val}</span>
+                        {s.label && <span style={{ color: '#94A3B8', marginLeft: 6 }}>{s.label}</span>}
                       </div>
                     ))}
                   </div>
@@ -214,15 +214,15 @@ export default function BlogPage() {
           <div style={{ display: 'grid', gap: 20 }}>
             {filtered.map((post, i) => (
               <Reveal key={post.title} delay={i * 0.04}>
-                <motion.div whileHover={{ x: 3 }} style={{ padding: '20px 24px', background: 'var(--bg1)', border: '1.5px solid var(--border)', borderRadius: 14, cursor: 'pointer', transition: 'border-color 0.2s' }}
+                <motion.div whileHover={{ x: 3 }} style={{ padding: '20px 24px', background: '#F7F9FF', border: '1.5px solid #DDE5F2', borderRadius: 14, cursor: 'pointer', transition: 'border-color 0.2s' }}
                   onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = TAG_COLOR[post.tag]}
-                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = 'var(--border)'}>
+                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = '#DDE5F2'}>
                   <div style={{ display: 'flex', gap: 10, alignItems: 'center', marginBottom: 10 }}>
                     <span style={{ background: `${TAG_COLOR[post.tag]}18`, color: TAG_COLOR[post.tag], fontSize: '0.7rem', fontWeight: 700, padding: '3px 8px', borderRadius: 5 }}>{post.tag}</span>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--t4)' }}>{post.read}</span>
+                    <span style={{ fontSize: '0.75rem', color: '#94A3B8' }}>{post.read}</span>
                   </div>
-                  <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1rem', color: 'var(--t1)', lineHeight: 1.35, letterSpacing: '-0.01em', marginBottom: 8 }}>{post.title}</h3>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--t3)', lineHeight: 1.65 }}>{post.desc}</p>
+                  <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1rem', color: '#0F172A', lineHeight: 1.35, letterSpacing: '-0.01em', marginBottom: 8 }}>{post.title}</h3>
+                  <p style={{ fontSize: '0.875rem', color: '#64748B', lineHeight: 1.65 }}>{post.desc}</p>
                   <button style={{ marginTop: 12, background: 'none', border: 'none', color: TAG_COLOR[post.tag], fontWeight: 700, fontSize: '0.8125rem', cursor: 'pointer', padding: 0 }}>
                     Read Article →
                   </button>
@@ -236,50 +236,50 @@ export default function BlogPage() {
         <aside style={{ display: 'flex', flexDirection: 'column', gap: 24, position: 'sticky', top: 'calc(var(--nav-h) + 60px)' }}>
 
           {/* Newsletter */}
-          <div style={{ padding: '24px', background: 'var(--bg1)', border: '1.5px solid var(--border)', borderRadius: 14 }}>
-            <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1rem', color: 'var(--t1)', marginBottom: 8, letterSpacing: '-0.02em' }}>Get the AI Edge.</h3>
-            <p style={{ fontSize: '0.8375rem', color: 'var(--t3)', marginBottom: 16, lineHeight: 1.6 }}>Weekly insights on Google Maps, AI search, and local business growth. No fluff.</p>
+          <div style={{ padding: '24px', background: '#F7F9FF', border: '1.5px solid #DDE5F2', borderRadius: 14 }}>
+            <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1rem', color: '#0F172A', marginBottom: 8, letterSpacing: '-0.02em' }}>Get the AI Edge.</h3>
+            <p style={{ fontSize: '0.8375rem', color: '#64748B', marginBottom: 16, lineHeight: 1.6 }}>Weekly insights on Google Maps, AI search, and local business growth. No fluff.</p>
             {subscribed ? (
               <p style={{ fontSize: '0.875rem', color: '#10B981', fontWeight: 600 }}>✓ You're in. Check your inbox.</p>
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 <input value={email} onChange={e => setEmail(e.target.value)} placeholder="your@email.com"
-                  style={{ padding: '9px 12px', border: '1.5px solid var(--border)', borderRadius: 8, background: 'var(--bg2)', color: 'var(--t1)', fontSize: '0.875rem', outline: 'none' }} />
+                  style={{ padding: '9px 12px', border: '1.5px solid #DDE5F2', borderRadius: 8, background: '#F7F9FF', color: '#0F172A', fontSize: '0.875rem', outline: 'none' }} />
                 <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }}
                   onClick={() => email && setSubscribed(true)} className="btn btn-primary">
                   Subscribe Free →
                 </motion.button>
-                <p style={{ fontSize: '0.72rem', color: 'var(--t4)' }}>Unsubscribe anytime. We don't spam.</p>
+                <p style={{ fontSize: '0.72rem', color: '#94A3B8' }}>Unsubscribe anytime. We don't spam.</p>
               </div>
             )}
           </div>
 
           {/* Browse by topic */}
-          <div style={{ padding: '24px', background: 'var(--bg1)', border: '1.5px solid var(--border)', borderRadius: 14 }}>
-            <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '0.9375rem', color: 'var(--t1)', marginBottom: 16, letterSpacing: '-0.02em' }}>Browse by Topic</h3>
+          <div style={{ padding: '24px', background: '#F7F9FF', border: '1.5px solid #DDE5F2', borderRadius: 14 }}>
+            <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '0.9375rem', color: '#0F172A', marginBottom: 16, letterSpacing: '-0.02em' }}>Browse by Topic</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               {TAGS.map(tag => (
                 <button key={tag} onClick={() => setActiveTag(tag)}
-                  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'none', border: 'none', padding: '6px 0', cursor: 'pointer', borderBottom: '1px solid var(--border)' }}>
-                  <span style={{ fontSize: '0.875rem', color: activeTag === tag ? TAG_COLOR[tag] : 'var(--t2)', fontWeight: activeTag === tag ? 700 : 400 }}>{tag}</span>
-                  <span style={{ fontSize: '0.75rem', color: 'var(--t4)' }}>{TOPIC_COUNTS[tag]} articles</span>
+                  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'none', border: 'none', padding: '6px 0', cursor: 'pointer', borderBottom: '1px solid #DDE5F2' }}>
+                  <span style={{ fontSize: '0.875rem', color: activeTag === tag ? TAG_COLOR[tag] : '#334155', fontWeight: activeTag === tag ? 700 : 400 }}>{tag}</span>
+                  <span style={{ fontSize: '0.75rem', color: '#94A3B8' }}>{TOPIC_COUNTS[tag]} articles</span>
                 </button>
               ))}
             </div>
           </div>
 
           {/* Most popular */}
-          <div style={{ padding: '24px', background: 'var(--bg1)', border: '1.5px solid var(--border)', borderRadius: 14 }}>
-            <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '0.9375rem', color: 'var(--t1)', marginBottom: 16, letterSpacing: '-0.02em' }}>Most Popular</h3>
+          <div style={{ padding: '24px', background: '#F7F9FF', border: '1.5px solid #DDE5F2', borderRadius: 14 }}>
+            <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '0.9375rem', color: '#0F172A', marginBottom: 16, letterSpacing: '-0.02em' }}>Most Popular</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               {POPULAR.map((p, i) => (
                 <div key={p.title} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-                  <span style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.125rem', color: 'var(--t4)', minWidth: 20, lineHeight: 1.3 }}>0{i + 1}</span>
+                  <span style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.125rem', color: '#94A3B8', minWidth: 20, lineHeight: 1.3 }}>0{i + 1}</span>
                   <div>
-                    <p style={{ fontSize: '0.8375rem', color: 'var(--t2)', fontWeight: 600, lineHeight: 1.4, marginBottom: 4 }}>{p.title}</p>
+                    <p style={{ fontSize: '0.8375rem', color: '#334155', fontWeight: 600, lineHeight: 1.4, marginBottom: 4 }}>{p.title}</p>
                     <div style={{ display: 'flex', gap: 8 }}>
                       <span style={{ background: `${TAG_COLOR[p.tag]}18`, color: TAG_COLOR[p.tag], fontSize: '0.65rem', fontWeight: 700, padding: '2px 6px', borderRadius: 4 }}>{p.tag}</span>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--t4)' }}>{p.read}</span>
+                      <span style={{ fontSize: '0.72rem', color: '#94A3B8' }}>{p.read}</span>
                     </div>
                   </div>
                 </div>
@@ -289,8 +289,8 @@ export default function BlogPage() {
 
           {/* Mini CTA */}
           <div style={{ padding: '20px 24px', background: 'rgba(27,79,255,0.06)', border: '1.5px solid rgba(27,79,255,0.2)', borderRadius: 14, textAlign: 'center' }}>
-            <p style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '0.9375rem', color: 'var(--t1)', marginBottom: 8 }}>Stop Guessing. Get the Audit.</p>
-            <p style={{ fontSize: '0.8125rem', color: 'var(--t3)', marginBottom: 16, lineHeight: 1.5 }}>Free AI Visibility Audit — 30 minutes, no pitch.</p>
+            <p style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '0.9375rem', color: '#0F172A', marginBottom: 8 }}>Stop Guessing. Get the Audit.</p>
+            <p style={{ fontSize: '0.8125rem', color: '#64748B', marginBottom: 16, lineHeight: 1.5 }}>Free AI Visibility Audit — 30 minutes, no pitch.</p>
             <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')} className="btn btn-primary">
               Book Free Audit →
             </motion.button>
