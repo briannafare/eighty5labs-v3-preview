@@ -20,9 +20,9 @@
 
         /* ── Light section palette (alternating bands) */
         --ls0: #FFFFFF;          /* pure white sections */
-        --ls1: #F7F9FF;          /* off-white / very light blue-grey */
-        --ls2: #EEF2FB;          /* subtle section divider */
-        --ls-border: #DDE5F2;    /* border on light bg */
+        --ls1: #FAF9F7;          /* warm off-white — subtle cream tint */
+        --ls2: #F5F3EF;          /* warmer alt for deeper contrast */
+        --ls-border: #E8E4DD;    /* warm neutral border */
         --ls-surface: rgba(27,79,255,0.05);
         --ls-card: #FFFFFF;
 
@@ -136,69 +136,65 @@
          Ghost adapts to context: dark bg vs light bg via modifier
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
-      /* Nav CTA — sharp corners, compact, utility feel */
+      /* Nav CTA — pill shape matching reference */
       .btn-nav {
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        padding: 8px 16px;
-        border-radius: var(--rd-nav);
-        font-family: var(--fd);
-        font-size: 0.8125rem;
-        font-weight: 800;
+        padding: 9px 20px;
+        border-radius: 999px;
+        font-family: var(--fb);
+        font-size: 0.875rem;
+        font-weight: 600;
         cursor: pointer;
         border: none;
-        transition: all 0.15s ease;
+        transition: all 0.3s ease;
         text-decoration: none;
         white-space: nowrap;
-        letter-spacing: 0.01em;
       }
       .btn-nav-primary {
-        background: var(--blue);
+        background: var(--td1);
         color: #fff;
-        box-shadow: 0 2px 12px rgba(27,79,255,0.30);
       }
       .btn-nav-primary:hover {
-        background: var(--blue2);
-        box-shadow: 0 4px 20px rgba(27,79,255,0.42);
+        background: var(--blue);
+        box-shadow: 0 8px 24px rgba(27,79,255,0.25);
       }
       .btn-nav-ghost {
         background: transparent;
         color: var(--td2);
-        border: 1px solid var(--ls-border);
+        border: none;
+        padding: 9px 8px;
       }
       .btn-nav-ghost:hover {
-        background: var(--ls1);
-        border-color: #C5D0E8;
+        color: var(--blue);
       }
 
-      /* Body CTAs — pill shape, generous, confident */
+      /* Body CTAs — pill shape, generous, reference-matched */
       .btn {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        padding: 14px 28px;
-        border-radius: var(--rd-btn);
-        font-family: var(--fd);
+        padding: 15px 30px;
+        border-radius: 999px;
+        font-family: var(--fb);
         font-size: 0.9375rem;
-        font-weight: 800;
+        font-weight: 600;
         cursor: pointer;
         border: none;
-        transition: all 0.18s ease;
+        transition: all 0.3s ease;
         text-decoration: none;
         white-space: nowrap;
-        letter-spacing: 0.01em;
       }
-      /* Primary — blue fill, works on any bg */
+      /* Primary — dark fill on light bg, blue on dark bg */
       .btn-primary {
-        background: var(--blue);
+        background: var(--td1);
         color: #fff;
-        box-shadow: 0 4px 24px rgba(27,79,255,0.32);
       }
       .btn-primary:hover {
-        background: var(--blue2);
+        background: var(--blue);
         transform: translateY(-1px);
-        box-shadow: 0 8px 36px rgba(27,79,255,0.44);
+        box-shadow: 0 12px 32px rgba(27,79,255,0.28);
       }
       /* Ghost on dark bg */
       .btn-ghost {
@@ -207,19 +203,19 @@
         border: 1.5px solid rgba(255,255,255,0.16);
       }
       .btn-ghost:hover {
-        background: rgba(255,255,255,0.10);
-        border-color: rgba(255,255,255,0.28);
+        background: rgba(255,255,255,0.12);
+        border-color: rgba(255,255,255,0.30);
         transform: translateY(-1px);
       }
-      /* Ghost on light bg */
+      /* Ghost on light bg — white fill with border */
       .btn-ghost-light {
-        background: transparent;
+        background: #FFFFFF;
         color: var(--td1);
         border: 1.5px solid var(--ls-border);
       }
       .btn-ghost-light:hover {
         background: var(--ls1);
-        border-color: #C5D0E8;
+        border-color: #ccc;
         transform: translateY(-1px);
       }
       /* Smaller body button variant */
@@ -331,8 +327,8 @@
         transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
       }
       .card-light:hover {
-        border-color: #C5D0E8;
-        box-shadow: 0 8px 36px rgba(15,23,42,0.10);
+        border-color: #D4D0C9;
+        box-shadow: 0 8px 36px rgba(15,23,42,0.08);
         transform: translateY(-2px);
       }
 
@@ -353,7 +349,7 @@
       /* Scrollbar */
       ::-webkit-scrollbar { width: 6px; }
       ::-webkit-scrollbar-track { background: var(--ls1); }
-      ::-webkit-scrollbar-thumb { background: #C5D0E8; border-radius: 3px; }
+      ::-webkit-scrollbar-thumb { background: #D4D0C9; border-radius: 3px; }
 
       /* Focus */
       :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
@@ -392,6 +388,7 @@
       /* Light section top border (matches V2) */
       .section-light { border-top: 1px solid var(--ls-border); }
       .section-white { border-top: 1px solid var(--ls-border); }
+      .section-white + .section-white { border-top: none; }
 
       /* Mobile */
       @media (max-width: 768px) {
@@ -427,7 +424,7 @@
         box-shadow: 0 2px 6px rgba(0,0,0,0.3);
       }
     </style>
-    <script type="module" crossorigin src="/assets/index-k5fxc_t7.js"></script>
+    <script type="module" crossorigin src="/assets/index-0IyXKxOm.js"></script>
   </head>
   <body>
     <div id="grid-overlay" aria-hidden="true"></div>

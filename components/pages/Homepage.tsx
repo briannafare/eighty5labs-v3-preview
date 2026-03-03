@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Reveal, Stagger } from '../ui/Reveal';
 import { navigate } from '../../router';
 import { VoiceAIDemo } from '../VoiceAIDemo';
-import { DashboardMockup } from '../DashboardMockup';
+import { HeroAnimation } from '../HeroAnimation';
 import { RevenueCalculator } from '../RevenueCalculator';
 
 /* ── DATA ── */
@@ -139,7 +139,7 @@ export const Homepage: React.FC = () => {
       ═══════════════════════════════════════════ */}
       <section className="hero-pattern" style={{
         background: '#fff',
-        paddingTop: 'calc(var(--nav-h) + clamp(48px, 6vw, 80px))',
+        paddingTop: 'clamp(120px, 14vw, 180px)',
         paddingBottom: 'clamp(60px, 8vw, 100px)',
         position: 'relative',
         overflow: 'hidden',
@@ -169,23 +169,37 @@ export const Homepage: React.FC = () => {
                 marginBottom: 22,
               }}>
                 <span style={{
-                  background: 'var(--blue2)',
-                  color: '#fff',
-                  fontSize: '0.58rem',
-                  fontWeight: 800,
-                  padding: '3px 8px',
-                  borderRadius: 999,
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                }}>New</span>
-                <span style={{ fontSize: '0.78rem', fontWeight: 500, color: 'var(--blue2)' }}>
+                  position: 'relative' as const,
+                  display: 'inline-flex',
+                  width: 8,
+                  height: 8,
+                  marginLeft: 6,
+                }}>
+                  <span style={{
+                    position: 'absolute' as const,
+                    inset: 0,
+                    borderRadius: '50%',
+                    background: 'var(--blue)',
+                    opacity: 0.75,
+                    animation: 'ping 1.5s cubic-bezier(0,0,0.2,1) infinite',
+                  }} />
+                  <span style={{
+                    position: 'relative' as const,
+                    display: 'inline-flex',
+                    width: 8,
+                    height: 8,
+                    borderRadius: '50%',
+                    background: 'var(--blue)',
+                  }} />
+                </span>
+                <span style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--blue2)' }}>
                   Now visible in ChatGPT, Gemini &amp; Perplexity
                 </span>
               </div>
 
               <h1 style={{
                 fontFamily: 'var(--fd)',
-                fontSize: 'clamp(2.25rem, 4.5vw, 3.75rem)',
+                fontSize: 'clamp(2.5rem, 5vw, 4.25rem)',
                 fontWeight: 900,
                 letterSpacing: '-0.04em',
                 lineHeight: 1.05,
@@ -194,7 +208,7 @@ export const Homepage: React.FC = () => {
               }}>
                 Get Found in AI.<br />
                 Rank Higher in Maps.<br />
-                <span style={{ color: 'var(--blue)' }}>Stop Missing Calls.</span>
+                <span style={{ color: 'var(--td3)' }}>Stop Missing Calls.</span>
               </h1>
 
               <p style={{
@@ -220,8 +234,8 @@ export const Homepage: React.FC = () => {
                       alignItems: 'center',
                       gap: 12,
                       padding: '10px 14px',
-                      background: '#F8FAFF',
-                      border: '1px solid #E4E9F2',
+                      background: 'var(--ls1)',
+                      border: '1px solid var(--ls-border)',
                       borderRadius: 'var(--rd)',
                     }}
                   >
@@ -241,36 +255,31 @@ export const Homepage: React.FC = () => {
                 ))}
               </div>
 
-              {/* CTAs */}
+              {/* CTAs — reference style: dark primary + white ghost, pill shape */}
               <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 10 }}>
                 <motion.a
                   href="#/audit"
                   onClick={e => { e.preventDefault(); navigate('#/audit'); }}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  className="btn btn-primary"
                   style={{
-                    display: 'inline-flex', alignItems: 'center', gap: 7,
-                    fontFamily: 'var(--fd)', fontSize: '0.9375rem', fontWeight: 800,
-                    color: '#fff', background: 'var(--blue2)', border: 'none',
-                    borderRadius: 'var(--rd)', padding: '13px 26px',
-                    textDecoration: 'none', cursor: 'pointer',
+                    display: 'inline-flex', alignItems: 'center', gap: 8,
+                    fontSize: '0.9375rem',
                   }}
                 >
                   Get Your Free Audit
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </motion.a>
                 <motion.a
                   href="#/services"
                   onClick={e => { e.preventDefault(); navigate('#/services'); }}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  className="btn btn-ghost-light"
                   style={{
                     display: 'inline-flex', alignItems: 'center', gap: 7,
-                    fontSize: '0.9375rem', fontWeight: 500, color: 'var(--td2)',
-                    background: 'none', border: '1.5px solid var(--ls-border)',
-                    borderRadius: 'var(--rd)', padding: '12px 22px',
-                    textDecoration: 'none', cursor: 'pointer',
-                    transition: 'border-color 0.15s',
+                    fontSize: '0.9375rem',
                   }}
                 >
                   See How It Works
@@ -279,18 +288,33 @@ export const Homepage: React.FC = () => {
               <p style={{ fontSize: '0.76rem', color: '#94A3B8' }}>Free · No commitment · Yours to keep regardless</p>
             </motion.div>
 
-            {/* RIGHT — Dashboard Mockup */}
+            {/* RIGHT — Animated Hero (replacing DashboardMockup) */}
             <motion.div
-              initial={{ opacity: 0, y: 20, scale: 0.97 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ delay: 0.25, duration: 0.7, ease: [0.2, 0.8, 0.2, 1] }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }}
               className="hide-mobile"
-              style={{ position: 'relative', minHeight: 520 }}
+              style={{ position: 'relative' }}
             >
-              <DashboardMockup />
+              {/* Decorative blur blob behind animation */}
+              <div style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '120%',
+                height: '120%',
+                background: 'rgba(27,79,255,0.06)',
+                filter: 'blur(60px)',
+                borderRadius: '50%',
+                zIndex: 0,
+                pointerEvents: 'none',
+              }} />
+              <HeroAnimation />
             </motion.div>
           </div>
         </div>
+        <style>{`@keyframes ping{75%,100%{transform:scale(2);opacity:0}}`}</style>
       </section>
 
       {/* ═══════════════════════════════════════════
