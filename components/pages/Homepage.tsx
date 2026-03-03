@@ -1,10 +1,49 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform, useInView } from 'framer-motion';
 import { Reveal, Stagger } from '../ui/Reveal';
 import { navigate } from '../../router';
 import { VoiceAIDemo } from '../VoiceAIDemo';
 import { HeroAnimation } from '../HeroAnimation';
 import { RevenueCalculator } from '../RevenueCalculator';
+
+/* ── Animated counter ── */
+const AnimatedCounter: React.FC<{ value: number; suffix?: string }> = ({ value, suffix = '' }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) return;
+    let start = 0;
+    const dur = 2000;
+    const inc = value / (dur / 16);
+    const timer = setInterval(() => {
+      start += inc;
+      if (start >= value) { setCount(value); clearInterval(timer); }
+      else setCount(Math.floor(start));
+    }, 16);
+    return () => clearInterval(timer);
+  }, [isInView, value]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+};
+
+/* ── Modern SVG icons ── */
+const IconSearch = () => (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+);
+const IconZap = () => (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+);
+const IconGlobe = () => (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+);
+const IconTrending = () => (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+);
+const IconArrowRight = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+);
 
 /* ── DATA ── */
 
@@ -14,7 +53,8 @@ const SERVICES = [
     gapColor: 'var(--gap2)',
     gapBg: 'var(--gap2-lt)',
     gapBorder: 'var(--gap2-border)',
-    icon: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>,
+    iconGradient: 'linear-gradient(135deg, #4F8EF7 0%, #8B5CF6 100%)',
+    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
     title: 'Content AI',
     tagline: 'Answer Engine + Generative Engine Optimization',
     body: 'Publishes structured content that gets your business recommended by ChatGPT, Gemini, and Perplexity. Weekly GBP posts, FAQ content, and local authority pages — automated.',
@@ -24,7 +64,8 @@ const SERVICES = [
     gapColor: 'var(--gap2)',
     gapBg: 'var(--gap2-lt)',
     gapBorder: 'var(--gap2-border)',
-    icon: <><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></>,
+    iconGradient: 'linear-gradient(135deg, #4F8EF7 0%, #2563EB 100%)',
+    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>,
     title: 'GBP Optimization',
     tagline: 'Google Maps dominance. Map Pack top 3.',
     body: 'Full profile optimization built to dominate local Map Pack results and appear when buyers search your area.',
@@ -34,7 +75,8 @@ const SERVICES = [
     gapColor: 'var(--gap3)',
     gapBg: 'var(--gap3-lt)',
     gapBorder: 'var(--gap3-border)',
-    icon: <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>,
+    iconGradient: 'linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%)',
+    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>,
     title: 'Reviews AI',
     tagline: 'Automated generation + instant responses',
     body: 'Requests reviews from every customer automatically. Responds to every review within minutes. Builds the velocity Google rewards.',
@@ -44,7 +86,8 @@ const SERVICES = [
     gapColor: 'var(--gap1)',
     gapBg: 'var(--gap1-lt)',
     gapBorder: 'var(--gap1-border)',
-    icon: <><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.45 19.45 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></>,
+    iconGradient: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.45 19.45 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>,
     title: 'Voice AI',
     tagline: 'Never miss a call. Book while you sleep.',
     body: 'Answers every inbound call 24/7. Qualifies the lead, books directly into your calendar. Zero calls to voicemail.',
@@ -54,7 +97,8 @@ const SERVICES = [
     gapColor: 'var(--gap1)',
     gapBg: 'var(--gap1-lt)',
     gapBorder: 'var(--gap1-border)',
-    icon: <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>,
+    iconGradient: 'linear-gradient(135deg, #10B981 0%, #14B8A6 100%)',
+    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>,
     title: 'Conversation AI',
     tagline: 'Web leads engaged instantly, 24/7.',
     body: 'Engages website visitors the moment they land, captures leads, books appointments, follows up via SMS and email.',
@@ -64,7 +108,8 @@ const SERVICES = [
     gapColor: 'var(--gap1)',
     gapBg: 'var(--gap1-lt)',
     gapBorder: 'var(--gap1-border)',
-    icon: <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>,
+    iconGradient: 'linear-gradient(135deg, #10B981 0%, #0EA5E9 100%)',
+    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>,
     title: 'Workflow AI',
     tagline: 'Automations that run smarter, without you.',
     body: 'Follow-up sequences, re-engagement campaigns, appointment reminders, past client touches. Runs 24/7.',
@@ -135,141 +180,146 @@ export const Homepage: React.FC = () => {
   return (
     <div>
       {/* ═══════════════════════════════════════════
-          01 — HERO (white bg, 2-column — matches V2)
+          01 — HERO (white bg, 2-column — Phase 1 upgrade)
       ═══════════════════════════════════════════ */}
       <section className="hero-pattern" style={{
         background: '#fff',
-        paddingTop: 'clamp(120px, 14vw, 180px)',
-        paddingBottom: 'clamp(60px, 8vw, 100px)',
+        paddingTop: 'clamp(100px, 12vw, 140px)',
+        paddingBottom: 'clamp(40px, 5vw, 64px)',
         position: 'relative',
         overflow: 'hidden',
       }}>
-        <div className="wrap">
+        {/* Animated gradient mesh background */}
+        <div style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden', pointerEvents: 'none' }}>
+          <motion.div
+            animate={{ scale: [1, 1.1, 1], opacity: [0.25, 0.45, 0.25], rotate: [0, 5, -5, 0] }}
+            transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+            style={{
+              position: 'absolute', top: '-20%', left: '-10%', width: '70%', height: '70%', borderRadius: '50%',
+              background: 'radial-gradient(circle, rgba(27,79,255,0.12) 0%, rgba(255,255,255,0) 70%)',
+              filter: 'blur(60px)',
+            }}
+          />
+          <motion.div
+            animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.35, 0.15], rotate: [0, -5, 5, 0] }}
+            transition={{ duration: 20, repeat: Infinity, ease: 'linear', delay: 2 }}
+            style={{
+              position: 'absolute', bottom: '-10%', right: '-10%', width: '60%', height: '60%', borderRadius: '50%',
+              background: 'radial-gradient(circle, rgba(139,92,246,0.10) 0%, rgba(255,255,255,0) 70%)',
+              filter: 'blur(60px)',
+            }}
+          />
+        </div>
+
+        <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <div className="hero-grid" style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
-            gap: 'clamp(32px, 4vw, 64px)',
+            gap: 'clamp(24px, 3vw, 48px)',
             alignItems: 'center',
           }}>
             {/* LEFT — Text */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
-            >
+            <div>
               {/* Chip badge */}
-              <div style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 8,
-                background: 'rgba(79,142,247,0.09)',
-                border: '1px solid rgba(79,142,247,0.2)',
-                borderRadius: 999,
-                padding: '5px 14px 5px 5px',
-                marginBottom: 22,
-              }}>
-                <span style={{
-                  position: 'relative' as const,
-                  display: 'inline-flex',
-                  width: 8,
-                  height: 8,
-                  marginLeft: 6,
-                }}>
-                  <span style={{
-                    position: 'absolute' as const,
-                    inset: 0,
-                    borderRadius: '50%',
-                    background: 'var(--blue)',
-                    opacity: 0.75,
-                    animation: 'ping 1.5s cubic-bezier(0,0,0.2,1) infinite',
-                  }} />
-                  <span style={{
-                    position: 'relative' as const,
-                    display: 'inline-flex',
-                    width: 8,
-                    height: 8,
-                    borderRadius: '50%',
-                    background: 'var(--blue)',
-                  }} />
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: 8,
+                  background: 'rgba(79,142,247,0.07)', border: '1px solid rgba(79,142,247,0.15)',
+                  borderRadius: 999, padding: '5px 14px 5px 5px', marginBottom: 18,
+                }}
+              >
+                <span style={{ position: 'relative' as const, display: 'inline-flex', width: 8, height: 8, marginLeft: 6 }}>
+                  <span style={{ position: 'absolute' as const, inset: 0, borderRadius: '50%', background: 'var(--blue)', opacity: 0.75, animation: 'ping 1.5s cubic-bezier(0,0,0.2,1) infinite' }} />
+                  <span style={{ position: 'relative' as const, display: 'inline-flex', width: 8, height: 8, borderRadius: '50%', background: 'var(--blue)' }} />
                 </span>
-                <span style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--blue2)' }}>
-                  Now visible in ChatGPT, Gemini &amp; Perplexity
+                <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--blue)', letterSpacing: '0.08em', textTransform: 'uppercase' as const }}>
+                  Now visible in ChatGPT &amp; Perplexity
                 </span>
-              </div>
+              </motion.div>
 
-              <h1 style={{
-                fontFamily: 'var(--fd)',
-                fontSize: 'clamp(2.5rem, 5vw, 4.25rem)',
-                fontWeight: 900,
-                letterSpacing: '-0.04em',
-                lineHeight: 1.05,
-                color: 'var(--td1)',
-                marginBottom: 20,
-              }}>
-                Get Found in AI.<br />
-                Rank Higher in Maps.<br />
-                <span style={{ color: 'var(--td3)' }}>Stop Missing Calls.</span>
-              </h1>
+              {/* Headline — serif italic accent */}
+              <motion.h1
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                style={{
+                  fontFamily: 'var(--fd)',
+                  fontSize: 'clamp(2.6rem, 5.5vw, 4.25rem)',
+                  fontWeight: 900,
+                  letterSpacing: '-0.045em',
+                  lineHeight: 0.98,
+                  color: 'var(--td1)',
+                  marginBottom: 18,
+                }}
+              >
+                Close the gaps.<br />
+                <span style={{ fontFamily: 'var(--fs)', fontStyle: 'italic', fontWeight: 400, color: 'var(--td3)', letterSpacing: '-0.02em' }}>
+                  Recover the revenue.
+                </span>
+              </motion.h1>
 
-              <p style={{
-                fontSize: 'clamp(0.95rem, 1.6vw, 1.125rem)',
-                color: 'var(--td2)',
-                lineHeight: 1.65,
-                maxWidth: '46ch',
-                marginBottom: 28,
-              }}>
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                style={{
+                  fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)',
+                  color: 'var(--td2)',
+                  lineHeight: 1.65,
+                  maxWidth: '44ch',
+                  marginBottom: 22,
+                }}
+              >
                 Most local businesses are bleeding revenue at three specific points. eighty5labs finds every gap and closes it — automatically.
-              </p>
+              </motion.p>
 
-              {/* Gap rows */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 7, marginBottom: 28 }}>
+              {/* Gap rows — compact */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+                style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 22 }}
+              >
                 {GAP_ROWS.map((gap, i) => (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, x: -12 }}
+                    initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3 + i * 0.1, duration: 0.4 }}
+                    transition={{ delay: 0.45 + i * 0.08, duration: 0.35 }}
                     style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 12,
-                      padding: '10px 14px',
-                      background: 'var(--ls1)',
-                      border: '1px solid var(--ls-border)',
-                      borderRadius: 'var(--rd)',
+                      display: 'flex', alignItems: 'center', gap: 10,
+                      padding: '8px 12px', background: 'var(--ls1)',
+                      border: '1px solid var(--ls-border)', borderRadius: 'var(--rd)',
                     }}
                   >
-                    <div style={{ width: 4, height: 28, borderRadius: 2, background: gap.color, flexShrink: 0 }} />
-                    <span style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.78rem', color: 'var(--td1)', whiteSpace: 'nowrap' }}>{gap.num}</span>
-                    <span style={{ fontSize: '0.82rem', color: 'var(--td2)', flex: 1 }}>{gap.label}</span>
-                    <span style={{
-                      fontSize: '0.68rem',
-                      fontWeight: 700,
-                      color: gap.color,
-                      background: `${gap.color}14`,
-                      padding: '3px 9px',
-                      borderRadius: 999,
-                      whiteSpace: 'nowrap',
-                    }}>We fix this</span>
+                    <div style={{ width: 3, height: 22, borderRadius: 2, background: gap.color, flexShrink: 0 }} />
+                    <span style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.72rem', color: 'var(--td1)', whiteSpace: 'nowrap' }}>{gap.num}</span>
+                    <span style={{ fontSize: '0.78rem', color: 'var(--td2)', flex: 1 }}>{gap.label}</span>
+                    <span style={{ fontSize: '0.64rem', fontWeight: 700, color: gap.color, background: `${gap.color}12`, padding: '2px 8px', borderRadius: 999, whiteSpace: 'nowrap' }}>We fix this</span>
                   </motion.div>
                 ))}
-              </div>
+              </motion.div>
 
-              {/* CTAs — reference style: dark primary + white ghost, pill shape */}
-              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 10 }}>
+              {/* CTAs */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.55 }}
+                style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 8 }}
+              >
                 <motion.a
                   href="#/audit"
                   onClick={e => { e.preventDefault(); navigate('#/audit'); }}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="btn btn-primary"
-                  style={{
-                    display: 'inline-flex', alignItems: 'center', gap: 8,
-                    fontSize: '0.9375rem',
-                  }}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '0.9375rem' }}
                 >
                   Get Your Free Audit
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  <IconArrowRight />
                 </motion.a>
                 <motion.a
                   href="#/services"
@@ -277,44 +327,69 @@ export const Homepage: React.FC = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="btn btn-ghost-light"
-                  style={{
-                    display: 'inline-flex', alignItems: 'center', gap: 7,
-                    fontSize: '0.9375rem',
-                  }}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: 7, fontSize: '0.9375rem' }}
                 >
                   See How It Works
                 </motion.a>
-              </div>
-              <p style={{ fontSize: '0.76rem', color: '#94A3B8' }}>Free · No commitment · Yours to keep regardless</p>
-            </motion.div>
+              </motion.div>
+              <p style={{ fontSize: '0.72rem', color: '#94A3B8' }}>Free · No commitment · Yours to keep regardless</p>
+            </div>
 
-            {/* RIGHT — Animated Hero (replacing DashboardMockup) */}
+            {/* RIGHT — Animated Hero */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }}
+              transition={{ delay: 0.3, duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }}
               className="hide-mobile"
               style={{ position: 'relative' }}
             >
-              {/* Decorative blur blob behind animation */}
               <div style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: '120%',
-                height: '120%',
-                background: 'rgba(27,79,255,0.06)',
-                filter: 'blur(60px)',
-                borderRadius: '50%',
-                zIndex: 0,
-                pointerEvents: 'none',
+                position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
+                width: '120%', height: '120%', background: 'rgba(27,79,255,0.05)',
+                filter: 'blur(60px)', borderRadius: '50%', zIndex: 0, pointerEvents: 'none',
               }} />
               <HeroAnimation />
             </motion.div>
           </div>
         </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          style={{ position: 'absolute', bottom: 16, left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column' as const, alignItems: 'center', gap: 4, color: 'var(--td3)' }}
+        >
+          <span style={{ fontSize: '0.58rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase' as const }}>Scroll</span>
+          <motion.div animate={{ y: [0, 5, 0] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}>
+            <div style={{ width: 1, height: 24, background: 'linear-gradient(to bottom, var(--td3), transparent)' }} />
+          </motion.div>
+        </motion.div>
+
         <style>{`@keyframes ping{75%,100%{transform:scale(2);opacity:0}}`}</style>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          01b — STATS BAR (white, border-y)
+      ═══════════════════════════════════════════ */}
+      <section style={{ padding: '28px 0', background: '#fff', borderTop: '1px solid var(--ls-border)', borderBottom: '1px solid var(--ls-border)', position: 'relative', zIndex: 20 }}>
+        <div className="wrap">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, textAlign: 'center' }} className="stats-grid">
+            {[
+              { value: 64, suffix: '%', label: 'Booking Rate' },
+              { value: 24, suffix: '/7', label: 'AI Coverage' },
+              { value: 3, suffix: 'x', label: 'Lead Volume' },
+              { value: 98, suffix: '%', label: 'Client Retention' },
+            ].map((stat, i) => (
+              <div key={i} style={{ padding: '4px 8px', borderLeft: i > 0 ? '1px solid var(--ls-border)' : 'none' }}>
+                <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: 'var(--td1)', lineHeight: 1.1, marginBottom: 4 }}>
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                </div>
+                <div style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: 'var(--td3)' }}>{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ═══════════════════════════════════════════
@@ -324,7 +399,7 @@ export const Homepage: React.FC = () => {
         <div className="wrap">
           <Reveal>
             <div className="section-label">The Three Gaps</div>
-            <h2 className="section-heading">Where Revenue Leaks — <span style={{ color: 'rgba(255,255,255,0.80)' }}>And How We Close It</span></h2>
+            <h2 className="section-heading">Where Revenue <span className="heading-accent" style={{ color: 'var(--blue3)' }}>Leaks</span></h2>
             <p className="section-sub" style={{ marginBottom: 48 }}>Three specific points where local businesses lose customers every day.</p>
           </Reveal>
 
@@ -405,7 +480,7 @@ export const Homepage: React.FC = () => {
         <div className="wrap">
           <Reveal>
             <div className="section-label">The Platform</div>
-            <h2 className="section-heading">The AI OS That Closes <span style={{ color: 'var(--blue3)' }}>All Three Gaps.</span></h2>
+            <h2 className="section-heading">The AI OS That Closes <span className="heading-accent" style={{ color: 'var(--blue3)' }}>All Three Gaps.</span></h2>
             <p className="section-sub" style={{ marginBottom: 52 }}>Every component targets one gap. Together they form a complete revenue system.</p>
           </Reveal>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 16 }}>
@@ -415,8 +490,14 @@ export const Homepage: React.FC = () => {
                   <div style={{ marginBottom: 14 }}>
                     <span style={{ fontSize: '0.6875rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: svc.gapColor, background: svc.gapBg, border: `1px solid ${svc.gapBorder}`, padding: '3px 9px', borderRadius: 6 }}>{svc.gap}</span>
                   </div>
-                  <div style={{ width: 40, height: 40, borderRadius: 10, background: svc.gapBg, color: svc.gapColor, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 14 }}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">{svc.icon}</svg>
+                  <div style={{
+                    width: 44, height: 44, borderRadius: 12,
+                    background: (svc as any).iconGradient || svc.gapBg,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    marginBottom: 14,
+                    boxShadow: `0 4px 12px ${svc.gapColor}22`,
+                  }}>
+                    {(svc as any).iconGradient ? svc.icon : <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={svc.gapColor} strokeWidth="1.8">{svc.icon}</svg>}
                   </div>
                   <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.125rem', color: 'var(--t1)', marginBottom: 6 }}>{svc.title}</h3>
                   <p style={{ fontSize: '0.8125rem', fontWeight: 600, color: svc.gapColor, marginBottom: 10 }}>{svc.tagline}</p>
@@ -440,21 +521,28 @@ export const Homepage: React.FC = () => {
         <div className="wrap">
           <Reveal>
             <div className="section-label">How It Works</div>
-            <h2 className="section-heading" style={{ color: 'var(--td1)' }}>From Audit to Autopilot</h2>
+            <h2 className="section-heading" style={{ color: 'var(--td1)' }}>From Audit to <span className="heading-accent" style={{ color: 'var(--blue)' }}>Autopilot</span></h2>
             <p className="section-sub" style={{ marginBottom: 52, color: 'var(--td2)' }}>Four steps. No tech headaches. Running on autopilot in days.</p>
           </Reveal>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 14 }}>
             {[
-              { num: '01', sub: 'Free AI Visibility Audit', title: 'Audit', body: 'We map your Google Business Profile, Map Pack rank, review velocity, and AI search visibility across ChatGPT, Gemini, and Perplexity.' },
-              { num: '02', sub: 'Custom eighty5.OS Setup', title: 'Build', body: 'We configure your OS with automated workflows, missed call text-back, review sequences, calendar sync, and a Voice agent that sounds like your brand.' },
-              { num: '03', sub: 'We Manage It. You Do the Work.', title: 'Deploy', body: 'Calls, texts, web chats, social messages — one system, responding in seconds, around the clock.' },
-              { num: '04', sub: 'Monthly Performance Review', title: 'Optimize', body: 'Monthly Map Pack movement, AI visibility checks, and lead capture performance review. The system gets better every month.' },
+              { num: '01', sub: 'Free AI Visibility Audit', title: 'Audit', body: 'We map your Google Business Profile, Map Pack rank, review velocity, and AI search visibility across ChatGPT, Gemini, and Perplexity.', Icon: IconSearch, gradient: 'linear-gradient(135deg, #4F8EF7 0%, #8B5CF6 100%)' },
+              { num: '02', sub: 'Custom eighty5.OS Setup', title: 'Build', body: 'We configure your OS with automated workflows, missed call text-back, review sequences, calendar sync, and a Voice agent that sounds like your brand.', Icon: IconZap, gradient: 'linear-gradient(135deg, #1B4FFF 0%, #4F8EF7 100%)' },
+              { num: '03', sub: 'We Manage It. You Do the Work.', title: 'Deploy', body: 'Calls, texts, web chats, social messages — one system, responding in seconds, around the clock.', Icon: IconGlobe, gradient: 'linear-gradient(135deg, #10B981 0%, #14B8A6 100%)' },
+              { num: '04', sub: 'Monthly Performance Review', title: 'Optimize', body: 'Monthly Map Pack movement, AI visibility checks, and lead capture performance review. The system gets better every month.', Icon: IconTrending, gradient: 'linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%)' },
             ].map((step, i) => (
               <Reveal key={i} delay={i * 0.1}>
                 <div className="card-light" style={{ height: '100%', position: 'relative', overflow: 'hidden' }}>
-                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '2.4rem', color: 'var(--ls-border)', letterSpacing: '-0.05em', lineHeight: 1, marginBottom: 8 }}>{step.num}</div>
+                  <div style={{
+                    width: 48, height: 48, borderRadius: 14, background: step.gradient,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff',
+                    marginBottom: 14, boxShadow: '0 4px 14px rgba(27,79,255,0.15)',
+                    transition: 'transform 0.3s, box-shadow 0.3s',
+                  }}>
+                    <step.Icon />
+                  </div>
                   <div style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--blue)', marginBottom: 5 }}>{step.sub}</div>
-                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.0625rem', color: 'var(--td1)', marginBottom: 8 }}>{step.title}</div>
+                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.0625rem', color: 'var(--td1)', marginBottom: 8 }}>{step.num}. {step.title}</div>
                   <p style={{ fontSize: '0.8125rem', color: 'var(--td2)', lineHeight: 1.75 }}>{step.body}</p>
                 </div>
               </Reveal>
@@ -603,7 +691,7 @@ export const Homepage: React.FC = () => {
               <div style={{ position: 'relative' }}>
                 <div className="section-label" style={{ justifyContent: 'center' }}>Get Started Free</div>
                 <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem, 4vw, 3.25rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--t1)', marginBottom: 20, maxWidth: '18ch', marginInline: 'auto' }}>
-                  Ready to Dominate Local Search?
+                  Ready to Dominate <span className="heading-accent" style={{ color: 'var(--blue3)' }}>Local Search?</span>
                 </h2>
                 <p style={{ color: 'var(--t3)', fontSize: '1.0625rem', lineHeight: 1.65, marginBottom: 36, maxWidth: '50ch', marginInline: 'auto' }}>
                   Join the businesses already using eighty5.OS to dominate local Google Maps, show up in AI search, and grow without adding headcount.

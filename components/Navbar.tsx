@@ -43,16 +43,16 @@ export const Navbar: React.FC = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            padding: scrolled ? '12px 24px' : '14px 24px',
+            padding: scrolled ? '10px 24px' : '14px 24px',
             borderRadius: 999,
-            transition: 'all 0.3s ease',
-            background: scrolled ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.75)',
-            backdropFilter: 'blur(20px) saturate(180%)',
-            WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-            border: scrolled ? '1px solid var(--ls-border)' : '1px solid rgba(232,228,221,0.5)',
+            transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+            background: scrolled ? 'rgba(255,255,255,0.78)' : 'rgba(255,255,255,0.65)',
+            backdropFilter: scrolled ? 'blur(20px) saturate(200%)' : 'blur(12px) saturate(150%)',
+            WebkitBackdropFilter: scrolled ? 'blur(20px) saturate(200%)' : 'blur(12px) saturate(150%)',
+            border: scrolled ? '1px solid rgba(232,228,221,0.55)' : '1px solid rgba(232,228,221,0.35)',
             boxShadow: scrolled
-              ? '0 8px 32px rgba(15,23,42,0.08), 0 1px 2px rgba(15,23,42,0.04)'
-              : '0 2px 12px rgba(15,23,42,0.03)',
+              ? '0 8px 32px rgba(15,23,42,0.06), 0 1px 2px rgba(15,23,42,0.03)'
+              : '0 2px 12px rgba(15,23,42,0.02)',
           }}
         >
           {/* Logo */}
