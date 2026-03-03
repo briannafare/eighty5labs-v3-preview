@@ -418,6 +418,10 @@
         .pricing-grid { grid-template-columns: 1fr !important; }
         .addons-grid { grid-template-columns: 1fr !important; }
         .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        .ind-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        .ind-grid > :last-child { grid-column: span 2; }
+        .ind-panel-grid { grid-template-columns: 1fr !important; }
+        .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
       }
       @media (min-width: 769px) {
         .hide-desktop { display: none !important; }

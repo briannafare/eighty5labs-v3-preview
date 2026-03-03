@@ -18,8 +18,8 @@ export const OptInPage: React.FC = () => {
     e.preventDefault();
     setError('');
 
-    if (!formData.marketingConsent && !formData.nonMarketingConsent) {
-      setError('Please select at least one consent option.');
+    if (!formData.fullName.trim() || !formData.email.trim()) {
+      setError('Please enter your name and email.');
       return;
     }
 
