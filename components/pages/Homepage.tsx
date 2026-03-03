@@ -117,11 +117,16 @@ const SERVICES = [
 ];
 
 const INDUSTRIES = [
-  { label: 'Mortgage', sub: 'Lenders · Loan Officers', route: '#/mortgage' },
-  { label: 'Real Estate', sub: 'Agents · Teams · Brokers', route: '#/realestate' },
-  { label: 'Home Services', sub: 'HVAC · Plumbing · Roofing', route: '#/homeservices' },
-  { label: 'Medical', sub: 'Med Spa · Dental · Chiro', route: '#/medical' },
-  { label: 'Legal', sub: 'PI · DUI · Family Law', route: '#/legal' },
+  { label: 'Mortgage', sub: 'Lenders · Loan Officers', route: '#/mortgage',
+    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg> },
+  { label: 'Real Estate', sub: 'Agents · Teams · Brokers', route: '#/realestate',
+    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> },
+  { label: 'Home Services', sub: 'HVAC · Plumbing · Roofing', route: '#/homeservices',
+    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg> },
+  { label: 'Medical', sub: 'Med Spa · Dental · Chiro', route: '#/medical',
+    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> },
+  { label: 'Legal', sub: 'PI · DUI · Family Law', route: '#/legal',
+    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v18M5.5 8.5l13 7M18.5 8.5l-13 7"/><circle cx="12" cy="3" r="1"/></svg> },
 ];
 
 const TESTIMONIALS = [
@@ -166,9 +171,9 @@ const INDUSTRY_DESCRIPTIONS = [
 ];
 
 const GAP_ROWS = [
-  { color: '#4F8EF7', num: 'Gap 1', label: 'Invisible on Google Maps, ChatGPT, Gemini & Perplexity' },
-  { color: '#A78BFA', num: 'Gap 2', label: 'Weak reviews, no responses, low velocity' },
-  { color: '#10B981', num: 'Gap 3', label: 'Missed calls, no booking tool — leads go to competitors' },
+  { color: '#4F8EF7', num: 'Gap 1', label: 'Invisible on Google Maps, ChatGPT, Gemini & Perplexity', tag: 'Visibility' },
+  { color: '#A78BFA', num: 'Gap 2', label: 'Weak reviews, no responses, low velocity', tag: 'Reputation' },
+  { color: '#10B981', num: 'Gap 3', label: 'Missed calls, no booking tool — leads go to competitors', tag: 'Conversion' },
 ];
 
 /* ── COMPONENT ── */
@@ -176,6 +181,15 @@ const GAP_ROWS = [
 export const Homepage: React.FC = () => {
   const [activeIndustry, setActiveIndustry] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [activeGap, setActiveGap] = useState(0);
+
+  // Rotate through gaps
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveGap(prev => (prev + 1) % GAP_ROWS.length);
+    }, 3200);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div>
@@ -220,7 +234,7 @@ export const Homepage: React.FC = () => {
           }}>
             {/* LEFT — Text */}
             <div>
-              {/* Headline — serif italic accent */}
+              {/* Headline — bold blue accent */}
               <motion.h1
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -232,11 +246,11 @@ export const Homepage: React.FC = () => {
                   letterSpacing: '-0.04em',
                   lineHeight: 1.08,
                   color: 'var(--td1)',
-                  marginBottom: 20,
+                  marginBottom: 24,
                 }}
               >
                 Close the gaps.<br />
-                <span style={{ fontFamily: 'var(--fs)', fontStyle: 'italic', fontWeight: 700, color: '#1B4FFF', letterSpacing: '-0.02em' }}>
+                <span style={{ fontWeight: 900, color: '#1B4FFF', letterSpacing: '-0.02em' }}>
                   Recover the revenue.
                 </span>
               </motion.h1>
@@ -250,37 +264,65 @@ export const Homepage: React.FC = () => {
                   color: 'var(--td2)',
                   lineHeight: 1.7,
                   maxWidth: '44ch',
-                  marginBottom: 28,
+                  marginBottom: 32,
                 }}
               >
                 Most local businesses are bleeding revenue at three specific points. eighty5labs finds every gap and closes it — automatically.
               </motion.p>
 
-              {/* Gap rows — compact */}
+              {/* Rotating gap indicator — single line */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4, duration: 0.5 }}
-                style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 28 }}
+                style={{ marginBottom: 36, height: 48, position: 'relative' }}
               >
-                {GAP_ROWS.map((gap, i) => (
+                <AnimatePresence mode="wait">
                   <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.45 + i * 0.08, duration: 0.35 }}
+                    key={activeGap}
+                    initial={{ opacity: 0, y: 12, filter: 'blur(4px)' }}
+                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                    exit={{ opacity: 0, y: -12, filter: 'blur(4px)' }}
+                    transition={{ duration: 0.45, ease: [0.25, 0.8, 0.25, 1] }}
                     style={{
-                      display: 'flex', alignItems: 'center', gap: 10,
-                      padding: '8px 12px', background: 'var(--ls1)',
+                      display: 'flex', alignItems: 'center', gap: 14,
+                      padding: '10px 16px', background: 'var(--ls1)',
                       border: '1px solid var(--ls-border)', borderRadius: 'var(--rd)',
+                      position: 'absolute', left: 0, right: 0, top: 0,
                     }}
                   >
-                    <div style={{ width: 3, height: 22, borderRadius: 2, background: gap.color, flexShrink: 0 }} />
-                    <span style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.72rem', color: 'var(--td1)', whiteSpace: 'nowrap' }}>{gap.num}</span>
-                    <span style={{ fontSize: '0.78rem', color: 'var(--td2)', flex: 1 }}>{gap.label}</span>
-                    <span style={{ fontSize: '0.64rem', fontWeight: 700, color: gap.color, background: `${gap.color}12`, padding: '2px 8px', borderRadius: 999, whiteSpace: 'nowrap' }}>We fix this</span>
+                    <div style={{ width: 3, height: 26, borderRadius: 2, background: GAP_ROWS[activeGap].color, flexShrink: 0 }} />
+                    <span style={{
+                      fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.68rem',
+                      letterSpacing: '0.06em', textTransform: 'uppercase' as const,
+                      color: GAP_ROWS[activeGap].color, whiteSpace: 'nowrap',
+                    }}>
+                      {GAP_ROWS[activeGap].num}
+                    </span>
+                    <span style={{ fontSize: '0.82rem', color: 'var(--td2)', flex: 1 }}>{GAP_ROWS[activeGap].label}</span>
+                    <span style={{
+                      fontSize: '0.62rem', fontWeight: 700, color: GAP_ROWS[activeGap].color,
+                      background: `${GAP_ROWS[activeGap].color}12`, padding: '3px 10px',
+                      borderRadius: 999, whiteSpace: 'nowrap',
+                    }}>We fix this</span>
                   </motion.div>
-                ))}
+                </AnimatePresence>
+                {/* Progress dots */}
+                <div style={{ position: 'absolute', bottom: -16, left: 16, display: 'flex', gap: 6 }}>
+                  {GAP_ROWS.map((g, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setActiveGap(i)}
+                      style={{
+                        width: activeGap === i ? 18 : 6, height: 6,
+                        borderRadius: 3,
+                        background: activeGap === i ? g.color : '#CBD5E1',
+                        border: 'none', cursor: 'pointer', padding: 0,
+                        transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+                      }}
+                    />
+                  ))}
+                </div>
               </motion.div>
 
               {/* CTAs */}
@@ -624,7 +666,7 @@ export const Homepage: React.FC = () => {
       </section>
 
       {/* ═══════════════════════════════════════════
-          06 — INDUSTRIES (dark bg1 — V2 style overhaul)
+          06 — INDUSTRIES (dark — modernized)
       ═══════════════════════════════════════════ */}
       <section className="section-dark-alt">
         <div className="wrap">
@@ -634,32 +676,31 @@ export const Homepage: React.FC = () => {
             <p className="section-sub" style={{ marginBottom: 48 }}>Local businesses that get found on Google — and are tired of losing customers after the click.</p>
           </Reveal>
 
-          {/* Industry selector tabs */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 10, marginBottom: 14 }} className="ind-grid">
+          {/* Industry tab pills */}
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 20 }}>
             {INDUSTRIES.map((ind, i) => (
               <motion.button
                 key={i}
                 onClick={() => setActiveIndustry(i)}
                 whileTap={{ scale: 0.97 }}
                 style={{
-                  padding: '18px 16px',
-                  borderRadius: 'var(--rd)',
+                  padding: '10px 18px',
+                  borderRadius: 10,
                   fontFamily: 'var(--fd)',
-                  border: 'none',
-                  background: activeIndustry === i ? 'var(--td1)' : 'var(--bg2)',
+                  border: activeIndustry === i ? '1.5px solid rgba(79,142,247,0.4)' : '1.5px solid rgba(255,255,255,0.08)',
+                  background: activeIndustry === i ? 'rgba(79,142,247,0.12)' : 'rgba(255,255,255,0.03)',
                   cursor: 'pointer',
                   display: 'flex',
-                  flexDirection: 'column',
-                  gap: 6,
-                  textAlign: 'left',
-                  transition: 'background 0.2s, border-color 0.2s',
-                  outline: activeIndustry === i ? 'none' : '1px solid rgba(255,255,255,0.07)',
+                  alignItems: 'center',
+                  gap: 10,
+                  transition: 'all 0.2s',
+                  color: activeIndustry === i ? '#93C5FD' : 'rgba(255,255,255,0.7)',
                 }}
-                onMouseEnter={e => { if (activeIndustry !== i) e.currentTarget.style.background = 'var(--td1)'; }}
-                onMouseLeave={e => { if (activeIndustry !== i) e.currentTarget.style.background = 'var(--bg2)'; }}
+                onMouseEnter={e => { if (activeIndustry !== i) { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; }}}
+                onMouseLeave={e => { if (activeIndustry !== i) { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; }}}
               >
-                <span style={{ fontWeight: 900, fontSize: '1rem', color: '#fff', letterSpacing: '-0.02em' }}>{ind.label}</span>
-                <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.7)', fontWeight: 500 }}>{ind.sub}</span>
+                <span style={{ color: activeIndustry === i ? '#93C5FD' : 'rgba(255,255,255,0.5)', display: 'flex' }}>{ind.icon}</span>
+                <span style={{ fontWeight: 700, fontSize: '0.875rem', letterSpacing: '-0.01em' }}>{ind.label}</span>
               </motion.button>
             ))}
           </div>
@@ -673,10 +714,10 @@ export const Homepage: React.FC = () => {
               exit={{ opacity: 0, y: -4 }}
               transition={{ duration: 0.25 }}
               style={{
-                background: 'var(--bg2)',
-                border: '1px solid rgba(255,255,255,0.07)',
-                borderRadius: 'var(--rl, 16px)',
-                padding: 'clamp(24px, 4vw, 36px)',
+                background: 'linear-gradient(135deg, var(--bg2) 0%, rgba(22,30,46,0.95) 100%)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: 16,
+                padding: 'clamp(28px, 4vw, 40px)',
                 display: 'grid',
                 gridTemplateColumns: '1fr 280px',
                 gap: 40,
@@ -685,35 +726,40 @@ export const Homepage: React.FC = () => {
               className="ind-panel-grid"
             >
               <div>
-                <div style={{ fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' as const, color: 'var(--blue3)', marginBottom: 8 }}>
-                  {INDUSTRIES[activeIndustry].label}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
+                  <div style={{
+                    width: 36, height: 36, borderRadius: 10,
+                    background: 'rgba(79,142,247,0.12)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: '#93C5FD',
+                  }}>
+                    {INDUSTRIES[activeIndustry].icon}
+                  </div>
+                  <div>
+                    <span style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.25rem', color: 'var(--t1)', letterSpacing: '-0.025em' }}>
+                      {INDUSTRIES[activeIndustry].label}
+                    </span>
+                    <span style={{ display: 'block', fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', marginTop: 2 }}>{INDUSTRIES[activeIndustry].sub}</span>
+                  </div>
                 </div>
-                <h3 style={{
-                  fontFamily: 'var(--fd)',
-                  fontWeight: 900,
-                  fontSize: 'clamp(1.25rem, 2.5vw, 1.5rem)',
-                  color: 'var(--t1)',
-                  letterSpacing: '-0.025em',
-                  lineHeight: 1.2,
-                  marginBottom: 14,
-                }}>
-                  {INDUSTRIES[activeIndustry].label} {INDUSTRIES[activeIndustry].sub.split(' · ').length > 1 ? `— ${INDUSTRIES[activeIndustry].sub.split(' · ').join(' & ')}` : ''}
-                </h3>
-                <p style={{ fontSize: '0.875rem', color: 'var(--t2)', lineHeight: 1.8, marginBottom: 22 }}>
+                <p style={{ fontSize: '0.9rem', color: 'var(--t2)', lineHeight: 1.75, marginBottom: 24, maxWidth: '52ch' }}>
                   {INDUSTRY_DESCRIPTIONS[activeIndustry]}
                 </p>
 
-                {/* Feature list */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 24 }}>
-                  {[['AI Search Visibility — appear in ChatGPT, Gemini, Perplexity','var(--blue3)'],
-                    ['Google Map Pack — top 3 local rankings','var(--blue3)'],
-                    ['Reviews AI — automated generation + responses','#A78BFA'],
-                    ['Voice AI — 24/7 call answering + booking','#6EE7B7'],
-                    ['Lead follow-up — instant SMS & email nurture','#6EE7B7']
-                  ].map(([label, color], j) => (
+                {/* Feature checklist */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 28 }}>
+                  {[
+                    { label: 'AI Search Visibility', color: '#4F8EF7' },
+                    { label: 'Google Map Pack Optimization', color: '#4F8EF7' },
+                    { label: 'Reviews AI — automated generation + responses', color: '#A78BFA' },
+                    { label: 'Voice AI — 24/7 call answering + booking', color: '#10B981' },
+                    { label: 'Lead follow-up — instant SMS & email nurture', color: '#10B981' },
+                  ].map((feat, j) => (
                     <div key={j} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                      <span style={{ color: color as string, fontWeight: 800, fontSize: '0.8125rem', flexShrink: 0 }}>→</span>
-                      <span style={{ fontSize: '0.8125rem', color: 'var(--t2)', lineHeight: 1.55 }}>{label}</span>
+                      <div style={{ width: 18, height: 18, borderRadius: 5, background: `${feat.color}1A`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={feat.color} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                      </div>
+                      <span style={{ fontSize: '0.8125rem', color: 'rgba(255,255,255,0.78)' }}>{feat.label}</span>
                     </div>
                   ))}
                 </div>
@@ -730,16 +776,17 @@ export const Homepage: React.FC = () => {
                 </motion.a>
               </div>
 
-              {/* Right stat panel */}
+              {/* Right — quote panel */}
               <div style={{
-                background: 'var(--bg3, rgba(255,255,255,0.04))',
-                borderRadius: 'var(--rd)',
-                padding: '22px',
+                background: 'rgba(255,255,255,0.03)',
+                border: '1px solid rgba(255,255,255,0.06)',
+                borderRadius: 12,
+                padding: '20px',
               }}>
-                <div style={{ fontSize: '0.58rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,0.6)', marginBottom: 10 }}>
+                <div style={{ fontSize: '0.58rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,0.45)', marginBottom: 12 }}>
                   Industry Insight
                 </div>
-                <p style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.85)', lineHeight: 1.8, fontStyle: 'italic', fontWeight: 400 }}>
+                <p style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.75, fontStyle: 'italic' }}>
                   {[
                     '"The lender who responds first wins the deal. In mortgage, speed isn\'t a luxury — it\'s the entire game."',
                     '"68% of home buyers work with the first agent who responds. Second place gets nothing."',
