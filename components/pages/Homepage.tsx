@@ -241,10 +241,10 @@ export const Homepage: React.FC = () => {
                 transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                 style={{
                   fontFamily: 'var(--fd)',
-                  fontSize: 'clamp(2.6rem, 5.5vw, 4rem)',
+                  fontSize: 'clamp(2.5rem, 3.8vw, 3.6rem)',
                   fontWeight: 900,
-                  letterSpacing: '-0.04em',
-                  lineHeight: 1.1,
+                  letterSpacing: '-0.045em',
+                  lineHeight: 1.03,
                   color: 'var(--td1)',
                   marginBottom: 28,
                 }}
@@ -556,7 +556,7 @@ export const Homepage: React.FC = () => {
                       <span style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: gc.tagColor }}>{gc.tag}</span>
                       <span style={{ fontSize: '0.62rem', fontWeight: 700, padding: '3px 9px', borderRadius: 999, background: gc.badgeBg, color: gc.tagColor }}>{gc.badge}</span>
                     </div>
-                    <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.05rem', color: 'var(--t1)', marginBottom: 8, letterSpacing: '-0.015em' }}>{gc.title}</h3>
+                    <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.9375rem', color: 'var(--t1)', marginBottom: 8, letterSpacing: '-0.015em', lineHeight: 1.3 }}>{gc.title}</h3>
                     <p style={{ fontSize: '0.84rem', color: 'var(--t3)', lineHeight: 1.6, marginBottom: 10 }}>{gc.body}</p>
                     <div style={{ fontSize: '0.78rem', fontWeight: 600, color: gc.tagColor }}>{gc.fix}</div>
                   </div>
@@ -607,7 +607,7 @@ export const Homepage: React.FC = () => {
                   }}>
                     {(svc as any).iconGradient ? svc.icon : <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={svc.gapColor} strokeWidth="1.8">{svc.icon}</svg>}
                   </div>
-                  <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.125rem', color: 'var(--t1)', marginBottom: 6 }}>{svc.title}</h3>
+                  <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1rem', color: 'var(--t1)', marginBottom: 6, letterSpacing: '-0.02em' }}>{svc.title}</h3>
                   <p style={{ fontSize: '0.8125rem', fontWeight: 600, color: svc.gapColor, marginBottom: 10 }}>{svc.tagline}</p>
                   <p style={{ fontSize: '0.875rem', color: 'var(--t3)', lineHeight: 1.6 }}>{svc.body}</p>
                 </div>
@@ -650,7 +650,7 @@ export const Homepage: React.FC = () => {
                     <step.Icon />
                   </div>
                   <div style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--blue)', marginBottom: 5 }}>{step.sub}</div>
-                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.0625rem', color: 'var(--td1)', marginBottom: 8 }}>{step.num}. {step.title}</div>
+                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.9375rem', color: 'var(--td1)', marginBottom: 8, letterSpacing: '-0.015em' }}>{step.num}. {step.title}</div>
                   <p style={{ fontSize: '0.8125rem', color: 'var(--td2)', lineHeight: 1.75 }}>{step.body}</p>
                 </div>
               </Reveal>
@@ -730,7 +730,7 @@ export const Homepage: React.FC = () => {
                     {INDUSTRIES[activeIndustry].icon}
                   </div>
                   <div>
-                    <span style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.25rem', color: 'var(--t1)', letterSpacing: '-0.025em' }}>
+                    <span style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.125rem', color: 'var(--t1)', letterSpacing: '-0.02em' }}>
                       {INDUSTRIES[activeIndustry].label}
                     </span>
                     <span style={{ display: 'block', fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', marginTop: 2 }}>{INDUSTRIES[activeIndustry].sub}</span>
@@ -809,7 +809,7 @@ export const Homepage: React.FC = () => {
             {TESTIMONIALS.map((t, i) => (
               <Reveal key={i} delay={i * 0.1}>
                 <div className="card-light" style={{ height: '100%' }}>
-                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '2rem', color: 'var(--blue)', letterSpacing: '-0.04em', marginBottom: 4 }}>{t.metric}</div>
+                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.75rem', color: 'var(--blue)', letterSpacing: '-0.04em', marginBottom: 4 }}>{t.metric}</div>
                   <div style={{ fontSize: '0.75rem', color: 'var(--td3)', marginBottom: 20 }}>{t.metricLabel}</div>
                   <p style={{ fontSize: '0.9375rem', color: 'var(--td2)', lineHeight: 1.65, marginBottom: 24, fontStyle: 'italic' }}>"{t.quote}"</p>
                   <div style={{ paddingTop: 18, borderTop: '1px solid var(--ls-border)' }}>
@@ -874,7 +874,7 @@ export const Homepage: React.FC = () => {
               <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 70% 60% at 50% 0%, rgba(27,79,255,0.18) 0%, transparent 70%)', pointerEvents: 'none' }}/>
               <div style={{ position: 'relative' }}>
                 <div className="section-label" style={{ justifyContent: 'center' }}>Get Started Free</div>
-                <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem, 4vw, 3.25rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--t1)', marginBottom: 20, maxWidth: '18ch', marginInline: 'auto' }}>
+                <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.9rem, 3.2vw, 2.7rem)', fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1.07, color: 'var(--t1)', marginBottom: 20, maxWidth: '18ch', marginInline: 'auto' }}>
                   Ready to Dominate <span className="heading-accent" style={{ color: 'var(--blue3)' }}>Local Search?</span>
                 </h2>
                 <p style={{ color: 'var(--t3)', fontSize: '1.0625rem', lineHeight: 1.65, marginBottom: 36, maxWidth: '50ch', marginInline: 'auto' }}>

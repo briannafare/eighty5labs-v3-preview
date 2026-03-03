@@ -264,7 +264,7 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        font-size: 0.6875rem;
+        font-size: 0.68rem;
         font-weight: 700;
         letter-spacing: 0.13em;
         text-transform: uppercase;
@@ -285,13 +285,13 @@
       .section-label { color: var(--td3); }
       .section-label::before { background: var(--td3); }
 
-      /* Section headings — scaled up for impact */
+      /* Section headings — V2 Phase 1 baseline */
       .section-heading {
-        font-size: clamp(2.2rem, 5vw, 3.5rem);
+        font-size: clamp(1.75rem, 3vw, 2.4rem);
         font-weight: 900;
         margin-bottom: 18px;
         max-width: 20ch;
-        line-height: 1.06;
+        line-height: 1.07;
         letter-spacing: -0.04em;
       }
       .section-heading-dark { color: var(--t1); }
@@ -301,11 +301,11 @@
       /* Override for dark sections */
       .section-dark .section-heading { color: var(--t1); }
 
-      /* Serif italic accent for mixed headlines */
+      /* Heading accent — display font, color only (no serif italic) */
       .heading-accent {
-        font-family: var(--fs);
-        font-style: italic;
-        font-weight: 400;
+        font-family: var(--fd);
+        font-style: normal;
+        font-weight: 900;
       }
 
       .section-sub {

@@ -20,9 +20,9 @@ const RealEstatePage = lazy(() => import('./components/pages/RealEstatePage'));
 const HomeServicesPage = lazy(() => import('./components/pages/HomeServicesPage'));
 const MedicalPage   = lazy(() => import('./components/pages/MedicalPage'));
 const LegalPage     = lazy(() => import('./components/pages/LegalPage'));
-const ResourcesPage = lazy(() => import('./components/pages/ResourcesPage').then(m => ({ default: m.ResourcesPage })));
-const BlogPage      = lazy(() => import('./components/pages/BlogPage').then(m => ({ default: m.BlogPage })));
-const GlossaryPage  = lazy(() => import('./components/pages/GlossaryPage').then(m => ({ default: m.GlossaryPage })));
+const ResourcesPage = lazy(() => import('./components/pages/ResourcesPage'));
+const BlogPage      = lazy(() => import('./components/pages/BlogPage'));
+const GlossaryPage  = lazy(() => import('./components/pages/GlossaryPage'));
 
 // Fallback for lazy-loaded pages
 const PageLoader: React.FC = () => (
