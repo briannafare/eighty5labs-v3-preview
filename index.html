@@ -52,6 +52,20 @@
         --gap3-lt-d: rgba(139,92,246,0.15);
         --gap3-border: rgba(139,92,246,0.22);
 
+        /* ── Accent palette (use sparingly — icons, highlights, gradients) */
+        --lime: #C8FF00;          /* electric lime / chartreuse */
+        --lime-lt: rgba(200,255,0,0.12);
+        --orange: #FF6B35;        /* complementary warm orange */
+        --orange-lt: rgba(255,107,53,0.12);
+        --violet: #7C3AED;        /* deep violet for gradients */
+        --violet-lt: rgba(124,58,237,0.12);
+        /* Multi-stop brand gradient */
+        --grad-brand: linear-gradient(135deg, #1B4FFF 0%, #7C3AED 50%, #C8FF00 100%);
+        --grad-brand-2: linear-gradient(135deg, #4F8EF7 0%, #8B5CF6 60%, #FF6B35 100%);
+        --grad-icon-1: linear-gradient(135deg, #1B4FFF 0%, #4F8EF7 100%);
+        --grad-icon-2: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 100%);
+        --grad-icon-3: linear-gradient(135deg, #10B981 0%, #14B8A6 100%);
+
         /* ── Text (dark sections) */
         --t1: #FFFFFF;
         --t2: rgba(255,255,255,0.80);
@@ -193,23 +207,12 @@
       .btn-primary {
         background: var(--blue);
         color: #fff;
-        position: relative;
-        overflow: hidden;
       }
-      .btn-primary::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(135deg, var(--blue) 0%, #0A3DE6 100%);
-        opacity: 0;
-        transition: opacity 0.3s;
-      }
-      .btn-primary:hover::after { opacity: 1; }
-      .btn-primary > * { position: relative; z-index: 1; }
       .btn-primary:hover {
-        background: var(--blue2);
+        background: #0A3DE6;
         transform: translateY(-2px) scale(1.02);
-        box-shadow: 0 2px 12px rgba(27,79,255,0.30);
+        box-shadow: 0 6px 24px rgba(27,79,255,0.40);
+        color: #fff;
       }
       /* Ghost on dark bg */
       .btn-ghost {
@@ -243,7 +246,115 @@
       }
 
       /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         SECTION SYSTEM
+         HERO — centered layout override
+         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+      .hero-centered {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        max-width: 780px;
+        margin-inline: auto;
+      }
+
+      /* Gap indicator — horizontal numbered row */
+      .gap-indicators {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        margin-bottom: 28px;
+      }
+      .gap-ind-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 18px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: background 0.2s;
+        position: relative;
+      }
+      .gap-ind-num {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--fd);
+        font-size: 0.7rem;
+        font-weight: 900;
+        letter-spacing: 0.02em;
+        flex-shrink: 0;
+        transition: all 0.25s;
+      }
+      .gap-ind-label {
+        font-family: var(--fd);
+        font-size: 0.8125rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        white-space: nowrap;
+        transition: color 0.25s;
+      }
+      .gap-ind-divider {
+        width: 28px;
+        height: 1px;
+        background: var(--ls-border);
+        flex-shrink: 0;
+      }
+
+      /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SCROLL-PEEK demo container
+         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+      .scroll-peek-wrap {
+        width: 100%;
+        max-width: 720px;
+        margin-inline: auto;
+        margin-top: 56px;
+        position: relative;
+      }
+      .scroll-peek-inner {
+        border-radius: 20px 20px 0 0;
+        overflow: hidden;
+        box-shadow: 0 -4px 60px rgba(27,79,255,0.12), 0 20px 80px rgba(15,23,42,0.14);
+        border: 1px solid var(--ls-border);
+        border-bottom: none;
+        background: #fff;
+        transform-origin: bottom center;
+      }
+
+      /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         STICKY GAPS SCROLL layout
+         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+      .gaps-sticky-layout {
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: clamp(32px, 4vw, 64px);
+        align-items: start;
+      }
+      .gaps-scroll-col {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .gap-scroll-item {
+        padding: 40px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        opacity: 0.35;
+        transition: opacity 0.4s;
+      }
+      .gap-scroll-item:last-child { border-bottom: none; }
+      .gap-scroll-item.active { opacity: 1; }
+      .gaps-sticky-col {
+        position: sticky;
+        top: 100px;
+      }
+
+      @media (max-width: 860px) {
+        .gaps-sticky-layout { grid-template-columns: 1fr; }
+        .gaps-sticky-col { position: static; }
+        .scroll-peek-wrap { margin-top: 32px; }
+      }
          Dark (.section-dark) and light (.section, .section-light)
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
       .section {
