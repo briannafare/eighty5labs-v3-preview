@@ -170,10 +170,10 @@ const INDUSTRY_DESCRIPTIONS = [
   'Clients research attorneys extensively before calling. Being first in local search and AI recommendations — combined with instant intake response — is the difference between signing a client and losing them.',
 ];
 
-const GAP_ROWS = [
-  { color: '#4F8EF7', num: 'Gap 1', label: 'Invisible on Google Maps, ChatGPT, Gemini & Perplexity', tag: 'Visibility' },
-  { color: '#A78BFA', num: 'Gap 2', label: 'Weak reviews, no responses, low velocity', tag: 'Reputation' },
-  { color: '#10B981', num: 'Gap 3', label: 'Missed calls, no booking tool — leads go to competitors', tag: 'Conversion' },
+const GAP_WORDS = [
+  { word: 'Visibility', color: '#4F8EF7', desc: 'Invisible on Google Maps, AI search & local results' },
+  { word: 'Reputation', color: '#A78BFA', desc: 'Weak reviews, no responses, low trust signals' },
+  { word: 'Conversion', color: '#10B981', desc: 'Missed calls, no booking — leads go to competitors' },
 ];
 
 /* ── COMPONENT ── */
@@ -183,11 +183,11 @@ export const Homepage: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [activeGap, setActiveGap] = useState(0);
 
-  // Rotate through gaps
+  // Rotate through gap words
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveGap(prev => (prev + 1) % GAP_ROWS.length);
-    }, 3200);
+      setActiveGap(prev => (prev + 1) % GAP_WORDS.length);
+    }, 2800);
     return () => clearInterval(timer);
   }, []);
 
@@ -234,26 +234,75 @@ export const Homepage: React.FC = () => {
           }}>
             {/* LEFT — Text */}
             <div>
-              {/* Headline — bold blue accent */}
+              {/* Headline with inline rotating word */}
               <motion.h1
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                 style={{
                   fontFamily: 'var(--fd)',
-                  fontSize: 'clamp(2.4rem, 5vw, 3.75rem)',
+                  fontSize: 'clamp(2.6rem, 5.5vw, 4rem)',
                   fontWeight: 900,
                   letterSpacing: '-0.04em',
-                  lineHeight: 1.08,
+                  lineHeight: 1.1,
                   color: 'var(--td1)',
-                  marginBottom: 24,
+                  marginBottom: 28,
                 }}
               >
-                Close the gaps.<br />
-                <span style={{ fontWeight: 900, color: '#1B4FFF', letterSpacing: '-0.02em' }}>
+                Close the<br />
+                <span style={{ display: 'inline-flex', alignItems: 'baseline', position: 'relative' }}>
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={activeGap}
+                      initial={{ opacity: 0, y: 24, filter: 'blur(6px)' }}
+                      animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                      exit={{ opacity: 0, y: -24, filter: 'blur(6px)' }}
+                      transition={{ duration: 0.4, ease: [0.25, 0.8, 0.25, 1] }}
+                      style={{
+                        color: GAP_WORDS[activeGap].color,
+                        display: 'inline-block',
+                        minWidth: '5.5ch',
+                        background: `linear-gradient(135deg, ${GAP_WORDS[activeGap].color}, ${GAP_WORDS[activeGap].color}88)`,
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                      }}
+                    >
+                      {GAP_WORDS[activeGap].word}
+                    </motion.span>
+                  </AnimatePresence>
+                </span>{' '}
+                gap.
+                <br />
+                <span style={{ fontWeight: 900, color: '#1B4FFF' }}>
                   Recover the revenue.
                 </span>
               </motion.h1>
+
+              {/* Rotating description line */}
+              <div style={{ marginBottom: 32, height: 28, position: 'relative' }}>
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={activeGap}
+                    initial={{ opacity: 0, x: -8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 8 }}
+                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                    style={{
+                      position: 'absolute',
+                      fontSize: 'clamp(0.9rem, 1.4vw, 1rem)',
+                      color: 'var(--td2)',
+                      lineHeight: 1.6,
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 8,
+                    }}
+                  >
+                    <span style={{ width: 16, height: 2, borderRadius: 1, background: GAP_WORDS[activeGap].color, flexShrink: 0 }} />
+                    {GAP_WORDS[activeGap].desc}
+                  </motion.p>
+                </AnimatePresence>
+              </div>
 
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
@@ -263,67 +312,12 @@ export const Homepage: React.FC = () => {
                   fontSize: 'clamp(0.95rem, 1.5vw, 1.0625rem)',
                   color: 'var(--td2)',
                   lineHeight: 1.7,
-                  maxWidth: '44ch',
-                  marginBottom: 32,
+                  maxWidth: '42ch',
+                  marginBottom: 36,
                 }}
               >
-                Most local businesses are bleeding revenue at three specific points. eighty5labs finds every gap and closes it — automatically.
+                Most local businesses bleed revenue at three points. eighty5labs finds every gap and closes it — automatically.
               </motion.p>
-
-              {/* Rotating gap indicator — single line */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.5 }}
-                style={{ marginBottom: 36, height: 48, position: 'relative' }}
-              >
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeGap}
-                    initial={{ opacity: 0, y: 12, filter: 'blur(4px)' }}
-                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                    exit={{ opacity: 0, y: -12, filter: 'blur(4px)' }}
-                    transition={{ duration: 0.45, ease: [0.25, 0.8, 0.25, 1] }}
-                    style={{
-                      display: 'flex', alignItems: 'center', gap: 14,
-                      padding: '10px 16px', background: 'var(--ls1)',
-                      border: '1px solid var(--ls-border)', borderRadius: 'var(--rd)',
-                      position: 'absolute', left: 0, right: 0, top: 0,
-                    }}
-                  >
-                    <div style={{ width: 3, height: 26, borderRadius: 2, background: GAP_ROWS[activeGap].color, flexShrink: 0 }} />
-                    <span style={{
-                      fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.68rem',
-                      letterSpacing: '0.06em', textTransform: 'uppercase' as const,
-                      color: GAP_ROWS[activeGap].color, whiteSpace: 'nowrap',
-                    }}>
-                      {GAP_ROWS[activeGap].num}
-                    </span>
-                    <span style={{ fontSize: '0.82rem', color: 'var(--td2)', flex: 1 }}>{GAP_ROWS[activeGap].label}</span>
-                    <span style={{
-                      fontSize: '0.62rem', fontWeight: 700, color: GAP_ROWS[activeGap].color,
-                      background: `${GAP_ROWS[activeGap].color}12`, padding: '3px 10px',
-                      borderRadius: 999, whiteSpace: 'nowrap',
-                    }}>We fix this</span>
-                  </motion.div>
-                </AnimatePresence>
-                {/* Progress dots */}
-                <div style={{ position: 'absolute', bottom: -16, left: 16, display: 'flex', gap: 6 }}>
-                  {GAP_ROWS.map((g, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setActiveGap(i)}
-                      style={{
-                        width: activeGap === i ? 18 : 6, height: 6,
-                        borderRadius: 3,
-                        background: activeGap === i ? g.color : '#CBD5E1',
-                        border: 'none', cursor: 'pointer', padding: 0,
-                        transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
-                      }}
-                    />
-                  ))}
-                </div>
-              </motion.div>
 
               {/* CTAs */}
               <motion.div
