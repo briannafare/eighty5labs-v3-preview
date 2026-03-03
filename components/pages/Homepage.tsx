@@ -187,7 +187,7 @@ export const Homepage: React.FC = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveGap(prev => (prev + 1) % GAP_WORDS.length);
-    }, 2800);
+    }, 4000);
     return () => clearInterval(timer);
   }, []);
 
@@ -234,7 +234,7 @@ export const Homepage: React.FC = () => {
           }}>
             {/* LEFT — Text */}
             <div>
-              {/* Headline with inline rotating word */}
+              {/* Stable headline — no inline word swap */}
               <motion.h1
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -244,61 +244,68 @@ export const Homepage: React.FC = () => {
                   fontSize: 'clamp(2.5rem, 3.8vw, 3.6rem)',
                   fontWeight: 900,
                   letterSpacing: '-0.045em',
-                  lineHeight: 1.03,
+                  lineHeight: 1.05,
                   color: 'var(--td1)',
-                  marginBottom: 28,
+                  marginBottom: 24,
                 }}
               >
-                Close the<br />
-                <span style={{ display: 'inline-flex', alignItems: 'baseline', position: 'relative' }}>
-                  <AnimatePresence mode="wait">
-                    <motion.span
-                      key={activeGap}
-                      initial={{ opacity: 0, y: 24, filter: 'blur(6px)' }}
-                      animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                      exit={{ opacity: 0, y: -24, filter: 'blur(6px)' }}
-                      transition={{ duration: 0.4, ease: [0.25, 0.8, 0.25, 1] }}
-                      style={{
-                        color: GAP_WORDS[activeGap].color,
-                        display: 'inline-block',
-                        minWidth: '5.5ch',
-                        background: `linear-gradient(135deg, ${GAP_WORDS[activeGap].color}, ${GAP_WORDS[activeGap].color}88)`,
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        backgroundClip: 'text',
-                      }}
-                    >
-                      {GAP_WORDS[activeGap].word}
-                    </motion.span>
-                  </AnimatePresence>
-                </span>{' '}
-                gap.
-                <br />
-                <span style={{ fontWeight: 900, color: '#1B4FFF' }}>
-                  Recover the revenue.
-                </span>
+                Close the gaps.<br />
+                <span style={{ color: 'var(--blue)' }}>Recover the revenue.</span>
               </motion.h1>
 
-              {/* Rotating description line */}
-              <div style={{ marginBottom: 32, height: 28, position: 'relative' }}>
+              {/* Gap indicator badges — auto-rotate, also clickable */}
+              <div style={{ display: 'flex', gap: 8, marginBottom: 20, flexWrap: 'wrap' }}>
+                {GAP_WORDS.map((g, i) => (
+                  <motion.button
+                    key={g.word}
+                    onClick={() => setActiveGap(i)}
+                    animate={{
+                      background: activeGap === i ? g.color : 'transparent',
+                      color: activeGap === i ? '#fff' : 'var(--td3)',
+                      borderColor: activeGap === i ? g.color : 'var(--ls-border)',
+                    }}
+                    transition={{ duration: 0.25 }}
+                    style={{
+                      border: '1.5px solid',
+                      borderRadius: 6,
+                      padding: '4px 12px',
+                      fontSize: '0.72rem',
+                      fontWeight: 700,
+                      fontFamily: 'var(--fd)',
+                      letterSpacing: '0.07em',
+                      textTransform: 'uppercase',
+                      cursor: 'pointer',
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    Gap {i + 1} — {g.word}
+                  </motion.button>
+                ))}
+              </div>
+
+              {/* Active gap description — fixed-height container, no layout shift */}
+              <div style={{ marginBottom: 28, minHeight: 48 }}>
                 <AnimatePresence mode="wait">
                   <motion.p
                     key={activeGap}
-                    initial={{ opacity: 0, x: -8 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 8 }}
-                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    transition={{ duration: 0.22, ease: 'easeOut' }}
                     style={{
-                      position: 'absolute',
                       fontSize: 'clamp(0.9rem, 1.4vw, 1rem)',
                       color: 'var(--td2)',
                       lineHeight: 1.6,
                       display: 'flex',
                       alignItems: 'center',
-                      gap: 8,
+                      gap: 10,
                     }}
                   >
-                    <span style={{ width: 16, height: 2, borderRadius: 1, background: GAP_WORDS[activeGap].color, flexShrink: 0 }} />
+                    <span style={{
+                      width: 10, height: 10, borderRadius: '50%',
+                      background: GAP_WORDS[activeGap].color,
+                      flexShrink: 0, display: 'inline-block',
+                    }} />
                     {GAP_WORDS[activeGap].desc}
                   </motion.p>
                 </AnimatePresence>
