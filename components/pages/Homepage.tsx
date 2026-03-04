@@ -34,7 +34,7 @@ const IconChat = () => (
 const IconMap = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
 );
-const IconCheck = ({ color = '#10B981' }: { color?: string }) => (
+const IconCheck = ({ color = '#14B8A6' }: { color?: string }) => (
   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
 );
 const IconEye = () => (
@@ -68,7 +68,7 @@ const GAPS_DATA = [
     fix: 'Content AI + GBP Optimization',
   },
   {
-    num: '02', label: 'Reputation', color: '#A78BFA',
+    num: '02', label: 'Reputation', color: '#818CF8',
     icon: <IconShield />,
     stat: '88%', statLabel: 'read reviews before making a decision',
     headline: 'They Find You — Then Choose Someone Else',
@@ -76,7 +76,7 @@ const GAPS_DATA = [
     fix: 'Reviews AI',
   },
   {
-    num: '03', label: 'Conversion', color: '#10B981',
+    num: '03', label: 'Conversion', color: '#14B8A6',
     icon: <IconTarget />,
     stat: '62%', statLabel: 'of after-hours calls go unanswered',
     headline: 'They Chose You. Then You Lost Them.',
@@ -88,10 +88,10 @@ const GAPS_DATA = [
 const SERVICES = [
   { gap: '01', gapLabel: 'Visibility', gapColor: '#4F8EF7', icon: <IconSearch />, title: 'Content AI', body: 'Publishes structured content that gets your business cited by ChatGPT, Gemini, and Perplexity. Weekly GBP posts, FAQ content, and local authority pages — automated.', features: ['Weekly GBP content posts', 'AI citation optimization', 'Local authority schema markup'] },
   { gap: '01', gapLabel: 'Visibility', gapColor: '#4F8EF7', icon: <IconMap />, title: 'GBP Optimization', body: 'Full profile optimization built to dominate local Map Pack results and appear when buyers search your area.', features: ['Map Pack ranking strategy', 'Category + keyword optimization', 'Competitor gap analysis'] },
-  { gap: '02', gapLabel: 'Reputation', gapColor: '#A78BFA', icon: <IconStar />, title: 'Reviews AI', body: 'Requests reviews from every customer automatically. Responds within minutes. Builds the velocity Google rewards.', features: ['Automated review requests', 'AI-powered instant responses', 'Review velocity monitoring'] },
-  { gap: '03', gapLabel: 'Conversion', gapColor: '#10B981', icon: <IconPhone />, title: 'Voice AI', body: 'Answers every inbound call 24/7. Qualifies the lead, books directly into your calendar. Zero calls to voicemail.', features: ['24/7 call answering', 'Live calendar booking', 'AI lead qualification'] },
-  { gap: '03', gapLabel: 'Conversion', gapColor: '#10B981', icon: <IconChat />, title: 'Conversation AI', body: 'Engages website visitors the moment they land, captures leads, books appointments, follows up via SMS and email.', features: ['Instant website lead capture', 'SMS + email follow-up', 'Automated appointment booking'] },
-  { gap: '03', gapLabel: 'Conversion', gapColor: '#10B981', icon: <IconZap />, title: 'Workflow AI', body: 'Follow-up sequences, re-engagement campaigns, appointment reminders, past client touches. Runs 24/7.', features: ['Smart follow-up sequences', 'Re-engagement campaigns', 'Appointment reminders'] },
+  { gap: '02', gapLabel: 'Reputation', gapColor: '#818CF8', icon: <IconStar />, title: 'Reviews AI', body: 'Requests reviews from every customer automatically. Responds within minutes. Builds the velocity Google rewards.', features: ['Automated review requests', 'AI-powered instant responses', 'Review velocity monitoring'] },
+  { gap: '03', gapLabel: 'Conversion', gapColor: '#14B8A6', icon: <IconPhone />, title: 'Voice AI', body: 'Answers every inbound call 24/7. Qualifies the lead, books directly into your calendar. Zero calls to voicemail.', features: ['24/7 call answering', 'Live calendar booking', 'AI lead qualification'] },
+  { gap: '03', gapLabel: 'Conversion', gapColor: '#14B8A6', icon: <IconChat />, title: 'Conversation AI', body: 'Engages website visitors the moment they land, captures leads, books appointments, follows up via SMS and email.', features: ['Instant website lead capture', 'SMS + email follow-up', 'Automated appointment booking'] },
+  { gap: '03', gapLabel: 'Conversion', gapColor: '#14B8A6', icon: <IconZap />, title: 'Workflow AI', body: 'Follow-up sequences, re-engagement campaigns, appointment reminders, past client touches. Runs 24/7.', features: ['Smart follow-up sequences', 'Re-engagement campaigns', 'Appointment reminders'] },
 ];
 
 const INDUSTRIES = [
@@ -239,8 +239,8 @@ export const Homepage: React.FC = () => {
       <section style={{ background: '#fff', paddingTop: 'clamp(84px, 11vw, 130px)', paddingBottom: 0, position: 'relative', overflow: 'hidden' }}>
         {/* Subtle floating decoration */}
         <FloatingDot color="rgba(79,142,247,0.25)" size={6} top="18%" left="8%" delay={0} />
-        <FloatingDot color="rgba(167,139,250,0.2)" size={5} top="35%" left="92%" delay={2} />
-        <FloatingDot color="rgba(16,185,129,0.2)" size={4} top="70%" left="5%" delay={4} />
+        <FloatingDot color="rgba(129,140,248,0.2)" size={5} top="35%" left="92%" delay={2} />
+        <FloatingDot color="rgba(20,184,166,0.2)" size={4} top="70%" left="5%" delay={4} />
         <FloatingDot color="rgba(79,142,247,0.15)" size={8} top="60%" left="95%" delay={1.5} />
 
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
@@ -248,24 +248,24 @@ export const Homepage: React.FC = () => {
           {/* Eyebrow */}
           <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }} style={{ textAlign: 'center', marginBottom: 14 }}>
             <span style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '0.66rem', letterSpacing: '0.18em', textTransform: 'uppercase' as const, color: '#94A3B8' }}>
-              Visibility · Reputation · Conversion
+              AI Automation for Service Businesses
             </span>
           </motion.div>
 
-          {/* H1 — two-line, tighter spacing */}
+          {/* H1 — two-line, clear value prop */}
           <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.06, ease: [0.16, 1, 0.3, 1] }}
-            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.4rem, 5.2vw, 3.8rem)', fontWeight: 900, letterSpacing: '-0.055em', lineHeight: 1.05, color: 'var(--td1)', textAlign: 'center', maxWidth: '16ch', marginInline: 'auto', marginBottom: 4 }}>
-            Close the gaps.
+            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.4rem, 5.2vw, 3.8rem)', fontWeight: 900, letterSpacing: '-0.055em', lineHeight: 1.05, color: 'var(--td1)', textAlign: 'center', maxWidth: '20ch', marginInline: 'auto', marginBottom: 4 }}>
+            AI-Powered Revenue Recovery
           </motion.h1>
           <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
-            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.4rem, 5.2vw, 3.8rem)', fontWeight: 900, letterSpacing: '-0.055em', lineHeight: 1.05, textAlign: 'center', maxWidth: '16ch', marginInline: 'auto', marginBottom: 16, background: 'linear-gradient(120deg, #1B4FFF 0%, #5B8EFF 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-            Recover the revenue.
+            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.4rem, 5.2vw, 3.8rem)', fontWeight: 900, letterSpacing: '-0.055em', lineHeight: 1.05, textAlign: 'center', maxWidth: '20ch', marginInline: 'auto', marginBottom: 16, background: 'linear-gradient(120deg, #1B4FFF 0%, #5B8EFF 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+            for Local Businesses
           </motion.h1>
 
-          {/* Sub — shorter, grunt-test clear */}
+          {/* Sub — grunt-test clear */}
           <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.18 }}
-            style={{ textAlign: 'center', fontSize: 'clamp(0.95rem, 1.5vw, 1.05rem)', color: 'var(--td2)', lineHeight: 1.6, maxWidth: '50ch', marginInline: 'auto', marginBottom: 24 }}>
-            Local businesses bleed revenue at three points. eighty5labs finds every gap and closes it — automatically.
+            style={{ textAlign: 'center', fontSize: 'clamp(0.95rem, 1.5vw, 1.05rem)', color: 'var(--td2)', lineHeight: 1.6, maxWidth: '54ch', marginInline: 'auto', marginBottom: 24 }}>
+            Your business leaks revenue at three points — visibility, reputation, and conversion. We close all three with AI systems that run 24/7.
           </motion.p>
 
           {/* CTAs */}
@@ -317,7 +317,7 @@ export const Homepage: React.FC = () => {
       {/* ═══════ THREE GAPS — Expanded ═══════ */}
       <section className="section-white" style={{ borderTop: 'none', position: 'relative' }}>
         <FloatingDot color="rgba(79,142,247,0.15)" size={6} top="10%" left="3%" delay={1} />
-        <FloatingDot color="rgba(167,139,250,0.12)" size={5} top="55%" left="97%" delay={3} />
+        <FloatingDot color="rgba(129,140,248,0.12)" size={5} top="55%" left="97%" delay={3} />
         <div className="wrap">
           <Reveal>
             <div className="section-label">The Problem</div>
@@ -365,11 +365,11 @@ export const Homepage: React.FC = () => {
 
       {/* ═══════ VOICE AI DEMO ═══════ */}
       <section className="section-light" style={{ position: 'relative' }}>
-        <FloatingDot color="rgba(16,185,129,0.15)" size={5} top="20%" left="4%" delay={2} />
+        <FloatingDot color="rgba(20,184,166,0.15)" size={5} top="20%" left="4%" delay={2} />
         <div className="wrap">
           <Reveal>
-            <div className="section-label">Gap 03 — Conversion</div>
-            <h2 className="section-heading">Hear It In Action</h2>
+            <div className="section-label">Voice AI</div>
+            <h2 className="section-heading">Every Call Answered. <span style={{ color: 'var(--blue)' }}>Every Lead Captured.</span></h2>
             <p className="section-sub" style={{ marginBottom: 40 }}>This is what happens when a customer calls your business after hours. No voicemail. No missed lead.</p>
           </Reveal>
           <VoiceAIDemo />
@@ -390,7 +390,7 @@ export const Homepage: React.FC = () => {
               <Reveal key={i} delay={i * 0.06}>
                 <div className="card-light" style={{ height: '100%', cursor: 'default' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
-                    <div style={{ width: 38, height: 38, borderRadius: 10, background: `${svc.gapColor}10`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: svc.gapColor, flexShrink: 0 }}>{svc.icon}</div>
+                    <div style={{ width: 38, height: 38, borderRadius: 10, background: `linear-gradient(135deg, ${svc.gapColor}18, ${svc.gapColor}08)`, border: `1px solid ${svc.gapColor}18`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: svc.gapColor, flexShrink: 0, boxShadow: `0 2px 8px ${svc.gapColor}10` }}>{svc.icon}</div>
                     <div>
                       <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.9rem', color: 'var(--td1)', letterSpacing: '-0.02em' }}>{svc.title}</div>
                       <div style={{ fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: svc.gapColor, marginTop: 2 }}>Gap {svc.gap} — {svc.gapLabel}</div>
@@ -427,7 +427,7 @@ export const Homepage: React.FC = () => {
             <h2 className="section-heading">From Audit to <span style={{ color: 'var(--blue)' }}>Autopilot</span></h2>
             <p className="section-sub" style={{ marginBottom: 48 }}>Four steps. No tech headaches. Running on autopilot in days.</p>
           </Reveal>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 14 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 14, position: 'relative' }}>
             {[
               { num: '01', title: 'Audit', sub: 'Free AI Visibility Audit', body: 'We map your Google Business Profile, Map Pack rank, review velocity, and AI search visibility across ChatGPT, Gemini, and Perplexity.', Icon: IconSearch },
               { num: '02', title: 'Build', sub: 'Custom eighty5.OS Setup', body: 'We configure your OS with automated workflows, missed call text-back, review sequences, calendar sync, and a Voice agent that sounds like your brand.', Icon: IconZap },
@@ -435,12 +435,22 @@ export const Homepage: React.FC = () => {
               { num: '04', title: 'Optimize', sub: 'Monthly Performance Review', body: 'Monthly Map Pack movement, AI visibility checks, and lead capture performance review. The system gets better every month.', Icon: IconTrending },
             ].map((step, i) => (
               <Reveal key={i} delay={i * 0.1}>
-                <div className="card-light" style={{ height: '100%' }}>
-                  <div style={{ width: 42, height: 42, borderRadius: 11, background: 'var(--blue)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', marginBottom: 14 }}>
+                <div className="card-light" style={{ height: '100%', position: 'relative', overflow: 'visible' }}>
+                  {/* Step number badge */}
+                  <div style={{
+                    position: 'absolute', top: -14, left: 24,
+                    width: 28, height: 28, borderRadius: '50%',
+                    background: 'var(--blue)', color: '#fff',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '0.7rem',
+                    boxShadow: '0 2px 8px rgba(27,79,255,0.30)',
+                    letterSpacing: '-0.02em',
+                  }}>{step.num}</div>
+                  <div style={{ width: 42, height: 42, borderRadius: 11, background: 'linear-gradient(135deg, var(--blue), #4F8EF7)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', marginBottom: 14, marginTop: 6 }}>
                     <step.Icon />
                   </div>
                   <div style={{ fontSize: '0.58rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: 'var(--blue)', marginBottom: 3 }}>{step.sub}</div>
-                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.9rem', color: 'var(--td1)', marginBottom: 8, letterSpacing: '-0.015em' }}>{step.num}. {step.title}</div>
+                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.9rem', color: 'var(--td1)', marginBottom: 8, letterSpacing: '-0.015em' }}>{step.title}</div>
                   <p style={{ fontSize: '0.8rem', color: 'var(--td2)', lineHeight: 1.75 }}>{step.body}</p>
                 </div>
               </Reveal>
@@ -452,7 +462,7 @@ export const Homepage: React.FC = () => {
       {/* ═══════ REVENUE CALCULATOR ═══════ */}
       <section className="section-dark-alt" style={{ position: 'relative' }}>
         <FloatingDot color="rgba(79,142,247,0.15)" size={6} top="15%" left="6%" delay={0} />
-        <FloatingDot color="rgba(167,139,250,0.1)" size={5} top="70%" left="94%" delay={3} />
+        <FloatingDot color="rgba(129,140,248,0.1)" size={5} top="70%" left="94%" delay={3} />
         <div className="wrap">
           <Reveal>
             <div className="section-label">Revenue Impact</div>
@@ -495,7 +505,7 @@ export const Homepage: React.FC = () => {
           </div>
           <AnimatePresence mode="wait">
             <motion.div key={activeIndustry} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -4 }} transition={{ duration: 0.25 }}
-              style={{ background: 'linear-gradient(135deg, var(--bg2) 0%, rgba(22,30,46,0.95) 100%)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 14, padding: 'clamp(24px, 3.5vw, 36px)' }}
+              style={{ background: 'linear-gradient(135deg, rgba(22,30,46,0.95) 0%, rgba(13,19,33,0.95) 100%)', border: '1px solid rgba(79,142,247,0.12)', borderRadius: 16, padding: 'clamp(24px, 3.5vw, 36px)', boxShadow: '0 4px 24px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.04)' }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
                 <div style={{ width: 34, height: 34, borderRadius: 9, background: 'rgba(79,142,247,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#93C5FD' }}>{INDUSTRIES[activeIndustry].icon}</div>
@@ -509,9 +519,9 @@ export const Homepage: React.FC = () => {
                 {[
                   { label: 'AI Search Visibility', color: '#4F8EF7' },
                   { label: 'Map Pack Optimization', color: '#4F8EF7' },
-                  { label: 'Reviews AI', color: '#A78BFA' },
-                  { label: 'Voice AI — 24/7', color: '#10B981' },
-                  { label: 'Instant lead follow-up', color: '#10B981' },
+                  { label: 'Reviews AI', color: '#818CF8' },
+                  { label: 'Voice AI — 24/7', color: '#14B8A6' },
+                  { label: 'Instant lead follow-up', color: '#14B8A6' },
                 ].map((feat, j) => (
                   <div key={j} style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
                     <div style={{ width: 15, height: 15, borderRadius: 4, background: `${feat.color}1A`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><IconCheck color={feat.color} /></div>
@@ -584,13 +594,13 @@ export const Homepage: React.FC = () => {
       <section className="section-dark" style={{ textAlign: 'center' }}>
         <div className="wrap">
           <Reveal>
-            <div style={{ background: 'linear-gradient(135deg, var(--bg2) 0%, var(--bg1) 100%)', border: '1.5px solid var(--blue-border)', borderRadius: 'var(--rdxl)', padding: 'clamp(44px, 5.5vw, 72px) clamp(24px, 4.5vw, 72px)', position: 'relative', overflow: 'hidden' }}>
+            <div style={{ background: 'linear-gradient(135deg, rgba(22,30,46,0.95) 0%, var(--bg0) 100%)', border: '1.5px solid rgba(79,142,247,0.18)', borderRadius: 'var(--rdxl)', padding: 'clamp(44px, 5.5vw, 72px) clamp(24px, 4.5vw, 72px)', position: 'relative', overflow: 'hidden', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04)' }}>
               <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(27,79,255,0.14) 0%, transparent 70%)', pointerEvents: 'none' }} />
               <div style={{ position: 'relative' }}>
                 <div className="section-label" style={{ justifyContent: 'center' }}>Get Started Free</div>
-                <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1.08, color: 'var(--t1)', marginBottom: 18, maxWidth: '18ch', marginInline: 'auto' }}>
-                  Ready to Close the{' '}
-                  <span style={{ background: 'linear-gradient(120deg, #4F8EF7, #5B8EFF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Gaps?</span>
+                <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1.08, color: 'var(--t1)', marginBottom: 18, maxWidth: '20ch', marginInline: 'auto' }}>
+                  Ready to Recover Your{' '}
+                  <span style={{ background: 'linear-gradient(120deg, #4F8EF7, #5B8EFF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Revenue?</span>
                 </h2>
                 <p style={{ color: 'var(--t3)', fontSize: '1rem', lineHeight: 1.6, marginBottom: 32, maxWidth: '48ch', marginInline: 'auto' }}>
                   See exactly where you're losing revenue — and what it would take to recover it.

@@ -72,7 +72,7 @@ export const RevenueCalculator: React.FC = () => {
             min={5}
             max={60}
             step={1}
-            color="#A78BFA"
+            color="#818CF8"
             onChange={setMissRate}
           />
           <SliderRow
@@ -82,7 +82,7 @@ export const RevenueCalculator: React.FC = () => {
             min={50}
             max={2000}
             step={50}
-            color="#10B981"
+            color="#14B8A6"
             onChange={setTicket}
           />
         </div>
@@ -118,8 +118,8 @@ export const RevenueCalculator: React.FC = () => {
         {/* Bars */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 7, marginBottom: 20 }}>
           <BarRow label="Missed revenue" fill={missedPct} color="#4F8EF7" />
-          <BarRow label="Capture rate" fill={capturePct} color="#A78BFA" />
-          <BarRow label="Recovery est." fill={recoveryPct} color="#10B981" />
+          <BarRow label="Capture rate" fill={capturePct} color="#818CF8" />
+          <BarRow label="Recovery est." fill={recoveryPct} color="#14B8A6" />
         </div>
 
         <button
@@ -128,19 +128,19 @@ export const RevenueCalculator: React.FC = () => {
             display: 'block',
             width: '100%',
             padding: '13px 18px',
-            background: '#F97316',
+            background: '#1B4FFF',
             color: '#fff',
             border: 'none',
-            borderRadius: 10,
+            borderRadius: 999,
             cursor: 'pointer',
             fontFamily: "var(--fd, 'Epilogue', sans-serif)",
             fontSize: '0.9rem',
             fontWeight: 800,
             textAlign: 'center',
-            transition: 'background 0.15s',
+            transition: 'all 0.18s ease',
           }}
-          onMouseEnter={e => (e.currentTarget.style.background = '#EA6C0C')}
-          onMouseLeave={e => (e.currentTarget.style.background = '#F97316')}
+          onMouseEnter={e => { e.currentTarget.style.background = '#0A3DE6'; e.currentTarget.style.boxShadow = '0 6px 24px rgba(27,79,255,0.40)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+          onMouseLeave={e => { e.currentTarget.style.background = '#1B4FFF'; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.transform = 'none'; }}
         >
           Get Your Custom Analysis →
         </button>

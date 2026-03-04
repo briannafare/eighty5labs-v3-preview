@@ -38,8 +38,8 @@ export const HeroAnimation: React.FC = () => {
   return (
     <div style={{
       width: '100%',
-      maxWidth: 520,
-      marginLeft: 'auto',
+      maxWidth: 600,
+      marginInline: 'auto',
       background: '#fff',
       borderRadius: 20,
       boxShadow: '0 20px 60px rgba(15,23,42,0.12), 0 1px 3px rgba(15,23,42,0.06)',

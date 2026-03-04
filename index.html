@@ -39,10 +39,10 @@
         --blue-border: rgba(27,79,255,0.25);
 
         /* ── Gap / accent colors */
-        --gap1: #10B981;
-        --gap1-lt: rgba(16,185,129,0.10);
-        --gap1-lt-d: rgba(16,185,129,0.15);
-        --gap1-border: rgba(16,185,129,0.25);
+        --gap1: #14B8A6;
+        --gap1-lt: rgba(20,184,166,0.10);
+        --gap1-lt-d: rgba(20,184,166,0.15);
+        --gap1-border: rgba(20,184,166,0.25);
         --gap2: #4F8EF7;
         --gap2-lt: rgba(79,142,247,0.10);
         --gap2-lt-d: rgba(79,142,247,0.15);
@@ -64,7 +64,7 @@
         --grad-brand-2: linear-gradient(135deg, #4F8EF7 0%, #8B5CF6 60%, #FF6B35 100%);
         --grad-icon-1: linear-gradient(135deg, #1B4FFF 0%, #4F8EF7 100%);
         --grad-icon-2: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 100%);
-        --grad-icon-3: linear-gradient(135deg, #10B981 0%, #14B8A6 100%);
+        --grad-icon-3: linear-gradient(135deg, #14B8A6 0%, #2DD4BF 100%);
 
         /* ── Text (dark sections) */
         --t1: #FFFFFF;
@@ -465,10 +465,10 @@
         transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s, background 0.3s;
       }
       .card-light:hover {
-        border-color: rgba(27,79,255,0.22);
+        border-color: rgba(27,79,255,0.28);
         background: #FBFCFF;
-        box-shadow: 0 8px 32px rgba(27,79,255,0.10), 0 2px 8px rgba(15,23,42,0.06);
-        transform: translateY(-3px) scale(1.008);
+        box-shadow: 0 8px 32px rgba(27,79,255,0.12), 0 2px 8px rgba(15,23,42,0.06);
+        transform: translateY(-4px) scale(1.012);
       }
 
       /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -516,8 +516,17 @@
       .section-dark-alt {
         padding-block: clamp(80px, 9vw, 136px);
         position: relative;
-        background: var(--bg1);
+        background: linear-gradient(180deg, #0D1321 0%, var(--bg1) 50%, #0D1321 100%);
         color: var(--t1);
+        overflow: hidden;
+      }
+      .section-dark-alt::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 50%; transform: translateX(-50%);
+        width: 80%; max-width: 900px; height: 320px;
+        background: radial-gradient(ellipse 60% 55% at 50% 0%, rgba(27,79,255,0.08) 0%, transparent 70%);
+        pointer-events: none;
       }
       .section-dark-alt .section-label { color: var(--t4); }
       .section-dark-alt .section-label::before { background: var(--t4); }
