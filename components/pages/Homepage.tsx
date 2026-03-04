@@ -248,24 +248,24 @@ export const Homepage: React.FC = () => {
           {/* Eyebrow */}
           <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }} style={{ textAlign: 'center', marginBottom: 14 }}>
             <span style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '0.66rem', letterSpacing: '0.18em', textTransform: 'uppercase' as const, color: '#94A3B8' }}>
-              AI Automation for Service Businesses
+              Visibility · Reputation · Conversion
             </span>
           </motion.div>
 
-          {/* H1 — two-line, clear value prop */}
+          {/* H1 — two-line, tighter spacing */}
           <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.06, ease: [0.16, 1, 0.3, 1] }}
-            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.4rem, 5.2vw, 3.8rem)', fontWeight: 900, letterSpacing: '-0.055em', lineHeight: 1.05, color: 'var(--td1)', textAlign: 'center', maxWidth: '20ch', marginInline: 'auto', marginBottom: 4 }}>
-            AI-Powered Revenue Recovery
+            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.4rem, 5.2vw, 3.8rem)', fontWeight: 900, letterSpacing: '-0.055em', lineHeight: 1.05, color: 'var(--td1)', textAlign: 'center', maxWidth: '16ch', marginInline: 'auto', marginBottom: 4 }}>
+            Close the gaps.
           </motion.h1>
           <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
-            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.4rem, 5.2vw, 3.8rem)', fontWeight: 900, letterSpacing: '-0.055em', lineHeight: 1.05, textAlign: 'center', maxWidth: '20ch', marginInline: 'auto', marginBottom: 16, background: 'linear-gradient(120deg, #1B4FFF 0%, #5B8EFF 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-            for Local Businesses
+            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.4rem, 5.2vw, 3.8rem)', fontWeight: 900, letterSpacing: '-0.055em', lineHeight: 1.05, textAlign: 'center', maxWidth: '16ch', marginInline: 'auto', marginBottom: 16, background: 'linear-gradient(120deg, #1B4FFF 0%, #5B8EFF 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+            Recover the revenue.
           </motion.h1>
 
-          {/* Sub — grunt-test clear */}
+          {/* Sub — shorter, grunt-test clear */}
           <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.18 }}
-            style={{ textAlign: 'center', fontSize: 'clamp(0.95rem, 1.5vw, 1.05rem)', color: 'var(--td2)', lineHeight: 1.6, maxWidth: '54ch', marginInline: 'auto', marginBottom: 24 }}>
-            Your business leaks revenue at three points — visibility, reputation, and conversion. We close all three with AI systems that run 24/7.
+            style={{ textAlign: 'center', fontSize: 'clamp(0.95rem, 1.5vw, 1.05rem)', color: 'var(--td2)', lineHeight: 1.6, maxWidth: '50ch', marginInline: 'auto', marginBottom: 24 }}>
+            Local businesses bleed revenue at three points. eighty5labs finds every gap and closes it — automatically.
           </motion.p>
 
           {/* CTAs */}
@@ -598,9 +598,9 @@ export const Homepage: React.FC = () => {
               <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(27,79,255,0.14) 0%, transparent 70%)', pointerEvents: 'none' }} />
               <div style={{ position: 'relative' }}>
                 <div className="section-label" style={{ justifyContent: 'center' }}>Get Started Free</div>
-                <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1.08, color: 'var(--t1)', marginBottom: 18, maxWidth: '20ch', marginInline: 'auto' }}>
-                  Ready to Recover Your{' '}
-                  <span style={{ background: 'linear-gradient(120deg, #4F8EF7, #5B8EFF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Revenue?</span>
+                <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1.08, color: 'var(--t1)', marginBottom: 18, maxWidth: '18ch', marginInline: 'auto' }}>
+                  Ready to Close the{' '}
+                  <span style={{ background: 'linear-gradient(120deg, #4F8EF7, #5B8EFF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Gaps?</span>
                 </h2>
                 <p style={{ color: 'var(--t3)', fontSize: '1rem', lineHeight: 1.6, marginBottom: 32, maxWidth: '48ch', marginInline: 'auto' }}>
                   See exactly where you're losing revenue — and what it would take to recover it.
