@@ -541,6 +541,12 @@
         .ind-grid > :last-child { grid-column: span 2; }
         .ind-panel-grid { grid-template-columns: 1fr !important; }
         .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
+        /* New homepage gap grids */
+        .gap-card-grid { grid-template-columns: 1fr !important; }
+        .gap-card-grid > div:last-child { text-align: left !important; margin-top: 8px; }
+        .gap-deep-grid { grid-template-columns: 1fr !important; }
+        .gap-deep-text { order: 0 !important; }
+        .gap-deep-stat { order: 1 !important; margin-top: 8px; }
       }
       @media (min-width: 769px) {
         .hide-desktop { display: none !important; }
