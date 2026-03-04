@@ -47,16 +47,6 @@ const IconTarget = () => (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
 );
 
-/* ── Floating dot decoration ── */
-const FloatingDot: React.FC<{ color: string; size: number; top: string; left: string; delay?: number }> = ({ color, size, top, left, delay = 0 }) => (
-  <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: [0, 0.5, 0.3, 0.5, 0], y: [0, -12, 0, 8, 0] }}
-    transition={{ duration: 8, delay, repeat: Infinity, ease: 'easeInOut' }}
-    style={{ position: 'absolute', width: size, height: size, borderRadius: '50%', background: color, top, left, pointerEvents: 'none', filter: 'blur(1px)' }}
-  />
-);
-
 /* ── DATA ── */
 const GAPS_DATA = [
   {
@@ -66,6 +56,7 @@ const GAPS_DATA = [
     headline: "They Can't Hire You If They Can't Find You",
     body: "You're invisible on Google Maps, ChatGPT, Gemini, and Perplexity. Your competitors aren't better — they're just more findable.",
     fix: 'Content AI + GBP Optimization',
+    workflow: ['Search Query', 'Listings', 'Reviews', 'Click'],
   },
   {
     num: '02', label: 'Reputation', color: '#818CF8',
@@ -74,6 +65,7 @@ const GAPS_DATA = [
     headline: 'They Find You — Then Choose Someone Else',
     body: "Weak reviews, no responses, slow velocity. They see your competitor's 4.9 stars and click away.",
     fix: 'Reviews AI',
+    workflow: ['Visit Profile', 'Read Reviews', 'Compare', 'Choose'],
   },
   {
     num: '03', label: 'Conversion', color: '#14B8A6',
@@ -82,6 +74,7 @@ const GAPS_DATA = [
     headline: 'They Chose You. Then You Lost Them.',
     body: 'The call went to voicemail. The form sat for hours. The lead moved on. Every missed touchpoint is revenue walking out the door.',
     fix: 'Voice AI + Conversation AI',
+    workflow: ['Call / Visit', 'AI Response', 'Lead Captured', 'Booked'],
   },
 ];
 
@@ -237,28 +230,26 @@ export const Homepage: React.FC = () => {
 
       {/* ═══════ HERO — Tight, StoryBrand-aligned, gaps above fold ═══════ */}
       <section style={{ background: '#fff', paddingTop: 'clamp(84px, 11vw, 130px)', paddingBottom: 0, position: 'relative', overflow: 'hidden' }}>
-        {/* Subtle floating decoration */}
-        <FloatingDot color="rgba(79,142,247,0.25)" size={6} top="18%" left="8%" delay={0} />
-        <FloatingDot color="rgba(129,140,248,0.2)" size={5} top="35%" left="92%" delay={2} />
-        <FloatingDot color="rgba(20,184,166,0.2)" size={4} top="70%" left="5%" delay={4} />
-        <FloatingDot color="rgba(79,142,247,0.15)" size={8} top="60%" left="95%" delay={1.5} />
+        {/* Soft gradient radials — replace floating dots */}
+        <div style={{ position: 'absolute', top: '-10%', left: '15%', width: '50%', height: '60%', background: 'radial-gradient(circle, rgba(79,124,255,0.08) 0%, transparent 50%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '0%', right: '10%', width: '40%', height: '50%', background: 'radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 50%)', pointerEvents: 'none' }} />
 
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
 
           {/* Eyebrow */}
-          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }} style={{ textAlign: 'center', marginBottom: 14 }}>
+          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, ease: [.16,1,.3,1] }} style={{ textAlign: 'center', marginBottom: 14 }}>
             <span style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '0.66rem', letterSpacing: '0.18em', textTransform: 'uppercase' as const, color: '#94A3B8' }}>
               Visibility · Reputation · Conversion
             </span>
           </motion.div>
 
-          {/* H1 — two-line, tighter spacing */}
+          {/* H1 — premium scale */}
           <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.06, ease: [0.16, 1, 0.3, 1] }}
-            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.4rem, 5.2vw, 3.8rem)', fontWeight: 900, letterSpacing: '-0.055em', lineHeight: 1.05, color: 'var(--td1)', textAlign: 'center', maxWidth: '16ch', marginInline: 'auto', marginBottom: 4 }}>
+            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.8rem, 6vw, 4.75rem)', fontWeight: 900, letterSpacing: '-0.055em', lineHeight: 1.05, color: 'var(--td1)', textAlign: 'center', maxWidth: '16ch', marginInline: 'auto', marginBottom: 4 }}>
             Close the gaps.
           </motion.h1>
           <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
-            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.4rem, 5.2vw, 3.8rem)', fontWeight: 900, letterSpacing: '-0.055em', lineHeight: 1.05, textAlign: 'center', maxWidth: '16ch', marginInline: 'auto', marginBottom: 16, background: 'linear-gradient(120deg, #1B4FFF 0%, #5B8EFF 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.8rem, 6vw, 4.75rem)', fontWeight: 900, letterSpacing: '-0.055em', lineHeight: 1.05, textAlign: 'center', maxWidth: '16ch', marginInline: 'auto', marginBottom: 18, background: 'linear-gradient(120deg, #1B4FFF 0%, #5B8EFF 50%, #8B5CF6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
             Recover the revenue.
           </motion.h1>
 
@@ -293,21 +284,20 @@ export const Homepage: React.FC = () => {
         <ScrollRevealDemo />
       </section>
 
-      {/* ═══════ AI ENGINE LOGOS BAR ═══════ */}
-      <section style={{ padding: '22px 0', background: '#FAFBFE', borderTop: '1px solid var(--ls-border)', borderBottom: '1px solid var(--ls-border)' }}>
-        <div className="wrap" style={{ textAlign: 'center' }}>
-          <p style={{ fontSize: '0.63rem', fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase' as const, color: '#94A3B8', marginBottom: 14 }}>Optimizing brands for</p>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 'clamp(20px, 4.5vw, 48px)', flexWrap: 'wrap' as const }}>
+      {/* ═══════ PROOF STRIP ═══════ */}
+      <section style={{ padding: '28px 0', background: '#FAFBFE', borderTop: '1px solid var(--ls-border)', borderBottom: '1px solid var(--ls-border)' }}>
+        <div className="wrap">
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 'clamp(24px, 5vw, 56px)', flexWrap: 'wrap' as const }}>
             {[
-              { name: 'ChatGPT', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.998 5.998 0 0 0-3.998 2.9 6.042 6.042 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.05 6.05 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.143-.08 4.778-2.758a.776.776 0 0 0 .391-.676v-6.738l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.49zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872v.024zm16.597 3.855l-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66v.018zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.795.795 0 0 0-.393.676l-.004 6.727zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5-.005-2.999z" fill="#0F172A"/></svg> },
-              { name: 'Gemini', icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 24C12 18.636 8.364 14 3 12c5.364-2 9-6.636 9-12 0 5.364 3.636 10 9 12-5.364 2-9 6.636-9 12z" fill="url(#gm2)"/><defs><linearGradient id="gm2" x1="3" y1="0" x2="21" y2="24"><stop stopColor="#4285F4"/><stop offset="0.5" stopColor="#9B72CB"/><stop offset="1" stopColor="#D96570"/></linearGradient></defs></svg> },
-              { name: 'Perplexity', icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 2l8 6 8-6v9l-4 3v8l-4-3-4 3v-8l-4-3V2z" fill="none" stroke="#0F172A" strokeWidth="1.8" strokeLinejoin="round"/><path d="M12 8v14M4 11h16" stroke="#0F172A" strokeWidth="1.8" strokeLinecap="round"/></svg> },
-              { name: 'Claude', icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15.788 3.09L12.47 14.67l-1.478-4.66a.6.6 0 0 0-.39-.39L5.92 8.14l11.58-3.33a.3.3 0 0 1 .288.28zM17.042 2.022c-.69-.69-1.81-.32-1.97.65L10.92 18.92a1.2 1.2 0 0 0 .78 1.38l.12.04c.63.18 1.27-.24 1.39-.89l3.83-16.78a.3.3 0 0 0-.01-.24.3.3 0 0 0 .01-.41z" fill="#D97706"/></svg> },
-              { name: 'Grok', icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M2.5 6l9.5 12L21.5 6" stroke="#0F172A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/><circle cx="18" cy="4.5" r="2" fill="#0F172A"/></svg> },
-            ].map(({ name, icon }) => (
-              <div key={name} style={{ display: 'flex', alignItems: 'center', gap: 7, opacity: 0.5 }}>
-                {icon}
-                <span style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '0.85rem', color: '#0F172A' }}>{name}</span>
+              { label: '24/7 voice capture', icon: <IconPhone /> },
+              { label: 'AI search visibility', icon: <IconGlobe /> },
+              { label: 'Review automation', icon: <IconStar /> },
+              { label: 'Instant follow-up', icon: <IconZap /> },
+              { label: 'Revenue analytics', icon: <IconTrending /> },
+            ].map(({ label, icon }) => (
+              <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <div style={{ width: 28, height: 28, borderRadius: 7, background: 'rgba(79,124,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4F8EF7', flexShrink: 0 }}>{icon}</div>
+                <span style={{ fontFamily: 'var(--fd)', fontWeight: 600, fontSize: '0.8rem', color: 'var(--td2)', whiteSpace: 'nowrap' }}>{label}</span>
               </div>
             ))}
           </div>
@@ -316,45 +306,67 @@ export const Homepage: React.FC = () => {
 
       {/* ═══════ THREE GAPS — Expanded ═══════ */}
       <section className="section-white" style={{ borderTop: 'none', position: 'relative' }}>
-        <FloatingDot color="rgba(79,142,247,0.15)" size={6} top="10%" left="3%" delay={1} />
-        <FloatingDot color="rgba(129,140,248,0.12)" size={5} top="55%" left="97%" delay={3} />
         <div className="wrap">
           <Reveal>
             <div className="section-label">The Problem</div>
             <h2 className="section-heading">Three Gaps. One System.</h2>
-            <p className="section-sub" style={{ marginBottom: 48 }}>Every local business leaks revenue at the same three points. Most don't even know it's happening.</p>
+            <p className="section-sub" style={{ marginBottom: 56 }}>Every local business leaks revenue at the same three points. Most don't even know it's happening.</p>
           </Reveal>
-          <div style={{ display: 'flex', flexDirection: 'column' as const, gap: 18 }}>
+          <div style={{ display: 'flex', flexDirection: 'column' as const, gap: 20 }}>
             {GAPS_DATA.map((gap, i) => (
               <Reveal key={gap.num} delay={i * 0.08}>
                 <div style={{
                   display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(24px, 4vw, 48px)', alignItems: 'center',
-                  background: '#fff', border: '1px solid var(--ls-border)', borderRadius: 16,
-                  padding: 'clamp(24px, 3.5vw, 36px)', transition: 'border-color 0.3s, box-shadow 0.3s',
+                  background: '#fff', border: '1px solid var(--ls-border)', borderRadius: 18,
+                  padding: 'clamp(28px, 3.5vw, 40px)', transition: 'border-color 0.3s var(--ease), box-shadow 0.3s var(--ease)',
                 }} className="gap-deep-grid"
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = `${gap.color}40`; (e.currentTarget as HTMLElement).style.boxShadow = `0 8px 32px ${gap.color}10`; }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = `${gap.color}40`; (e.currentTarget as HTMLElement).style.boxShadow = `0 10px 30px ${gap.color}08`; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--ls-border)'; (e.currentTarget as HTMLElement).style.boxShadow = 'none'; }}
                 >
                   <div style={{ order: i % 2 === 0 ? 0 : 1 }} className="gap-deep-text">
                     <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
-                      <div style={{ width: 34, height: 34, borderRadius: 9, background: `${gap.color}12`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: gap.color, flexShrink: 0 }}>{gap.icon}</div>
+                      <div style={{ width: 36, height: 36, borderRadius: 10, background: `${gap.color}12`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: gap.color, flexShrink: 0 }}>{gap.icon}</div>
                       <span style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: gap.color }}>Gap {gap.num} — {gap.label}</span>
                     </div>
-                    <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.2rem, 1.9vw, 1.5rem)', color: 'var(--td1)', letterSpacing: '-0.03em', lineHeight: 1.15, marginBottom: 10 }}>{gap.headline}</h3>
-                    <p style={{ fontSize: '0.88rem', color: 'var(--td2)', lineHeight: 1.7, marginBottom: 16, maxWidth: '44ch' }}>{gap.body}</p>
+                    <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.25rem, 2vw, 1.6rem)', color: 'var(--td1)', letterSpacing: '-0.03em', lineHeight: 1.15, marginBottom: 12 }}>{gap.headline}</h3>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--td2)', lineHeight: 1.7, marginBottom: 18, maxWidth: '44ch' }}>{gap.body}</p>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                       <div style={{ width: 16, height: 16, borderRadius: 4, background: `${gap.color}1A`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><IconCheck color={gap.color} /></div>
                       <span style={{ fontSize: '0.8rem', fontWeight: 700, color: gap.color }}>Closed by {gap.fix}</span>
                     </div>
                   </div>
+                  {/* Workflow diagram + stat badge */}
                   <div style={{
                     order: i % 2 === 0 ? 1 : 0,
                     display: 'flex', flexDirection: 'column' as const, alignItems: 'center', justifyContent: 'center',
-                    background: `${gap.color}08`, border: `1px solid ${gap.color}18`, borderRadius: 14,
-                    padding: 'clamp(24px, 3vw, 36px)', textAlign: 'center' as const,
+                    background: `${gap.color}06`, border: `1px solid ${gap.color}14`, borderRadius: 16,
+                    padding: 'clamp(24px, 3vw, 36px)',
                   }} className="gap-deep-stat">
-                    <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(2.6rem, 4.5vw, 3.6rem)', lineHeight: 1, letterSpacing: '-0.05em', color: gap.color, marginBottom: 8 }}>{gap.stat}</div>
-                    <div style={{ fontSize: '0.82rem', color: 'var(--td3)', lineHeight: 1.45, maxWidth: '20ch' }}>{gap.statLabel}</div>
+                    {/* Workflow steps */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 0, marginBottom: 24, flexWrap: 'wrap' as const, justifyContent: 'center' }}>
+                      {gap.workflow.map((step, j) => (
+                        <React.Fragment key={j}>
+                          <div style={{
+                            padding: '6px 12px', borderRadius: 8,
+                            background: j === gap.workflow.length - 1 ? `${gap.color}18` : 'rgba(255,255,255,0.9)',
+                            border: `1px solid ${j === gap.workflow.length - 1 ? gap.color + '30' : 'var(--ls-border)'}`,
+                            fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '0.68rem',
+                            color: j === gap.workflow.length - 1 ? gap.color : 'var(--td2)',
+                            letterSpacing: '-0.01em', whiteSpace: 'nowrap' as const,
+                          }}>{step}</div>
+                          {j < gap.workflow.length - 1 && (
+                            <svg width="20" height="10" viewBox="0 0 20 10" style={{ flexShrink: 0, margin: '0 2px' }}>
+                              <path d="M2 5h12m0 0l-3-3m3 3l-3 3" stroke={gap.color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.4" />
+                            </svg>
+                          )}
+                        </React.Fragment>
+                      ))}
+                    </div>
+                    {/* Compact stat badge */}
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, padding: '10px 16px', borderRadius: 10, background: 'rgba(255,255,255,0.8)', border: '1px solid var(--ls-border)' }}>
+                      <span style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.5rem', lineHeight: 1, letterSpacing: '-0.04em', color: gap.color }}>{gap.stat}</span>
+                      <span style={{ fontSize: '0.72rem', color: 'var(--td3)', lineHeight: 1.35, maxWidth: '18ch' }}>{gap.statLabel}</span>
+                    </div>
                   </div>
                 </div>
               </Reveal>
@@ -364,9 +376,9 @@ export const Homepage: React.FC = () => {
       </section>
 
       {/* ═══════ VOICE AI DEMO ═══════ */}
-      <section className="section-light" style={{ position: 'relative' }}>
-        <FloatingDot color="rgba(20,184,166,0.15)" size={5} top="20%" left="4%" delay={2} />
-        <div className="wrap">
+      <section className="section-light" style={{ position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: '-5%', right: '10%', width: '40%', height: '50%', background: 'radial-gradient(circle, rgba(20,184,166,0.06) 0%, transparent 50%)', pointerEvents: 'none' }} />
+        <div className="wrap" style={{ position: 'relative' }}>
           <Reveal>
             <div className="section-label">Voice AI</div>
             <h2 className="section-heading">Every Call Answered. <span style={{ color: 'var(--blue)' }}>Every Lead Captured.</span></h2>
@@ -378,25 +390,24 @@ export const Homepage: React.FC = () => {
 
       {/* ═══════ THE PLATFORM ═══════ */}
       <section className="section-white" style={{ position: 'relative' }}>
-        <FloatingDot color="rgba(79,142,247,0.12)" size={7} top="8%" left="96%" delay={0.5} />
         <div className="wrap">
           <Reveal>
             <div className="section-label">The Platform</div>
             <h2 className="section-heading">Six AI Systems. <span style={{ color: 'var(--blue)' }}>One OS.</span></h2>
-            <p className="section-sub" style={{ marginBottom: 44 }}>Every component targets one gap. Together they form a complete revenue recovery system.</p>
+            <p className="section-sub" style={{ marginBottom: 52 }}>Every component targets one gap. Together they form a complete revenue recovery system.</p>
           </Reveal>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(310px, 1fr))', gap: 14 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(310px, 1fr))', gap: 16 }}>
             {SERVICES.map((svc, i) => (
               <Reveal key={i} delay={i * 0.06}>
-                <div className="card-light" style={{ height: '100%', cursor: 'default' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
-                    <div style={{ width: 38, height: 38, borderRadius: 10, background: `linear-gradient(135deg, ${svc.gapColor}18, ${svc.gapColor}08)`, border: `1px solid ${svc.gapColor}18`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: svc.gapColor, flexShrink: 0, boxShadow: `0 2px 8px ${svc.gapColor}10` }}>{svc.icon}</div>
+                <div className="card-light" style={{ height: '100%', cursor: 'default', padding: 30 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+                    <div style={{ width: 40, height: 40, borderRadius: 10, background: `${svc.gapColor}10`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: svc.gapColor, flexShrink: 0 }}>{svc.icon}</div>
                     <div>
-                      <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.9rem', color: 'var(--td1)', letterSpacing: '-0.02em' }}>{svc.title}</div>
+                      <div style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '1.05rem', color: 'var(--td1)', letterSpacing: '-0.02em', lineHeight: 1.3 }}>{svc.title}</div>
                       <div style={{ fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: svc.gapColor, marginTop: 2 }}>Gap {svc.gap} — {svc.gapLabel}</div>
                     </div>
                   </div>
-                  <p style={{ fontSize: '0.83rem', color: 'var(--td2)', lineHeight: 1.7, marginBottom: 14 }}>{svc.body}</p>
+                  <p style={{ fontSize: '0.85rem', color: 'var(--td2)', lineHeight: 1.7, marginBottom: 16, opacity: 0.85 }}>{svc.body}</p>
                   <div style={{ display: 'flex', flexDirection: 'column' as const, gap: 7 }}>
                     {svc.features.map((f, j) => (
                       <div key={j} style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
@@ -461,9 +472,7 @@ export const Homepage: React.FC = () => {
 
       {/* ═══════ REVENUE CALCULATOR ═══════ */}
       <section className="section-dark-alt" style={{ position: 'relative' }}>
-        <FloatingDot color="rgba(79,142,247,0.15)" size={6} top="15%" left="6%" delay={0} />
-        <FloatingDot color="rgba(129,140,248,0.1)" size={5} top="70%" left="94%" delay={3} />
-        <div className="wrap">
+        <div className="wrap" style={{ position: 'relative' }}>
           <Reveal>
             <div className="section-label">Revenue Impact</div>
             <h2 className="section-heading">What Are Your Gaps <span style={{ color: 'var(--blue3)' }}>Costing</span> You?</h2>
@@ -539,7 +548,6 @@ export const Homepage: React.FC = () => {
 
       {/* ═══════ TESTIMONIALS ═══════ */}
       <section className="section-white" style={{ position: 'relative' }}>
-        <FloatingDot color="rgba(79,142,247,0.1)" size={5} top="25%" left="95%" delay={1} />
         <div className="wrap">
           <Reveal>
             <div className="section-label">Results</div>
@@ -591,31 +599,30 @@ export const Homepage: React.FC = () => {
       </section>
 
       {/* ═══════ FINAL CTA ═══════ */}
-      <section className="section-dark" style={{ textAlign: 'center' }}>
-        <div className="wrap">
+      <section style={{ padding: 'clamp(100px, 11vw, 160px) 0', background: 'linear-gradient(180deg, #080C17 0%, #0F1623 50%, #080C17 100%)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+        {/* Gradient radial glow */}
+        <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '80%', maxWidth: 900, height: 400, background: 'radial-gradient(ellipse 60% 55% at 50% 0%, rgba(27,79,255,0.14) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div className="wrap" style={{ position: 'relative' }}>
           <Reveal>
-            <div style={{ background: 'linear-gradient(135deg, rgba(22,30,46,0.95) 0%, var(--bg0) 100%)', border: '1.5px solid rgba(79,142,247,0.18)', borderRadius: 'var(--rdxl)', padding: 'clamp(44px, 5.5vw, 72px) clamp(24px, 4.5vw, 72px)', position: 'relative', overflow: 'hidden', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04)' }}>
-              <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(27,79,255,0.14) 0%, transparent 70%)', pointerEvents: 'none' }} />
-              <div style={{ position: 'relative' }}>
-                <div className="section-label" style={{ justifyContent: 'center' }}>Get Started Free</div>
-                <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1.08, color: 'var(--t1)', marginBottom: 18, maxWidth: '18ch', marginInline: 'auto' }}>
-                  Ready to Close the{' '}
-                  <span style={{ background: 'linear-gradient(120deg, #4F8EF7, #5B8EFF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Gaps?</span>
-                </h2>
-                <p style={{ color: 'var(--t3)', fontSize: '1rem', lineHeight: 1.6, marginBottom: 32, maxWidth: '48ch', marginInline: 'auto' }}>
-                  See exactly where you're losing revenue — and what it would take to recover it.
-                </p>
-                <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const }}>
-                  <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} className="btn btn-primary" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} style={{ fontSize: '0.9375rem', padding: '13px 28px' }}>
-                    Start Your Free Audit →
-                  </motion.a>
-                  <motion.a href="#/pricing" onClick={e => { e.preventDefault(); navigate('#/pricing'); }} className="btn btn-ghost" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} style={{ fontSize: '0.9375rem', padding: '13px 26px' }}>
-                    View Pricing
-                  </motion.a>
-                </div>
-                <p style={{ marginTop: 18, fontSize: '0.78rem', color: 'var(--t4)' }}>No long-term contracts · Cancel anytime · Setup in days</p>
-              </div>
+            <div className="section-label" style={{ justifyContent: 'center', color: 'var(--t4)' }}>
+              <span style={{}}><span style={{ display: 'inline-block', width: 18, height: 1, background: 'var(--t4)', marginRight: 8, verticalAlign: 'middle' }}></span>Get Started Free</span>
             </div>
+            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', fontWeight: 900, letterSpacing: '-0.045em', lineHeight: 1.08, color: '#fff', marginBottom: 20, maxWidth: '18ch', marginInline: 'auto' }}>
+              Ready to Close the{' '}
+              <span style={{ background: 'linear-gradient(120deg, #4F8EF7, #8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Gaps?</span>
+            </h2>
+            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1.05rem', lineHeight: 1.6, marginBottom: 36, maxWidth: '48ch', marginInline: 'auto' }}>
+              See exactly where you're losing revenue — and what it would take to recover it.
+            </p>
+            <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const }}>
+              <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} className="btn btn-primary" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} style={{ fontSize: '1rem', padding: '16px 32px' }}>
+                Start Your Free Audit →
+              </motion.a>
+              <motion.a href="#/pricing" onClick={e => { e.preventDefault(); navigate('#/pricing'); }} className="btn btn-ghost" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} style={{ fontSize: '1rem', padding: '16px 30px' }}>
+                View Pricing
+              </motion.a>
+            </div>
+            <p style={{ marginTop: 20, fontSize: '0.78rem', color: 'rgba(255,255,255,0.3)' }}>No long-term contracts · Cancel anytime · Setup in days</p>
           </Reveal>
         </div>
       </section>

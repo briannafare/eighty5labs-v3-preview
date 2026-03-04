@@ -93,6 +93,9 @@
         --fd: 'Epilogue', sans-serif;
         --fb: 'Inter', sans-serif;
 
+        /* ── Motion — single easing curve site-wide */
+        --ease: cubic-bezier(.16,1,.3,1);
+
         /* ── Layout */
         --max-w: 1140px;
         --nav-h: 64px;
@@ -110,6 +113,19 @@
         line-height: 1.6;
         -webkit-font-smoothing: antialiased;
         overflow-x: hidden;
+      }
+
+      /* Subtle noise texture — prevents flat/sterile feel */
+      body::after {
+        content: '';
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.035;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        background-repeat: repeat;
+        background-size: 256px 256px;
       }
 
       /* Grid noise overlay — hero only via mask */
@@ -162,17 +178,17 @@
         font-weight: 800;
         cursor: pointer;
         border: none;
-        transition: all 0.15s ease;
+        transition: all 0.2s var(--ease);
         text-decoration: none;
         white-space: nowrap;
         letter-spacing: 0.01em;
       }
       .btn-nav-primary {
-        background: var(--blue);
+        background: linear-gradient(90deg, #1B4FFF, #4F7CFF);
         color: #fff;
       }
       .btn-nav-primary:hover {
-        background: var(--blue2);
+        background: linear-gradient(90deg, #0A3DE6, #3B6BFF);
         box-shadow: 0 4px 20px rgba(27,79,255,0.42);
       }
       .btn-nav-ghost {
@@ -198,20 +214,21 @@
         font-weight: 800;
         cursor: pointer;
         border: none;
-        transition: all 0.18s ease;
+        transition: all 0.25s var(--ease);
         text-decoration: none;
         white-space: nowrap;
         letter-spacing: 0.01em;
       }
-      /* Primary — blue fill, works on any bg */
+      /* Primary — gradient fill, works on any bg */
       .btn-primary {
-        background: var(--blue);
+        background: linear-gradient(90deg, #1B4FFF, #4F7CFF);
         color: #fff;
+        box-shadow: 0 4px 16px rgba(27,79,255,0.25);
       }
       .btn-primary:hover {
-        background: #0A3DE6;
+        background: linear-gradient(90deg, #0A3DE6, #3B6BFF);
         transform: translateY(-2px) scale(1.02);
-        box-shadow: 0 6px 24px rgba(27,79,255,0.40);
+        box-shadow: 0 8px 28px rgba(27,79,255,0.45);
         color: #fff;
       }
       /* Ghost on dark bg */
@@ -358,22 +375,22 @@
          Dark (.section-dark) and light (.section, .section-light)
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
       .section {
-        padding-block: clamp(80px, 9vw, 136px);
+        padding-block: clamp(100px, 11vw, 160px);
         position: relative;
       }
       .section-dark {
-        padding-block: clamp(80px, 9vw, 136px);
+        padding-block: clamp(100px, 11vw, 160px);
         position: relative;
         background: var(--bg0);
         color: var(--t1);
       }
       .section-light {
-        padding-block: clamp(80px, 9vw, 136px);
+        padding-block: clamp(100px, 11vw, 160px);
         position: relative;
         background: var(--ls1);
       }
       .section-white {
-        padding-block: clamp(80px, 9vw, 136px);
+        padding-block: clamp(100px, 11vw, 160px);
         position: relative;
         background: var(--ls0);
       }
@@ -404,9 +421,9 @@
       .section-label { color: var(--td3); }
       .section-label::before { background: var(--td3); }
 
-      /* Section headings — V2 Phase 1 baseline */
+      /* Section headings — upgraded scale */
       .section-heading {
-        font-size: clamp(1.75rem, 3vw, 2.4rem);
+        font-size: clamp(2rem, 3.5vw, 2.75rem);
         font-weight: 900;
         margin-bottom: 18px;
         max-width: 20ch;
@@ -447,13 +464,13 @@
         border: 1.5px solid var(--border);
         border-radius: var(--rdl);
         padding: 28px;
-        transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s, background 0.3s;
+        transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease), transform 0.3s var(--ease), background 0.3s var(--ease);
       }
       .card:hover {
         border-color: rgba(79,142,247,0.30);
         background: var(--bg2);
-        box-shadow: 0 8px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(79,142,247,0.08);
-        transform: translateY(-3px) scale(1.008);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        transform: translateY(-4px);
       }
       /* Card on light bg */
       .card-light {
@@ -462,13 +479,13 @@
         border-radius: var(--rdl);
         padding: 28px;
         box-shadow: 0 2px 12px rgba(15,23,42,0.06);
-        transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s, background 0.3s;
+        transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease), transform 0.3s var(--ease), background 0.3s var(--ease);
       }
       .card-light:hover {
         border-color: rgba(27,79,255,0.28);
         background: #FBFCFF;
-        box-shadow: 0 8px 32px rgba(27,79,255,0.12), 0 2px 8px rgba(15,23,42,0.06);
-        transform: translateY(-4px) scale(1.012);
+        box-shadow: 0 10px 30px rgba(15,23,42,0.10), 0 2px 8px rgba(27,79,255,0.06);
+        transform: translateY(-4px);
       }
 
       /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -514,7 +531,7 @@
 
       /* Dark section variant: bg1 instead of bg0 */
       .section-dark-alt {
-        padding-block: clamp(80px, 9vw, 136px);
+        padding-block: clamp(100px, 11vw, 160px);
         position: relative;
         background: linear-gradient(180deg, #0D1321 0%, var(--bg1) 50%, #0D1321 100%);
         color: var(--t1);

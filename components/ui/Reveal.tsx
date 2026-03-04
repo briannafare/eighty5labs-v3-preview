@@ -23,8 +23,8 @@ export const Reveal: React.FC<RevealProps> = ({
 
   const initial = {
     opacity: 0,
-    y: direction === 'up' ? 18 : 0,
-    x: direction === 'left' ? -18 : direction === 'right' ? 18 : 0,
+    y: direction === 'up' ? 30 : 0,
+    x: direction === 'left' ? -24 : direction === 'right' ? 24 : 0,
     filter: 'blur(4px)',
   };
 
@@ -38,9 +38,9 @@ export const Reveal: React.FC<RevealProps> = ({
       initial={initial}
       animate={animate}
       transition={{
-        duration: 0.55,
+        duration: 0.6,
         delay,
-        ease: [0.2, 0.8, 0.2, 1],
+        ease: [0.16, 1, 0.3, 1],
       }}
       className={className}
       style={style}
