@@ -539,7 +539,7 @@ export const Homepage: React.FC = () => {
     <div>
 
       {/* ═══════ HERO ═══════ */}
-      <section style={{ background: '#fff', paddingTop: 'clamp(76px, 10vw, 110px)', paddingBottom: 0, position: 'relative', overflow: 'visible' }}>
+      <section style={{ background: '#fff', paddingTop: 'clamp(100px, 13vw, 140px)', paddingBottom: 0, position: 'relative', overflow: 'visible' }}>
         <AmbientGlow
           color1="rgba(27,79,255,0.14)"
           color2="rgba(132,204,22,0.10)"
@@ -549,7 +549,7 @@ export const Homepage: React.FC = () => {
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
 
           {/* Section micro-label */}
-          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, ease: [.16,1,.3,1] }} style={{ textAlign: 'center', marginBottom: 12 }}>
+          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, ease: [.16,1,.3,1] }} style={{ textAlign: 'center', marginBottom: 16 }}>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '0.64rem', letterSpacing: '0.14em', textTransform: 'uppercase' as const, color: '#94A3B8' }}>
               <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--blue3)', display: 'inline-block' }} />
               AI Operating System for Local Business
@@ -558,7 +558,7 @@ export const Homepage: React.FC = () => {
 
           {/* H1 */}
           <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.06, ease: [0.16, 1, 0.3, 1] }}
-            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.1rem, 4.5vw, 3.5rem)', fontWeight: 900, letterSpacing: '-0.05em', lineHeight: 1.08, color: 'var(--td1)', textAlign: 'center', maxWidth: '18ch', marginInline: 'auto', marginBottom: 14 }}>
+            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.1rem, 4.5vw, 3.5rem)', fontWeight: 900, letterSpacing: '-0.05em', lineHeight: 1.08, color: 'var(--td1)', textAlign: 'center', maxWidth: '18ch', marginInline: 'auto', marginBottom: 18 }}>
             Close the gaps.{' '}
             <span style={{ display: 'block', marginTop: 2, background: 'linear-gradient(120deg, #1B4FFF 0%, #5B8EFF 50%, #8B5CF6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
               Recover the revenue.
@@ -566,12 +566,12 @@ export const Homepage: React.FC = () => {
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.18 }}
-            style={{ textAlign: 'center', fontSize: 'clamp(0.9rem, 1.4vw, 1.05rem)', color: 'var(--td2)', lineHeight: 1.6, maxWidth: '50ch', marginInline: 'auto', marginBottom: 22 }}>
+            style={{ textAlign: 'center', fontSize: 'clamp(0.9rem, 1.4vw, 1.05rem)', color: 'var(--td2)', lineHeight: 1.6, maxWidth: '50ch', marginInline: 'auto', marginBottom: 28 }}>
             Local businesses bleed revenue at three points — visibility, lead capture, and conversion. eighty5labs finds every gap and closes it automatically.
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.24 }}
-            style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const, marginBottom: 4 }}>
+            style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const, marginBottom: 8 }}>
             <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: '0.9375rem' }}>
               Get Your Free Visibility Audit <CircleArrow />
             </motion.a>
@@ -579,7 +579,7 @@ export const Homepage: React.FC = () => {
               See How It Works
             </motion.a>
           </motion.div>
-          <p style={{ textAlign: 'center', fontSize: '0.7rem', color: '#94A3B8', marginBottom: 0 }}>Free · No commitment · Yours to keep regardless</p>
+          <p style={{ textAlign: 'center', fontSize: '0.7rem', color: '#94A3B8', marginBottom: 0, marginTop: 6 }}>Free · No commitment · Yours to keep regardless</p>
         </div>
 
         {/* AI Search Demo — directly under hero text, peeks above fold */}
