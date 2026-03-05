@@ -93,21 +93,22 @@ const SERVICES = [
   { gap: '03', gapLabel: 'Convert the Lead', gapColor: '#14B8A6', icon: <IconStar />, title: 'Reviews AI', body: 'Requests reviews from every customer automatically. Responds within minutes. Builds the velocity Google rewards.', features: ['Automated review requests', 'AI-powered instant responses', 'Review velocity monitoring'] },
 ];
 
-const PLATFORM_CAPABILITIES = [
-  { icon: <IconGlobe />, label: 'Search Visibility', sub: 'Get cited on ChatGPT, Gemini, Perplexity' },
-  { icon: <IconPhone />, label: 'AI Voice Answering', sub: '24/7 call capture and booking' },
-  { icon: <IconChat />, label: 'Lead Capture', sub: 'Web, SMS, and chat — all sources' },
-  { icon: <IconZap />, label: 'Automated Follow-ups', sub: 'Sequences that run while you sleep' },
-  { icon: <IconStar />, label: 'Review Automation', sub: 'Build velocity that Google rewards' },
-  { icon: <IconBarChart />, label: 'Revenue Tracking', sub: 'Track every gap and recovery' },
-];
-
 const INDUSTRIES = [
-  { label: 'Law Firms', sub: 'Sign more clients before they call someone else', route: '#/legal', icon: <IconBriefcase /> },
-  { label: 'Home Services', sub: 'Never lose a job to a missed call again', route: '#/homeservices', icon: <IconTool /> },
-  { label: 'Real Estate', sub: 'Be the first agent to respond — every time', route: '#/realestate', icon: <IconTag /> },
-  { label: 'Mortgage', sub: 'Capture every rate inquiry before it goes cold', route: '#/mortgage', icon: <IconHome /> },
-  { label: 'Medical & Wellness', sub: 'Automate bookings and build a 5-star reputation', route: '#/medical', icon: <IconHeart /> },
+  { label: 'Law Firms', sub: 'Personal Injury · Criminal Defense · Family Law', route: '#/legal', icon: <IconBriefcase />,
+    detail: 'A DUI call at 9pm that hits voicemail is a retainer for your competitor. Voice AI captures every after-hours inquiry, qualifies by practice area, and books consultations — before competing firms open their doors.',
+    stats: [{ val: '100%', label: 'after-hours capture' }, { val: '< 2 min', label: 'intake response' }, { val: 'Top 3', label: 'Map Pack placement' }] },
+  { label: 'Home Services', sub: 'HVAC · Plumbing · Electrical · Roofing', route: '#/homeservices', icon: <IconTool />,
+    detail: "Every missed call is a job for your competitor. During peak season, AI answers overflow and after-hours calls, books estimates, and follows up on unbooked quotes automatically at Day 1, 3, 7, and 14.",
+    stats: [{ val: '0', label: 'missed calls' }, { val: 'Auto', label: 'review requests' }, { val: '40%', label: 'more call volume handled' }] },
+  { label: 'Real Estate', sub: 'Agents · Teams · Brokerages', route: '#/realestate', icon: <IconTag />,
+    detail: "78% of buyers work with the first agent who responds. While you're showing homes, Voice AI answers every inquiry instantly, captures buyer intent, and keeps your sphere of influence warm on autopilot.",
+    stats: [{ val: '< 2 min', label: 'lead response' }, { val: '+30%', label: 'referral business' }, { val: '24/7', label: 'coverage' }] },
+  { label: 'Mortgage', sub: 'Loan Officers · Mortgage Brokers', route: '#/mortgage', icon: <IconHome />,
+    detail: "The borrower comparing rates right now has three tabs open. The lender who responds in under two minutes wins the conversation. AI captures every inquiry during closings and keeps referral partners warm automatically.",
+    stats: [{ val: '100%', label: 'calls answered' }, { val: '< 2 min', label: 'response time' }, { val: 'Top 3', label: 'Map Pack' }] },
+  { label: 'Medical & Wellness', sub: 'Dental · Med Spa · Chiropractic · PT', route: '#/medical', icon: <IconHeart />,
+    detail: "When volume spikes, the front desk can't handle calls, check-ins, and insurance simultaneously. AI captures new patient inquiries 24/7, automates review requests post-visit, and reduces no-shows with smart reminders.",
+    stats: [{ val: '24/7', label: 'patient capture' }, { val: 'Auto', label: 'review requests' }, { val: '-40%', label: 'no-shows' }] },
 ];
 
 const TESTIMONIALS = [
@@ -314,37 +315,194 @@ const ScrollRevealDemo: React.FC = () => {
 };
 
 /* ═══════════════════════════════════════════════════
-   INDUSTRY GRID — clean cards
+   INDUSTRY TABS — click-to-expand detail panel
 ═══════════════════════════════════════════════════ */
-const IndustryGrid: React.FC = () => (
-  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 14 }}>
-    {INDUSTRIES.map((ind, i) => (
-      <Reveal key={i} delay={i * 0.06}>
-        <motion.a
-          href={ind.route}
-          onClick={e => { e.preventDefault(); navigate(ind.route); }}
-          whileHover={{ y: -3 }}
-          style={{ display: 'block', textDecoration: 'none' }}
+const IndustryTabs: React.FC = () => {
+  const [active, setActive] = useState(0);
+  const ind = INDUSTRIES[active];
+
+  return (
+    <div>
+      {/* Tab buttons */}
+      <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' as const, marginBottom: 0 }}>
+        {INDUSTRIES.map((item, i) => {
+          const isActive = active === i;
+          return (
+            <button
+              key={i}
+              onClick={() => setActive(i)}
+              style={{
+                display: 'flex', alignItems: 'center', gap: 8,
+                padding: '10px 18px',
+                borderRadius: '12px 12px 0 0',
+                border: `1.5px solid ${isActive ? 'var(--ls-border)' : 'transparent'}`,
+                borderBottom: isActive ? '1.5px solid #fff' : '1.5px solid transparent',
+                background: isActive ? '#fff' : 'transparent',
+                cursor: 'pointer',
+                transition: 'all 0.2s',
+                position: 'relative' as const,
+                zIndex: isActive ? 2 : 1,
+                marginBottom: -1.5,
+              }}
+            >
+              <span style={{
+                color: isActive ? 'var(--blue)' : 'var(--td3)',
+                display: 'flex', alignItems: 'center', transition: 'color 0.2s',
+              }}>{item.icon}</span>
+              <span style={{
+                fontFamily: 'var(--fd)', fontWeight: 700,
+                fontSize: '0.82rem', letterSpacing: '-0.01em',
+                color: isActive ? 'var(--td1)' : 'var(--td3)',
+                transition: 'color 0.2s',
+              }}>{item.label}</span>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Detail panel */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={active}
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -4 }}
+          transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="card-light"
+          style={{ borderRadius: '0 14px 14px 14px', padding: 0, overflow: 'hidden' }}
         >
-          <div className="card-light" style={{ display: 'flex', alignItems: 'flex-start', gap: 14, padding: 24 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: 0 }} className="hero-grid">
+            {/* Left: detail content */}
+            <div style={{ padding: 'clamp(24px, 3vw, 36px)' }}>
+              <div style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.13em', textTransform: 'uppercase' as const, color: 'var(--blue)', marginBottom: 8 }}>{ind.sub}</div>
+              <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.1rem, 1.8vw, 1.35rem)', color: 'var(--td1)', letterSpacing: '-0.03em', lineHeight: 1.2, marginBottom: 14 }}>{ind.label}</h3>
+              <p style={{ fontSize: '0.88rem', color: 'var(--td2)', lineHeight: 1.7, marginBottom: 24, maxWidth: '52ch' }}>{ind.detail}</p>
+              <motion.a
+                href={ind.route}
+                onClick={(e: React.MouseEvent) => { e.preventDefault(); navigate(ind.route); }}
+                whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+                className="btn btn-primary btn-sm"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}
+              >
+                See {ind.label} Solutions <IconArrow />
+              </motion.a>
+            </div>
+
+            {/* Right: stats sidebar */}
             <div style={{
-              width: 40, height: 40, borderRadius: 10, flexShrink: 0,
-              background: 'var(--ls2)', border: '1px solid var(--ls-border)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--td3)',
+              background: 'var(--ls1)', borderLeft: '1px solid var(--ls-border)',
+              padding: 'clamp(24px, 3vw, 36px)',
+              display: 'flex', flexDirection: 'column' as const, justifyContent: 'center', gap: 24,
+              minWidth: 180,
             }}>
-              {ind.icon}
+              {ind.stats.map((s, j) => (
+                <div key={j}>
+                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.4rem', letterSpacing: '-0.04em', color: 'var(--blue)', lineHeight: 1 }}>{s.val}</div>
+                  <div style={{ fontSize: '0.68rem', color: 'var(--td3)', marginTop: 4 }}>{s.label}</div>
+                </div>
+              ))}
             </div>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.95rem', color: 'var(--td1)', letterSpacing: '-0.02em', marginBottom: 4 }}>{ind.label}</div>
-              <div style={{ fontSize: '0.78rem', color: 'var(--td3)', lineHeight: 1.5 }}>{ind.sub}</div>
-            </div>
-            <div style={{ color: 'var(--td3)', flexShrink: 0, marginTop: 12 }}><IconArrow /></div>
           </div>
-        </motion.a>
-      </Reveal>
-    ))}
-  </div>
-);
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+};
+
+/* ═══════════════════════════════════════════════════
+   PLATFORM TABS — services grouped by gap
+═══════════════════════════════════════════════════ */
+const GAP_TABS = [
+  { num: '01', label: 'Get Found', color: '#4F8EF7' },
+  { num: '02', label: 'Capture the Lead', color: '#8B5CF6' },
+  { num: '03', label: 'Convert the Lead', color: '#14B8A6' },
+];
+
+const PlatformTabs: React.FC = () => {
+  const [activeGap, setActiveGap] = useState('01');
+  const filtered = SERVICES.filter(s => s.gap === activeGap);
+  const gapColor = GAP_TABS.find(g => g.num === activeGap)?.color ?? '#4F8EF7';
+
+  return (
+    <div>
+      {/* Gap tab bar */}
+      <div style={{ display: 'flex', gap: 0, borderBottom: '1.5px solid var(--ls-border)', marginBottom: 0 }}>
+        {GAP_TABS.map(gap => {
+          const isActive = activeGap === gap.num;
+          return (
+            <button
+              key={gap.num}
+              onClick={() => setActiveGap(gap.num)}
+              style={{
+                flex: 1,
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
+                padding: '14px 16px',
+                background: 'transparent',
+                border: 'none',
+                borderBottom: `2.5px solid ${isActive ? gap.color : 'transparent'}`,
+                cursor: 'pointer',
+                transition: 'all 0.2s',
+                marginBottom: -1.5,
+              }}
+            >
+              <span style={{
+                width: 22, height: 22, borderRadius: '50%',
+                background: isActive ? gap.color : 'var(--ls2)',
+                color: isActive ? '#fff' : 'var(--td3)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontFamily: 'var(--fd)', fontSize: '0.6rem', fontWeight: 900,
+                transition: 'all 0.2s', flexShrink: 0,
+              }}>{gap.num}</span>
+              <span style={{
+                fontFamily: 'var(--fd)', fontWeight: 800,
+                fontSize: '0.82rem', letterSpacing: '-0.01em',
+                color: isActive ? 'var(--td1)' : 'var(--td3)',
+                transition: 'color 0.2s',
+              }}>{gap.label}</span>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Service cards — always 2 per gap = balanced grid */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeGap}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -4 }}
+          transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
+          style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, paddingTop: 24 }}
+          className="hero-grid"
+        >
+          {filtered.map((svc, i) => (
+            <div key={svc.title} className="card-light" style={{ height: '100%', padding: 28 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+                <div style={{
+                  width: 42, height: 42, borderRadius: 11, flexShrink: 0,
+                  background: `${gapColor}0A`, border: `1px solid ${gapColor}20`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', color: gapColor,
+                }}>{svc.icon}</div>
+                <div>
+                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '1.05rem', color: 'var(--td1)', letterSpacing: '-0.02em', lineHeight: 1.3 }}>{svc.title}</div>
+                </div>
+              </div>
+              <p style={{ fontSize: '0.88rem', color: 'var(--td2)', lineHeight: 1.7, marginBottom: 18 }}>{svc.body}</p>
+              <div style={{ display: 'flex', flexDirection: 'column' as const, gap: 8 }}>
+                {svc.features.map((f, j) => (
+                  <div key={j} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <div style={{ width: 16, height: 16, borderRadius: 4, background: `${gapColor}12`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><IconCheck color={gapColor} /></div>
+                    <span style={{ fontSize: '0.8rem', color: 'var(--td2)' }}>{f}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+};
 
 /* ═══════════════════════════════════════════════════
    MAIN HOMEPAGE
@@ -488,53 +646,10 @@ export const Homepage: React.FC = () => {
             <p className="section-sub" style={{ marginBottom: 48 }}>Six AI systems, each targeting a specific gap. Together they form one complete revenue recovery engine.</p>
           </Reveal>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(190px, 1fr))', gap: 12, marginBottom: 52 }}>
-            {PLATFORM_CAPABILITIES.map((cap, i) => (
-              <Reveal key={i} delay={i * 0.05}>
-                <div className="card-light" style={{ padding: 22, textAlign: 'center' as const }}>
-                  <div style={{
-                    width: 44, height: 44, borderRadius: 12,
-                    background: 'var(--ls2)', border: '1px solid var(--ls-border)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    color: 'var(--td2)', marginInline: 'auto', marginBottom: 12,
-                  }}>{cap.icon}</div>
-                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.88rem', color: 'var(--td1)', letterSpacing: '-0.02em', marginBottom: 5 }}>{cap.label}</div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--td3)', lineHeight: 1.5 }}>{cap.sub}</div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <PlatformTabs />
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(310px, 1fr))', gap: 16, marginBottom: 32 }}>
-            {SERVICES.map((svc, i) => (
-              <Reveal key={i} delay={i * 0.06}>
-                <div className="card-light" style={{ height: '100%', padding: 28 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-                    <div style={{
-                      width: 40, height: 40, borderRadius: 10, flexShrink: 0,
-                      background: 'var(--ls2)', border: '1px solid var(--ls-border)',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--td2)',
-                    }}>{svc.icon}</div>
-                    <div>
-                      <div style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '1.05rem', color: 'var(--td1)', letterSpacing: '-0.02em', lineHeight: 1.3 }}>{svc.title}</div>
-                      <div style={{ fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: svc.gapColor, marginTop: 2 }}>Gap {svc.gap} — {svc.gapLabel}</div>
-                    </div>
-                  </div>
-                  <p style={{ fontSize: '0.85rem', color: 'var(--td2)', lineHeight: 1.7, marginBottom: 16, opacity: 0.85 }}>{svc.body}</p>
-                  <div style={{ display: 'flex', flexDirection: 'column' as const, gap: 7 }}>
-                    {svc.features.map((f, j) => (
-                      <div key={j} style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
-                        <div style={{ width: 15, height: 15, borderRadius: 4, background: `${svc.gapColor}12`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><IconCheck color={svc.gapColor} /></div>
-                        <span style={{ fontSize: '0.78rem', color: 'var(--td2)' }}>{f}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
           <Reveal>
-            <div style={{ textAlign: 'center' as const }}>
+            <div style={{ textAlign: 'center' as const, marginTop: 44 }}>
               <a href="#/services" onClick={e => { e.preventDefault(); navigate('#/services'); }} className="btn btn-ghost-light" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
                 Explore All Systems <IconArrow />
               </a>
@@ -619,7 +734,7 @@ export const Homepage: React.FC = () => {
             <h2 className="section-heading">Every Industry. <span style={{ color: 'var(--blue)' }}>One System.</span></h2>
             <p className="section-sub" style={{ marginBottom: 44 }}>eighty5labs is built for service businesses that win on speed, reputation, and availability.</p>
           </Reveal>
-          <IndustryGrid />
+          <IndustryTabs />
           <Reveal>
             <div style={{ textAlign: 'center' as const, marginTop: 44 }}>
               <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
