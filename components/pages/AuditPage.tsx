@@ -9,18 +9,18 @@ const BUSINESS_TYPES = [
 ];
 
 const WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/n21oYUwglqe3bTsxL2RS/webhook-trigger/93dcdc4a-d6b4-40df-8f8d-9e41336e0cca';
+const CALENDAR_URL = 'https://links.eighty5labs.com/widget/booking/tGnOLWYqBS5uUqmO801w';
 
 const STEPS = [
   { title: "Let's start with the basics.", sub: 'Just your name and email to kick things off.' },
   { title: 'How do we reach you?', sub: 'Phone + business name so we know who we\'re building this for.' },
-  { title: 'What industry are you in?', sub: 'This shapes which gaps we look for and what benchmarks matter.' },
-  { title: 'Where are you located?', sub: 'We audit your Map Pack, competitors, and AI search presence in your market.' },
+  { title: 'Tell us about your business.', sub: 'Industry, location, and website help us benchmark against your real competitors.' },
   { title: 'Quick review — then we build.', sub: 'Confirm everything looks right and we\'ll start your audit immediately.' },
 ];
 
 interface FormData {
   fullName: string; email: string; phone: string; businessName: string;
-  companyName: string; website: string; city: string; state: string;
+  website: string; city: string; state: string;
   businessType: string; nicheSpecialty: string; consentSMS: boolean;
 }
 
@@ -49,7 +49,7 @@ export const AuditPage: React.FC = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [form, setForm] = useState<FormData>({
     fullName: '', email: '', phone: '', businessName: '',
-    companyName: '', website: '', city: '', state: '',
+    website: 'https://', city: '', state: '',
     businessType: '', nicheSpecialty: '', consentSMS: false,
   });
 
@@ -67,7 +67,7 @@ export const AuditPage: React.FC = () => {
       if (!form.businessName.trim()) e.businessName = 'What\'s the business called?';
     } else if (step === 2) {
       if (!form.businessType) e.businessType = 'Pick the closest match';
-    } else if (step === 4) {
+    } else if (step === 3) {
       if (!form.consentSMS) e.consentSMS = 'We need your OK to send the audit results';
     }
     return e;
@@ -79,13 +79,14 @@ export const AuditPage: React.FC = () => {
   const submit = async () => {
     const e = validate(); if (Object.keys(e).length) { setErrors(e); return; }
     setErrors({}); setLoading(true);
+    const cleanWebsite = form.website === 'https://' ? '' : form.website;
     try {
       await fetch(WEBHOOK_URL, {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           full_name: form.fullName, email: form.email, phone: form.phone,
-          company_name: form.companyName || form.businessName, business_name: form.businessName,
-          website: form.website, city: form.city, state: form.state,
+          business_name: form.businessName, website: cleanWebsite,
+          city: form.city, state: form.state,
           business_type: form.businessType, niche_specialty: form.nicheSpecialty,
           sms_consent: form.consentSMS, source: 'eighty5labs-visibility-audit',
           timestamp: new Date().toISOString(),
@@ -94,30 +95,82 @@ export const AuditPage: React.FC = () => {
     } finally { setLoading(false); setSubmitted(true); }
   };
 
+  /* ── Success screen ── */
   if (submitted) {
     return (
       <div style={{ paddingTop: 'var(--nav-h)', minHeight: '90vh', background: '#fff', display: 'flex', alignItems: 'center' }}>
-        <div className="wrap" style={{ textAlign: 'center', maxWidth: 520, marginInline: 'auto' }}>
+        <div className="wrap" style={{ textAlign: 'center', maxWidth: 560, marginInline: 'auto', padding: '60px 24px' }}>
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}>
             <div style={{ width: 80, height: 80, borderRadius: '50%', background: 'rgba(132,204,22,0.12)', border: '2px solid rgba(132,204,22,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 28px' }}>
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#84CC16" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
-            <h1 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '2.25rem', letterSpacing: '-0.04em', marginBottom: 16, color: '#0F172A' }}>
-              Your Audit Is Being Built.
+            <h1 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '2.25rem', letterSpacing: '-0.04em', marginBottom: 14, color: '#0F172A' }}>
+              We're On It.
             </h1>
-            <p style={{ color: '#64748B', lineHeight: 1.7, marginBottom: 12, fontSize: '1.0625rem' }}>
-              We're analyzing your visibility, reputation, and conversion gaps right now.
+            <p style={{ color: '#334155', lineHeight: 1.7, marginBottom: 8, fontSize: '1.0625rem' }}>
+              Your Visibility Audit is being built right now. Expect it in your inbox <strong>within 1 hour</strong>.
             </p>
             <p style={{ color: '#64748B', lineHeight: 1.7, marginBottom: 36, fontSize: '0.9375rem' }}>
-              Expect your full Visibility Audit in your inbox within <strong style={{ color: '#0F172A' }}>48 hours</strong>.
+              We're analyzing your Map Pack position, review velocity, AI search visibility, and conversion gaps against your top local competitors.
             </p>
-            <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{ color: '#4F8EF7', textDecoration: 'none', fontWeight: 600 }}>← Back to eighty5labs</a>
+
+            {/* Calendar booking CTA */}
+            <div style={{
+              background: '#F7F9FF', border: '1.5px solid #DDE5F2', borderRadius: 16,
+              padding: 'clamp(24px, 3vw, 36px)', textAlign: 'left', marginBottom: 32,
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
+                <div style={{ width: 36, height: 36, borderRadius: 10, background: 'rgba(27,79,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1B4FFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.05rem', color: '#0F172A', letterSpacing: '-0.02em' }}>
+                  Want 10x more value from your audit?
+                </h3>
+              </div>
+              <p style={{ fontSize: '0.9rem', color: '#334155', lineHeight: 1.7, marginBottom: 10 }}>
+                Book a free 30-minute strategy call to walk through your results with someone who's already mapped your market. You'll leave with:
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 20, paddingLeft: 4 }}>
+                {[
+                  'A prioritized action plan (what to fix first and why)',
+                  'Competitor intel you can use immediately',
+                  'Custom recommendations — whether you implement them or we do',
+                ].map((item, i) => (
+                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+                    <div style={{ width: 18, height: 18, borderRadius: 5, background: 'rgba(132,204,22,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 2 }}>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#84CC16" strokeWidth="3"><path d="M20 6L9 17l-5-5"/></svg>
+                    </div>
+                    <span style={{ fontSize: '0.875rem', color: '#334155', lineHeight: 1.5 }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+              <p style={{ fontSize: '0.8125rem', color: '#64748B', lineHeight: 1.6, marginBottom: 20 }}>
+                No pitch. No pressure. You walk away with insights and tools you can use regardless of what you decide.
+              </p>
+              <a
+                href={CALENDAR_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '0.9375rem', textDecoration: 'none' }}
+              >
+                Book Your Free Strategy Call
+                <span className="btn-arrow-circle">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </a>
+            </div>
+
+            <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{ color: '#94A3B8', textDecoration: 'none', fontSize: '0.875rem' }}>
+              ← Back to eighty5labs
+            </a>
           </motion.div>
         </div>
       </div>
     );
   }
 
+  /* ── Main quiz ── */
   return (
     <div style={{ paddingTop: 'var(--nav-h)', minHeight: '100vh', background: '#fff', color: '#0F172A' }}>
       <div style={{ maxWidth: 560, marginInline: 'auto', padding: 'clamp(40px, 6vw, 72px) 24px 60px' }}>
@@ -164,39 +217,15 @@ export const AuditPage: React.FC = () => {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                 <div>
                   <label style={lS}>Business Type *</label>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                    {BUSINESS_TYPES.map(type => {
-                      const sel = form.businessType === type;
-                      return (
-                        <button key={type} type="button" onClick={() => set('businessType', type)} style={{
-                          display: 'flex', alignItems: 'center', gap: 12,
-                          padding: '11px 16px', borderRadius: 10, cursor: 'pointer',
-                          background: sel ? 'rgba(27,79,255,0.06)' : '#fff',
-                          border: `1.5px solid ${sel ? '#1B4FFF' : '#DDE5F2'}`,
-                          color: sel ? '#1B4FFF' : '#334155',
-                          fontFamily: 'var(--fb)', fontSize: '0.9375rem', fontWeight: sel ? 700 : 500,
-                          transition: 'all 0.15s', textAlign: 'left',
-                        }}>
-                          <div style={{
-                            width: 18, height: 18, borderRadius: '50%', flexShrink: 0,
-                            border: `2px solid ${sel ? '#1B4FFF' : '#C5D0E8'}`,
-                            display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          }}>{sel && <div style={{ width: 9, height: 9, borderRadius: '50%', background: '#1B4FFF' }} />}</div>
-                          {type}
-                        </button>
-                      );
-                    })}
-                  </div>
+                  <select value={form.businessType} onChange={e => set('businessType', e.target.value)}
+                    style={{ ...iS, appearance: 'none', backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'12\' height=\'8\' viewBox=\'0 0 12 8\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M1 1.5L6 6.5L11 1.5\' stroke=\'%2394A3B8\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/%3E%3C/svg%3E")', backgroundRepeat: 'no-repeat', backgroundPosition: 'right 16px center', paddingRight: 40 }} {...focusH}>
+                    <option value="">Select your industry…</option>
+                    {BUSINESS_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
+                  </select>
                   {errors.businessType && <p style={eS}>{errors.businessType}</p>}
                 </div>
                 <div><label style={lS}>Niche Specialty <span style={{ color: '#94A3B8', fontWeight: 400 }}>(optional)</span></label><input value={form.nicheSpecialty} onChange={e => set('nicheSpecialty', e.target.value)} placeholder="e.g. Emergency plumbing, Family law..." style={iS} {...focusH} /></div>
-              </div>
-            )}
-
-            {step === 3 && (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                 <div><label style={lS}>Website <span style={{ color: '#94A3B8', fontWeight: 400 }}>(optional)</span></label><input value={form.website} onChange={e => set('website', e.target.value)} placeholder="https://yourbusiness.com" style={iS} {...focusH} /></div>
-                <div><label style={lS}>Company Name <span style={{ color: '#94A3B8', fontWeight: 400 }}>(if different from business)</span></label><input value={form.companyName} onChange={e => set('companyName', e.target.value)} placeholder="Smith Holdings LLC" style={iS} {...focusH} /></div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
                   <div><label style={lS}>City</label><input value={form.city} onChange={e => set('city', e.target.value)} placeholder="Portland" style={iS} {...focusH} /></div>
                   <div><label style={lS}>State</label><input value={form.state} onChange={e => set('state', e.target.value)} placeholder="Oregon" style={iS} {...focusH} /></div>
@@ -204,7 +233,7 @@ export const AuditPage: React.FC = () => {
               </div>
             )}
 
-            {step === 4 && (
+            {step === 3 && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                 <div style={{ background: '#F7F9FF', border: '1.5px solid #DDE5F2', borderRadius: 14, padding: '20px 24px', display: 'flex', flexDirection: 'column', gap: 12 }}>
                   {[
@@ -212,7 +241,7 @@ export const AuditPage: React.FC = () => {
                     { l: 'Phone', v: form.phone }, { l: 'Business', v: form.businessName },
                     { l: 'Industry', v: `${form.businessType}${form.nicheSpecialty ? ` — ${form.nicheSpecialty}` : ''}` },
                     { l: 'Location', v: [form.city, form.state].filter(Boolean).join(', ') || '—' },
-                    { l: 'Website', v: form.website || '—' },
+                    { l: 'Website', v: form.website === 'https://' ? '—' : form.website },
                   ].map(r => (
                     <div key={r.l} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16 }}>
                       <span style={{ fontSize: '0.8125rem', color: '#94A3B8', flexShrink: 0 }}>{r.l}</span>
