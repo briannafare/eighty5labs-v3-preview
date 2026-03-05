@@ -509,14 +509,14 @@ export const Homepage: React.FC = () => {
     <div>
 
       {/* ═══════ HERO ═══════ */}
-      <section style={{ background: '#fff', paddingTop: 'clamp(84px, 11vw, 130px)', paddingBottom: 0, position: 'relative', overflow: 'visible' }}>
+      <section style={{ background: '#fff', paddingTop: 'clamp(76px, 10vw, 110px)', paddingBottom: 0, position: 'relative', overflow: 'visible' }}>
         <div style={{ position: 'absolute', top: '-10%', left: '15%', width: '50%', height: '60%', background: 'radial-gradient(circle, rgba(79,124,255,0.07) 0%, transparent 50%)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', bottom: '0%', right: '10%', width: '40%', height: '50%', background: 'radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 50%)', pointerEvents: 'none' }} />
 
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
 
           {/* Section micro-label */}
-          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, ease: [.16,1,.3,1] }} style={{ textAlign: 'center', marginBottom: 18 }}>
+          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, ease: [.16,1,.3,1] }} style={{ textAlign: 'center', marginBottom: 12 }}>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '0.64rem', letterSpacing: '0.14em', textTransform: 'uppercase' as const, color: '#94A3B8' }}>
               <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--blue3)', display: 'inline-block' }} />
               AI Operating System for Local Business
@@ -525,20 +525,20 @@ export const Homepage: React.FC = () => {
 
           {/* H1 */}
           <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.06, ease: [0.16, 1, 0.3, 1] }}
-            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.6rem, 5.5vw, 4.5rem)', fontWeight: 900, letterSpacing: '-0.055em', lineHeight: 1.04, color: 'var(--td1)', textAlign: 'center', maxWidth: '16ch', marginInline: 'auto', marginBottom: 20 }}>
+            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.1rem, 4.5vw, 3.5rem)', fontWeight: 900, letterSpacing: '-0.05em', lineHeight: 1.08, color: 'var(--td1)', textAlign: 'center', maxWidth: '18ch', marginInline: 'auto', marginBottom: 14 }}>
             Close the gaps.{' '}
-            <span style={{ display: 'block', background: 'linear-gradient(120deg, #1B4FFF 0%, #5B8EFF 50%, #8B5CF6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+            <span style={{ display: 'block', marginTop: 2, background: 'linear-gradient(120deg, #1B4FFF 0%, #5B8EFF 50%, #8B5CF6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
               Recover the revenue.
             </span>
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.18 }}
-            style={{ textAlign: 'center', fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)', color: 'var(--td2)', lineHeight: 1.65, maxWidth: '50ch', marginInline: 'auto', marginBottom: 28 }}>
+            style={{ textAlign: 'center', fontSize: 'clamp(0.9rem, 1.4vw, 1.05rem)', color: 'var(--td2)', lineHeight: 1.6, maxWidth: '50ch', marginInline: 'auto', marginBottom: 22 }}>
             Local businesses bleed revenue at three points — visibility, lead capture, and conversion. eighty5labs finds every gap and closes it automatically.
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.24 }}
-            style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const, marginBottom: 6 }}>
+            style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const, marginBottom: 4 }}>
             <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '0.9375rem' }}>
               Get Your Free Visibility Audit <IconArrow />
             </motion.a>
@@ -550,7 +550,7 @@ export const Homepage: React.FC = () => {
         </div>
 
         {/* AI Search Demo — directly under hero text, peeks above fold */}
-        <div style={{ position: 'relative', marginTop: 32 }}>
+        <div style={{ position: 'relative', marginTop: 24 }}>
           <ScrollRevealDemo />
           <div style={{
             position: 'absolute', bottom: 0, left: 0, right: 0, height: 140,
