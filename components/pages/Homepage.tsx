@@ -296,18 +296,12 @@ const ThreeGapsFramework: React.FC = () => {
 const ScrollRevealDemo: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
-  const scale = useTransform(scrollYProgress, [0, 0.35, 0.65], [0.84, 1, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [0.5, 1]);
-  const borderRadius = useTransform(scrollYProgress, [0, 0.35], [24, 14]);
+  const scale = useTransform(scrollYProgress, [0, 0.35, 0.65], [0.88, 1, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2], [0.6, 1]);
 
   return (
-    <div ref={ref} style={{ padding: '0 clamp(16px, 3vw, 40px)', maxWidth: 1100, marginInline: 'auto' }}>
-      <motion.div style={{
-        scale, opacity, borderRadius, overflow: 'hidden',
-        boxShadow: '0 4px 40px rgba(15,23,42,0.10), 0 20px 80px rgba(15,23,42,0.07), 0 2px 12px rgba(27,79,255,0.05)',
-        border: '1px solid var(--ls-border)', background: '#fff', position: 'relative',
-      }}>
-        <div style={{ position: 'absolute', top: -40, left: '50%', transform: 'translateX(-50%)', width: '70%', height: 80, background: 'radial-gradient(ellipse, rgba(27,79,255,0.07) 0%, transparent 70%)', filter: 'blur(30px)', pointerEvents: 'none' }} />
+    <div ref={ref} style={{ padding: '0 clamp(16px, 3vw, 40px)', maxWidth: 900, marginInline: 'auto', paddingBottom: 64 }}>
+      <motion.div style={{ scale, opacity }}>
         <HeroAnimation />
       </motion.div>
     </div>
@@ -514,7 +508,7 @@ export const Homepage: React.FC = () => {
     <div>
 
       {/* ═══════ HERO ═══════ */}
-      <section style={{ background: '#fff', paddingTop: 'clamp(84px, 11vw, 130px)', paddingBottom: 0, position: 'relative', overflow: 'hidden' }}>
+      <section style={{ background: '#fff', paddingTop: 'clamp(84px, 11vw, 130px)', paddingBottom: 0, position: 'relative', overflow: 'visible' }}>
         <div style={{ position: 'absolute', top: '-10%', left: '15%', width: '50%', height: '60%', background: 'radial-gradient(circle, rgba(79,124,255,0.07) 0%, transparent 50%)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', bottom: '0%', right: '10%', width: '40%', height: '50%', background: 'radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 50%)', pointerEvents: 'none' }} />
 
@@ -531,16 +525,16 @@ export const Homepage: React.FC = () => {
 
           {/* H1 */}
           <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.06, ease: [0.16, 1, 0.3, 1] }}
-            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.6rem, 5.5vw, 4.5rem)', fontWeight: 900, letterSpacing: '-0.055em', lineHeight: 1.04, color: 'var(--td1)', textAlign: 'center', maxWidth: '18ch', marginInline: 'auto', marginBottom: 20 }}>
-            Get Found. Capture Every Lead.{' '}
+            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.6rem, 5.5vw, 4.5rem)', fontWeight: 900, letterSpacing: '-0.055em', lineHeight: 1.04, color: 'var(--td1)', textAlign: 'center', maxWidth: '16ch', marginInline: 'auto', marginBottom: 20 }}>
+            Close the gaps.{' '}
             <span style={{ display: 'block', background: 'linear-gradient(120deg, #1B4FFF 0%, #5B8EFF 50%, #8B5CF6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-              Convert More Revenue.
+              Recover the revenue.
             </span>
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.18 }}
-            style={{ textAlign: 'center', fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)', color: 'var(--td2)', lineHeight: 1.65, maxWidth: '52ch', marginInline: 'auto', marginBottom: 28 }}>
-            The AI Revenue OS that helps businesses get found, capture every lead, and convert more opportunities — automatically.
+            style={{ textAlign: 'center', fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)', color: 'var(--td2)', lineHeight: 1.65, maxWidth: '50ch', marginInline: 'auto', marginBottom: 28 }}>
+            Local businesses bleed revenue at three points — visibility, lead capture, and conversion. eighty5labs finds every gap and closes it automatically.
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.24 }}
@@ -555,14 +549,37 @@ export const Homepage: React.FC = () => {
           <p style={{ textAlign: 'center', fontSize: '0.7rem', color: '#94A3B8', marginBottom: 40 }}>Free · No commitment · Yours to keep regardless</p>
 
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }}
-            style={{ background: '#FAFBFE', border: '1px solid var(--ls-border)', borderRadius: 16, padding: 'clamp(18px, 2.5vw, 28px)' }}>
+            style={{ background: '#FAFBFE', border: '1px solid var(--ls-border)', borderRadius: 16, padding: 'clamp(18px, 2.5vw, 28px)', marginBottom: 48 }}>
             <GapCards />
           </motion.div>
-        </div>
-      </section>
 
-      {/* ═══════ PRODUCT DEMO — Large, product-dominant ═══════ */}
-      <section style={{ background: '#fff', paddingTop: 64, paddingBottom: 64 }}>
+          {/* Optimizing brands for */}
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.4 }}
+            style={{ textAlign: 'center', marginBottom: 56 }}>
+            <p style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase' as const, color: '#94A3B8', marginBottom: 20 }}>
+              Optimizing brands for
+            </p>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 'clamp(24px, 5vw, 56px)', flexWrap: 'wrap' as const }}>
+              {[
+                { name: 'ChatGPT', icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.998 5.998 0 0 0-3.998 2.9 6.042 6.042 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.05 6.05 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.143-.08 4.778-2.758a.776.776 0 0 0 .391-.676v-6.738l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.49zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872v.024zm16.597 3.855l-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66v.018zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.795.795 0 0 0-.393.676l-.004 6.727zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5-.005-2.999z" fill="#0F172A"/></svg> },
+                { name: 'Gemini', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 24C12 18.636 8.364 14 3 12c5.364-2 9-6.636 9-12 0 5.364 3.636 10 9 12-5.364 2-9 6.636-9 12z" fill="url(#g-g)"/><defs><linearGradient id="g-g" x1="3" y1="0" x2="21" y2="24"><stop stopColor="#4285F4"/><stop offset="0.5" stopColor="#9B72CB"/><stop offset="1" stopColor="#D96570"/></linearGradient></defs></svg> },
+                { name: 'Perplexity', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 2l8 6 8-6v9l-4 3v8l-4-3-4 3v-8l-4-3V2z" fill="none" stroke="#0F172A" strokeWidth="1.8" strokeLinejoin="round"/><path d="M12 8v14M4 11h16" stroke="#0F172A" strokeWidth="1.8" strokeLinecap="round"/></svg> },
+                { name: 'Claude', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15.788 3.09L12.47 14.67l-1.478-4.66a.6.6 0 0 0-.39-.39L5.92 8.14l11.58-3.33a.3.3 0 0 1 .288.28zM17.042 2.022c-.69-.69-1.81-.32-1.97.65L10.92 18.92a1.2 1.2 0 0 0 .78 1.38l.12.04c.63.18 1.27-.24 1.39-.89l3.83-16.78a.3.3 0 0 0-.01-.24.3.3 0 0 0 .01-.41z" fill="#D97706"/></svg> },
+                { name: 'Grok', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M2.5 6l9.5 12L21.5 6" stroke="#0F172A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/><circle cx="18" cy="4.5" r="2" fill="#0F172A"/></svg> },
+              ].map(ai => (
+                <div key={ai.name} style={{ display: 'flex', alignItems: 'center', gap: 8, opacity: 0.5, transition: 'opacity 0.2s' }}
+                  onMouseEnter={e => (e.currentTarget.style.opacity = '0.85')}
+                  onMouseLeave={e => (e.currentTarget.style.opacity = '0.5')}
+                >
+                  {ai.icon}
+                  <span style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '0.9375rem', color: '#0F172A' }}>{ai.name}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* AI Search Demo — peeks above fold, scales on scroll (Amplemarket style) */}
         <ScrollRevealDemo />
       </section>
 
