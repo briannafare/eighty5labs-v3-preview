@@ -182,7 +182,7 @@ export const AboutPage: React.FC = () => (
 
         <Reveal delay={0.2}>
           <div style={{ textAlign: 'center', marginTop: 56 }}>
-            <button onClick={() => navigate('#/audit')} className="btn btn-primary">Get Your Free Revenue Audit →</button>
+            <button onClick={() => navigate('#/audit')} className="btn btn-primary">Get Your Free Visibility Audit →</button>
           </div>
         </Reveal>
       </div>

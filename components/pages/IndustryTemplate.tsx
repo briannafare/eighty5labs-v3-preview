@@ -158,7 +158,7 @@ export const IndustryPage: React.FC<{ data: IndustryPageData }> = ({ data }) => 
               <Reveal delay={0.18}>
                 <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' as const }}>
                   <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')} className="btn btn-primary">
-                    Get Your Free Audit →
+                    Get Your Free Visibility Audit →
                   </motion.button>
                 </div>
               </Reveal>
@@ -264,7 +264,7 @@ export const IndustryPage: React.FC<{ data: IndustryPageData }> = ({ data }) => 
             <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>{data.ctaTitle}</h2>
             <p style={{ color: '#64748B', marginBottom: 32, lineHeight: 1.7, fontSize: '0.9375rem' }}>{data.ctaBody}</p>
             <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')} className="btn btn-primary">
-              Book Your Free Audit →
+              Book Your Free Visibility Audit →
             </motion.button>
             <p style={{ marginTop: 16, fontSize: '0.8125rem', color: '#94A3B8' }}>We take on a limited number of new audits each month. No pressure — just clarity.</p>
           </Reveal>

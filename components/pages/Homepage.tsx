@@ -295,13 +295,14 @@ const ThreeGapsFramework: React.FC = () => {
 ═══════════════════════════════════════════════════ */
 const ScrollRevealDemo: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
-  const scale = useTransform(scrollYProgress, [0, 0.35, 0.65], [0.88, 1, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [0.6, 1]);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start 0.85', 'start 0.2'] });
+  const scale = useTransform(scrollYProgress, [0, 1], [0.82, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [0.7, 1]);
+  const y = useTransform(scrollYProgress, [0, 1], [40, 0]);
 
   return (
-    <div ref={ref} style={{ padding: '0 clamp(16px, 3vw, 40px)', maxWidth: 900, marginInline: 'auto', paddingBottom: 64 }}>
-      <motion.div style={{ scale, opacity }}>
+    <div ref={ref} style={{ maxWidth: 880, marginInline: 'auto', padding: '0 clamp(16px, 3vw, 40px)' }}>
+      <motion.div style={{ scale, opacity, y, transformOrigin: 'top center' }}>
         <HeroAnimation />
       </motion.div>
     </div>
@@ -516,10 +517,9 @@ export const Homepage: React.FC = () => {
 
           {/* Section micro-label */}
           <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, ease: [.16,1,.3,1] }} style={{ textAlign: 'center', marginBottom: 18 }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '0.64rem', letterSpacing: '0.2em', textTransform: 'uppercase' as const, color: '#94A3B8' }}>
-              <span style={{ display: 'inline-block', width: 20, height: 1, background: '#C8D5E8' }} />
-              Revenue OS
-              <span style={{ display: 'inline-block', width: 20, height: 1, background: '#C8D5E8' }} />
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '0.64rem', letterSpacing: '0.14em', textTransform: 'uppercase' as const, color: '#94A3B8' }}>
+              <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--blue3)', display: 'inline-block' }} />
+              AI Operating System for Local Business
             </span>
           </motion.div>
 
@@ -540,7 +540,7 @@ export const Homepage: React.FC = () => {
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.24 }}
             style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const, marginBottom: 8 }}>
             <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '0.9375rem' }}>
-              Get Your Free Revenue Audit <IconArrow />
+              Get Your Free Visibility Audit <IconArrow />
             </motion.a>
             <motion.a href="#/services" onClick={e => { e.preventDefault(); navigate('#/services'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-ghost-light" style={{ display: 'inline-flex', alignItems: 'center', gap: 7, fontSize: '0.9375rem' }}>
               See How It Works
@@ -580,7 +580,16 @@ export const Homepage: React.FC = () => {
         </div>
 
         {/* AI Search Demo — peeks above fold, scales on scroll (Amplemarket style) */}
-        <ScrollRevealDemo />
+        <div style={{ position: 'relative', marginTop: -8 }}>
+          <ScrollRevealDemo />
+          {/* Bottom fade mask — creates the peek/reveal illusion */}
+          <div style={{
+            position: 'absolute', bottom: 0, left: 0, right: 0, height: 120,
+            background: 'linear-gradient(to bottom, transparent 0%, #fff 90%)',
+            pointerEvents: 'none',
+          }} />
+        </div>
+        <div style={{ height: 40 }} />
       </section>
 
       {/* ═══════ PROOF STRIP ═══════ */}
@@ -735,7 +744,7 @@ export const Homepage: React.FC = () => {
             <div style={{ textAlign: 'center' as const, marginTop: 52 }}>
               <p style={{ color: 'var(--t3)', fontSize: '0.9rem', marginBottom: 18 }}>Ready to recover this revenue?</p>
               <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-                Get Your Free Revenue Audit <IconArrow />
+                Get Your Free Visibility Audit <IconArrow />
               </motion.a>
               <p style={{ marginTop: 14, fontSize: '0.72rem', color: 'rgba(255,255,255,0.22)' }}>Free · No commitment · Takes 5 minutes</p>
             </div>
@@ -755,7 +764,7 @@ export const Homepage: React.FC = () => {
           <Reveal>
             <div style={{ textAlign: 'center' as const, marginTop: 44 }}>
               <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-                Get Your Industry-Specific Audit <IconArrow />
+                Get Your Free Visibility Audit <IconArrow />
               </motion.a>
             </div>
           </Reveal>
@@ -835,7 +844,7 @@ export const Homepage: React.FC = () => {
               Close the revenue gaps.
             </h2>
             <p style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.3rem, 2.5vw, 1.9rem)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.2, background: 'linear-gradient(120deg, #4F8EF7 0%, #8B5CF6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', marginBottom: 28 }}>
-              Get your free revenue audit.
+              Get your free visibility audit.
             </p>
 
             <p style={{ color: 'rgba(255,255,255,0.42)', fontSize: '1rem', lineHeight: 1.7, marginBottom: 44, maxWidth: '44ch', marginInline: 'auto' }}>
@@ -844,7 +853,7 @@ export const Homepage: React.FC = () => {
 
             <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' as const }}>
               <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} className="btn btn-primary" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} style={{ fontSize: '1.0625rem', padding: '18px 38px' }}>
-                Start Your Free Audit →
+                Start Your Free Visibility Audit →
               </motion.a>
               <motion.a href="#/pricing" onClick={e => { e.preventDefault(); navigate('#/pricing'); }} className="btn btn-ghost" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} style={{ fontSize: '1.0625rem', padding: '18px 32px' }}>
                 View Pricing

@@ -84,7 +84,7 @@ export const IndustriesPage: React.FC = () => (
         <Reveal delay={0.2}>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const }}>
             <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')} className="btn btn-primary">
-              Get Your Free Audit →
+              Get Your Free Visibility Audit →
             </motion.button>
             <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/pricing')} className="btn btn-ghost">
               View Pricing
@@ -159,7 +159,7 @@ export const IndustriesPage: React.FC = () => (
           <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>Not sure which plan fits your industry?</h2>
           <p style={{ color: '#64748B', marginBottom: 32, lineHeight: 1.7 }}>Get a free AI Visibility Audit — we'll show you exactly where your business stands across all three gaps.</p>
           <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')} className="btn btn-primary">
-            Get Your Free Audit →
+            Get Your Free Visibility Audit →
           </motion.button>
           <p style={{ marginTop: 16, fontSize: '0.8125rem', color: '#94A3B8' }}>No contracts · No credit card · Results in 48 hours</p>
         </Reveal>

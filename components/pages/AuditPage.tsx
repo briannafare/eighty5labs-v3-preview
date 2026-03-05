@@ -115,7 +115,7 @@ export const AuditPage: React.FC = () => {
         <div className="wrap" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 60, alignItems: 'start' }}>
           {/* Left — Value prop */}
           <Reveal>
-            <div className="section-label">Free Revenue Audit</div>
+            <div className="section-label">Free Visibility Audit</div>
             <h1 style={{
               fontFamily: 'var(--fd)',
               fontWeight: 900,
@@ -222,7 +222,7 @@ export const AuditPage: React.FC = () => {
                       style={{ marginTop: 2, width: 16, height: 16, accentColor: 'var(--blue)', flexShrink: 0 }}
                     />
                     <span style={{ fontSize: '0.8125rem', color: '#64748B', lineHeight: 1.55 }}>
-                      I agree to receive my Revenue Audit report and related follow-up via SMS and email from eighty5labs. Message frequency varies. Reply STOP to opt out. Message and data rates may apply.{' '}
+                      I agree to receive my Visibility Audit report and related follow-up via SMS and email from eighty5labs. Message frequency varies. Reply STOP to opt out. Message and data rates may apply.{' '}
                       <a href="#/terms" onClick={e => { e.preventDefault(); navigate('#/terms'); }} style={{ color: '#4F8EF7' }}>Terms</a>{' '}·{' '}
                       <a href="#/privacy" onClick={e => { e.preventDefault(); navigate('#/privacy'); }} style={{ color: '#4F8EF7' }}>Privacy</a>
                     </span>
@@ -238,7 +238,7 @@ export const AuditPage: React.FC = () => {
                   className="btn btn-primary"
                   style={{ width: '100%', justifyContent: 'center', fontSize: '1rem', padding: '14px 24px', opacity: loading ? 0.7 : 1 }}
                 >
-                  {loading ? 'Submitting…' : 'Get My Free Revenue Audit →'}
+                  {loading ? 'Submitting…' : 'Get My Free Visibility Audit →'}
                 </motion.button>
 
                 <p style={{ fontSize: '0.75rem', color: '#94A3B8', textAlign: 'center', lineHeight: 1.55 }}>

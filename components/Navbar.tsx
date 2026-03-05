@@ -177,7 +177,7 @@ export const Navbar: React.FC = () => {
                 className="btn btn-primary"
                 style={{ width: '100%', justifyContent: 'center' }}
               >
-                Get Free Audit →
+                Get Free Visibility Audit →
               </a>
             </div>
           </motion.div>

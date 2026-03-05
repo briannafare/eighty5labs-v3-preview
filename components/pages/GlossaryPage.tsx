@@ -214,7 +214,7 @@ export default function GlossaryPage() {
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-start' }}>
             <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')} className="btn btn-primary">
-              Get Your Free Audit →
+              Get Your Free Visibility Audit →
             </motion.button>
             <p style={{ fontSize: '0.8125rem', color: '#94A3B8' }}>No contracts · No credit card · Results in 48 hours</p>
           </div>

@@ -142,7 +142,7 @@ export const RevenueCalculator: React.FC = () => {
           onMouseEnter={e => { e.currentTarget.style.background = '#0A3DE6'; e.currentTarget.style.boxShadow = '0 6px 24px rgba(27,79,255,0.40)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
           onMouseLeave={e => { e.currentTarget.style.background = '#1B4FFF'; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.transform = 'none'; }}
         >
-          Get Your Custom Analysis →
+          Get Your Free Visibility Audit →
         </button>
       </div>
     </div>

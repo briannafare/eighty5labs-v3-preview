@@ -233,7 +233,7 @@ export const ServicesPage: React.FC = () => {
                     <p style={{ fontSize: '0.875rem', color: L.t3, marginBottom: 14 }}>{svc.cta}</p>
                     <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')}
                       style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.875rem', color: 'white', background: color, border: 'none', borderRadius: 10, padding: '11px 22px', cursor: 'pointer', letterSpacing: '-0.01em' }}>
-                      Get Your Free Audit →
+                      Get Your Free Visibility Audit →
                     </motion.button>
                   </div>
                 </div>
@@ -283,7 +283,7 @@ export const ServicesPage: React.FC = () => {
             <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.75rem,3.5vw,2.5rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--t1)', marginBottom: 16 }}>Find Out Where You're Leaking Revenue</h2>
             <p style={{ color: 'var(--t3)', marginBottom: 32, lineHeight: 1.7, fontSize: '0.9375rem' }}>Free AI Visibility Audit — 30 minutes, no pitch, no commitment. Yours to keep regardless of what you decide.</p>
             <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')} className="btn btn-primary">
-              Book Your Free Audit →
+              Book Your Free Visibility Audit →
             </motion.button>
             <p style={{ marginTop: 16, fontSize: '0.8125rem', color: 'var(--t4)' }}>We take on a limited number of new audits each month.</p>
           </Reveal>
