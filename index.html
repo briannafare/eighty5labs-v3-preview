@@ -203,7 +203,7 @@
         color: var(--td1);
       }
 
-      /* Body CTAs — pill shape, generous, confident */
+      /* Body CTAs — pill shape, ada.cx style with flush circle */
       .btn {
         display: inline-flex;
         align-items: center;
@@ -220,7 +220,20 @@
         white-space: nowrap;
         letter-spacing: 0.01em;
       }
-      /* Primary — solid blue pill with lime circle arrow (hero / main CTA) */
+      /* When a button has a circle arrow, tighten right padding */
+      .btn:has(.btn-arrow-circle) {
+        padding: 8px 8px 8px 24px;
+        gap: 12px;
+      }
+      /* The circle arrow itself */
+      .btn-arrow-circle {
+        width: 42px; height: 42px; border-radius: 50%;
+        display: inline-flex; align-items: center; justify-content: center;
+        flex-shrink: 0; transition: all 0.2s;
+      }
+      .btn-arrow-circle svg { width: 16px; height: 16px; }
+
+      /* Primary — solid blue pill, dark circle arrow */
       .btn-primary {
         background: var(--blue);
         color: #fff;
@@ -232,15 +245,10 @@
         box-shadow: 0 8px 28px rgba(27,79,255,0.40);
         color: #fff;
       }
-      /* Circle arrow icon inside ada-style buttons */
       .btn-primary .btn-arrow-circle {
-        width: 40px; height: 40px; border-radius: 50%;
-        background: #84CC16; color: #fff;
-        display: inline-flex; align-items: center; justify-content: center;
-        margin-left: 6px; flex-shrink: 0;
-        transition: all 0.2s;
+        background: #1E293B; color: #fff;
       }
-      .btn-primary:hover .btn-arrow-circle { background: #A3E635; }
+      .btn-primary:hover .btn-arrow-circle { background: #0F172A; }
 
       /* Accent variant — lime pill with dark circle */
       .btn-accent {
@@ -255,11 +263,7 @@
         box-shadow: 0 8px 28px rgba(132,204,22,0.12);
       }
       .btn-accent .btn-arrow-circle {
-        width: 40px; height: 40px; border-radius: 50%;
         background: var(--td1); color: #fff;
-        display: inline-flex; align-items: center; justify-content: center;
-        margin-left: 6px; flex-shrink: 0;
-        transition: all 0.2s;
       }
       .btn-accent:hover .btn-arrow-circle { background: #84CC16; }
 
@@ -276,11 +280,7 @@
         box-shadow: 0 8px 28px rgba(27,79,255,0.10);
       }
       .btn-soft .btn-arrow-circle {
-        width: 40px; height: 40px; border-radius: 50%;
         background: var(--td1); color: #fff;
-        display: inline-flex; align-items: center; justify-content: center;
-        margin-left: 6px; flex-shrink: 0;
-        transition: all 0.2s;
       }
       .btn-soft:hover .btn-arrow-circle { background: var(--blue); }
 
@@ -328,8 +328,11 @@
         padding: 10px 20px;
         font-size: 0.875rem;
       }
+      .btn-sm:has(.btn-arrow-circle) {
+        padding: 6px 6px 6px 18px;
+      }
       .btn-sm .btn-arrow-circle {
-        width: 32px; height: 32px;
+        width: 36px; height: 36px;
       }
 
       /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

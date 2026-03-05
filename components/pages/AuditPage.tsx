@@ -99,42 +99,50 @@ export const AuditPage: React.FC = () => {
   if (submitted) {
     return (
       <div style={{ paddingTop: 'var(--nav-h)', minHeight: '90vh', background: '#fff', display: 'flex', alignItems: 'center' }}>
-        <div className="wrap" style={{ textAlign: 'center', maxWidth: 560, marginInline: 'auto', padding: '60px 24px' }}>
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}>
-            <div style={{ width: 80, height: 80, borderRadius: '50%', background: 'rgba(132,204,22,0.12)', border: '2px solid rgba(132,204,22,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 28px' }}>
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#84CC16" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        <div className="wrap" style={{ maxWidth: 1040, marginInline: 'auto', padding: 'clamp(40px, 6vw, 80px) 24px' }}>
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(40px, 5vw, 72px)', alignItems: 'start' }} className="hero-grid"
+          >
+            {/* LEFT — confirmation */}
+            <div>
+              <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'rgba(132,204,22,0.12)', border: '2px solid rgba(132,204,22,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 24 }}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#84CC16" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <h1 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', letterSpacing: '-0.04em', marginBottom: 14, color: '#0F172A', lineHeight: 1.1 }}>
+                We're On It.
+              </h1>
+              <p style={{ color: '#334155', lineHeight: 1.7, marginBottom: 8, fontSize: '1.0625rem' }}>
+                Your Visibility Audit is being built right now. Expect it in your inbox <strong>within 1 hour</strong>.
+              </p>
+              <p style={{ color: '#64748B', lineHeight: 1.7, marginBottom: 28, fontSize: '0.9375rem' }}>
+                We're analyzing your Map Pack position, review velocity, AI search visibility, and conversion gaps against your top local competitors.
+              </p>
+              <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{ color: '#94A3B8', textDecoration: 'none', fontSize: '0.875rem' }}>
+                ← Back to eighty5labs
+              </a>
             </div>
-            <h1 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '2.25rem', letterSpacing: '-0.04em', marginBottom: 14, color: '#0F172A' }}>
-              We're On It.
-            </h1>
-            <p style={{ color: '#334155', lineHeight: 1.7, marginBottom: 8, fontSize: '1.0625rem' }}>
-              Your Visibility Audit is being built right now. Expect it in your inbox <strong>within 1 hour</strong>.
-            </p>
-            <p style={{ color: '#64748B', lineHeight: 1.7, marginBottom: 36, fontSize: '0.9375rem' }}>
-              We're analyzing your Map Pack position, review velocity, AI search visibility, and conversion gaps against your top local competitors.
-            </p>
 
-            {/* Calendar booking CTA */}
+            {/* RIGHT — calendar booking */}
             <div style={{
-              background: '#F7F9FF', border: '1.5px solid #DDE5F2', borderRadius: 16,
-              padding: 'clamp(24px, 3vw, 36px)', textAlign: 'left', marginBottom: 32,
+              background: '#F7F9FF', border: '1.5px solid #DDE5F2', borderRadius: 18,
+              padding: 'clamp(24px, 3vw, 36px)',
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
-                <div style={{ width: 36, height: 36, borderRadius: 10, background: 'rgba(27,79,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1B4FFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
+                <div style={{ width: 40, height: 40, borderRadius: 11, background: 'rgba(27,79,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B4FFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 </div>
-                <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.05rem', color: '#0F172A', letterSpacing: '-0.02em' }}>
+                <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.15rem', color: '#0F172A', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
                   Want 10x more value from your audit?
                 </h3>
               </div>
-              <p style={{ fontSize: '0.9rem', color: '#334155', lineHeight: 1.7, marginBottom: 10 }}>
+              <p style={{ fontSize: '0.9rem', color: '#334155', lineHeight: 1.7, marginBottom: 14 }}>
                 Book a free 30-minute strategy call to walk through your results with someone who's already mapped your market. You'll leave with:
               </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 20, paddingLeft: 4 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 20 }}>
                 {[
-                  'A prioritized action plan (what to fix first and why)',
+                  'A prioritized action plan — what to fix first and why',
                   'Competitor intel you can use immediately',
-                  'Custom recommendations — whether you implement them or we do',
+                  'Custom recommendations you can implement yourself or we do for you',
                 ].map((item, i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
                     <div style={{ width: 18, height: 18, borderRadius: 5, background: 'rgba(132,204,22,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 2 }}>
@@ -144,26 +152,24 @@ export const AuditPage: React.FC = () => {
                   </div>
                 ))}
               </div>
-              <p style={{ fontSize: '0.8125rem', color: '#64748B', lineHeight: 1.6, marginBottom: 20 }}>
+              <p style={{ fontSize: '0.8125rem', color: '#64748B', lineHeight: 1.6, marginBottom: 22 }}>
                 No pitch. No pressure. You walk away with insights and tools you can use regardless of what you decide.
               </p>
-              <a
-                href={CALENDAR_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '0.9375rem', textDecoration: 'none' }}
-              >
-                Book Your Free Strategy Call
-                <span className="btn-arrow-circle">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </span>
-              </a>
+              <div style={{ textAlign: 'center' }}>
+                <a
+                  href={CALENDAR_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary"
+                  style={{ display: 'inline-flex', alignItems: 'center', fontSize: '0.9375rem', textDecoration: 'none' }}
+                >
+                  Book Your Free Strategy Call
+                  <span className="btn-arrow-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </span>
+                </a>
+              </div>
             </div>
-
-            <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{ color: '#94A3B8', textDecoration: 'none', fontSize: '0.875rem' }}>
-              ← Back to eighty5labs
-            </a>
           </motion.div>
         </div>
       </div>
