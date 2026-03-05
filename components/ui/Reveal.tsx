@@ -51,7 +51,7 @@ export const Reveal: React.FC<RevealProps> = ({
 };
 
 interface StaggerProps {
-  children: React.ReactNode[];
+  children: React.ReactNode | React.ReactNode[];
   delay?: number;
   stagger?: number;
   className?: string;
@@ -65,9 +65,10 @@ export const Stagger: React.FC<StaggerProps> = ({
   className,
   style,
 }) => {
+  const childArray = Array.isArray(children) ? children : [children];
   return (
     <div className={className} style={style}>
-      {React.Children.map(children, (child, i) => (
+      {childArray.map((child, i) => (
         <Reveal key={i} delay={delay + i * stagger}>
           {child}
         </Reveal>

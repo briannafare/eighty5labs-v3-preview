@@ -261,7 +261,7 @@ const Field: React.FC<{ label: string; error?: string; children: React.ReactNode
     <div style={{
       position: 'relative',
     }}>
-      {React.cloneElement(children as React.ReactElement, {
+      {React.cloneElement(children as React.ReactElement<{ style?: React.CSSProperties }>, {
         style: {
           width: '100%',
           background: '#F7F9FF',

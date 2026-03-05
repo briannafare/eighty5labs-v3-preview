@@ -1,3 +1,5 @@
+import React from 'react';
+
 // Simple hash router
 
 export const navigate = (route: string) => {
@@ -19,5 +21,3 @@ export const useRoute = () => {
 
   return route;
 };
-
-import React from 'react';

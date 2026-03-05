@@ -71,104 +71,34 @@ export const VoiceAIDemo: React.FC = () => {
   }, [activeScene]);
 
   return (
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-      gap: 'clamp(40px, 6vw, 72px)',
-      alignItems: 'center',
-    }}>
-
-      {/* LEFT */}
-      <div>
-        <div className="section-label">Interactive Demo</div>
-        <h2 style={{
-          fontFamily: 'var(--fd)',
-          fontWeight: 900,
-          fontSize: 'clamp(1.9rem, 3.2vw, 2.7rem)',
-          letterSpacing: '-0.04em',
-          color: 'var(--td1)',
-          lineHeight: 1.07,
-          marginBottom: 10,
-        }}>
-          This is Chloe.
-        </h2>
-        <p style={{
-          fontSize: '1.0625rem',
-          fontWeight: 600,
-          color: 'var(--td2)',
-          letterSpacing: '-0.01em',
-          lineHeight: 1.5,
-          marginBottom: 24,
-        }}>
-          She's not a person — she's your 24/7 AI receptionist.
-        </p>
-
-        <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 24 }}>
-          {['Answer a call', 'Qualify the lead', 'Book an appointment', 'Send confirmation'].map((item, i) => (
-            <li key={i} style={{
-              display: 'flex', alignItems: 'center', gap: 10,
-              fontFamily: 'var(--fd)', fontWeight: 700,
-              fontSize: '1rem', color: 'var(--td1)',
-              letterSpacing: '-0.01em',
-            }}>
-              <div style={{
-                width: 22, height: 22, borderRadius: 6, background: 'var(--td1)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-              }}>
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4">
-                  <path d="M20 6L9 17l-5-5" />
-                </svg>
-              </div>
-              {item}
-            </li>
-          ))}
-        </ul>
-
-        <p style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '1rem', color: 'var(--td1)', marginBottom: 24 }}>
-          All in under 90 seconds.
-        </p>
-
-        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 28 }}>
-          {SCENE_KEYS.map(key => {
-            const active = activeScene === key;
-            return (
-              <button
-                key={key}
-                onClick={() => { if (!active) setActiveScene(key); }}
-                style={{
-                  fontSize: '0.75rem', fontWeight: 700,
-                  padding: '6px 16px', borderRadius: 100, cursor: 'pointer',
-                  border: `1.5px solid ${active ? 'var(--blue)' : 'var(--ls-border)'}`,
-                  background: active ? 'var(--blue)' : '#fff',
-                  color: active ? '#fff' : 'var(--td3)',
-                  transition: 'all 0.18s', letterSpacing: '-0.01em',
-                }}
-              >
-                {key}
-              </button>
-            );
-          })}
-        </div>
-
-        <a
-          href="tel:+15035551234"
-          style={{
-            display: 'inline-flex', alignItems: 'center', gap: 8,
-            fontSize: '0.875rem', fontWeight: 700, color: 'var(--td1)',
-            borderBottom: '1px solid var(--ls-border)', paddingBottom: 4,
-            textDecoration: 'none', transition: 'border-color 0.18s',
-          }}
-          onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--td1)')}
-          onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--ls-border)')}
-        >
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-          </svg>
-          Call the demo line →
-        </a>
+    <div>
+      {/* Scene selector */}
+      <div style={{
+        display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 16,
+        padding: '0 4px',
+      }}>
+        {SCENE_KEYS.map(key => {
+          const active = activeScene === key;
+          return (
+            <button
+              key={key}
+              onClick={() => { if (!active) setActiveScene(key); }}
+              style={{
+                fontSize: '0.7rem', fontWeight: 700,
+                padding: '5px 14px', borderRadius: 100, cursor: 'pointer',
+                border: `1.5px solid ${active ? 'var(--blue)' : 'var(--ls-border)'}`,
+                background: active ? 'var(--blue)' : '#fff',
+                color: active ? '#fff' : 'var(--td3)',
+                transition: 'all 0.18s', letterSpacing: '-0.01em',
+              }}
+            >
+              {key}
+            </button>
+          );
+        })}
       </div>
 
-      {/* RIGHT: terminal */}
+      {/* Terminal */}
       <div style={{ position: 'relative' }}>
         <div style={{
           background: '#0D1117',
@@ -199,7 +129,7 @@ export const VoiceAIDemo: React.FC = () => {
             ref={chatRef}
             style={{
               padding: '20px 24px',
-              height: 380,
+              height: 340,
               overflowY: 'auto',
               display: 'flex',
               flexDirection: 'column',
@@ -260,30 +190,26 @@ export const VoiceAIDemo: React.FC = () => {
           animate={{ opacity: logVisible ? 1 : 0, y: logVisible ? 0 : 8 }}
           transition={{ duration: 0.4, ease: 'easeOut' }}
           style={{
-            position: 'absolute',
-            bottom: -28,
-            right: -24,
+            marginTop: 14,
             background: '#fff',
-            borderRadius: 16,
-            padding: '18px 22px',
-            boxShadow: '0 16px 48px rgba(0,0,0,0.13)',
+            borderRadius: 14,
+            padding: '14px 18px',
+            boxShadow: '0 8px 28px rgba(0,0,0,0.08)',
             border: '1px solid var(--ls-border)',
-            width: 210,
-            pointerEvents: 'none',
           }}
         >
           <div style={{
             fontSize: '0.5625rem', fontWeight: 800,
             letterSpacing: '0.2em', textTransform: 'uppercase',
-            color: 'rgba(0,0,0,0.28)', marginBottom: 14,
+            color: 'rgba(0,0,0,0.28)', marginBottom: 10,
           }}>
             Automation Log
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '7px 16px' }}>
             {LOG_STEPS.map(step => {
               const done = logItems.includes(step);
               return (
-                <div key={step} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <div key={step} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                   <motion.div
                     animate={{
                       background: done ? 'var(--blue)' : '#F1F5F9',
@@ -292,7 +218,7 @@ export const VoiceAIDemo: React.FC = () => {
                     }}
                     transition={{ duration: 0.3 }}
                     style={{
-                      width: 15, height: 15, borderRadius: 4, flexShrink: 0,
+                      width: 14, height: 14, borderRadius: 4, flexShrink: 0,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       border: '1.5px solid',
                     }}
@@ -309,7 +235,7 @@ export const VoiceAIDemo: React.FC = () => {
                     )}
                   </motion.div>
                   <span style={{
-                    fontSize: '0.6875rem', fontWeight: 700,
+                    fontSize: '0.67rem', fontWeight: 700,
                     color: done ? 'var(--td1)' : '#94A3B8',
                     transition: 'color 0.3s',
                   }}>

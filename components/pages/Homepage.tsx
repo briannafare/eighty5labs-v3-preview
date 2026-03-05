@@ -104,11 +104,10 @@ const PLATFORM_CAPABILITIES = [
 
 const INDUSTRIES = [
   { label: 'Law Firms', sub: 'Sign more clients before they call someone else', route: '#/legal', icon: <IconBriefcase /> },
-  { label: 'Dental Practices', sub: 'Fill your schedule with high-value patients', route: '#/dental', icon: <IconHeart /> },
-  { label: 'Real Estate', sub: 'Be the first agent to respond — every time', route: '#/real-estate', icon: <IconTag /> },
+  { label: 'Home Services', sub: 'Never lose a job to a missed call again', route: '#/homeservices', icon: <IconTool /> },
+  { label: 'Real Estate', sub: 'Be the first agent to respond — every time', route: '#/realestate', icon: <IconTag /> },
   { label: 'Mortgage', sub: 'Capture every rate inquiry before it goes cold', route: '#/mortgage', icon: <IconHome /> },
-  { label: 'Med Spas', sub: 'Automate bookings and build a 5-star reputation', route: '#/medspa', icon: <IconHeart /> },
-  { label: 'Contractors', sub: 'Never lose a job to a missed call again', route: '#/hvac', icon: <IconTool /> },
+  { label: 'Medical & Wellness', sub: 'Automate bookings and build a 5-star reputation', route: '#/medical', icon: <IconHeart /> },
 ];
 
 const TESTIMONIALS = [
@@ -374,12 +373,11 @@ export const Homepage: React.FC = () => {
 
           {/* H1 */}
           <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.06, ease: [0.16, 1, 0.3, 1] }}
-            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.6rem, 5.5vw, 4.5rem)', fontWeight: 900, letterSpacing: '-0.055em', lineHeight: 1.04, color: 'var(--td1)', textAlign: 'center', maxWidth: '18ch', marginInline: 'auto', marginBottom: 4 }}>
-            Get Found. Capture Every Lead.
-          </motion.h1>
-          <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
-            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.6rem, 5.5vw, 4.5rem)', fontWeight: 900, letterSpacing: '-0.055em', lineHeight: 1.04, textAlign: 'center', maxWidth: '18ch', marginInline: 'auto', marginBottom: 20, background: 'linear-gradient(120deg, #1B4FFF 0%, #5B8EFF 50%, #8B5CF6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-            Convert More Revenue.
+            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.6rem, 5.5vw, 4.5rem)', fontWeight: 900, letterSpacing: '-0.055em', lineHeight: 1.04, color: 'var(--td1)', textAlign: 'center', maxWidth: '18ch', marginInline: 'auto', marginBottom: 20 }}>
+            Get Found. Capture Every Lead.{' '}
+            <span style={{ display: 'block', background: 'linear-gradient(120deg, #1B4FFF 0%, #5B8EFF 50%, #8B5CF6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              Convert More Revenue.
+            </span>
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.18 }}
@@ -475,13 +473,7 @@ export const Homepage: React.FC = () => {
               </Reveal>
             </div>
             <Reveal delay={0.1}>
-              <div style={{
-                borderRadius: 20, overflow: 'hidden',
-                boxShadow: '0 8px 48px rgba(15,23,42,0.10), 0 2px 12px rgba(0,0,0,0.06)',
-                border: '1px solid var(--ls-border)', background: '#fff',
-              }}>
-                <VoiceAIDemo />
-              </div>
+              <VoiceAIDemo />
             </Reveal>
           </div>
         </div>
