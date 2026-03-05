@@ -8,19 +8,19 @@ import { RevenueCalculator } from '../RevenueCalculator';
 
 /* ── Ambient background glow — Amplemarket-style slow drift ── */
 const AmbientGlow: React.FC<{ color1?: string; color2?: string }> = ({
-  color1 = 'rgba(27,79,255,0.06)',
-  color2 = 'rgba(132,204,22,0.04)',
+  color1 = 'rgba(27,79,255,0.18)',
+  color2 = 'rgba(132,204,22,0.12)',
 }) => (
   <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: 0 }}>
     <div style={{
-      position: 'absolute', top: '10%', left: '15%', width: '45%', height: '55%',
-      borderRadius: '50%', background: `radial-gradient(circle, ${color1} 0%, transparent 70%)`,
-      filter: 'blur(60px)', animation: 'ambient-drift-1 14s ease-in-out infinite',
+      position: 'absolute', top: '-5%', left: '10%', width: '60%', height: '70%',
+      borderRadius: '50%', background: `radial-gradient(circle, ${color1} 0%, transparent 65%)`,
+      filter: 'blur(50px)', animation: 'ambient-drift-1 14s ease-in-out infinite',
     }} />
     <div style={{
-      position: 'absolute', bottom: '5%', right: '10%', width: '40%', height: '50%',
-      borderRadius: '50%', background: `radial-gradient(circle, ${color2} 0%, transparent 70%)`,
-      filter: 'blur(60px)', animation: 'ambient-drift-2 16s ease-in-out infinite',
+      position: 'absolute', bottom: '-10%', right: '5%', width: '55%', height: '65%',
+      borderRadius: '50%', background: `radial-gradient(circle, ${color2} 0%, transparent 65%)`,
+      filter: 'blur(50px)', animation: 'ambient-drift-2 16s ease-in-out infinite',
     }} />
   </div>
 );
@@ -28,6 +28,11 @@ const AmbientGlow: React.FC<{ color1?: string; color2?: string }> = ({
 /* ── Icons ── */
 const IconArrow = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+);
+const CircleArrow = () => (
+  <span className="btn-arrow-circle">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </span>
 );
 const IconSearch = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
@@ -395,10 +400,10 @@ const IndustryTabs: React.FC = () => {
                 href={ind.route}
                 onClick={(e: React.MouseEvent) => { e.preventDefault(); navigate(ind.route); }}
                 whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-                className="btn btn-primary btn-sm"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}
+                className="btn btn-accent btn-sm"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}
               >
-                See {ind.label} Solutions <IconArrow />
+                See {ind.label} Solutions <CircleArrow />
               </motion.a>
             </div>
 
@@ -558,8 +563,8 @@ export const Homepage: React.FC = () => {
 
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.24 }}
             style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const, marginBottom: 4 }}>
-            <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '0.9375rem' }}>
-              Get Your Free Visibility Audit <IconArrow />
+            <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: '0.9375rem' }}>
+              Get Your Free Visibility Audit <CircleArrow />
             </motion.a>
             <motion.a href="#/services" onClick={e => { e.preventDefault(); navigate('#/services'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-ghost-light" style={{ display: 'inline-flex', alignItems: 'center', gap: 7, fontSize: '0.9375rem' }}>
               See How It Works
@@ -651,7 +656,7 @@ export const Homepage: React.FC = () => {
 
       {/* ═══════ VOICE AI DEMO — text left / visual right ═══════ */}
       <section className="section-light" style={{ position: 'relative', overflow: 'hidden' }}>
-        <AmbientGlow color1="rgba(139,92,246,0.06)" color2="rgba(27,79,255,0.04)" />
+        <AmbientGlow color1="rgba(139,92,246,0.16)" color2="rgba(27,79,255,0.12)" />
         <div className="wrap" style={{ position: 'relative' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(40px, 6vw, 80px)', alignItems: 'center' }} className="hero-grid">
             <div>
@@ -672,8 +677,8 @@ export const Homepage: React.FC = () => {
                     </div>
                   ))}
                 </div>
-                <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-primary btn-sm" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-                  See It In Action <IconArrow />
+                <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-accent btn-sm" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                  See It In Action <CircleArrow />
                 </motion.a>
               </Reveal>
             </div>
@@ -686,7 +691,7 @@ export const Homepage: React.FC = () => {
 
       {/* ═══════ PLATFORM OVERVIEW ═══════ */}
       <section className="section-white" style={{ position: 'relative', overflow: 'hidden' }}>
-        <AmbientGlow color1="rgba(79,142,247,0.05)" color2="rgba(132,204,22,0.04)" />
+        <AmbientGlow color1="rgba(79,142,247,0.15)" color2="rgba(132,204,22,0.10)" />
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <Reveal>
             <div className="section-label">Revenue OS</div>
@@ -708,7 +713,7 @@ export const Homepage: React.FC = () => {
 
       {/* ═══════ HOW IT WORKS ═══════ */}
       <section className="section-light" style={{ position: 'relative', overflow: 'hidden' }}>
-        <AmbientGlow color1="rgba(27,79,255,0.05)" color2="rgba(132,204,22,0.03)" />
+        <AmbientGlow color1="rgba(27,79,255,0.14)" color2="rgba(132,204,22,0.10)" />
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <Reveal>
             <div className="section-label">How It Works</div>
@@ -766,7 +771,7 @@ export const Homepage: React.FC = () => {
           <Reveal delay={0.2}>
             <div style={{ textAlign: 'center' as const, marginTop: 52 }}>
               <p style={{ color: 'var(--t3)', fontSize: '0.9rem', marginBottom: 18 }}>Ready to recover this revenue?</p>
-              <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+              <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-solid" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
                 Get Your Free Visibility Audit <IconArrow />
               </motion.a>
               <p style={{ marginTop: 14, fontSize: '0.72rem', color: 'rgba(255,255,255,0.22)' }}>Free · No commitment · Takes 5 minutes</p>
@@ -777,7 +782,7 @@ export const Homepage: React.FC = () => {
 
       {/* ═══════ INDUSTRIES ═══════ */}
       <section className="section-white" style={{ position: 'relative', overflow: 'hidden' }}>
-        <AmbientGlow color1="rgba(132,204,22,0.05)" color2="rgba(139,92,246,0.04)" />
+        <AmbientGlow color1="rgba(132,204,22,0.12)" color2="rgba(139,92,246,0.14)" />
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <Reveal>
             <div className="section-label">Built For Your Market</div>
@@ -787,8 +792,8 @@ export const Homepage: React.FC = () => {
           <IndustryTabs />
           <Reveal>
             <div style={{ textAlign: 'center' as const, marginTop: 44 }}>
-              <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-                Get Your Free Visibility Audit <IconArrow />
+              <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-accent" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                Get Your Free Visibility Audit <CircleArrow />
               </motion.a>
             </div>
           </Reveal>
@@ -797,7 +802,7 @@ export const Homepage: React.FC = () => {
 
       {/* ═══════ TESTIMONIALS ═══════ */}
       <section className="section-light" style={{ position: 'relative', overflow: 'hidden' }}>
-        <AmbientGlow color1="rgba(139,92,246,0.04)" color2="rgba(27,79,255,0.05)" />
+        <AmbientGlow color1="rgba(139,92,246,0.14)" color2="rgba(27,79,255,0.12)" />
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <Reveal>
             <div className="section-label">Results</div>
@@ -877,7 +882,7 @@ export const Homepage: React.FC = () => {
             </p>
 
             <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' as const }}>
-              <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} className="btn btn-primary" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} style={{ fontSize: '1.0625rem', padding: '18px 38px' }}>
+              <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} className="btn btn-solid" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} style={{ fontSize: '1.0625rem', padding: '18px 38px' }}>
                 Start Your Free Visibility Audit →
               </motion.a>
               <motion.a href="#/pricing" onClick={e => { e.preventDefault(); navigate('#/pricing'); }} className="btn btn-ghost" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} style={{ fontSize: '1.0625rem', padding: '18px 32px' }}>

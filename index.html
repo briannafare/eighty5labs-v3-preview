@@ -166,13 +166,13 @@
          Ghost adapts to context: dark bg vs light bg via modifier
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
-      /* Nav CTA — sharp corners, compact, utility feel */
+      /* Nav CTA — pill shape to match body buttons */
       .btn-nav {
         display: inline-flex;
         align-items: center;
         gap: 6px;
         padding: 8px 16px;
-        border-radius: var(--rd-nav);
+        border-radius: var(--rd-btn);
         font-family: var(--fd);
         font-size: 0.8125rem;
         font-weight: 800;
@@ -184,13 +184,13 @@
         letter-spacing: 0.01em;
       }
       .btn-nav-primary {
-        background: linear-gradient(90deg, #1B4FFF, #4F7CFF);
+        background: var(--blue);
         color: #fff;
-        box-shadow: 0 1px 0 0 rgba(132,204,22,0.25);
       }
       .btn-nav-primary:hover {
-        background: linear-gradient(90deg, #0A3DE6, #3B6BFF);
-        box-shadow: 0 4px 20px rgba(27,79,255,0.42), 0 1px 0 0 rgba(132,204,22,0.35);
+        background: #0A3DE6;
+        box-shadow: 0 4px 20px rgba(27,79,255,0.35);
+        transform: translateY(-1px);
       }
       .btn-nav-ghost {
         background: transparent;
@@ -220,19 +220,63 @@
         white-space: nowrap;
         letter-spacing: 0.01em;
       }
-      /* Primary — gradient fill with subtle lime accent edge */
+      /* Primary — ada.cx-style: soft colored pill with dark circle arrow */
       .btn-primary {
-        background: linear-gradient(90deg, #1B4FFF, #4F7CFF);
-        color: #fff;
-        box-shadow: 0 4px 16px rgba(27,79,255,0.25), 0 1px 0 0 rgba(132,204,22,0.3);
-        position: relative;
+        background: rgba(27,79,255,0.10);
+        color: var(--td1);
+        border: 1px solid rgba(27,79,255,0.12);
       }
       .btn-primary:hover {
-        background: linear-gradient(90deg, #0A3DE6, #3B6BFF);
+        background: rgba(27,79,255,0.16);
+        border-color: rgba(27,79,255,0.22);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(27,79,255,0.12);
+        color: var(--td1);
+      }
+      /* Circle arrow icon inside ada-style buttons */
+      .btn-primary .btn-arrow-circle {
+        width: 28px; height: 28px; border-radius: 50%;
+        background: var(--td1); color: #fff;
+        display: inline-flex; align-items: center; justify-content: center;
+        margin-left: 4px; flex-shrink: 0;
+        transition: background 0.2s;
+      }
+      .btn-primary:hover .btn-arrow-circle { background: var(--blue); }
+
+      /* Accent variant — lime pill */
+      .btn-accent {
+        background: rgba(132,204,22,0.12);
+        color: var(--td1);
+        border: 1px solid rgba(132,204,22,0.18);
+      }
+      .btn-accent:hover {
+        background: rgba(132,204,22,0.20);
+        border-color: rgba(132,204,22,0.30);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(132,204,22,0.12);
+      }
+      .btn-accent .btn-arrow-circle {
+        width: 28px; height: 28px; border-radius: 50%;
+        background: var(--td1); color: #fff;
+        display: inline-flex; align-items: center; justify-content: center;
+        margin-left: 4px; flex-shrink: 0;
+        transition: background 0.2s;
+      }
+      .btn-accent:hover .btn-arrow-circle { background: #84CC16; }
+
+      /* Solid blue — for dark backgrounds and final CTAs */
+      .btn-solid {
+        background: var(--blue);
+        color: #fff;
+        box-shadow: 0 4px 16px rgba(27,79,255,0.25);
+      }
+      .btn-solid:hover {
+        background: #0A3DE6;
         transform: translateY(-2px) scale(1.02);
-        box-shadow: 0 8px 28px rgba(27,79,255,0.40), 0 2px 0 0 rgba(132,204,22,0.4);
+        box-shadow: 0 8px 28px rgba(27,79,255,0.40);
         color: #fff;
       }
+
       /* Ghost on dark bg */
       .btn-ghost {
         background: rgba(255,255,255,0.06);
@@ -243,7 +287,7 @@
         background: rgba(255,255,255,0.10);
         border-color: rgba(132,204,22,0.35);
         transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.18), 0 0 12px rgba(132,204,22,0.08);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.18);
         color: #fff;
       }
       /* Ghost on light bg — white fill with border */
@@ -253,16 +297,22 @@
         border: 1.5px solid var(--ls-border);
       }
       .btn-ghost-light:hover {
-        border-color: rgba(132,204,22,0.4);
-        background: rgba(132,204,22,0.03);
-        color: var(--td1);
+        border-color: rgba(27,79,255,0.25);
+        background: rgba(27,79,255,0.03);
+        color: var(--blue);
         transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(15,23,42,0.06), 0 0 12px rgba(132,204,22,0.06);
+        box-shadow: 0 8px 24px rgba(15,23,42,0.06);
       }
       /* Smaller body button variant */
       .btn-sm {
         padding: 10px 20px;
         font-size: 0.875rem;
+      }
+      .btn-sm .btn-arrow-circle {
+        width: 24px; height: 24px;
+      }
+      .btn-sm .btn-arrow-circle svg {
+        width: 12px; height: 12px;
       }
 
       /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
