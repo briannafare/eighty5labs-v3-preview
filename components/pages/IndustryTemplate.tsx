@@ -79,9 +79,9 @@ const RevenueCalc: React.FC = () => {
       <div style={{ borderTop: '1px solid #DDE5F2', paddingTop: 20, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
         {[
           { label: 'Leads Missed / mo', val: missed, color: '#EF4444' },
-          { label: 'Recoverable Leads', val: recoverable, color: '#10B981' },
+          { label: 'Recoverable Leads', val: recoverable, color: '#84CC16' },
           { label: 'Lost Revenue / mo', val: `$${lostRev.toLocaleString()}`, color: '#EF4444' },
-          { label: 'Recovered / mo', val: `$${recoveredRev.toLocaleString()}`, color: '#10B981' },
+          { label: 'Recovered / mo', val: `$${recoveredRev.toLocaleString()}`, color: '#84CC16' },
         ].map(row => (
           <div key={row.label} style={{ background: '#F7F9FF', borderRadius: 10, padding: '14px 16px' }}>
             <p style={{ fontSize: '0.7rem', color: '#94A3B8', marginBottom: 4 }}>{row.label}</p>

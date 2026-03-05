@@ -23,9 +23,9 @@ interface Resource {
 }
 
 const TYPE_COLOR: Record<string, string> = {
-  'Guide': '#1B4FFF', 'Case Study': '#10B981', 'Prompt Pack': '#A78BFA',
+  'Guide': '#1B4FFF', 'Case Study': '#84CC16', 'Prompt Pack': '#A78BFA',
   'Webinar': '#F59E0B', 'Press': '#6B7280', 'Glossary': '#EC4899',
-  'Playbook': '#10B981', 'Deep Dive': '#1B4FFF', 'Free Tool': '#10B981', 'Checklist': '#F59E0B',
+  'Playbook': '#84CC16', 'Deep Dive': '#1B4FFF', 'Free Tool': '#84CC16', 'Checklist': '#F59E0B',
 };
 
 const RESOURCES: Resource[] = [

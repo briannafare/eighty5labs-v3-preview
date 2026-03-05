@@ -15,7 +15,7 @@ const INDUSTRIES = [
     route: '#/mortgage',
     label: 'Mortgage',
     sub: 'Loan Officers · Mortgage Brokers',
-    gap1: '#10B981',
+    gap1: '#84CC16',
     desc: "Mortgage leads move fast and don't wait for callbacks. We make sure every inquiry is captured, followed up, and closed — while your referral engine runs on autopilot.",
     icon: '🏦',
     keyStats: ['Avg. 47% of mortgage inquiries go unresponded within 1 hour', 'Speed-to-lead is the #1 conversion factor in mortgage', 'AI follow-up recovers 30–40% of cold leads'],
@@ -24,7 +24,7 @@ const INDUSTRIES = [
     route: '#/realestate',
     label: 'Real Estate',
     sub: 'Realtors · Property Management',
-    gap1: '#10B981',
+    gap1: '#84CC16',
     desc: "Speed wins in real estate. The first agent to respond gets the client. eighty5.OS makes you that agent — automatically, 24/7, even when you're showing homes.",
     icon: '🏡',
     keyStats: ['78% of buyers work with the first agent who responds', 'Avg. agent response time: 15+ hours', 'AI cuts response time to under 2 minutes'],
@@ -33,7 +33,7 @@ const INDUSTRIES = [
     route: '#/homeservices',
     label: 'Home Services',
     sub: 'Plumbers · HVAC · Electricians · Contractors',
-    gap1: '#10B981',
+    gap1: '#84CC16',
     desc: "Every missed call is a job for your competitor. Voice AI answers 24/7, books appointments, and follows up — so you never lose work to voicemail again.",
     icon: '🔧',
     keyStats: ['Home service businesses miss 30–60% of calls during peak seasons', 'After-hours calls convert at 3x the rate of callbacks', 'Avg. missed call value: $300–$800'],
@@ -42,7 +42,7 @@ const INDUSTRIES = [
     route: '#/medical',
     label: 'Medical',
     sub: 'Practices · Clinics · Healthcare Providers',
-    gap1: '#10B981',
+    gap1: '#84CC16',
     desc: "Patients choose providers based on reviews and search results. eighty5.OS builds your digital reputation and automates appointment intake — filling your schedule on autopilot.",
     icon: '🏥',
     keyStats: ['77% of patients check online reviews before choosing a provider', 'Practices with 50+ reviews get 3x more new patients', 'AI intake reduces no-shows by up to 40%'],
@@ -51,7 +51,7 @@ const INDUSTRIES = [
     route: '#/legal',
     label: 'Legal',
     sub: 'Law Firms · Solo Attorneys · Legal Practices',
-    gap1: '#10B981',
+    gap1: '#84CC16',
     desc: "Clients research attorneys extensively before calling. Being first in local search and AI recommendations — combined with instant intake response — is the difference between signing a client and losing them to the firm down the street.",
     icon: '⚖️',
     keyStats: ['Legal clients consult an avg. of 4.1 firms before retaining', 'AI search is now a top 3 source for attorney discovery', 'Instant response increases retention rate by 60%'],
@@ -136,7 +136,7 @@ export const IndustriesPage: React.FC = () => (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 24 }}>
                   {ind.keyStats.map(stat => (
                     <div key={stat} style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
-                      <span style={{ color: '#10B981', fontSize: '0.75rem', paddingTop: 3, minWidth: 12 }}>▸</span>
+                      <span style={{ color: '#84CC16', fontSize: '0.75rem', paddingTop: 3, minWidth: 12 }}>▸</span>
                       <p style={{ fontSize: '0.8rem', color: '#94A3B8', lineHeight: 1.5 }}>{stat}</p>
                     </div>
                   ))}

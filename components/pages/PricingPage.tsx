@@ -116,7 +116,7 @@ const FAQS = [
 ];
 
 const CellIcon: React.FC<{ val: boolean | string }> = ({ val }) => {
-  if (val === true) return <span style={{ color: '#10B981', fontWeight: 700 }}>✓</span>;
+  if (val === true) return <span style={{ color: '#84CC16', fontWeight: 700 }}>✓</span>;
   if (val === false) return <span style={{ color: '#DDE5F2' }}>—</span>;
   return <span style={{ color: '#4F8EF7', fontSize: '0.8125rem', fontWeight: 600 }}>{val}</span>;
 };

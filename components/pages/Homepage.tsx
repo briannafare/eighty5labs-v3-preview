@@ -6,6 +6,25 @@ import { VoiceAIDemo } from '../VoiceAIDemo';
 import { HeroAnimation } from '../HeroAnimation';
 import { RevenueCalculator } from '../RevenueCalculator';
 
+/* ── Ambient background glow — Amplemarket-style slow drift ── */
+const AmbientGlow: React.FC<{ color1?: string; color2?: string }> = ({
+  color1 = 'rgba(27,79,255,0.06)',
+  color2 = 'rgba(132,204,22,0.04)',
+}) => (
+  <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: 0 }}>
+    <div style={{
+      position: 'absolute', top: '10%', left: '15%', width: '45%', height: '55%',
+      borderRadius: '50%', background: `radial-gradient(circle, ${color1} 0%, transparent 70%)`,
+      filter: 'blur(60px)', animation: 'ambient-drift-1 14s ease-in-out infinite',
+    }} />
+    <div style={{
+      position: 'absolute', bottom: '5%', right: '10%', width: '40%', height: '50%',
+      borderRadius: '50%', background: `radial-gradient(circle, ${color2} 0%, transparent 70%)`,
+      filter: 'blur(60px)', animation: 'ambient-drift-2 16s ease-in-out infinite',
+    }} />
+  </div>
+);
+
 /* ── Icons ── */
 const IconArrow = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -34,7 +53,7 @@ const IconChat = () => (
 const IconMap = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
 );
-const IconCheck = ({ color = '#14B8A6' }: { color?: string }) => (
+const IconCheck = ({ color = '#84CC16' }: { color?: string }) => (
   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
 );
 const IconBarChart = () => (
@@ -75,7 +94,7 @@ const GAPS_DATA = [
     workflow: ['Inquiry', 'AI Answers', 'Lead Captured', 'Booked'],
   },
   {
-    num: '03', label: 'Convert the Lead', color: '#14B8A6',
+    num: '03', label: 'Convert the Lead', color: '#84CC16',
     stat: '88%', statLabel: 'of leads require 5+ follow-ups to close',
     headline: 'You Captured Them — Then Let Them Go Cold',
     body: 'No follow-up. No nurture sequence. The lead goes cold and signs with your competitor. Workflow AI keeps every lead warm — automatically.',
@@ -89,8 +108,8 @@ const SERVICES = [
   { gap: '01', gapLabel: 'Get Found', gapColor: '#4F8EF7', icon: <IconMap />, title: 'GBP Optimization', body: 'Full profile optimization built to dominate local Map Pack results and appear when buyers search your area.', features: ['Map Pack ranking strategy', 'Category + keyword optimization', 'Competitor gap analysis'] },
   { gap: '02', gapLabel: 'Capture the Lead', gapColor: '#8B5CF6', icon: <IconPhone />, title: 'Voice AI', body: 'Answers every inbound call 24/7. Qualifies the lead, books directly into your calendar. Zero calls to voicemail.', features: ['24/7 call answering', 'Live calendar booking', 'AI lead qualification'] },
   { gap: '02', gapLabel: 'Capture the Lead', gapColor: '#8B5CF6', icon: <IconChat />, title: 'Conversation AI', body: 'Engages website visitors the moment they land, captures leads, books appointments, follows up via SMS and email.', features: ['Instant website lead capture', 'SMS + email follow-up', 'Automated appointment booking'] },
-  { gap: '03', gapLabel: 'Convert the Lead', gapColor: '#14B8A6', icon: <IconZap />, title: 'Workflow AI', body: 'Follow-up sequences, re-engagement campaigns, appointment reminders, past client touches. Runs 24/7.', features: ['Smart follow-up sequences', 'Re-engagement campaigns', 'Appointment reminders'] },
-  { gap: '03', gapLabel: 'Convert the Lead', gapColor: '#14B8A6', icon: <IconStar />, title: 'Reviews AI', body: 'Requests reviews from every customer automatically. Responds within minutes. Builds the velocity Google rewards.', features: ['Automated review requests', 'AI-powered instant responses', 'Review velocity monitoring'] },
+  { gap: '03', gapLabel: 'Convert the Lead', gapColor: '#84CC16', icon: <IconZap />, title: 'Workflow AI', body: 'Follow-up sequences, re-engagement campaigns, appointment reminders, past client touches. Runs 24/7.', features: ['Smart follow-up sequences', 'Re-engagement campaigns', 'Appointment reminders'] },
+  { gap: '03', gapLabel: 'Convert the Lead', gapColor: '#84CC16', icon: <IconStar />, title: 'Reviews AI', body: 'Requests reviews from every customer automatically. Responds within minutes. Builds the velocity Google rewards.', features: ['Automated review requests', 'AI-powered instant responses', 'Review velocity monitoring'] },
 ];
 
 const INDUSTRIES = [
@@ -410,7 +429,7 @@ const IndustryTabs: React.FC = () => {
 const GAP_TABS = [
   { num: '01', label: 'Get Found', color: '#4F8EF7' },
   { num: '02', label: 'Capture the Lead', color: '#8B5CF6' },
-  { num: '03', label: 'Convert the Lead', color: '#14B8A6' },
+  { num: '03', label: 'Convert the Lead', color: '#84CC16' },
 ];
 
 const PlatformTabs: React.FC = () => {
@@ -618,8 +637,9 @@ export const Homepage: React.FC = () => {
       </section>
 
       {/* ═══════ THREE GAPS FRAMEWORK ═══════ */}
-      <section className="section-white">
-        <div className="wrap">
+      <section className="section-white" style={{ position: 'relative', overflow: 'hidden' }}>
+        <AmbientGlow />
+        <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <Reveal>
             <div className="section-label">The Framework</div>
             <h2 className="section-heading">The System That Closes <span style={{ color: 'var(--blue)' }}>Every Revenue Gap</span></h2>
@@ -631,7 +651,7 @@ export const Homepage: React.FC = () => {
 
       {/* ═══════ VOICE AI DEMO — text left / visual right ═══════ */}
       <section className="section-light" style={{ position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: '-5%', right: '5%', width: '40%', height: '50%', background: 'radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 60%)', pointerEvents: 'none' }} />
+        <AmbientGlow color1="rgba(139,92,246,0.06)" color2="rgba(27,79,255,0.04)" />
         <div className="wrap" style={{ position: 'relative' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(40px, 6vw, 80px)', alignItems: 'center' }} className="hero-grid">
             <div>
@@ -665,8 +685,9 @@ export const Homepage: React.FC = () => {
       </section>
 
       {/* ═══════ PLATFORM OVERVIEW ═══════ */}
-      <section className="section-white" style={{ position: 'relative' }}>
-        <div className="wrap">
+      <section className="section-white" style={{ position: 'relative', overflow: 'hidden' }}>
+        <AmbientGlow color1="rgba(79,142,247,0.05)" color2="rgba(132,204,22,0.04)" />
+        <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <Reveal>
             <div className="section-label">Revenue OS</div>
             <h2 className="section-heading">The Revenue OS <span style={{ color: 'var(--blue)' }}>Platform</span></h2>
@@ -686,8 +707,9 @@ export const Homepage: React.FC = () => {
       </section>
 
       {/* ═══════ HOW IT WORKS ═══════ */}
-      <section className="section-light">
-        <div className="wrap">
+      <section className="section-light" style={{ position: 'relative', overflow: 'hidden' }}>
+        <AmbientGlow color1="rgba(27,79,255,0.05)" color2="rgba(132,204,22,0.03)" />
+        <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <Reveal>
             <div className="section-label">How It Works</div>
             <h2 className="section-heading">From Audit to <span style={{ color: 'var(--blue)' }}>Autopilot</span></h2>
@@ -754,8 +776,9 @@ export const Homepage: React.FC = () => {
       </section>
 
       {/* ═══════ INDUSTRIES ═══════ */}
-      <section className="section-white">
-        <div className="wrap">
+      <section className="section-white" style={{ position: 'relative', overflow: 'hidden' }}>
+        <AmbientGlow color1="rgba(132,204,22,0.05)" color2="rgba(139,92,246,0.04)" />
+        <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <Reveal>
             <div className="section-label">Built For Your Market</div>
             <h2 className="section-heading">Every Industry. <span style={{ color: 'var(--blue)' }}>One System.</span></h2>
@@ -773,8 +796,9 @@ export const Homepage: React.FC = () => {
       </section>
 
       {/* ═══════ TESTIMONIALS ═══════ */}
-      <section className="section-light" style={{ position: 'relative' }}>
-        <div className="wrap">
+      <section className="section-light" style={{ position: 'relative', overflow: 'hidden' }}>
+        <AmbientGlow color1="rgba(139,92,246,0.04)" color2="rgba(27,79,255,0.05)" />
+        <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <Reveal>
             <div className="section-label">Results</div>
             <h2 className="section-heading">Don't Take Our Word For It.</h2>

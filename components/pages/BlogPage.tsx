@@ -18,7 +18,7 @@ interface Post {
 const TAG_COLOR: Record<Tag, string> = {
   'Google Maps': '#1B4FFF',
   'AI Search': '#A78BFA',
-  'Voice AI': '#10B981',
+  'Voice AI': '#84CC16',
   'Reviews': '#F59E0B',
   'Lead Capture': '#EC4899',
   'Strategy': '#6B7280',
@@ -240,7 +240,7 @@ export default function BlogPage() {
             <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1rem', color: '#0F172A', marginBottom: 8, letterSpacing: '-0.02em' }}>Get the AI Edge.</h3>
             <p style={{ fontSize: '0.8375rem', color: '#64748B', marginBottom: 16, lineHeight: 1.6 }}>Weekly insights on Google Maps, AI search, and local business growth. No fluff.</p>
             {subscribed ? (
-              <p style={{ fontSize: '0.875rem', color: '#10B981', fontWeight: 600 }}>✓ You're in. Check your inbox.</p>
+              <p style={{ fontSize: '0.875rem', color: '#84CC16', fontWeight: 600 }}>✓ You're in. Check your inbox.</p>
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 <input value={email} onChange={e => setEmail(e.target.value)} placeholder="your@email.com"

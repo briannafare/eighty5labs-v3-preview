@@ -24,13 +24,13 @@ const CATEGORIES = [
 
 const CAT_COLOR: Record<string, string> = {
   'GEO, AEO & AI Visibility': '#A78BFA',
-  'AI Agents & Voice AI': '#10B981',
+  'AI Agents & Voice AI': '#84CC16',
   'Google Business Profile': '#1B4FFF',
   'Reviews & Reputation': '#F59E0B',
   'SEO Fundamentals': '#EC4899',
   'Technical SEO & Schema': '#6B7280',
   'GoHighLevel & Automation': '#F97316',
-  'Analytics & Metrics': '#14B8A6',
+  'Analytics & Metrics': '#84CC16',
 };
 
 const TERMS: Term[] = [

@@ -53,7 +53,7 @@ const data: IndustryPageData = {
   ],
   ctaTitle: "Find Out How Many Jobs You're Losing to the Competition",
   ctaBody: "Free AI Visibility Audit — we'll show you your Map Pack position, review velocity, and which competitors are beating you for the searches that matter most.",
-  accentColor: '#10B981',
+  accentColor: '#84CC16',
 };
 
 export default function HomeServicesPage() {

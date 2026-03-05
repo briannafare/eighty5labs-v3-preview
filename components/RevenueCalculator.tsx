@@ -82,7 +82,7 @@ export const RevenueCalculator: React.FC = () => {
             min={50}
             max={2000}
             step={50}
-            color="#14B8A6"
+            color="#84CC16"
             onChange={setTicket}
           />
         </div>
@@ -119,7 +119,7 @@ export const RevenueCalculator: React.FC = () => {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 7, marginBottom: 20 }}>
           <BarRow label="Missed revenue" fill={missedPct} color="#4F8EF7" />
           <BarRow label="Capture rate" fill={capturePct} color="#818CF8" />
-          <BarRow label="Recovery est." fill={recoveryPct} color="#14B8A6" />
+          <BarRow label="Recovery est." fill={recoveryPct} color="#84CC16" />
         </div>
 
         <button

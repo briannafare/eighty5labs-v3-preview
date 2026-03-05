@@ -39,10 +39,10 @@
         --blue-border: rgba(27,79,255,0.25);
 
         /* ── Gap / accent colors */
-        --gap1: #14B8A6;
-        --gap1-lt: rgba(20,184,166,0.10);
-        --gap1-lt-d: rgba(20,184,166,0.15);
-        --gap1-border: rgba(20,184,166,0.25);
+        --gap1: #84CC16;
+        --gap1-lt: rgba(132,204,22,0.10);
+        --gap1-lt-d: rgba(132,204,22,0.15);
+        --gap1-border: rgba(132,204,22,0.25);
         --gap2: #4F8EF7;
         --gap2-lt: rgba(79,142,247,0.10);
         --gap2-lt-d: rgba(79,142,247,0.15);
@@ -53,8 +53,8 @@
         --gap3-border: rgba(139,92,246,0.22);
 
         /* ── Accent palette (use sparingly — icons, highlights, gradients) */
-        --lime: #C8FF00;          /* electric lime / chartreuse */
-        --lime-lt: rgba(200,255,0,0.12);
+        --lime: #84CC16;          /* lime / chartreuse accent */
+        --lime-lt: rgba(132,204,22,0.12);
         --orange: #FF6B35;        /* complementary warm orange */
         --orange-lt: rgba(255,107,53,0.12);
         --violet: #7C3AED;        /* deep violet for gradients */
@@ -64,7 +64,7 @@
         --grad-brand-2: linear-gradient(135deg, #4F8EF7 0%, #8B5CF6 60%, #FF6B35 100%);
         --grad-icon-1: linear-gradient(135deg, #1B4FFF 0%, #4F8EF7 100%);
         --grad-icon-2: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 100%);
-        --grad-icon-3: linear-gradient(135deg, #14B8A6 0%, #2DD4BF 100%);
+        --grad-icon-3: linear-gradient(135deg, #84CC16 0%, #A3E635 100%);
 
         /* ── Text (dark sections) */
         --t1: #FFFFFF;
@@ -186,10 +186,11 @@
       .btn-nav-primary {
         background: linear-gradient(90deg, #1B4FFF, #4F7CFF);
         color: #fff;
+        box-shadow: 0 1px 0 0 rgba(132,204,22,0.25);
       }
       .btn-nav-primary:hover {
         background: linear-gradient(90deg, #0A3DE6, #3B6BFF);
-        box-shadow: 0 4px 20px rgba(27,79,255,0.42);
+        box-shadow: 0 4px 20px rgba(27,79,255,0.42), 0 1px 0 0 rgba(132,204,22,0.35);
       }
       .btn-nav-ghost {
         background: transparent;
@@ -219,16 +220,17 @@
         white-space: nowrap;
         letter-spacing: 0.01em;
       }
-      /* Primary — gradient fill, works on any bg */
+      /* Primary — gradient fill with subtle lime accent edge */
       .btn-primary {
         background: linear-gradient(90deg, #1B4FFF, #4F7CFF);
         color: #fff;
-        box-shadow: 0 4px 16px rgba(27,79,255,0.25);
+        box-shadow: 0 4px 16px rgba(27,79,255,0.25), 0 1px 0 0 rgba(132,204,22,0.3);
+        position: relative;
       }
       .btn-primary:hover {
         background: linear-gradient(90deg, #0A3DE6, #3B6BFF);
         transform: translateY(-2px) scale(1.02);
-        box-shadow: 0 8px 28px rgba(27,79,255,0.45);
+        box-shadow: 0 8px 28px rgba(27,79,255,0.40), 0 2px 0 0 rgba(132,204,22,0.4);
         color: #fff;
       }
       /* Ghost on dark bg */
@@ -238,10 +240,11 @@
         border: 1.5px solid rgba(255,255,255,0.16);
       }
       .btn-ghost:hover {
-        background: rgba(255,255,255,0.12);
-        border-color: rgba(255,255,255,0.30);
+        background: rgba(255,255,255,0.10);
+        border-color: rgba(132,204,22,0.35);
         transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.18), 0 0 12px rgba(132,204,22,0.08);
+        color: #fff;
       }
       /* Ghost on light bg — white fill with border */
       .btn-ghost-light {
@@ -250,16 +253,30 @@
         border: 1.5px solid var(--ls-border);
       }
       .btn-ghost-light:hover {
-        border-color: var(--blue-border);
-        background: rgba(27,79,255,0.03);
-        color: var(--blue);
+        border-color: rgba(132,204,22,0.4);
+        background: rgba(132,204,22,0.03);
+        color: var(--td1);
         transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(27,79,255,0.08);
+        box-shadow: 0 8px 24px rgba(15,23,42,0.06), 0 0 12px rgba(132,204,22,0.06);
       }
       /* Smaller body button variant */
       .btn-sm {
         padding: 10px 20px;
         font-size: 0.875rem;
+      }
+
+      /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         AMBIENT DRIFT — slow background glow
+         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+      @keyframes ambient-drift-1 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        33% { transform: translate(25px, -20px) scale(1.05); }
+        66% { transform: translate(-20px, 15px) scale(0.97); }
+      }
+      @keyframes ambient-drift-2 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        33% { transform: translate(-30px, 25px) scale(0.95); }
+        66% { transform: translate(20px, -18px) scale(1.04); }
       }
 
       /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -630,7 +647,7 @@
         box-shadow: 0 2px 6px rgba(0,0,0,0.3);
       }
     </style>
-    <script type="module" crossorigin src="/assets/index-C0ga8fas.js"></script>
+    <script type="module" crossorigin src="/assets/index-CaPiIBbP.js"></script>
   </head>
   <body>
     <div id="grid-overlay" aria-hidden="true"></div>

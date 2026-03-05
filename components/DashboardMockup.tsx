@@ -105,7 +105,7 @@ export const DashboardMockup: React.FC = () => (
                   letterSpacing: '-0.03em',
                   lineHeight: 1,
                 }}>{kpi.value}</div>
-                <div style={{ fontSize: '0.56rem', color: '#6EE7B7', fontWeight: 600, marginTop: 3 }}>{kpi.delta}</div>
+                <div style={{ fontSize: '0.56rem', color: '#A3E635', fontWeight: 600, marginTop: 3 }}>{kpi.delta}</div>
               </div>
             ))}
           </div>
@@ -122,7 +122,7 @@ export const DashboardMockup: React.FC = () => (
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
             {[
-              { icon: '📞', iconBg: 'rgba(16,185,129,0.16)', title: 'Voice AI — Sarah Mitchell', sub: 'Qualified + booked · 4 min ago', badge: 'Answered', badgeBg: 'rgba(16,185,129,0.16)', badgeColor: '#6EE7B7' },
+              { icon: '📞', iconBg: 'rgba(16,185,129,0.16)', title: 'Voice AI — Sarah Mitchell', sub: 'Qualified + booked · 4 min ago', badge: 'Answered', badgeBg: 'rgba(16,185,129,0.16)', badgeColor: '#A3E635' },
               { icon: '⭐', iconBg: 'rgba(250,204,21,0.12)', title: '5-star review — Google', sub: 'AI reply sent · 12 min ago', badge: '5 Stars', badgeBg: 'rgba(250,204,21,0.14)', badgeColor: '#FDE68A' },
               { icon: '💬', iconBg: 'rgba(79,142,247,0.14)', title: 'Web lead — James Torres', sub: 'Responded in 90 sec', badge: 'Booked', badgeBg: 'rgba(79,142,247,0.16)', badgeColor: '#93C5FD' },
             ].map((item, i) => (
@@ -193,7 +193,7 @@ export const DashboardMockup: React.FC = () => (
                     fontSize: '0.9rem',
                     color: '#fff',
                   }}>{item.value}</div>
-                  <div style={{ fontSize: '0.5rem', color: '#6EE7B7', marginTop: 2 }}>{item.sub}</div>
+                  <div style={{ fontSize: '0.5rem', color: '#A3E635', marginTop: 2 }}>{item.sub}</div>
                 </div>
               ))}
             </div>
@@ -227,7 +227,7 @@ export const DashboardMockup: React.FC = () => (
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 3 }}>
               <span style={{ fontSize: '0.5rem', color: 'rgba(255,255,255,0.82)' }}>Week 1</span>
               <span style={{ fontSize: '0.5rem', color: 'rgba(255,255,255,0.82)' }}>Week 8</span>
-              <span style={{ fontSize: '0.56rem', color: '#6EE7B7', fontWeight: 700 }}>+$5,738/mo</span>
+              <span style={{ fontSize: '0.56rem', color: '#A3E635', fontWeight: 700 }}>+$5,738/mo</span>
             </div>
           </div>
         </div>
@@ -276,12 +276,12 @@ export const DashboardMockup: React.FC = () => (
         gap: 5,
         fontSize: '0.58rem',
         fontWeight: 700,
-        color: '#6EE7B7',
+        color: '#A3E635',
       }}>
         <motion.div
           animate={{ boxShadow: ['0 0 0 0 rgba(16,185,129,0.5)', '0 0 0 5px rgba(16,185,129,0)', '0 0 0 0 rgba(16,185,129,0.5)'] }}
           transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-          style={{ width: 6, height: 6, borderRadius: '50%', background: '#10B981' }}
+          style={{ width: 6, height: 6, borderRadius: '50%', background: '#84CC16' }}
         />
         live
       </div>

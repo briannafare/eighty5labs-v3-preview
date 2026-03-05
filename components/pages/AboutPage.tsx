@@ -97,7 +97,7 @@ export const AboutPage: React.FC = () => (
                   padding: '14px 0', borderBottom: `1px solid ${L.border}`, fontSize: '0.875rem',
                 }}>
                   <span style={{ color: L.t4, textDecoration: 'line-through' }}>{left}</span>
-                  <span style={{ color: '#10B981', fontWeight: 600 }}>→ {right}</span>
+                  <span style={{ color: '#84CC16', fontWeight: 600 }}>→ {right}</span>
                 </div>
               ))}
             </div>

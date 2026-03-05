@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Reveal, Stagger } from '../ui/Reveal';
 import { navigate } from '../../router';
 
-const GAP_COLORS: Record<number, string> = { 1: '#10B981', 2: '#1B4FFF', 3: '#A78BFA' };
+const GAP_COLORS: Record<number, string> = { 1: '#84CC16', 2: '#1B4FFF', 3: '#A78BFA' };
 const GAP_LABELS: Record<number, string> = { 1: 'Gap 1 — Visibility', 2: 'Gap 2 — Reputation', 3: 'Gap 3 — Conversion' };
 
 /* V2 light tokens */
