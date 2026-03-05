@@ -6,21 +6,27 @@ import { VoiceAIDemo } from '../VoiceAIDemo';
 import { HeroAnimation } from '../HeroAnimation';
 import { RevenueCalculator } from '../RevenueCalculator';
 
-/* ── Ambient background glow — Amplemarket-style slow drift ── */
-const AmbientGlow: React.FC<{ color1?: string; color2?: string }> = ({
+/* ── Ambient background glow — 3-blob multi-color drift ── */
+const AmbientGlow: React.FC<{ color1?: string; color2?: string; color3?: string }> = ({
   color1 = 'rgba(27,79,255,0.18)',
-  color2 = 'rgba(132,204,22,0.12)',
+  color2 = 'rgba(132,204,22,0.14)',
+  color3 = 'rgba(139,92,246,0.12)',
 }) => (
   <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: 0 }}>
     <div style={{
-      position: 'absolute', top: '-5%', left: '10%', width: '60%', height: '70%',
-      borderRadius: '50%', background: `radial-gradient(circle, ${color1} 0%, transparent 65%)`,
-      filter: 'blur(50px)', animation: 'ambient-drift-1 14s ease-in-out infinite',
+      position: 'absolute', top: '-15%', left: '5%', width: '65%', height: '75%',
+      borderRadius: '50%', background: `radial-gradient(circle, ${color1} 0%, transparent 60%)`,
+      filter: 'blur(40px)', animation: 'ambient-drift-1 13s ease-in-out infinite',
     }} />
     <div style={{
-      position: 'absolute', bottom: '-10%', right: '5%', width: '55%', height: '65%',
-      borderRadius: '50%', background: `radial-gradient(circle, ${color2} 0%, transparent 65%)`,
-      filter: 'blur(50px)', animation: 'ambient-drift-2 16s ease-in-out infinite',
+      position: 'absolute', bottom: '-10%', right: '0%', width: '60%', height: '70%',
+      borderRadius: '50%', background: `radial-gradient(circle, ${color2} 0%, transparent 60%)`,
+      filter: 'blur(40px)', animation: 'ambient-drift-2 15s ease-in-out infinite',
+    }} />
+    <div style={{
+      position: 'absolute', top: '20%', right: '15%', width: '45%', height: '55%',
+      borderRadius: '50%', background: `radial-gradient(circle, ${color3} 0%, transparent 60%)`,
+      filter: 'blur(45px)', animation: 'ambient-drift-3 11s ease-in-out infinite',
     }} />
   </div>
 );
@@ -534,8 +540,11 @@ export const Homepage: React.FC = () => {
 
       {/* ═══════ HERO ═══════ */}
       <section style={{ background: '#fff', paddingTop: 'clamp(76px, 10vw, 110px)', paddingBottom: 0, position: 'relative', overflow: 'visible' }}>
-        <div style={{ position: 'absolute', top: '-10%', left: '15%', width: '50%', height: '60%', background: 'radial-gradient(circle, rgba(79,124,255,0.07) 0%, transparent 50%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: '0%', right: '10%', width: '40%', height: '50%', background: 'radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 50%)', pointerEvents: 'none' }} />
+        <AmbientGlow
+          color1="rgba(27,79,255,0.14)"
+          color2="rgba(132,204,22,0.10)"
+          color3="rgba(139,92,246,0.12)"
+        />
 
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
 
@@ -656,7 +665,7 @@ export const Homepage: React.FC = () => {
 
       {/* ═══════ VOICE AI DEMO — text left / visual right ═══════ */}
       <section className="section-light" style={{ position: 'relative', overflow: 'hidden' }}>
-        <AmbientGlow color1="rgba(139,92,246,0.16)" color2="rgba(27,79,255,0.12)" />
+        <AmbientGlow color1="rgba(139,92,246,0.16)" color2="rgba(27,79,255,0.12)" color3="rgba(132,204,22,0.10)" />
         <div className="wrap" style={{ position: 'relative' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(40px, 6vw, 80px)', alignItems: 'center' }} className="hero-grid">
             <div>
@@ -691,7 +700,7 @@ export const Homepage: React.FC = () => {
 
       {/* ═══════ PLATFORM OVERVIEW ═══════ */}
       <section className="section-white" style={{ position: 'relative', overflow: 'hidden' }}>
-        <AmbientGlow color1="rgba(79,142,247,0.15)" color2="rgba(132,204,22,0.10)" />
+        <AmbientGlow color1="rgba(79,142,247,0.16)" color2="rgba(132,204,22,0.12)" color3="rgba(139,92,246,0.10)" />
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <Reveal>
             <div className="section-label">Revenue OS</div>
@@ -713,7 +722,7 @@ export const Homepage: React.FC = () => {
 
       {/* ═══════ HOW IT WORKS ═══════ */}
       <section className="section-light" style={{ position: 'relative', overflow: 'hidden' }}>
-        <AmbientGlow color1="rgba(27,79,255,0.14)" color2="rgba(132,204,22,0.10)" />
+        <AmbientGlow color1="rgba(27,79,255,0.15)" color2="rgba(132,204,22,0.12)" color3="rgba(139,92,246,0.08)" />
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <Reveal>
             <div className="section-label">How It Works</div>
@@ -782,7 +791,7 @@ export const Homepage: React.FC = () => {
 
       {/* ═══════ INDUSTRIES ═══════ */}
       <section className="section-white" style={{ position: 'relative', overflow: 'hidden' }}>
-        <AmbientGlow color1="rgba(132,204,22,0.12)" color2="rgba(139,92,246,0.14)" />
+        <AmbientGlow color1="rgba(132,204,22,0.14)" color2="rgba(139,92,246,0.14)" color3="rgba(27,79,255,0.10)" />
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <Reveal>
             <div className="section-label">Built For Your Market</div>
@@ -792,7 +801,7 @@ export const Homepage: React.FC = () => {
           <IndustryTabs />
           <Reveal>
             <div style={{ textAlign: 'center' as const, marginTop: 44 }}>
-              <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-accent" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+              <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
                 Get Your Free Visibility Audit <CircleArrow />
               </motion.a>
             </div>
@@ -802,7 +811,7 @@ export const Homepage: React.FC = () => {
 
       {/* ═══════ TESTIMONIALS ═══════ */}
       <section className="section-light" style={{ position: 'relative', overflow: 'hidden' }}>
-        <AmbientGlow color1="rgba(139,92,246,0.14)" color2="rgba(27,79,255,0.12)" />
+        <AmbientGlow color1="rgba(139,92,246,0.14)" color2="rgba(27,79,255,0.14)" color3="rgba(132,204,22,0.10)" />
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <Reveal>
             <div className="section-label">Results</div>

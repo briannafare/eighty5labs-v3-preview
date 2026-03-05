@@ -220,30 +220,29 @@
         white-space: nowrap;
         letter-spacing: 0.01em;
       }
-      /* Primary — ada.cx-style: soft colored pill with dark circle arrow */
+      /* Primary — solid blue pill with lime circle arrow (hero / main CTA) */
       .btn-primary {
-        background: rgba(27,79,255,0.10);
-        color: var(--td1);
-        border: 1px solid rgba(27,79,255,0.12);
+        background: var(--blue);
+        color: #fff;
+        box-shadow: 0 4px 16px rgba(27,79,255,0.25);
       }
       .btn-primary:hover {
-        background: rgba(27,79,255,0.16);
-        border-color: rgba(27,79,255,0.22);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 28px rgba(27,79,255,0.12);
-        color: var(--td1);
+        background: #0A3DE6;
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 8px 28px rgba(27,79,255,0.40);
+        color: #fff;
       }
-      /* Circle arrow icon inside ada-style buttons */
+      /* Circle arrow — lime accent on primary */
       .btn-primary .btn-arrow-circle {
-        width: 28px; height: 28px; border-radius: 50%;
-        background: var(--td1); color: #fff;
+        width: 34px; height: 34px; border-radius: 50%;
+        background: #84CC16; color: #fff;
         display: inline-flex; align-items: center; justify-content: center;
-        margin-left: 4px; flex-shrink: 0;
-        transition: background 0.2s;
+        margin-left: 6px; flex-shrink: 0;
+        transition: all 0.2s;
       }
-      .btn-primary:hover .btn-arrow-circle { background: var(--blue); }
+      .btn-primary:hover .btn-arrow-circle { background: #A3E635; }
 
-      /* Accent variant — lime pill */
+      /* Accent variant — lime pill with dark circle */
       .btn-accent {
         background: rgba(132,204,22,0.12);
         color: var(--td1);
@@ -256,15 +255,36 @@
         box-shadow: 0 8px 28px rgba(132,204,22,0.12);
       }
       .btn-accent .btn-arrow-circle {
-        width: 28px; height: 28px; border-radius: 50%;
+        width: 34px; height: 34px; border-radius: 50%;
         background: var(--td1); color: #fff;
         display: inline-flex; align-items: center; justify-content: center;
-        margin-left: 4px; flex-shrink: 0;
-        transition: background 0.2s;
+        margin-left: 6px; flex-shrink: 0;
+        transition: all 0.2s;
       }
       .btn-accent:hover .btn-arrow-circle { background: #84CC16; }
 
-      /* Solid blue — for dark backgrounds and final CTAs */
+      /* Subtle blue pill — secondary CTA on light bg */
+      .btn-soft {
+        background: rgba(27,79,255,0.08);
+        color: var(--td1);
+        border: 1px solid rgba(27,79,255,0.12);
+      }
+      .btn-soft:hover {
+        background: rgba(27,79,255,0.14);
+        border-color: rgba(27,79,255,0.22);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(27,79,255,0.10);
+      }
+      .btn-soft .btn-arrow-circle {
+        width: 34px; height: 34px; border-radius: 50%;
+        background: var(--td1); color: #fff;
+        display: inline-flex; align-items: center; justify-content: center;
+        margin-left: 6px; flex-shrink: 0;
+        transition: all 0.2s;
+      }
+      .btn-soft:hover .btn-arrow-circle { background: var(--blue); }
+
+      /* Solid blue — for dark backgrounds */
       .btn-solid {
         background: var(--blue);
         color: #fff;
@@ -309,24 +329,28 @@
         font-size: 0.875rem;
       }
       .btn-sm .btn-arrow-circle {
-        width: 24px; height: 24px;
-      }
-      .btn-sm .btn-arrow-circle svg {
-        width: 12px; height: 12px;
+        width: 28px; height: 28px;
       }
 
       /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
          AMBIENT DRIFT — slow background glow
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
       @keyframes ambient-drift-1 {
-        0%, 100% { transform: translate(0, 0) scale(1); }
-        33% { transform: translate(25px, -20px) scale(1.05); }
-        66% { transform: translate(-20px, 15px) scale(0.97); }
+        0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+        25% { transform: translate(40px, -30px) scale(1.08); opacity: 1; }
+        50% { transform: translate(-15px, 20px) scale(0.95); opacity: 0.8; }
+        75% { transform: translate(30px, 10px) scale(1.05); opacity: 0.9; }
       }
       @keyframes ambient-drift-2 {
-        0%, 100% { transform: translate(0, 0) scale(1); }
-        33% { transform: translate(-30px, 25px) scale(0.95); }
-        66% { transform: translate(20px, -18px) scale(1.04); }
+        0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+        25% { transform: translate(-35px, 25px) scale(0.93); opacity: 0.6; }
+        50% { transform: translate(25px, -35px) scale(1.1); opacity: 1; }
+        75% { transform: translate(-20px, -15px) scale(1.02); opacity: 0.7; }
+      }
+      @keyframes ambient-drift-3 {
+        0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+        33% { transform: translate(30px, 20px) scale(1.12); opacity: 1; }
+        66% { transform: translate(-25px, -30px) scale(0.9); opacity: 0.7; }
       }
 
       /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
