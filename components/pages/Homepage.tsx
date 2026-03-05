@@ -538,7 +538,7 @@ export const Homepage: React.FC = () => {
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.24 }}
-            style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const, marginBottom: 8 }}>
+            style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const, marginBottom: 6 }}>
             <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '0.9375rem' }}>
               Get Your Free Visibility Audit <IconArrow />
             </motion.a>
@@ -546,16 +546,25 @@ export const Homepage: React.FC = () => {
               See How It Works
             </motion.a>
           </motion.div>
-          <p style={{ textAlign: 'center', fontSize: '0.7rem', color: '#94A3B8', marginBottom: 40 }}>Free · No commitment · Yours to keep regardless</p>
+          <p style={{ textAlign: 'center', fontSize: '0.7rem', color: '#94A3B8', marginBottom: 0 }}>Free · No commitment · Yours to keep regardless</p>
+        </div>
 
-          <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }}
-            style={{ background: '#FAFBFE', border: '1px solid var(--ls-border)', borderRadius: 16, padding: 'clamp(18px, 2.5vw, 28px)', marginBottom: 48 }}>
-            <GapCards />
-          </motion.div>
+        {/* AI Search Demo — directly under hero text, peeks above fold */}
+        <div style={{ position: 'relative', marginTop: 32 }}>
+          <ScrollRevealDemo />
+          <div style={{
+            position: 'absolute', bottom: 0, left: 0, right: 0, height: 140,
+            background: 'linear-gradient(to bottom, transparent 0%, #fff 85%)',
+            pointerEvents: 'none',
+          }} />
+        </div>
+      </section>
 
+      {/* ═══════ OPTIMIZING BRANDS FOR + GAP CARDS ═══════ */}
+      <section style={{ background: '#fff', paddingTop: 48, paddingBottom: 0 }}>
+        <div className="wrap">
           {/* Optimizing brands for */}
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.4 }}
-            style={{ textAlign: 'center', marginBottom: 56 }}>
+          <div style={{ textAlign: 'center', marginBottom: 44 }}>
             <p style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase' as const, color: '#94A3B8', marginBottom: 20 }}>
               Optimizing brands for
             </p>
@@ -576,20 +585,12 @@ export const Homepage: React.FC = () => {
                 </div>
               ))}
             </div>
-          </motion.div>
-        </div>
+          </div>
 
-        {/* AI Search Demo — peeks above fold, scales on scroll (Amplemarket style) */}
-        <div style={{ position: 'relative', marginTop: -8 }}>
-          <ScrollRevealDemo />
-          {/* Bottom fade mask — creates the peek/reveal illusion */}
-          <div style={{
-            position: 'absolute', bottom: 0, left: 0, right: 0, height: 120,
-            background: 'linear-gradient(to bottom, transparent 0%, #fff 90%)',
-            pointerEvents: 'none',
-          }} />
+          <div style={{ background: '#FAFBFE', border: '1px solid var(--ls-border)', borderRadius: 16, padding: 'clamp(18px, 2.5vw, 28px)' }}>
+            <GapCards />
+          </div>
         </div>
-        <div style={{ height: 40 }} />
       </section>
 
       {/* ═══════ PROOF STRIP ═══════ */}
