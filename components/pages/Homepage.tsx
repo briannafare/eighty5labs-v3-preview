@@ -579,11 +579,11 @@ export const Homepage: React.FC = () => {
               See How It Works
             </motion.a>
           </motion.div>
-          <p style={{ textAlign: 'center', fontSize: '0.7rem', color: '#94A3B8', marginBottom: 0, marginTop: 6 }}>Free · No commitment · Yours to keep regardless</p>
+          <p style={{ textAlign: 'center', fontSize: '0.7rem', color: '#94A3B8', marginBottom: 0, marginTop: 16 }}>Free · No commitment · Yours to keep regardless</p>
         </div>
 
         {/* AI Search Demo — directly under hero text, peeks above fold */}
-        <div style={{ position: 'relative', marginTop: 24 }}>
+        <div style={{ position: 'relative', marginTop: 12 }}>
           <ScrollRevealDemo />
           <div style={{
             position: 'absolute', bottom: 0, left: 0, right: 0, height: 140,
