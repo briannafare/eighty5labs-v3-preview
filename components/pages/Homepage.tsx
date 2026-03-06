@@ -703,8 +703,8 @@ export const Homepage: React.FC = () => {
         <AmbientGlow color1="rgba(79,142,247,0.16)" color2="rgba(132,204,22,0.12)" color3="rgba(139,92,246,0.10)" />
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <Reveal>
-            <div className="section-label">Revenue OS</div>
-            <h2 className="section-heading">The Revenue OS <span style={{ color: 'var(--blue)' }}>Platform</span></h2>
+            <div className="section-label">eighty5.OS</div>
+            <h2 className="section-heading">The eighty5.OS <span style={{ color: 'var(--blue)' }}>Platform</span></h2>
             <p className="section-sub" style={{ marginBottom: 48 }}>Six AI systems, each targeting a specific gap. Together they form one complete revenue recovery engine.</p>
           </Reveal>
 
