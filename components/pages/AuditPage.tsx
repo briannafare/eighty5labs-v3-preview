@@ -117,7 +117,7 @@ export const AuditPage: React.FC = () => {
               <p style={{ color: '#64748B', lineHeight: 1.7, marginBottom: 28, fontSize: '0.9375rem' }}>
                 We're analyzing your Map Pack position, review velocity, AI search visibility, and conversion gaps against your top local competitors.
               </p>
-              <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{ color: '#94A3B8', textDecoration: 'none', fontSize: '0.875rem' }}>
+              <a href="/" onClick={e => { e.preventDefault(); navigate('/'); }} style={{ color: '#94A3B8', textDecoration: 'none', fontSize: '0.875rem' }}>
                 ← Back to eighty5labs
               </a>
             </div>
@@ -264,8 +264,8 @@ export const AuditPage: React.FC = () => {
                   <input type="checkbox" checked={form.consentSMS} onChange={e => set('consentSMS', e.target.checked)} style={{ marginTop: 2, width: 18, height: 18, accentColor: '#1B4FFF', flexShrink: 0 }} />
                   <span style={{ fontSize: '0.8125rem', color: '#64748B', lineHeight: 1.55 }}>
                     I agree to receive my Visibility Audit report and related follow-up via SMS and email from eighty5labs. Reply STOP to opt out.{' '}
-                    <a href="#/terms" onClick={e => { e.preventDefault(); navigate('#/terms'); }} style={{ color: '#4F8EF7' }}>Terms</a>{' '}·{' '}
-                    <a href="#/privacy" onClick={e => { e.preventDefault(); navigate('#/privacy'); }} style={{ color: '#4F8EF7' }}>Privacy</a>
+                    <a href="/terms" onClick={e => { e.preventDefault(); navigate('/terms'); }} style={{ color: '#4F8EF7' }}>Terms</a>{' '}·{' '}
+                    <a href="/privacy" onClick={e => { e.preventDefault(); navigate('/privacy'); }} style={{ color: '#4F8EF7' }}>Privacy</a>
                   </span>
                 </label>
                 {errors.consentSMS && <p style={eS}>{errors.consentSMS}</p>}

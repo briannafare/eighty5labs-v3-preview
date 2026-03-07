@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
         borderBottom: '1px solid rgba(255,255,255,0.07)',
       }} className="footer-grid">
         <div>
-          <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{
+          <a href="/" onClick={e => { e.preventDefault(); navigate('/'); }} style={{
             fontFamily: 'var(--fd)', fontSize: '1.1rem', fontWeight: 900, letterSpacing: '-0.04em',
             color: '#fff', textDecoration: 'none', display: 'block', marginBottom: 10,
           }}>
@@ -55,24 +55,24 @@ export const Footer: React.FC = () => {
           </div>
         </div>
         <FooterCol title="Company" links={[
-          { label: 'About 85', route: '#/about' },
-          { label: 'Blog', route: '#/blog' },
-          { label: 'Pricing', route: '#/pricing' },
-          { label: 'Press', route: '#/resources' },
-          { label: 'Free Audit', route: '#/audit' },
+          { label: 'About 85', route: '/about' },
+          { label: 'Blog', route: '/blog' },
+          { label: 'Pricing', route: '/pricing' },
+          { label: 'Press', route: '/resources' },
+          { label: 'Free Audit', route: '/audit' },
         ]}/>
         <FooterCol title="Services" links={[
-          { label: 'Voice AI', route: '#/services' },
-          { label: 'Reviews AI', route: '#/services' },
-          { label: 'Funnel AI', route: '#/services' },
-          { label: 'Content AI', route: '#/services' },
-          { label: 'Workflow AI', route: '#/services' },
+          { label: 'Voice AI', route: '/services' },
+          { label: 'Reviews AI', route: '/services' },
+          { label: 'Funnel AI', route: '/services' },
+          { label: 'Content AI', route: '/services' },
+          { label: 'Workflow AI', route: '/services' },
         ]}/>
         <FooterCol title="Resources" links={[
-          { label: 'Glossary', route: '#/glossary' },
-          { label: 'Case Studies', route: '#/resources' },
-          { label: 'AI Prompts', route: '#/resources' },
-          { label: 'Revenue Calculator', route: '#/resources' },
+          { label: 'Glossary', route: '/glossary' },
+          { label: 'Case Studies', route: '/resources' },
+          { label: 'AI Prompts', route: '/resources' },
+          { label: 'Revenue Calculator', route: '/resources' },
         ]}/>
       </div>
       <div style={{
@@ -90,7 +90,7 @@ export const Footer: React.FC = () => {
           Portland, Oregon · View on Google
         </a>
         <div style={{ display: 'flex', gap: 20 }}>
-          {[{ label: 'Privacy Policy', route: '#/privacy' }, { label: 'Terms & Conditions', route: '#/terms' }].map(l => (
+          {[{ label: 'Privacy Policy', route: '/privacy' }, { label: 'Terms & Conditions', route: '/terms' }].map(l => (
             <a key={l.label} href={l.route} onClick={e => { e.preventDefault(); navigate(l.route); }}
               style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.85)', textDecoration: 'none', transition: 'color 0.15s' }}
               onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.6)')}

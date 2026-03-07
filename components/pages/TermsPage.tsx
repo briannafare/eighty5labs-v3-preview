@@ -22,7 +22,7 @@ export const TermsPage: React.FC = () => (
 
       {/* Header */}
       <div style={{ marginBottom: 48 }}>
-        <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{
+        <a href="/" onClick={e => { e.preventDefault(); navigate('/'); }} style={{
           display: 'inline-block', fontSize: '0.8125rem', fontWeight: 600,
           color: '#64748B', textDecoration: 'none', marginBottom: 32,
         }}>
@@ -142,7 +142,7 @@ export const TermsPage: React.FC = () => (
         </SubSection>
 
         <SubSection title="2.11 Privacy">
-          <p style={p}>If you have any questions regarding privacy, please review our <a href="#/privacy" onClick={e => { e.preventDefault(); navigate('#/privacy'); }} style={{ ...link, fontWeight: 500 }}>Privacy Policy</a>.</p>
+          <p style={p}>If you have any questions regarding privacy, please review our <a href="/privacy" onClick={e => { e.preventDefault(); navigate('/privacy'); }} style={{ ...link, fontWeight: 500 }}>Privacy Policy</a>.</p>
         </SubSection>
 
         <SectionTitle>3. Intellectual Property Rights</SectionTitle>
@@ -309,7 +309,7 @@ export const TermsPage: React.FC = () => (
         <p style={p}>If any provision of these Terms is found to be invalid, unlawful, or unenforceable by a court of competent jurisdiction, such provision shall be modified to the minimum extent necessary to make it valid, or if not possible, severed from these Terms. The remaining provisions shall continue in full force and effect.</p>
 
         <SectionTitle>12. Entire Agreement</SectionTitle>
-        <p style={p}>These Terms and Conditions, together with our <a href="#/privacy" onClick={e => { e.preventDefault(); navigate('#/privacy'); }} style={{ ...link, fontWeight: 500 }}>Privacy Policy</a>, constitute the entire agreement between you and Eighty5 Labs regarding your use of our Website and Services. Any prior agreements, understandings, or representations are superseded by these Terms.</p>
+        <p style={p}>These Terms and Conditions, together with our <a href="/privacy" onClick={e => { e.preventDefault(); navigate('/privacy'); }} style={{ ...link, fontWeight: 500 }}>Privacy Policy</a>, constitute the entire agreement between you and Eighty5 Labs regarding your use of our Website and Services. Any prior agreements, understandings, or representations are superseded by these Terms.</p>
 
         <SectionTitle>13. Assignment</SectionTitle>
         <p style={p}>You may not assign or transfer these Terms or your rights/obligations hereunder without our written consent. Any unauthorized assignment is void. We may assign these Terms to our successors or affiliates.</p>
@@ -340,11 +340,11 @@ export const TermsPage: React.FC = () => (
 
       {/* Footer links */}
       <div style={{ marginTop: 32, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
-        <a href="#/privacy" onClick={e => { e.preventDefault(); navigate('#/privacy'); }} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: '0.875rem', fontWeight: 600, color: '#4F8EF7', textDecoration: 'none' }}>
+        <a href="/privacy" onClick={e => { e.preventDefault(); navigate('/privacy'); }} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: '0.875rem', fontWeight: 600, color: '#4F8EF7', textDecoration: 'none' }}>
           View our Privacy Policy
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{
+        <a href="/" onClick={e => { e.preventDefault(); navigate('/'); }} style={{
           display: 'inline-block', background: '#111', color: 'white',
           padding: '12px 32px', borderRadius: 100, fontSize: '0.875rem', fontWeight: 600,
           textDecoration: 'none',

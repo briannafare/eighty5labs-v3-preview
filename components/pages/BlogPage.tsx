@@ -291,7 +291,7 @@ export default function BlogPage() {
           <div style={{ padding: '20px 24px', background: 'rgba(27,79,255,0.06)', border: '1.5px solid rgba(27,79,255,0.2)', borderRadius: 14, textAlign: 'center' }}>
             <p style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '0.9375rem', color: '#0F172A', marginBottom: 8 }}>Stop Guessing. Get the Audit.</p>
             <p style={{ fontSize: '0.8125rem', color: '#64748B', marginBottom: 16, lineHeight: 1.5 }}>Free AI Visibility Audit — 30 minutes, no pitch.</p>
-            <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')} className="btn btn-primary">
+            <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/audit')} className="btn btn-primary">
               Book Free Visibility Audit →
             </motion.button>
           </div>

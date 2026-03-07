@@ -1,23 +1,23 @@
-import React from 'react';
+import { NavigateFunction } from 'react-router-dom';
 
-// Simple hash router
+// Global navigate reference — set by AppShell on mount
+let _navigate: NavigateFunction | null = null;
 
-export const navigate = (route: string) => {
-  window.location.hash = route.startsWith('#') ? route.slice(1) : route;
-  window.scrollTo({ top: 0, behavior: 'instant' });
+export const setNavigateRef = (fn: NavigateFunction) => {
+  _navigate = fn;
 };
 
-export const useRoute = () => {
-  const [route, setRoute] = React.useState(() => window.location.hash || '#/');
-
-  React.useEffect(() => {
-    const handler = () => {
-      setRoute(window.location.hash || '#/');
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    };
-    window.addEventListener('hashchange', handler);
-    return () => window.removeEventListener('hashchange', handler);
-  }, []);
-
-  return route;
+/**
+ * Drop-in replacement for the old hash-based navigate().
+ * Accepts either '/path' or '#/path' (for any legacy calls).
+ */
+export const navigate = (to: string) => {
+  // Strip hash prefix if present (legacy compat)
+  const path = to.startsWith('#/') ? to.slice(1) : to.startsWith('#') ? to.slice(1) || '/' : to;
+  if (_navigate) {
+    _navigate(path);
+  } else {
+    window.location.pathname = path;
+  }
+  window.scrollTo({ top: 0, behavior: 'instant' });
 };

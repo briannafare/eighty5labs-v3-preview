@@ -169,7 +169,7 @@ export default function ResourcesPage() {
                     <p style={{ fontSize: '0.8375rem', color: '#64748B', lineHeight: 1.6, flex: 1 }}>{r.desc}</p>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 8, borderTop: '1px solid #DDE5F2' }}>
                       <span style={{ fontSize: '0.75rem', color: '#94A3B8' }}>{r.meta}</span>
-                      <button onClick={() => r.topic === 'Glossary' ? navigate('#/glossary') : r.interactive ? navigate('#/audit') : undefined}
+                      <button onClick={() => r.topic === 'Glossary' ? navigate('/glossary') : r.interactive ? navigate('/audit') : undefined}
                         style={{ background: 'none', border: 'none', color: TYPE_COLOR[r.type] || '#1B4FFF', fontSize: '0.8125rem', fontWeight: 700, cursor: 'pointer', padding: 0 }}>
                         {r.cta}
                       </button>
@@ -188,7 +188,7 @@ export default function ResourcesPage() {
           <Reveal>
             <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.125rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 14 }}>Ready to Put This Into Practice?</h2>
             <p style={{ color: '#64748B', marginBottom: 28, lineHeight: 1.7 }}>Get a free AI Visibility Audit and see exactly where your business is leaking revenue — and what to fix first.</p>
-            <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')} className="btn btn-primary">
+            <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/audit')} className="btn btn-primary">
               Get Your Free Visibility Audit →
             </motion.button>
             <p style={{ marginTop: 14, fontSize: '0.8125rem', color: '#94A3B8' }}>No contracts · No credit card · Results in 48 hours</p>

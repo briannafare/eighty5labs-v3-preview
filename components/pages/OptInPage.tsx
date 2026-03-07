@@ -105,7 +105,7 @@ export const OptInPage: React.FC = () => {
               <p>Reply <strong>STOP</strong> to opt out anytime</p>
               <p>Reply <strong>HELP</strong> for assistance</p>
             </div>
-            <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{ fontSize: '0.875rem', fontWeight: 600, color: '#4F8EF7', textDecoration: 'none' }}>
+            <a href="/" onClick={e => { e.preventDefault(); navigate('/'); }} style={{ fontSize: '0.875rem', fontWeight: 600, color: '#4F8EF7', textDecoration: 'none' }}>
               Return to Homepage
             </a>
           </motion.div>
@@ -120,7 +120,7 @@ export const OptInPage: React.FC = () => {
 
         {/* Logo */}
         <div style={{ textAlign: 'center', marginBottom: 20 }}>
-          <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{
+          <a href="/" onClick={e => { e.preventDefault(); navigate('/'); }} style={{
             fontFamily: 'var(--fd)',
             fontSize: '1.125rem', fontWeight: 900, color: '#0F172A', textDecoration: 'none',
             letterSpacing: '-0.04em',
@@ -217,11 +217,11 @@ export const OptInPage: React.FC = () => {
 
             {/* Terms & Privacy */}
             <div style={{ fontSize: '0.875rem' }}>
-              <a href="#/terms" onClick={e => { e.preventDefault(); navigate('#/terms'); }} style={{ color: '#4F8EF7', fontWeight: 500, textDecoration: 'none' }}>
+              <a href="/terms" onClick={e => { e.preventDefault(); navigate('/terms'); }} style={{ color: '#4F8EF7', fontWeight: 500, textDecoration: 'none' }}>
                 Terms of Service
               </a>
               {' '}&amp;{' '}
-              <a href="#/privacy" onClick={e => { e.preventDefault(); navigate('#/privacy'); }} style={{ color: '#4F8EF7', fontWeight: 500, textDecoration: 'none' }}>
+              <a href="/privacy" onClick={e => { e.preventDefault(); navigate('/privacy'); }} style={{ color: '#4F8EF7', fontWeight: 500, textDecoration: 'none' }}>
                 Privacy Policy
               </a>
             </div>

@@ -21,7 +21,7 @@ export const PrivacyPage: React.FC = () => (
     <div style={{ maxWidth: 768, marginInline: 'auto' }}>
 
       <div style={{ marginBottom: 48 }}>
-        <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} style={{
+        <a href="/" onClick={e => { e.preventDefault(); navigate('/'); }} style={{
           display: 'inline-block', fontSize: '0.8125rem', fontWeight: 600,
           color: '#64748B', textDecoration: 'none', marginBottom: 32,
         }}>
@@ -230,7 +230,7 @@ export const PrivacyPage: React.FC = () => (
       </div>
 
       <div style={{ marginTop: 32, textAlign: 'center' }}>
-        <a href="#/" onClick={e => { e.preventDefault(); navigate('#/'); }} className="btn btn-primary">
+        <a href="/" onClick={e => { e.preventDefault(); navigate('/'); }} className="btn btn-primary">
           Return to Homepage
         </a>
       </div>

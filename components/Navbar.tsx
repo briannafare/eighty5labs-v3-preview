@@ -3,12 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { navigate } from '../router';
 
 const NAV_LINKS = [
-  { label: 'Services', route: '#/services' },
-  { label: 'Industries', route: '#/industries' },
-  { label: 'Pricing', route: '#/pricing' },
-  { label: 'Resources', route: '#/resources' },
-  { label: 'About 85', route: '#/about' },
-  { label: 'Blog', route: '#/blog' },
+  { label: 'Services', route: '/services' },
+  { label: 'Industries', route: '/industries' },
+  { label: 'Pricing', route: '/pricing' },
+  { label: 'Resources', route: '/resources' },
+  { label: 'About 85', route: '/about' },
+  { label: 'Blog', route: '/blog' },
 ];
 
 export const Navbar: React.FC = () => {
@@ -57,8 +57,8 @@ export const Navbar: React.FC = () => {
         >
           {/* Logo */}
           <a
-            href="#/"
-            onClick={e => { e.preventDefault(); navigate('#/'); }}
+            href="/"
+            onClick={e => { e.preventDefault(); navigate('/'); }}
             style={{
               fontFamily: 'var(--fd)',
               fontSize: '1.2rem',
@@ -107,8 +107,8 @@ export const Navbar: React.FC = () => {
               Log in
             </a>
             <a
-              href="#/audit"
-              onClick={e => { e.preventDefault(); navigate('#/audit'); }}
+              href="/audit"
+              onClick={e => { e.preventDefault(); navigate('/audit'); }}
               className="btn-nav btn-nav-primary"
             >
               Free Audit
@@ -172,8 +172,8 @@ export const Navbar: React.FC = () => {
             ))}
             <div style={{ paddingTop: 20 }}>
               <a
-                href="#/audit"
-                onClick={e => { e.preventDefault(); navigate('#/audit'); setMobileOpen(false); }}
+                href="/audit"
+                onClick={e => { e.preventDefault(); navigate('/audit'); setMobileOpen(false); }}
                 className="btn btn-primary"
                 style={{ width: '100%', justifyContent: 'center' }}
               >

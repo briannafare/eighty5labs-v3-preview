@@ -12,7 +12,7 @@ const STATS = [
 
 const INDUSTRIES = [
   {
-    route: '#/mortgage',
+    route: '/mortgage',
     label: 'Mortgage',
     sub: 'Loan Officers · Mortgage Brokers',
     gap1: '#84CC16',
@@ -21,7 +21,7 @@ const INDUSTRIES = [
     keyStats: ['Avg. 47% of mortgage inquiries go unresponded within 1 hour', 'Speed-to-lead is the #1 conversion factor in mortgage', 'AI follow-up recovers 30–40% of cold leads'],
   },
   {
-    route: '#/realestate',
+    route: '/realestate',
     label: 'Real Estate',
     sub: 'Realtors · Property Management',
     gap1: '#84CC16',
@@ -30,7 +30,7 @@ const INDUSTRIES = [
     keyStats: ['78% of buyers work with the first agent who responds', 'Avg. agent response time: 15+ hours', 'AI cuts response time to under 2 minutes'],
   },
   {
-    route: '#/homeservices',
+    route: '/homeservices',
     label: 'Home Services',
     sub: 'Plumbers · HVAC · Electricians · Contractors',
     gap1: '#84CC16',
@@ -39,7 +39,7 @@ const INDUSTRIES = [
     keyStats: ['Home service businesses miss 30–60% of calls during peak seasons', 'After-hours calls convert at 3x the rate of callbacks', 'Avg. missed call value: $300–$800'],
   },
   {
-    route: '#/medical',
+    route: '/medical',
     label: 'Medical',
     sub: 'Practices · Clinics · Healthcare Providers',
     gap1: '#84CC16',
@@ -48,7 +48,7 @@ const INDUSTRIES = [
     keyStats: ['77% of patients check online reviews before choosing a provider', 'Practices with 50+ reviews get 3x more new patients', 'AI intake reduces no-shows by up to 40%'],
   },
   {
-    route: '#/legal',
+    route: '/legal',
     label: 'Legal',
     sub: 'Law Firms · Solo Attorneys · Legal Practices',
     gap1: '#84CC16',
@@ -83,10 +83,10 @@ export const IndustriesPage: React.FC = () => (
         </Reveal>
         <Reveal delay={0.2}>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const }}>
-            <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')} className="btn btn-primary">
+            <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/audit')} className="btn btn-primary">
               Get Your Free Visibility Audit →
             </motion.button>
-            <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/pricing')} className="btn btn-ghost">
+            <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/pricing')} className="btn btn-ghost">
               View Pricing
             </motion.button>
           </div>
@@ -158,7 +158,7 @@ export const IndustriesPage: React.FC = () => (
         <Reveal>
           <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>Not sure which plan fits your industry?</h2>
           <p style={{ color: '#64748B', marginBottom: 32, lineHeight: 1.7 }}>Get a free AI Visibility Audit — we'll show you exactly where your business stands across all three gaps.</p>
-          <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('#/audit')} className="btn btn-primary">
+          <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/audit')} className="btn btn-primary">
             Get Your Free Visibility Audit →
           </motion.button>
           <p style={{ marginTop: 16, fontSize: '0.8125rem', color: '#94A3B8' }}>No contracts · No credit card · Results in 48 hours</p>

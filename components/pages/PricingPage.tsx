@@ -246,7 +246,7 @@ export const PricingPage: React.FC = () => {
                     ))}
                   </ul>
 
-                  <button onClick={() => navigate('#/audit')} style={{
+                  <button onClick={() => navigate('/audit')} style={{
                     display: 'block', width: '100%', padding: '13px 20px',
                     borderRadius: 'var(--rd)', fontFamily: 'var(--fd)', fontSize: '0.9375rem',
                     fontWeight: 800, textAlign: 'center', cursor: 'pointer',
@@ -417,7 +417,7 @@ export const PricingPage: React.FC = () => {
                 Start your trial today. No contracts, no setup fees. Most businesses are live in under a week.
               </p>
               <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
-                <button onClick={() => navigate('#/audit')} className="btn btn-primary">Start Your Trial Today →</button>
+                <button onClick={() => navigate('/audit')} className="btn btn-primary">Start Your Trial Today →</button>
                 <button className="btn btn-ghost">Book a Strategy Call</button>
               </div>
               <p style={{ fontSize: '0.8125rem', color: 'var(--t4)', marginTop: 20 }}>Free audit included · No credit card required to get started</p>

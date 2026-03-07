@@ -123,7 +123,7 @@ export const RevenueCalculator: React.FC = () => {
         </div>
 
         <button
-          onClick={() => navigate('#/audit')}
+          onClick={() => navigate('/audit')}
           style={{
             display: 'block',
             width: '100%',

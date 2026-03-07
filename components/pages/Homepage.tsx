@@ -124,19 +124,19 @@ const SERVICES = [
 ];
 
 const INDUSTRIES = [
-  { label: 'Law Firms', sub: 'Personal Injury · Criminal Defense · Family Law', route: '#/legal', icon: <IconBriefcase />,
+  { label: 'Law Firms', sub: 'Personal Injury · Criminal Defense · Family Law', route: '/legal', icon: <IconBriefcase />,
     detail: 'A DUI call at 9pm that hits voicemail is a retainer for your competitor. Voice AI captures every after-hours inquiry, qualifies by practice area, and books consultations — before competing firms open their doors.',
     stats: [{ val: '100%', label: 'after-hours capture' }, { val: '< 2 min', label: 'intake response' }, { val: 'Top 3', label: 'Map Pack placement' }] },
-  { label: 'Home Services', sub: 'HVAC · Plumbing · Electrical · Roofing', route: '#/homeservices', icon: <IconTool />,
+  { label: 'Home Services', sub: 'HVAC · Plumbing · Electrical · Roofing', route: '/homeservices', icon: <IconTool />,
     detail: "Every missed call is a job for your competitor. During peak season, AI answers overflow and after-hours calls, books estimates, and follows up on unbooked quotes automatically at Day 1, 3, 7, and 14.",
     stats: [{ val: '0', label: 'missed calls' }, { val: 'Auto', label: 'review requests' }, { val: '40%', label: 'more call volume handled' }] },
-  { label: 'Real Estate', sub: 'Agents · Teams · Brokerages', route: '#/realestate', icon: <IconTag />,
+  { label: 'Real Estate', sub: 'Agents · Teams · Brokerages', route: '/realestate', icon: <IconTag />,
     detail: "78% of buyers work with the first agent who responds. While you're showing homes, Voice AI answers every inquiry instantly, captures buyer intent, and keeps your sphere of influence warm on autopilot.",
     stats: [{ val: '< 2 min', label: 'lead response' }, { val: '+30%', label: 'referral business' }, { val: '24/7', label: 'coverage' }] },
-  { label: 'Mortgage', sub: 'Loan Officers · Mortgage Brokers', route: '#/mortgage', icon: <IconHome />,
+  { label: 'Mortgage', sub: 'Loan Officers · Mortgage Brokers', route: '/mortgage', icon: <IconHome />,
     detail: "The borrower comparing rates right now has three tabs open. The lender who responds in under two minutes wins the conversation. AI captures every inquiry during closings and keeps referral partners warm automatically.",
     stats: [{ val: '100%', label: 'calls answered' }, { val: '< 2 min', label: 'response time' }, { val: 'Top 3', label: 'Map Pack' }] },
-  { label: 'Medical & Wellness', sub: 'Dental · Med Spa · Chiropractic · PT', route: '#/medical', icon: <IconHeart />,
+  { label: 'Medical & Wellness', sub: 'Dental · Med Spa · Chiropractic · PT', route: '/medical', icon: <IconHeart />,
     detail: "When volume spikes, the front desk can't handle calls, check-ins, and insurance simultaneously. AI captures new patient inquiries 24/7, automates review requests post-visit, and reduces no-shows with smart reminders.",
     stats: [{ val: '24/7', label: 'patient capture' }, { val: 'Auto', label: 'review requests' }, { val: '-40%', label: 'no-shows' }] },
 ];
@@ -572,10 +572,10 @@ export const Homepage: React.FC = () => {
 
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.24 }}
             style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const, marginBottom: 8 }}>
-            <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: '0.9375rem' }}>
+            <motion.a href="/audit" onClick={e => { e.preventDefault(); navigate('/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: '0.9375rem' }}>
               Get Your Free Visibility Audit <CircleArrow />
             </motion.a>
-            <motion.a href="#/services" onClick={e => { e.preventDefault(); navigate('#/services'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-ghost-light" style={{ display: 'inline-flex', alignItems: 'center', gap: 7, fontSize: '0.9375rem' }}>
+            <motion.a href="/services" onClick={e => { e.preventDefault(); navigate('/services'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-ghost-light" style={{ display: 'inline-flex', alignItems: 'center', gap: 7, fontSize: '0.9375rem' }}>
               See How It Works
             </motion.a>
           </motion.div>
@@ -686,7 +686,7 @@ export const Homepage: React.FC = () => {
                     </div>
                   ))}
                 </div>
-                <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-accent btn-sm" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                <motion.a href="/audit" onClick={e => { e.preventDefault(); navigate('/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-accent btn-sm" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
                   See It In Action <CircleArrow />
                 </motion.a>
               </Reveal>
@@ -712,7 +712,7 @@ export const Homepage: React.FC = () => {
 
           <Reveal>
             <div style={{ textAlign: 'center' as const, marginTop: 44 }}>
-              <a href="#/services" onClick={e => { e.preventDefault(); navigate('#/services'); }} className="btn btn-ghost-light" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+              <a href="/services" onClick={e => { e.preventDefault(); navigate('/services'); }} className="btn btn-ghost-light" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
                 Explore All Systems <IconArrow />
               </a>
             </div>
@@ -780,7 +780,7 @@ export const Homepage: React.FC = () => {
           <Reveal delay={0.2}>
             <div style={{ textAlign: 'center' as const, marginTop: 52 }}>
               <p style={{ color: 'var(--t3)', fontSize: '0.9rem', marginBottom: 18 }}>Ready to recover this revenue?</p>
-              <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-solid" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+              <motion.a href="/audit" onClick={e => { e.preventDefault(); navigate('/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-solid" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
                 Get Your Free Visibility Audit <IconArrow />
               </motion.a>
               <p style={{ marginTop: 14, fontSize: '0.72rem', color: 'rgba(255,255,255,0.22)' }}>Free · No commitment · Takes 5 minutes</p>
@@ -801,7 +801,7 @@ export const Homepage: React.FC = () => {
           <IndustryTabs />
           <Reveal>
             <div style={{ textAlign: 'center' as const, marginTop: 44 }}>
-              <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+              <motion.a href="/audit" onClick={e => { e.preventDefault(); navigate('/audit'); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
                 Get Your Free Visibility Audit <CircleArrow />
               </motion.a>
             </div>
@@ -891,10 +891,10 @@ export const Homepage: React.FC = () => {
             </p>
 
             <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' as const }}>
-              <motion.a href="#/audit" onClick={e => { e.preventDefault(); navigate('#/audit'); }} className="btn btn-solid" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} style={{ fontSize: '1.0625rem', padding: '18px 38px' }}>
+              <motion.a href="/audit" onClick={e => { e.preventDefault(); navigate('/audit'); }} className="btn btn-solid" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} style={{ fontSize: '1.0625rem', padding: '18px 38px' }}>
                 Start Your Free Visibility Audit →
               </motion.a>
-              <motion.a href="#/pricing" onClick={e => { e.preventDefault(); navigate('#/pricing'); }} className="btn btn-ghost" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} style={{ fontSize: '1.0625rem', padding: '18px 32px' }}>
+              <motion.a href="/pricing" onClick={e => { e.preventDefault(); navigate('/pricing'); }} className="btn btn-ghost" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} style={{ fontSize: '1.0625rem', padding: '18px 32px' }}>
                 View Pricing
               </motion.a>
             </div>
