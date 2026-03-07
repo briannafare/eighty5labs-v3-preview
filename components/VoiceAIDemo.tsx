@@ -153,7 +153,7 @@ export const VoiceAIDemo: React.FC = () => {
                     }}
                   >
                     <span style={{
-                      fontSize: '0.5625rem', fontWeight: 900,
+                      fontSize: '0.5625rem', fontWeight: 800,
                       textTransform: 'uppercase', letterSpacing: '0.18em',
                       marginBottom: 5,
                       color: isChloe ? 'var(--blue)' : 'rgba(255,255,255,0.35)',

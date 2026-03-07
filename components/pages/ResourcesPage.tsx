@@ -78,7 +78,7 @@ export default function ResourcesPage() {
         <div className="wrap" style={{ maxWidth: 700, textAlign: 'center' }}>
           <Reveal>
             <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#1B4FFF', marginBottom: 12 }}>Resources</p>
-            <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>
+            <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 800, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>
               Everything You Need to<br />Win in Local Search
             </h1>
             <p style={{ color: '#64748B', fontSize: '1rem', lineHeight: 1.7, marginBottom: 24 }}>
@@ -99,7 +99,7 @@ export default function ResourcesPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: 32, alignItems: 'center' }}>
             <div>
               <span style={{ display: 'inline-block', background: 'rgba(27,79,255,0.1)', color: '#1B4FFF', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '4px 10px', borderRadius: 6, marginBottom: 12 }}>⚡ Featured Resource</span>
-              <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', fontWeight: 900, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 12 }}>{FEATURED.title}</h2>
+              <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 12 }}>{FEATURED.title}</h2>
               <p style={{ color: '#64748B', lineHeight: 1.7, marginBottom: 20, fontSize: '0.9375rem' }}>{FEATURED.desc}</p>
               <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} className="btn btn-primary">
                 {FEATURED.cta}
@@ -112,7 +112,7 @@ export default function ResourcesPage() {
                 { val: '$1,200', label: 'average monthly revenue recovered from missed calls alone' },
               ].map(s => (
                 <div key={s.val} style={{ textAlign: 'center', padding: '16px 12px', background: '#F7F9FF', border: '1px solid #DDE5F2', borderRadius: 12 }}>
-                  <p style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.5rem', color: '#1B4FFF', letterSpacing: '-0.03em', marginBottom: 6 }}>{s.val}</p>
+                  <p style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.5rem', color: '#1B4FFF', letterSpacing: '-0.03em', marginBottom: 6 }}>{s.val}</p>
                   <p style={{ fontSize: '0.7rem', color: '#94A3B8', lineHeight: 1.4 }}>{s.label}</p>
                 </div>
               ))}
@@ -186,7 +186,7 @@ export default function ResourcesPage() {
       <section style={{ padding: 'clamp(48px,5vw,72px) 0', background: '#F7F9FF', borderTop: '1px solid #DDE5F2' }}>
         <div className="wrap" style={{ maxWidth: 560, textAlign: 'center' }}>
           <Reveal>
-            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.125rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 14 }}>Ready to Put This Into Practice?</h2>
+            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.125rem)', fontWeight: 800, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 14 }}>Ready to Put This Into Practice?</h2>
             <p style={{ color: '#64748B', marginBottom: 28, lineHeight: 1.7 }}>Get a free AI Visibility Audit and see exactly where your business is leaking revenue — and what to fix first.</p>
             <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/audit')} className="btn btn-primary">
               Get Your Free Visibility Audit →

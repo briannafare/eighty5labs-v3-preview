@@ -108,7 +108,7 @@ export const AuditPage: React.FC = () => {
               <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'rgba(132,204,22,0.12)', border: '2px solid rgba(132,204,22,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 24 }}>
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#84CC16" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              <h1 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', letterSpacing: '-0.04em', marginBottom: 14, color: '#0F172A', lineHeight: 1.1 }}>
+              <h1 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', letterSpacing: '-0.04em', marginBottom: 14, color: '#0F172A', lineHeight: 1.1 }}>
                 We're On It.
               </h1>
               <p style={{ color: '#334155', lineHeight: 1.7, marginBottom: 8, fontSize: '1.0625rem' }}>
@@ -131,7 +131,7 @@ export const AuditPage: React.FC = () => {
                 <div style={{ width: 40, height: 40, borderRadius: 11, background: 'rgba(27,79,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B4FFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 </div>
-                <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.15rem', color: '#0F172A', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
+                <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.15rem', color: '#0F172A', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
                   Want 10x more value from your audit?
                 </h3>
               </div>
@@ -196,7 +196,7 @@ export const AuditPage: React.FC = () => {
         {/* Header */}
         <AnimatePresence mode="wait">
           <motion.div key={`h-${step}`} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }} style={{ marginBottom: 32 }}>
-            <h1 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.5rem, 3vw, 2rem)', letterSpacing: '-0.04em', lineHeight: 1.15, marginBottom: 8 }}>{STEPS[step].title}</h1>
+            <h1 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(1.5rem, 3vw, 2rem)', letterSpacing: '-0.04em', lineHeight: 1.15, marginBottom: 8 }}>{STEPS[step].title}</h1>
             <p style={{ fontSize: '0.9375rem', color: '#64748B', lineHeight: 1.6 }}>{STEPS[step].sub}</p>
           </motion.div>
         </AnimatePresence>

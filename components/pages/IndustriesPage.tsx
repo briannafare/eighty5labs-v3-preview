@@ -71,7 +71,7 @@ export const IndustriesPage: React.FC = () => (
           </span>
         </Reveal>
         <Reveal delay={0.08}>
-          <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.25rem,5vw,3.75rem)', fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1.08, color: '#0F172A', marginBottom: 24 }}>
+          <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.25rem,5vw,3.75rem)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 1.08, color: '#0F172A', marginBottom: 24 }}>
             Built For<br />
             <span style={{ color: '#1B4FFF' }}>Your</span>{' '}Market.
           </h1>
@@ -100,7 +100,7 @@ export const IndustriesPage: React.FC = () => (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(140px,1fr))', gap: '16px 32px', textAlign: 'center' }}>
           {STATS.map(s => (
             <div key={s.value}>
-              <p style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.25rem,2.5vw,1.75rem)', fontWeight: 900, color: '#1B4FFF', letterSpacing: '-0.03em', marginBottom: 4 }}>{s.value}</p>
+              <p style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.25rem,2.5vw,1.75rem)', fontWeight: 800, color: '#1B4FFF', letterSpacing: '-0.03em', marginBottom: 4 }}>{s.value}</p>
               <p style={{ fontSize: '0.8rem', color: '#94A3B8', letterSpacing: '0.01em' }}>{s.label}</p>
             </div>
           ))}
@@ -113,7 +113,7 @@ export const IndustriesPage: React.FC = () => (
       <div className="wrap">
         <Reveal>
           <p style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: '#94A3B8', marginBottom: 8 }}>Choose Your Industry</p>
-          <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 900, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 12 }}>Every industry has a different problem.</h2>
+          <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 12 }}>Every industry has a different problem.</h2>
           <p style={{ color: '#64748B', fontSize: '0.9375rem', marginBottom: 48 }}>We've built the right solution for each. Click any industry to see exactly how eighty5.OS solves your specific gaps.</p>
         </Reveal>
 
@@ -129,7 +129,7 @@ export const IndustriesPage: React.FC = () => (
                   <span>{ind.icon}</span>
                   <span style={{ fontSize: '0.75rem', color: '#94A3B8', fontWeight: 500 }}>{ind.sub}</span>
                 </div>
-                <h3 style={{ fontFamily: 'var(--fd)', fontSize: '1.375rem', fontWeight: 900, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 10 }}>{ind.label}</h3>
+                <h3 style={{ fontFamily: 'var(--fd)', fontSize: '1.375rem', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 10 }}>{ind.label}</h3>
                 <p style={{ fontSize: '0.9rem', color: '#64748B', lineHeight: 1.65, marginBottom: 24, flex: 1 }}>{ind.desc}</p>
 
                 {/* Key stats */}
@@ -156,7 +156,7 @@ export const IndustriesPage: React.FC = () => (
     <section style={{ padding: 'clamp(48px,5vw,72px) 0', background: '#F7F9FF', borderTop: '1px solid #DDE5F2' }}>
       <div className="wrap" style={{ maxWidth: 620, textAlign: 'center' }}>
         <Reveal>
-          <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>Not sure which plan fits your industry?</h2>
+          <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>Not sure which plan fits your industry?</h2>
           <p style={{ color: '#64748B', marginBottom: 32, lineHeight: 1.7 }}>Get a free AI Visibility Audit — we'll show you exactly where your business stands across all three gaps.</p>
           <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/audit')} className="btn btn-primary">
             Get Your Free Visibility Audit →

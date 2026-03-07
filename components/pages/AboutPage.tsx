@@ -42,7 +42,7 @@ export const AboutPage: React.FC = () => (
             <div style={{ width: 5, height: 5, borderRadius: '50%', background: L.blue2 }} />
             About eighty5labs
           </div>
-          <h1 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '-0.05em', lineHeight: 1.0, marginBottom: 20, color: L.t1 }}>
+          <h1 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '-0.05em', lineHeight: 1.0, marginBottom: 20, color: L.t1 }}>
             We built the system<br />we wish we'd had.
           </h1>
           <p style={{ color: L.t3, fontSize: '1.125rem', lineHeight: 1.7, maxWidth: '55ch' }}>
@@ -61,7 +61,7 @@ export const AboutPage: React.FC = () => (
               <div style={{ width: 5, height: 5, borderRadius: '50%', background: L.blue2 }} />
               The Origin
             </div>
-            <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', letterSpacing: '-0.04em', marginBottom: 20, color: L.t1 }}>
+            <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', letterSpacing: '-0.04em', marginBottom: 20, color: L.t1 }}>
               We've been your client. More than once.
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
@@ -132,10 +132,10 @@ export const AboutPage: React.FC = () => (
               },
             ].map(member => (
               <div key={member.initials} style={{ background: L.bg, border: `1.5px solid ${L.border}`, borderRadius: 'var(--rxl)', padding: 32, boxShadow: '0 1px 4px rgba(15,23,42,0.04)' }}>
-                <div style={{ width: 60, height: 60, borderRadius: '50%', background: L.blue, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.125rem', marginBottom: 18 }}>
+                <div style={{ width: 60, height: 60, borderRadius: '50%', background: L.blue, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.125rem', marginBottom: 18 }}>
                   {member.initials}
                 </div>
-                <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.25rem', letterSpacing: '-0.03em', marginBottom: 6, color: L.t1 }}>{member.name}</div>
+                <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.25rem', letterSpacing: '-0.03em', marginBottom: 6, color: L.t1 }}>{member.name}</div>
                 <div style={{ fontSize: '0.875rem', color: L.t3, marginBottom: 8 }}>{member.role}</div>
                 <div style={{ fontSize: '0.75rem', color: L.blue2, fontWeight: 600, marginBottom: 20 }}>{member.cred}</div>
                 <p style={{ fontSize: '0.875rem', color: L.t3, lineHeight: 1.75, marginBottom: 12 }}>{member.bio1}</p>
@@ -151,7 +151,7 @@ export const AboutPage: React.FC = () => (
     <section style={{ padding: 'clamp(60px,8vw,100px) 48px' }}>
       <div className="wrap">
         <Reveal>
-          <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)', letterSpacing: '-0.04em', marginBottom: 8, color: L.t1 }}>
+          <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)', letterSpacing: '-0.04em', marginBottom: 8, color: L.t1 }}>
             Don't Take Our Word For It.
           </h2>
           <p style={{ color: L.t3, marginBottom: 40 }}>Here's what happens when local businesses close all three gaps and run a real system.</p>
@@ -161,7 +161,7 @@ export const AboutPage: React.FC = () => (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 20, marginBottom: 56 }}>
             {STATS.map(item => (
               <div key={item.stat} style={{ background: L.bg2, border: `1.5px solid ${L.border}`, borderRadius: 'var(--rl)', padding: '24px 20px' }}>
-                <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '2.25rem', letterSpacing: '-0.05em', color: L.blue, marginBottom: 8 }}>{item.stat}</div>
+                <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '2.25rem', letterSpacing: '-0.05em', color: L.blue, marginBottom: 8 }}>{item.stat}</div>
                 <div style={{ fontSize: '0.8125rem', color: L.t3, lineHeight: 1.6 }}>{item.context}</div>
               </div>
             ))}

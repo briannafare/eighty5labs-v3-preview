@@ -99,7 +99,7 @@ export const DashboardMockup: React.FC = () => (
                 <div style={{ fontSize: '0.56rem', color: '#334155', marginBottom: 3 }}>{kpi.label}</div>
                 <div style={{
                   fontFamily: "var(--fd, 'Epilogue', sans-serif)",
-                  fontWeight: 900,
+                  fontWeight: 800,
                   fontSize: '1.25rem',
                   color: '#fff',
                   letterSpacing: '-0.03em',
@@ -189,7 +189,7 @@ export const DashboardMockup: React.FC = () => (
                   <div style={{ fontSize: '0.54rem', color: 'rgba(255,255,255,0.75)', marginBottom: 3 }}>{item.label}</div>
                   <div style={{
                     fontFamily: "var(--fd, 'Epilogue', sans-serif)",
-                    fontWeight: 900,
+                    fontWeight: 800,
                     fontSize: '0.9rem',
                     color: '#fff',
                   }}>{item.value}</div>

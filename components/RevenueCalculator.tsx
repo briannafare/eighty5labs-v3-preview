@@ -44,7 +44,7 @@ export const RevenueCalculator: React.FC = () => {
 
         <h3 style={{
           fontFamily: "var(--fd, 'Epilogue', sans-serif)",
-          fontWeight: 900,
+          fontWeight: 800,
           fontSize: '1.2rem',
           color: '#fff',
           letterSpacing: '-0.025em',
@@ -101,7 +101,7 @@ export const RevenueCalculator: React.FC = () => {
 
         <div style={{
           fontFamily: "var(--fd, 'Epilogue', sans-serif)",
-          fontWeight: 900,
+          fontWeight: 800,
           fontSize: '2.6rem',
           letterSpacing: '-0.05em',
           color: '#fff',

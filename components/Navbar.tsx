@@ -60,7 +60,7 @@ export const Navbar: React.FC = () => {
             href="/"
             onClick={e => { e.preventDefault(); navigate('/'); }}
             style={{
-              fontFamily: 'var(--fd)',
+              fontFamily: 'var(--fl)',
               fontSize: '1.2rem',
               fontWeight: 900,
               color: 'var(--td1)',

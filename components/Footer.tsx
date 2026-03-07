@@ -28,7 +28,7 @@ export const Footer: React.FC = () => {
       }} className="footer-grid">
         <div>
           <a href="/" onClick={e => { e.preventDefault(); navigate('/'); }} style={{
-            fontFamily: 'var(--fd)', fontSize: '1.1rem', fontWeight: 900, letterSpacing: '-0.04em',
+            fontFamily: 'var(--fl)', fontSize: '1.1rem', fontWeight: 900, letterSpacing: '-0.04em',
             color: '#fff', textDecoration: 'none', display: 'block', marginBottom: 10,
           }}>
             eighty<span style={{ color: '#1B4FFF' }}>5</span>labs
@@ -113,7 +113,7 @@ const SocialIcon = ({ href, label, style, children }: { href: string; label: str
 const FooterCol = ({ title, links }: { title: string; links: { label: string; route: string }[] }) => (
   <div>
     <h4 style={{
-      fontFamily: 'var(--fd)', fontSize: '0.68rem', fontWeight: 900,
+      fontFamily: 'var(--fd)', fontSize: '0.68rem', fontWeight: 800,
       letterSpacing: '0.1em', textTransform: 'uppercase', color: '#FFFFFF', marginBottom: 14,
     }}>{title}</h4>
     <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>

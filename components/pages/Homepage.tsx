@@ -198,7 +198,7 @@ const GapCards: React.FC = () => {
               color: active === i ? gap.color : '#94A3B8', transition: 'all 0.25s', flexShrink: 0,
             }}>{tabIcons[i]}</span>
             <span style={{
-              fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.78rem',
+              fontFamily: 'var(--fd)', fontWeight: 600, fontSize: '0.78rem',
               color: active === i ? 'var(--td1)' : '#94A3B8',
               letterSpacing: '-0.01em', transition: 'color 0.25s',
             }}>{gap.label}</span>
@@ -214,7 +214,7 @@ const GapCards: React.FC = () => {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: 28, alignItems: 'start' }} className="gap-card-grid">
             <div>
               <div style={{ fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' as const, color: g.color, marginBottom: 6 }}>Gap {g.num} — {g.label}</div>
-              <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.05rem, 1.6vw, 1.25rem)', color: 'var(--td1)', letterSpacing: '-0.03em', lineHeight: 1.2, marginBottom: 8 }}>{g.headline}</h3>
+              <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(1.05rem, 1.6vw, 1.25rem)', color: 'var(--td1)', letterSpacing: '-0.03em', lineHeight: 1.2, marginBottom: 8 }}>{g.headline}</h3>
               <p style={{ fontSize: '0.85rem', color: 'var(--td2)', lineHeight: 1.65, maxWidth: '46ch' }}>{g.body}</p>
               <div style={{ display: 'flex', alignItems: 'center', gap: 7, marginTop: 12 }}>
                 <div style={{ width: 16, height: 16, borderRadius: 4, background: `${g.color}1A`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
@@ -224,7 +224,7 @@ const GapCards: React.FC = () => {
               </div>
             </div>
             <div style={{ textAlign: 'right' as const, minWidth: 110, paddingTop: 2 }}>
-              <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', lineHeight: 1, letterSpacing: '-0.04em', color: g.color, marginBottom: 4 }}>{g.stat}</div>
+              <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', lineHeight: 1, letterSpacing: '-0.04em', color: g.color, marginBottom: 4 }}>{g.stat}</div>
               <div style={{ fontSize: '0.68rem', color: 'var(--td3)', lineHeight: 1.35, maxWidth: '15ch', marginLeft: 'auto' }}>{g.statLabel}</div>
             </div>
           </div>
@@ -263,7 +263,7 @@ const ThreeGapsFramework: React.FC = () => {
                 </div>
                 <div>
                   <div style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase' as const, color: gap.color, marginBottom: 3 }}>Step {gap.num}</div>
-                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.05rem', color: 'var(--td1)', letterSpacing: '-0.02em', lineHeight: 1.2 }}>{gap.label}</div>
+                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.05rem', color: 'var(--td1)', letterSpacing: '-0.02em', lineHeight: 1.2 }}>{gap.label}</div>
                 </div>
               </div>
 
@@ -295,7 +295,7 @@ const ThreeGapsFramework: React.FC = () => {
                 background: `${gap.color}06`, border: `1px solid ${gap.color}18`,
                 marginBottom: 16,
               }}>
-                <span style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.5rem', lineHeight: 1, letterSpacing: '-0.04em', color: gap.color }}>{gap.stat}</span>
+                <span style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.5rem', lineHeight: 1, letterSpacing: '-0.04em', color: gap.color }}>{gap.stat}</span>
                 <span style={{ fontSize: '0.72rem', color: 'var(--td3)', lineHeight: 1.4 }}>{gap.statLabel}</span>
               </div>
 
@@ -348,8 +348,8 @@ const IndustryTabs: React.FC = () => {
 
   return (
     <div>
-      {/* Tab buttons */}
-      <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' as const, marginBottom: 0 }}>
+      {/* Tab buttons — modern flat style */}
+      <div style={{ display: 'flex', gap: 0, borderBottom: '1.5px solid var(--ls-border)', marginBottom: 0, overflowX: 'auto' }}>
         {INDUSTRIES.map((item, i) => {
           const isActive = active === i;
           return (
@@ -358,16 +358,14 @@ const IndustryTabs: React.FC = () => {
               onClick={() => setActive(i)}
               style={{
                 display: 'flex', alignItems: 'center', gap: 8,
-                padding: '10px 18px',
-                borderRadius: '12px 12px 0 0',
-                border: `1.5px solid ${isActive ? 'var(--ls-border)' : 'transparent'}`,
-                borderBottom: isActive ? '1.5px solid #fff' : '1.5px solid transparent',
-                background: isActive ? '#fff' : 'transparent',
+                padding: '13px 20px',
+                background: 'transparent',
+                border: 'none',
+                borderBottom: `2px solid ${isActive ? 'var(--blue)' : 'transparent'}`,
                 cursor: 'pointer',
                 transition: 'all 0.2s',
-                position: 'relative' as const,
-                zIndex: isActive ? 2 : 1,
                 marginBottom: -1.5,
+                whiteSpace: 'nowrap',
               }}
             >
               <span style={{
@@ -375,8 +373,8 @@ const IndustryTabs: React.FC = () => {
                 display: 'flex', alignItems: 'center', transition: 'color 0.2s',
               }}>{item.icon}</span>
               <span style={{
-                fontFamily: 'var(--fd)', fontWeight: 700,
-                fontSize: '0.82rem', letterSpacing: '-0.01em',
+                fontFamily: 'var(--fd)', fontWeight: 600,
+                fontSize: '0.84rem', letterSpacing: '-0.01em',
                 color: isActive ? 'var(--td1)' : 'var(--td3)',
                 transition: 'color 0.2s',
               }}>{item.label}</span>
@@ -400,7 +398,7 @@ const IndustryTabs: React.FC = () => {
             {/* Left: detail content */}
             <div style={{ padding: 'clamp(24px, 3vw, 36px)' }}>
               <div style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.13em', textTransform: 'uppercase' as const, color: 'var(--blue)', marginBottom: 8 }}>{ind.sub}</div>
-              <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.1rem, 1.8vw, 1.35rem)', color: 'var(--td1)', letterSpacing: '-0.03em', lineHeight: 1.2, marginBottom: 14 }}>{ind.label}</h3>
+              <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(1.1rem, 1.8vw, 1.35rem)', color: 'var(--td1)', letterSpacing: '-0.03em', lineHeight: 1.2, marginBottom: 14 }}>{ind.label}</h3>
               <p style={{ fontSize: '0.88rem', color: 'var(--td2)', lineHeight: 1.7, marginBottom: 24, maxWidth: '52ch' }}>{ind.detail}</p>
               <motion.a
                 href={ind.route}
@@ -422,7 +420,7 @@ const IndustryTabs: React.FC = () => {
             }}>
               {ind.stats.map((s, j) => (
                 <div key={j}>
-                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.4rem', letterSpacing: '-0.04em', color: 'var(--blue)', lineHeight: 1 }}>{s.val}</div>
+                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.4rem', letterSpacing: '-0.04em', color: 'var(--blue)', lineHeight: 1 }}>{s.val}</div>
                   <div style={{ fontSize: '0.68rem', color: 'var(--td3)', marginTop: 4 }}>{s.label}</div>
                 </div>
               ))}
@@ -450,7 +448,7 @@ const PlatformTabs: React.FC = () => {
 
   return (
     <div>
-      {/* Gap tab bar */}
+      {/* Gap tab bar — modern flat style */}
       <div style={{ display: 'flex', gap: 0, borderBottom: '1.5px solid var(--ls-border)', marginBottom: 0 }}>
         {GAP_TABS.map(gap => {
           const isActive = activeGap === gap.num;
@@ -461,26 +459,26 @@ const PlatformTabs: React.FC = () => {
               style={{
                 flex: 1,
                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
-                padding: '14px 16px',
+                padding: '13px 16px',
                 background: 'transparent',
                 border: 'none',
-                borderBottom: `2.5px solid ${isActive ? gap.color : 'transparent'}`,
+                borderBottom: `2px solid ${isActive ? gap.color : 'transparent'}`,
                 cursor: 'pointer',
                 transition: 'all 0.2s',
                 marginBottom: -1.5,
               }}
             >
               <span style={{
-                width: 22, height: 22, borderRadius: '50%',
+                width: 20, height: 20, borderRadius: '50%',
                 background: isActive ? gap.color : 'var(--ls2)',
                 color: isActive ? '#fff' : 'var(--td3)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontFamily: 'var(--fd)', fontSize: '0.6rem', fontWeight: 900,
+                fontFamily: 'var(--fd)', fontSize: '0.58rem', fontWeight: 700,
                 transition: 'all 0.2s', flexShrink: 0,
               }}>{gap.num}</span>
               <span style={{
-                fontFamily: 'var(--fd)', fontWeight: 800,
-                fontSize: '0.82rem', letterSpacing: '-0.01em',
+                fontFamily: 'var(--fd)', fontWeight: 600,
+                fontSize: '0.84rem', letterSpacing: '-0.01em',
                 color: isActive ? 'var(--td1)' : 'var(--td3)',
                 transition: 'color 0.2s',
               }}>{gap.label}</span>
@@ -558,7 +556,7 @@ export const Homepage: React.FC = () => {
 
           {/* H1 */}
           <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.06, ease: [0.16, 1, 0.3, 1] }}
-            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.1rem, 4.5vw, 3.5rem)', fontWeight: 900, letterSpacing: '-0.05em', lineHeight: 1.08, color: 'var(--td1)', textAlign: 'center', maxWidth: '18ch', marginInline: 'auto', marginBottom: 18 }}>
+            style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.1rem, 4.5vw, 3.5rem)', fontWeight: 800, letterSpacing: '-0.05em', lineHeight: 1.08, color: 'var(--td1)', textAlign: 'center', maxWidth: '18ch', marginInline: 'auto', marginBottom: 18 }}>
             Close the gaps.{' '}
             <span style={{ display: 'block', marginTop: 2, background: 'linear-gradient(120deg, #1B4FFF 0%, #5B8EFF 50%, #8B5CF6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
               Recover the revenue.
@@ -743,7 +741,7 @@ export const Homepage: React.FC = () => {
                     width: 28, height: 28, borderRadius: '50%',
                     background: 'var(--blue)', color: '#fff',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '0.7rem',
+                    fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.7rem',
                     boxShadow: '0 2px 8px rgba(27,79,255,0.30)',
                   }}>{step.num}</div>
                   <div style={{
@@ -822,7 +820,7 @@ export const Homepage: React.FC = () => {
             {TESTIMONIALS.map((t, i) => (
               <Reveal key={i} delay={i * 0.1}>
                 <div className="card-light" style={{ height: '100%' }}>
-                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.7rem', letterSpacing: '-0.04em', marginBottom: 3, color: 'var(--blue)' }}>{t.metric}</div>
+                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.7rem', letterSpacing: '-0.04em', marginBottom: 3, color: 'var(--blue)' }}>{t.metric}</div>
                   <div style={{ fontSize: '0.72rem', color: 'var(--td3)', marginBottom: 18 }}>{t.metricLabel}</div>
                   <p style={{ fontSize: '0.9rem', color: 'var(--td2)', lineHeight: 1.6, marginBottom: 22, fontStyle: 'italic' }}>"{t.quote}"</p>
                   <div style={{ paddingTop: 16, borderTop: '1px solid var(--ls-border)' }}>
@@ -879,7 +877,7 @@ export const Homepage: React.FC = () => {
               <span style={{ display: 'inline-block', width: 20, height: 1, background: 'rgba(255,255,255,0.2)' }} />
             </div>
 
-            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.8rem, 5.5vw, 4.2rem)', fontWeight: 900, letterSpacing: '-0.052em', lineHeight: 1.04, color: '#fff', marginBottom: 16, maxWidth: '14ch', marginInline: 'auto' }}>
+            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.8rem, 5.5vw, 4.2rem)', fontWeight: 800, letterSpacing: '-0.052em', lineHeight: 1.04, color: '#fff', marginBottom: 16, maxWidth: '14ch', marginInline: 'auto' }}>
               Close the revenue gaps.
             </h2>
             <p style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.3rem, 2.5vw, 1.9rem)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.2, background: 'linear-gradient(120deg, #4F8EF7 0%, #8B5CF6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', marginBottom: 28 }}>

@@ -130,7 +130,7 @@ export default function GlossaryPage() {
         <div className="wrap" style={{ maxWidth: 680, textAlign: 'center' }}>
           <Reveal>
             <span style={{ display: 'inline-block', background: 'rgba(167,139,250,0.1)', color: '#A78BFA', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '5px 12px', borderRadius: 6, marginBottom: 16 }}>2026 Edition · Published by eighty5labs</span>
-            <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>
+            <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 800, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>
               The AI & Local Search<br />Glossary
             </h1>
             <p style={{ color: '#64748B', fontSize: '1rem', lineHeight: 1.7, marginBottom: 20 }}>
@@ -178,7 +178,7 @@ export default function GlossaryPage() {
               <div key={cat} style={{ marginBottom: 48 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
                   <div style={{ width: 4, height: 28, borderRadius: 2, background: CAT_COLOR[cat] || 'var(--blue)' }} />
-                  <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.125rem', color: '#0F172A', letterSpacing: '-0.02em' }}>{cat}</h2>
+                  <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.125rem', color: '#0F172A', letterSpacing: '-0.02em' }}>{cat}</h2>
                   <span style={{ fontSize: '0.8rem', color: '#94A3B8', background: '#F7F9FF', border: '1px solid #DDE5F2', borderRadius: 20, padding: '2px 10px' }}>{terms.length}</span>
                 </div>
                 {cat === 'GEO, AEO & AI Visibility' && activeCategory === 'All Terms' && (
@@ -209,7 +209,7 @@ export default function GlossaryPage() {
       <section style={{ padding: 'clamp(48px,5vw,72px) 0', background: '#F7F9FF', borderTop: '1px solid #DDE5F2' }}>
         <div className="wrap" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: 32, alignItems: 'center' }}>
           <div>
-            <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 10 }}>Can't find a term? Have a question?</h2>
+            <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 10 }}>Can't find a term? Have a question?</h2>
             <p style={{ color: '#64748B', lineHeight: 1.7 }}>Our team stays at the forefront of AI search, local visibility, and marketing automation so you don't have to.</p>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-start' }}>

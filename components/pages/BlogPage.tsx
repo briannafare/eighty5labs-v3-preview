@@ -155,7 +155,7 @@ export default function BlogPage() {
         <div className="wrap" style={{ maxWidth: 680, textAlign: 'center' }}>
           <Reveal>
             <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#1B4FFF', marginBottom: 12 }}>Blog & Resources</p>
-            <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>
+            <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 800, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>
               Insights for Local Businesses<br />That Want to Win.
             </h1>
             <p style={{ color: '#64748B', fontSize: '1rem', lineHeight: 1.7 }}>
@@ -189,7 +189,7 @@ export default function BlogPage() {
               <div style={{ marginBottom: 36, padding: '28px 32px', background: 'linear-gradient(135deg,rgba(167,139,250,0.08) 0%,rgba(27,79,255,0.06) 100%)', border: '1.5px solid rgba(167,139,250,0.25)', borderRadius: 16, position: 'relative', overflow: 'hidden' }}>
                 <div style={{ position: 'absolute', top: 0, right: 0, width: 120, height: 120, borderRadius: '50%', background: 'rgba(167,139,250,0.08)', transform: 'translate(30px,-30px)' }} />
                 <span style={{ display: 'inline-block', background: 'rgba(167,139,250,0.15)', color: '#A78BFA', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', padding: '4px 10px', borderRadius: 6, marginBottom: 14 }}>⭐ Featured Article</span>
-                <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.25rem,2.5vw,1.625rem)', fontWeight: 900, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 12 }}>{FEATURED_POST.title}</h2>
+                <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.25rem,2.5vw,1.625rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 12 }}>{FEATURED_POST.title}</h2>
                 <p style={{ color: '#64748B', lineHeight: 1.7, marginBottom: 20, fontSize: '0.9375rem' }}>{FEATURED_POST.desc}</p>
                 <div style={{ display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
                   <span style={{ fontSize: '0.8125rem', color: '#94A3B8' }}>{FEATURED_POST.author} · {FEATURED_POST.read}</span>
@@ -237,7 +237,7 @@ export default function BlogPage() {
 
           {/* Newsletter */}
           <div style={{ padding: '24px', background: '#F7F9FF', border: '1.5px solid #DDE5F2', borderRadius: 14 }}>
-            <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1rem', color: '#0F172A', marginBottom: 8, letterSpacing: '-0.02em' }}>Get the AI Edge.</h3>
+            <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1rem', color: '#0F172A', marginBottom: 8, letterSpacing: '-0.02em' }}>Get the AI Edge.</h3>
             <p style={{ fontSize: '0.8375rem', color: '#64748B', marginBottom: 16, lineHeight: 1.6 }}>Weekly insights on Google Maps, AI search, and local business growth. No fluff.</p>
             {subscribed ? (
               <p style={{ fontSize: '0.875rem', color: '#84CC16', fontWeight: 600 }}>✓ You're in. Check your inbox.</p>
@@ -256,7 +256,7 @@ export default function BlogPage() {
 
           {/* Browse by topic */}
           <div style={{ padding: '24px', background: '#F7F9FF', border: '1.5px solid #DDE5F2', borderRadius: 14 }}>
-            <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '0.9375rem', color: '#0F172A', marginBottom: 16, letterSpacing: '-0.02em' }}>Browse by Topic</h3>
+            <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.9375rem', color: '#0F172A', marginBottom: 16, letterSpacing: '-0.02em' }}>Browse by Topic</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               {TAGS.map(tag => (
                 <button key={tag} onClick={() => setActiveTag(tag)}
@@ -270,11 +270,11 @@ export default function BlogPage() {
 
           {/* Most popular */}
           <div style={{ padding: '24px', background: '#F7F9FF', border: '1.5px solid #DDE5F2', borderRadius: 14 }}>
-            <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '0.9375rem', color: '#0F172A', marginBottom: 16, letterSpacing: '-0.02em' }}>Most Popular</h3>
+            <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.9375rem', color: '#0F172A', marginBottom: 16, letterSpacing: '-0.02em' }}>Most Popular</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               {POPULAR.map((p, i) => (
                 <div key={p.title} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-                  <span style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.125rem', color: '#94A3B8', minWidth: 20, lineHeight: 1.3 }}>0{i + 1}</span>
+                  <span style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.125rem', color: '#94A3B8', minWidth: 20, lineHeight: 1.3 }}>0{i + 1}</span>
                   <div>
                     <p style={{ fontSize: '0.8375rem', color: '#334155', fontWeight: 600, lineHeight: 1.4, marginBottom: 4 }}>{p.title}</p>
                     <div style={{ display: 'flex', gap: 8 }}>
@@ -289,7 +289,7 @@ export default function BlogPage() {
 
           {/* Mini CTA */}
           <div style={{ padding: '20px 24px', background: 'rgba(27,79,255,0.06)', border: '1.5px solid rgba(27,79,255,0.2)', borderRadius: 14, textAlign: 'center' }}>
-            <p style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '0.9375rem', color: '#0F172A', marginBottom: 8 }}>Stop Guessing. Get the Audit.</p>
+            <p style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.9375rem', color: '#0F172A', marginBottom: 8 }}>Stop Guessing. Get the Audit.</p>
             <p style={{ fontSize: '0.8125rem', color: '#64748B', marginBottom: 16, lineHeight: 1.5 }}>Free AI Visibility Audit — 30 minutes, no pitch.</p>
             <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/audit')} className="btn btn-primary">
               Book Free Visibility Audit →

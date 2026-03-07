@@ -122,7 +122,7 @@ export const OptInPage: React.FC = () => {
         <div style={{ textAlign: 'center', marginBottom: 20 }}>
           <a href="/" onClick={e => { e.preventDefault(); navigate('/'); }} style={{
             fontFamily: 'var(--fd)',
-            fontSize: '1.125rem', fontWeight: 900, color: '#0F172A', textDecoration: 'none',
+            fontSize: '1.125rem', fontWeight: 800, color: '#0F172A', textDecoration: 'none',
             letterSpacing: '-0.04em',
           }}>
             eighty<span style={{ color: '#4F8EF7' }}>5</span>labs
@@ -131,7 +131,7 @@ export const OptInPage: React.FC = () => {
 
         {/* Heading */}
         <div style={{ textAlign: 'center', marginBottom: 24 }}>
-          <h1 style={{ fontSize: 'clamp(1.375rem, 3.5vw, 2rem)', fontWeight: 900, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 10 }}>
+          <h1 style={{ fontSize: 'clamp(1.375rem, 3.5vw, 2rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 10 }}>
             Aida LLC &ndash; Appointment Updates &amp; SMS Alerts
           </h1>
           <p style={{ fontSize: '0.875rem', color: '#334155', lineHeight: 1.65, maxWidth: '50ch', marginInline: 'auto' }}>

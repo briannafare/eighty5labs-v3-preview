@@ -70,7 +70,7 @@ const RevenueCalc: React.FC = () => {
   return (
     <div style={{ padding: 'clamp(28px,3vw,36px)', background: '#F7F9FF', border: '1.5px solid #DDE5F2', borderRadius: 'var(--rdl)' }}>
       <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: '#94A3B8', marginBottom: 6 }}>Revenue Recovery Calculator</p>
-      <h3 style={{ fontFamily: 'var(--fd)', fontSize: '1.125rem', fontWeight: 900, color: '#0F172A', letterSpacing: '-0.02em', marginBottom: 24 }}>What's it actually worth?</h3>
+      <h3 style={{ fontFamily: 'var(--fd)', fontSize: '1.125rem', fontWeight: 800, color: '#0F172A', letterSpacing: '-0.02em', marginBottom: 24 }}>What's it actually worth?</h3>
 
       {slider('Monthly leads', leads, setLeads, 20, 500, 5, v => `${v}`)}
       {slider('Average deal value', dealValue, setDealValue, 500, 25000, 500, v => `$${v.toLocaleString()}`)}
@@ -85,14 +85,14 @@ const RevenueCalc: React.FC = () => {
         ].map(row => (
           <div key={row.label} style={{ background: '#F7F9FF', borderRadius: 10, padding: '14px 16px' }}>
             <p style={{ fontSize: '0.7rem', color: '#94A3B8', marginBottom: 4 }}>{row.label}</p>
-            <p style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.125rem', color: row.color }}>{row.val}</p>
+            <p style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.125rem', color: row.color }}>{row.val}</p>
           </div>
         ))}
       </div>
       <div style={{ marginTop: 12, background: 'rgba(27,79,255,0.08)', border: '1px solid rgba(27,79,255,0.25)', borderRadius: 10, padding: '16px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
           <p style={{ fontSize: '0.7rem', color: '#94A3B8', marginBottom: 4 }}>Annual Upside</p>
-          <p style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.5rem', color: '#1B4FFF', letterSpacing: '-0.03em' }}>${annualUpside.toLocaleString()}</p>
+          <p style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.5rem', color: '#1B4FFF', letterSpacing: '-0.03em' }}>${annualUpside.toLocaleString()}</p>
         </div>
         <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/audit')}
           style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.8125rem', color: 'white', background: '#1B4FFF', border: 'none', borderRadius: 8, padding: '10px 16px', cursor: 'pointer', whiteSpace: 'nowrap' as const }}>
@@ -148,7 +148,7 @@ export const IndustryPage: React.FC<{ data: IndustryPageData }> = ({ data }) => 
                 </span>
               </Reveal>
               <Reveal delay={0.08}>
-                <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1.08, color: '#0F172A', marginBottom: 20 }}>
+                <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 1.08, color: '#0F172A', marginBottom: 20 }}>
                   {data.heroH1}
                 </h1>
               </Reveal>
@@ -176,7 +176,7 @@ export const IndustryPage: React.FC<{ data: IndustryPageData }> = ({ data }) => 
           <div style={{ display: 'grid', gridTemplateColumns: `repeat(${data.stats.length},1fr)`, gap: '12px 24px', textAlign: 'center' }}>
             {data.stats.map(s => (
               <div key={s.value}>
-                <p style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.25rem,2vw,1.625rem)', fontWeight: 900, color: accent, letterSpacing: '-0.03em', marginBottom: 4 }}>{s.value}</p>
+                <p style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.25rem,2vw,1.625rem)', fontWeight: 800, color: accent, letterSpacing: '-0.03em', marginBottom: 4 }}>{s.value}</p>
                 <p style={{ fontSize: '0.75rem', color: '#94A3B8' }}>{s.label}</p>
               </div>
             ))}
@@ -193,7 +193,7 @@ export const IndustryPage: React.FC<{ data: IndustryPageData }> = ({ data }) => 
             <div>
               <Reveal>
                 <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: '#94A3B8', marginBottom: 8 }}>The Problem</p>
-                <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', fontWeight: 900, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 20 }}>{data.problemTitle}</h2>
+                <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 20 }}>{data.problemTitle}</h2>
               </Reveal>
               {data.problemBody.map((para, i) => (
                 <Reveal key={i} delay={i * 0.05}>
@@ -212,7 +212,7 @@ export const IndustryPage: React.FC<{ data: IndustryPageData }> = ({ data }) => 
             <div>
               <Reveal>
                 <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: '#94A3B8', marginBottom: 8 }}>The Solution</p>
-                <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', fontWeight: 900, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 20 }}>The eighty5.OS Systems Built for {data.label}</h2>
+                <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 20 }}>The eighty5.OS Systems Built for {data.label}</h2>
               </Reveal>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                 {data.systems.map((sys, i) => (
@@ -249,7 +249,7 @@ export const IndustryPage: React.FC<{ data: IndustryPageData }> = ({ data }) => 
         <div className="wrap" style={{ maxWidth: 760 }}>
           <Reveal>
             <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: '#94A3B8', marginBottom: 8 }}>Common Questions</p>
-            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', fontWeight: 900, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 32 }}>Questions About eighty5labs for {data.label}</h2>
+            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 32 }}>Questions About eighty5labs for {data.label}</h2>
           </Reveal>
           {data.faqs.map(faq => (
             <FAQItem key={faq.q} q={faq.q} a={faq.a} />
@@ -261,7 +261,7 @@ export const IndustryPage: React.FC<{ data: IndustryPageData }> = ({ data }) => 
       <section style={{ padding: 'clamp(48px,5vw,72px) 0', background: '#F7F9FF', borderTop: '1px solid #DDE5F2' }}>
         <div className="wrap" style={{ maxWidth: 620, textAlign: 'center' }}>
           <Reveal>
-            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>{data.ctaTitle}</h2>
+            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>{data.ctaTitle}</h2>
             <p style={{ color: '#64748B', marginBottom: 32, lineHeight: 1.7, fontSize: '0.9375rem' }}>{data.ctaBody}</p>
             <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/audit')} className="btn btn-primary">
               Book Your Free Visibility Audit →

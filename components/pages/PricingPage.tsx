@@ -144,7 +144,7 @@ export const PricingPage: React.FC = () => {
             <div style={{ width: 5, height: 5, borderRadius: '50%', background: L.blue2 }} />
             Transparent Pricing
           </div>
-          <h1 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(2.2rem, 4.5vw, 3.2rem)', letterSpacing: '-0.04em', color: L.t1, marginBottom: 14, lineHeight: 1.07 }}>
+          <h1 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(2.2rem, 4.5vw, 3.2rem)', letterSpacing: '-0.04em', color: L.t1, marginBottom: 14, lineHeight: 1.07 }}>
             Simple Plans. Real Results.
           </h1>
           <p style={{ color: L.t2, fontSize: '1.0625rem', lineHeight: 1.8, maxWidth: 520, marginInline: 'auto', marginBottom: 36 }}>
@@ -197,7 +197,7 @@ export const PricingPage: React.FC = () => {
                   {plan.featured && (
                     <div style={{
                       position: 'absolute', top: -14, left: '50%', transform: 'translateX(-50%)',
-                      background: L.blue, color: '#fff', fontSize: '0.6rem', fontWeight: 900,
+                      background: L.blue, color: '#fff', fontSize: '0.6rem', fontWeight: 800,
                       letterSpacing: '0.1em', textTransform: 'uppercase',
                       padding: '5px 20px', borderRadius: 100, whiteSpace: 'nowrap',
                       boxShadow: '0 2px 10px rgba(27,79,255,0.3)',
@@ -205,21 +205,21 @@ export const PricingPage: React.FC = () => {
                   )}
 
                   <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: plan.featured ? L.blue2 : L.t4, marginBottom: 7 }}>{plan.tier}</div>
-                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.45rem', color: L.t1, letterSpacing: '-0.03em', marginBottom: 5 }}>{plan.name}</div>
+                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.45rem', color: L.t1, letterSpacing: '-0.03em', marginBottom: 5 }}>{plan.name}</div>
                   <p style={{ fontSize: '0.8125rem', color: L.t2, lineHeight: 1.6, marginBottom: 22, minHeight: 42 }}>{plan.tag}</p>
 
                   {/* Price */}
                   <div style={{ marginBottom: 3 }}>
                     {plan.monthlyPrice ? (
                       <div style={{ display: 'flex', alignItems: 'baseline', gap: 2 }}>
-                        <span style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.1rem', color: L.t2, paddingTop: 7 }}>$</span>
-                        <span style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '3.2rem', color: L.t1, letterSpacing: '-0.05em', lineHeight: 1 }}>
+                        <span style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.1rem', color: L.t2, paddingTop: 7 }}>$</span>
+                        <span style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '3.2rem', color: L.t1, letterSpacing: '-0.05em', lineHeight: 1 }}>
                           {annual ? plan.annualPrice : plan.monthlyPrice}
                         </span>
                         <span style={{ fontSize: '0.8125rem', color: L.t4, marginLeft: 3 }}>/mo</span>
                       </div>
                     ) : (
-                      <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '2.8rem', letterSpacing: '-0.04em', color: L.t1 }}>Custom</div>
+                      <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '2.8rem', letterSpacing: '-0.04em', color: L.t1 }}>Custom</div>
                     )}
                     <div style={{ fontSize: '0.74rem', color: L.t4, marginBottom: 3, minHeight: 18 }}>
                       {annual && plan.annualPrice ? 'Billed annually' : plan.monthlyPrice ? 'Billed monthly' : 'Scoped to your business'}
@@ -282,7 +282,7 @@ export const PricingPage: React.FC = () => {
                 <div style={{ width: 5, height: 5, borderRadius: '50%', background: L.blue2 }} />
                 Full Comparison
               </div>
-              <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.75rem, 3vw, 2.4rem)', letterSpacing: '-0.04em', color: L.t1, lineHeight: 1.07 }}>
+              <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(1.75rem, 3vw, 2.4rem)', letterSpacing: '-0.04em', color: L.t1, lineHeight: 1.07 }}>
                 What's Included in Each Plan
               </h2>
             </div>
@@ -293,9 +293,9 @@ export const PricingPage: React.FC = () => {
                 <thead>
                   <tr>
                     <th style={{ textAlign: 'left', padding: '16px 20px', color: L.t3, fontWeight: 500, fontSize: '0.74rem', borderBottom: `2px solid ${L.border}`, width: '38%' }}>Feature</th>
-                    <th style={{ textAlign: 'center', padding: '16px 20px', fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '0.8125rem', color: L.t1, borderBottom: `2px solid ${L.border}` }}>Visibility</th>
-                    <th style={{ textAlign: 'center', padding: '16px 20px', fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '0.8125rem', color: L.blue, background: L.blueLt, borderBottom: `2px solid ${L.border}` }}>Growth</th>
-                    <th style={{ textAlign: 'center', padding: '16px 20px', fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '0.8125rem', color: L.t1, borderBottom: `2px solid ${L.border}` }}>Dominate</th>
+                    <th style={{ textAlign: 'center', padding: '16px 20px', fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.8125rem', color: L.t1, borderBottom: `2px solid ${L.border}` }}>Visibility</th>
+                    <th style={{ textAlign: 'center', padding: '16px 20px', fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.8125rem', color: L.blue, background: L.blueLt, borderBottom: `2px solid ${L.border}` }}>Growth</th>
+                    <th style={{ textAlign: 'center', padding: '16px 20px', fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.8125rem', color: L.t1, borderBottom: `2px solid ${L.border}` }}>Dominate</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -332,7 +332,7 @@ export const PricingPage: React.FC = () => {
                 <div style={{ width: 5, height: 5, borderRadius: '50%', background: L.blue2 }} />
                 Optional Add-Ons
               </div>
-              <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.75rem, 3vw, 2.4rem)', letterSpacing: '-0.04em', color: L.t1, lineHeight: 1.07 }}>
+              <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(1.75rem, 3vw, 2.4rem)', letterSpacing: '-0.04em', color: L.t1, lineHeight: 1.07 }}>
                 Build Your Own Stack
               </h2>
               <p style={{ color: L.t2, marginTop: 12 }}>Add individual modules to any plan. Pay only for what you need.</p>
@@ -348,10 +348,10 @@ export const PricingPage: React.FC = () => {
                 <motion.div key={addon.name} whileHover={{ y: -2 }} transition={{ duration: 0.2 }}
                   style={{ background: L.bg2, border: `1.5px solid ${L.border}`, borderRadius: 'var(--rl)', padding: '26px 24px', transition: 'all 0.2s' }}>
                   <div style={{ fontSize: '1.25rem', marginBottom: 13 }}>{addon.icon}</div>
-                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '0.975rem', color: L.t1, marginBottom: 3, letterSpacing: '-0.02em' }}>{addon.name}</div>
+                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.975rem', color: L.t1, marginBottom: 3, letterSpacing: '-0.02em' }}>{addon.name}</div>
                   <div style={{ fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: L.blue2, marginBottom: 9 }}>{addon.tag}</div>
                   <p style={{ fontSize: '0.8125rem', color: L.t2, lineHeight: 1.75, marginBottom: 16 }}>{addon.body}</p>
-                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '1.1rem', color: L.t1 }}>
+                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.1rem', color: L.t1 }}>
                     {addon.price}<span style={{ fontSize: '0.78rem', color: L.t4, fontWeight: 400 }}>{addon.per}</span>
                   </div>
                 </motion.div>
@@ -370,7 +370,7 @@ export const PricingPage: React.FC = () => {
                 <div style={{ width: 5, height: 5, borderRadius: '50%', background: L.blue2 }} />
                 Frequently Asked Questions
               </div>
-              <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(1.75rem, 3vw, 2.4rem)', letterSpacing: '-0.04em', color: L.t1, lineHeight: 1.07 }}>
+              <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(1.75rem, 3vw, 2.4rem)', letterSpacing: '-0.04em', color: L.t1, lineHeight: 1.07 }}>
                 Pricing Questions
               </h2>
             </div>
@@ -410,7 +410,7 @@ export const PricingPage: React.FC = () => {
         <div className="wrap">
           <Reveal>
             <div style={{ textAlign: 'center' }}>
-              <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 900, fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.04em', color: 'var(--t1)', marginBottom: 14 }}>
+              <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.04em', color: 'var(--t1)', marginBottom: 14 }}>
                 Ready to Close All Three Gaps?
               </h2>
               <p style={{ color: 'var(--t3)', lineHeight: 1.65, marginBottom: 32, fontSize: '1.0625rem', maxWidth: '45ch', marginInline: 'auto' }}>
