@@ -62,6 +62,7 @@ const RevenueCalc: React.FC = () => {
         <span style={{ fontFamily: 'var(--fd)', fontWeight: 800, color: '#0F172A', fontSize: '0.9rem' }}>{fmt(val)}</span>
       </div>
       <input type="range" min={min} max={max} step={step} value={val}
+        aria-label={label}
         onChange={e => set(Number(e.target.value))}
         style={{ width: '100%', accentColor: '#1B4FFF' }} />
     </div>

@@ -181,6 +181,7 @@ const SliderRow: React.FC<{
       max={max}
       step={step}
       value={value}
+      aria-label={label}
       onChange={e => onChange(Number(e.target.value))}
       style={{
         width: '100%',
