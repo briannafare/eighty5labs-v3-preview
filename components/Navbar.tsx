@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 import { navigate } from '../router';
 
 const NAV_LINKS = [
@@ -14,6 +15,7 @@ const NAV_LINKS = [
 export const Navbar: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -72,25 +74,29 @@ export const Navbar: React.FC = () => {
           </a>
 
           {/* Desktop Links */}
-          <nav className="hide-mobile" style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
-            {NAV_LINKS.map(link => (
-              <a
-                key={link.label}
-                href={link.route}
-                onClick={e => { e.preventDefault(); navigate(link.route); }}
-                style={{
-                  fontSize: '0.875rem',
-                  fontWeight: 600,
-                  color: 'var(--td3)',
-                  textDecoration: 'none',
-                  transition: 'color 0.2s',
-                }}
-                onMouseEnter={e => (e.currentTarget.style.color = 'var(--blue)')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'var(--td3)')}
-              >
-                {link.label}
-              </a>
-            ))}
+          <nav className="hide-mobile" style={{ display: 'flex', alignItems: 'center', gap: 28 }} aria-label="Main navigation">
+            {NAV_LINKS.map(link => {
+              const isActive = pathname === link.route || pathname.startsWith(link.route + '/');
+              return (
+                <a
+                  key={link.label}
+                  href={link.route}
+                  onClick={e => { e.preventDefault(); navigate(link.route); }}
+                  aria-current={isActive ? 'page' : undefined}
+                  style={{
+                    fontSize: '0.875rem',
+                    fontWeight: isActive ? 700 : 600,
+                    color: isActive ? 'var(--td1)' : 'var(--td3)',
+                    textDecoration: 'none',
+                    transition: 'color 0.2s',
+                  }}
+                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--blue)')}
+                  onMouseLeave={e => (e.currentTarget.style.color = isActive ? 'var(--td1)' : 'var(--td3)')}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </nav>
 
           {/* Desktop right */}
@@ -124,12 +130,13 @@ export const Navbar: React.FC = () => {
               cursor: 'pointer', color: 'var(--td1)',
               display: 'flex', alignItems: 'center', padding: 4,
             }}
-            aria-label="Toggle menu"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
           >
             {mobileOpen ? (
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
             ) : (
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="3" y1="8" x2="21" y2="8"/><line x1="3" y1="16" x2="21" y2="16"/></svg>
+              <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="3" y1="8" x2="21" y2="8"/><line x1="3" y1="16" x2="21" y2="16"/></svg>
             )}
           </button>
         </motion.div>

@@ -71,7 +71,7 @@ const App: React.FC = () => {
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--bg0)' }}>
       <ScrollToTop />
       <Navbar />
-      <main style={{ flex: 1, paddingTop: fullBleed ? 0 : 'var(--nav-h)' }}>
+      <main id="main-content" role="main" style={{ flex: 1, paddingTop: fullBleed ? 0 : 'var(--nav-h)' }}>
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Homepage />} />
