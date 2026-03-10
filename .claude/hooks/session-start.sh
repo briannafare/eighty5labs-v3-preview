@@ -1,13 +1,14 @@
 #!/bin/bash
-# Session startup hook: installs gh, vercel, notebooklm-py and authenticates each tool.
-# Credentials are read from environment variables — set them in .claude/settings.local.json
-# under "env" (never commit that file; it's gitignored).
+# Session startup hook: installs gh, vercel, notebooklm-py, Google Workspace CLI
+# and authenticates each tool. Credentials are read from environment variables —
+# set them in .claude/settings.local.json under "env" (never commit that file; it's gitignored).
 #
 # Required env vars:
-#   GITHUB_TOKEN   — GitHub Personal Access Token (repo + read:org scopes)
-#   VERCEL_TOKEN   — Vercel personal access token
-#   NOTEBOOKLM_EMAIL    — Google account email for NotebookLM
-#   NOTEBOOKLM_PASSWORD — Google account password for NotebookLM
+#   GITHUB_TOKEN          — GitHub Personal Access Token (repo + read:org scopes)
+#   VERCEL_TOKEN          — Vercel personal access token
+#   NOTEBOOKLM_EMAIL      — Google account email for NotebookLM
+#   NOTEBOOKLM_PASSWORD   — Google account password for NotebookLM
+#   GOOGLE_WORKSPACE_TOKEN — Google Workspace CLI OAuth/service-account token
 
 set -euo pipefail
 
@@ -89,6 +90,29 @@ auth_notebooklm() {
   log "NOTEBOOKLM_EMAIL / NOTEBOOKLM_PASSWORD exported for notebooklm-py."
 }
 
+# ─── 4. Google Workspace CLI ──────────────────────────────────────────────────
+install_google_workspace() {
+  if ! command -v gwcli &>/dev/null; then
+    log "Installing @googleworkspace/cli..."
+    npm install -g @googleworkspace/cli --quiet
+    log "Google Workspace CLI installed."
+  else
+    log "Google Workspace CLI already installed."
+  fi
+}
+
+auth_google_workspace() {
+  if [[ -z "${GOOGLE_WORKSPACE_TOKEN:-}" ]]; then
+    log "GOOGLE_WORKSPACE_TOKEN not set — skipping Google Workspace CLI auth."
+    return
+  fi
+  # The CLI reads GOOGLE_WORKSPACE_TOKEN for non-interactive auth.
+  if [[ -n "${CLAUDE_ENV_FILE:-}" ]]; then
+    echo "export GOOGLE_WORKSPACE_TOKEN=${GOOGLE_WORKSPACE_TOKEN}" >> "$CLAUDE_ENV_FILE"
+  fi
+  log "GOOGLE_WORKSPACE_TOKEN exported for Google Workspace CLI."
+}
+
 # ─── Run all steps ────────────────────────────────────────────────────────────
 install_gh
 auth_gh
@@ -96,6 +120,8 @@ install_vercel
 auth_vercel
 install_notebooklm
 auth_notebooklm
+install_google_workspace
+auth_google_workspace
 
 log "Session setup complete."
 
@@ -103,7 +129,7 @@ log "Session setup complete."
 jq -n '{
   "hookSpecificOutput": {
     "hookEventName": "SessionStart",
-    "additionalContext": "Tools ready: gh (GitHub CLI), Vercel CLI, notebooklm-py."
+    "additionalContext": "Tools ready: gh (GitHub CLI), Vercel CLI, notebooklm-py, Google Workspace CLI."
   }
 }' 2>/dev/null || true
 
