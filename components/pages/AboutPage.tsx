@@ -1,6 +1,7 @@
 import React from 'react';
 import { Reveal, Stagger } from '../ui/Reveal';
 import { navigate } from '../../router';
+import { IconStar } from '../ui/Icons';
 
 /* V2 light tokens */
 const L = {
@@ -33,15 +34,11 @@ const TESTIMONIALS = [
 ];
 
 export const AboutPage: React.FC = () => (
-  <div style={{ paddingTop: 'var(--nav-h)', background: L.bg, color: L.t1 }}>
+  <div style={{ background: L.bg, color: L.t1 }}>
     {/* Hero */}
     <section style={{ padding: 'clamp(60px,8vw,100px) 48px 0' }}>
       <div className="wrap">
         <Reveal>
-          <div className="section-label" style={{ color: L.blue2 }}>
-            <div style={{ width: 5, height: 5, borderRadius: '50%', background: L.blue2 }} />
-            About eighty5labs
-          </div>
           <h1 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '-0.05em', lineHeight: 1.0, marginBottom: 20, color: L.t1 }}>
             We built the system<br />we wish we'd had.
           </h1>
@@ -53,14 +50,10 @@ export const AboutPage: React.FC = () => (
     </section>
 
     {/* Origin */}
-    <section style={{ padding: 'clamp(60px,8vw,100px) 48px' }}>
+    <section style={{ padding: 'clamp(60px,8vw,100px) clamp(20px, 5vw, 48px)' }}>
       <div className="wrap" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 56 }}>
         <Reveal>
           <div>
-            <div className="section-label" style={{ marginBottom: 16, color: L.blue2 }}>
-              <div style={{ width: 5, height: 5, borderRadius: '50%', background: L.blue2 }} />
-              The Origin
-            </div>
             <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', letterSpacing: '-0.04em', marginBottom: 20, color: L.t1 }}>
               We've been your client. More than once.
             </h2>
@@ -80,10 +73,6 @@ export const AboutPage: React.FC = () => (
         </Reveal>
         <Reveal delay={0.1}>
           <div>
-            <div className="section-label" style={{ marginBottom: 16, color: L.blue2 }}>
-              <div style={{ width: 5, height: 5, borderRadius: '50%', background: L.blue2 }} />
-              Why It's Different
-            </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
               {[
                 ['Most agencies', 'One platform, one team, one monthly report'],
@@ -97,7 +86,7 @@ export const AboutPage: React.FC = () => (
                   padding: '14px 0', borderBottom: `1px solid ${L.border}`, fontSize: '0.875rem',
                 }}>
                   <span style={{ color: L.t4, textDecoration: 'line-through' }}>{left}</span>
-                  <span style={{ color: '#84CC16', fontWeight: 600 }}>→ {right}</span>
+                  <span style={{ color: '#1B4FFF', fontWeight: 600 }}>{right}</span>
                 </div>
               ))}
             </div>
@@ -107,14 +96,8 @@ export const AboutPage: React.FC = () => (
     </section>
 
     {/* Team */}
-    <section style={{ padding: 'clamp(60px,8vw,100px) 48px', background: L.bg2, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
+    <section style={{ padding: 'clamp(60px,8vw,100px) clamp(20px, 5vw, 48px)', background: L.bg2, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
       <div className="wrap">
-        <Reveal>
-          <div className="section-label" style={{ marginBottom: 40, color: L.blue2 }}>
-            <div style={{ width: 5, height: 5, borderRadius: '50%', background: L.blue2 }} />
-            The Team
-          </div>
-        </Reveal>
         <Stagger>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 28 }}>
             {[
@@ -148,11 +131,11 @@ export const AboutPage: React.FC = () => (
     </section>
 
     {/* Proof / Stats */}
-    <section style={{ padding: 'clamp(60px,8vw,100px) 48px' }}>
+    <section style={{ padding: 'clamp(60px,8vw,100px) clamp(20px, 5vw, 48px)' }}>
       <div className="wrap">
         <Reveal>
           <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)', letterSpacing: '-0.04em', marginBottom: 8, color: L.t1 }}>
-            Don't Take Our Word For It.
+            What clients say
           </h2>
           <p style={{ color: L.t3, marginBottom: 40 }}>Here's what happens when local businesses close all three gaps and run a real system.</p>
         </Reveal>
@@ -172,7 +155,9 @@ export const AboutPage: React.FC = () => (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
             {TESTIMONIALS.map((t, i) => (
               <div key={i} style={{ background: L.bg2, border: `1.5px solid ${L.border}`, borderRadius: 'var(--rl)', padding: 28 }}>
-                <div style={{ color: '#F59E0B', fontSize: '0.875rem', marginBottom: 14 }}>★★★★★</div>
+                <div aria-label="5 out of 5 stars" style={{ display: 'flex', gap: 2, marginBottom: 14 }}>
+                {[0, 1, 2, 3, 4].map(n => <IconStar key={n} size={13} color="#F59E0B" filled />)}
+              </div>
                 <p style={{ color: L.t2, fontSize: '0.9rem', lineHeight: 1.7, marginBottom: 18, fontStyle: 'italic' }}>{t.quote}</p>
                 <div style={{ fontSize: '0.8125rem', color: L.t4, fontWeight: 600 }}>{t.by}</div>
               </div>
@@ -182,7 +167,7 @@ export const AboutPage: React.FC = () => (
 
         <Reveal delay={0.2}>
           <div style={{ textAlign: 'center', marginTop: 56 }}>
-            <button onClick={() => navigate('/audit')} className="btn btn-primary">Get Your Free Visibility Audit →</button>
+            <button onClick={() => navigate('/audit')} className="btn btn-primary">Get your free visibility audit</button>
           </div>
         </Reveal>
       </div>

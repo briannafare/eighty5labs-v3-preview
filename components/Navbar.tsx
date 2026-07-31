@@ -23,7 +23,21 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => { setMobileOpen(false); }, []);
+  // Close on any route change, not just on mount.
+  useEffect(() => { setMobileOpen(false); }, [pathname]);
+
+  // While the panel is open: lock the page behind it and honour Escape.
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setMobileOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [mobileOpen]);
 
   return (
     <>
@@ -101,17 +115,8 @@ export const Navbar: React.FC = () => {
 
           {/* Desktop right */}
           <div className="hide-mobile" style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-            <a
-              href="#"
-              style={{
-                fontSize: '0.875rem', fontWeight: 600, color: 'var(--td3)',
-                textDecoration: 'none', transition: 'color 0.2s',
-              }}
-              onMouseEnter={e => (e.currentTarget.style.color = 'var(--blue)')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'var(--td3)')}
-            >
-              Log in
-            </a>
+            {/* Client "Log in" link removed — it pointed at href="#".
+                Restore it here once the client portal URL is confirmed. */}
             <a
               href="/audit"
               onClick={e => { e.preventDefault(); navigate('/audit'); }}
@@ -128,7 +133,8 @@ export const Navbar: React.FC = () => {
             style={{
               background: 'transparent', border: 'none',
               cursor: 'pointer', color: 'var(--td1)',
-              display: 'flex', alignItems: 'center', padding: 4,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              width: 44, height: 44, margin: -10, flexShrink: 0,
             }}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
@@ -146,16 +152,30 @@ export const Navbar: React.FC = () => {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
+            key="backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setMobileOpen(false)}
+            aria-hidden="true"
+            style={{ position: 'fixed', inset: 0, zIndex: 98, background: 'rgba(15,23,42,0.28)' }}
+          />
+        )}
+        {mobileOpen && (
+          <motion.div
+            key="panel"
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.25 }}
+            transition={{ duration: 0.2 }}
             style={{
               position: 'fixed', top: 84, left: '2.5%', right: '2.5%', zIndex: 99,
-              background: 'rgba(255,255,255,0.97)',
+              maxHeight: 'calc(100vh - 100px)', overflowY: 'auto',
+              background: 'rgba(255,255,255,0.98)',
               backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)',
               border: '1px solid var(--ls-border)', borderRadius: 24,
-              padding: '20px 24px 24px',
+              padding: '12px 24px 24px',
               boxShadow: '0 16px 48px rgba(15,23,42,0.12)',
               display: 'flex', flexDirection: 'column' as const, gap: 0,
             }}
@@ -169,8 +189,8 @@ export const Navbar: React.FC = () => {
                 href={link.route}
                 onClick={e => { e.preventDefault(); navigate(link.route); setMobileOpen(false); }}
                 style={{
-                  padding: '14px 0', fontFamily: 'var(--fd)',
-                  fontSize: '1rem', fontWeight: 700, color: 'var(--td2)',
+                  display: 'block', padding: '15px 0', fontFamily: 'var(--fd)',
+                  fontSize: '1rem', fontWeight: 600, color: 'var(--td1)',
                   textDecoration: 'none', borderBottom: '1px solid var(--ls-border)',
                 }}
               >
@@ -184,7 +204,7 @@ export const Navbar: React.FC = () => {
                 className="btn btn-primary"
                 style={{ width: '100%', justifyContent: 'center' }}
               >
-                Get Free Visibility Audit →
+                Get your free visibility audit
               </a>
             </div>
           </motion.div>

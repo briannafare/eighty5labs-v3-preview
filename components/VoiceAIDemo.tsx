@@ -4,29 +4,29 @@ import { motion, AnimatePresence } from 'framer-motion';
 interface Message { from: 'Chloe' | 'User'; text: string; }
 
 const SCENES: Record<string, Message[]> = {
-  Emergency: [
-    { from: 'User',  text: 'Hey, I have a massive pipe burst in my kitchen — can someone help?' },
-    { from: 'Chloe', text: 'I understand this is an emergency. I have your location on file — is this for the Main St address?' },
-    { from: 'User',  text: 'Yes! Please hurry.' },
-    { from: 'Chloe', text: "I've prioritized your ticket. Dispatch is notified. Emergency technician booked for 15 minutes from now. Confirmation SMS on its way." },
-  ],
   'After-hours': [
-    { from: 'User',  text: 'Hello, looking for a quote for a new roof installation.' },
-    { from: 'Chloe', text: "Hi! I can certainly help. To get an accurate quote, how many square feet is your property?" },
-    { from: 'User',  text: 'About 2,400 sq ft.' },
-    { from: 'Chloe', text: 'Perfect. I have a slot available tomorrow at 2 PM for an inspector to visit. Does that work?' },
-    { from: 'User',  text: 'Yes, that works.' },
-    { from: 'Chloe', text: "Excellent. Appointment booked for tomorrow at 2 PM. I've updated your CRM profile with the details." },
+    { from: 'User',  text: "Hi — I just drove past your listing on Maple Ave. Is it still available?" },
+    { from: 'Chloe', text: "It is. Three bed, two bath, listed at $485,000. Are you working with an agent already, or shopping on your own?" },
+    { from: 'User',  text: "On our own so far. Could we see it this weekend?" },
+    { from: 'Chloe', text: "Saturday at 11 or Sunday at 2 are both open. Which works better?" },
+    { from: 'User',  text: "Saturday at 11." },
+    { from: 'Chloe', text: "Booked. Confirmation is on its way by text, and Marcus will follow up tonight with the disclosure packet." },
   ],
-  Routine: [
-    { from: 'User',  text: 'I need to reschedule my maintenance for next week.' },
-    { from: 'Chloe', text: "No problem! Let me pull up your current booking... I see it on Tuesday. What day next week works better?" },
-    { from: 'User',  text: 'Thursday would be great.' },
-    { from: 'Chloe', text: "Done — rescheduled to Thursday. Confirmation sent to your phone." },
+  'Seller lead': [
+    { from: 'User',  text: "We're thinking about selling and wanted an idea of what our place is worth." },
+    { from: 'Chloe', text: "Happy to help. What's the address, and roughly how long have you owned it?" },
+    { from: 'User',  text: "412 Birch Street, about nine years." },
+    { from: 'Chloe', text: "Got it. I've scheduled a valuation walkthrough for Thursday at 5:30 and sent over three recent comps on your block in the meantime." },
+  ],
+  'Open house': [
+    { from: 'User',  text: "Are you doing an open house this weekend anywhere in Brookfield?" },
+    { from: 'Chloe', text: "Two — Maple Ave on Saturday 12 to 3, and Birch Street on Sunday 1 to 4. Want me to text you both addresses?" },
+    { from: 'User',  text: "Yes please." },
+    { from: 'Chloe', text: "Sent. I've added you to the Brookfield new-listing alerts as well — you'll hear first when something comes on." },
   ],
 };
 
-const LOG_STEPS = ['Lead qualified', 'Appointment booked', 'Confirmation sent', 'CRM updated'];
+const LOG_STEPS = ['Lead qualified', 'Showing booked', 'Confirmation sent', 'CRM updated'];
 const SCENE_KEYS = Object.keys(SCENES);
 const MSG_DELAY = 1600;
 
@@ -84,9 +84,9 @@ export const VoiceAIDemo: React.FC = () => {
               key={key}
               onClick={() => { if (!active) setActiveScene(key); }}
               style={{
-                fontSize: '0.7rem', fontWeight: 700,
-                padding: '5px 14px', borderRadius: 100, cursor: 'pointer',
-                border: `1.5px solid ${active ? 'var(--blue)' : 'var(--ls-border)'}`,
+                fontSize: '0.75rem', fontWeight: 600,
+                padding: '9px 16px', borderRadius: 100, cursor: 'pointer',
+                border: `1px solid ${active ? 'var(--blue)' : 'var(--ls-border)'}`,
                 background: active ? 'var(--blue)' : '#fff',
                 color: active ? '#fff' : 'var(--td3)',
                 transition: 'all 0.18s', letterSpacing: '-0.01em',
@@ -104,8 +104,7 @@ export const VoiceAIDemo: React.FC = () => {
           background: '#0D1117',
           borderRadius: 16,
           overflow: 'hidden',
-          boxShadow: '0 24px 64px rgba(0,0,0,0.28)',
-          border: '1px solid rgba(255,255,255,0.06)',
+          border: '1px solid rgba(255,255,255,0.08)',
         }}>
           {/* Title bar */}
           <div style={{
@@ -120,7 +119,7 @@ export const VoiceAIDemo: React.FC = () => {
               ))}
             </div>
             <span style={{ fontSize: '0.625rem', fontFamily: 'monospace', color: 'rgba(255,255,255,0.4)', marginLeft: 10 }}>
-              Chloe AI — Live Call Transcription
+              Voice AI — live call transcript
             </span>
           </div>
 
@@ -153,8 +152,7 @@ export const VoiceAIDemo: React.FC = () => {
                     }}
                   >
                     <span style={{
-                      fontSize: '0.5625rem', fontWeight: 800,
-                      textTransform: 'uppercase', letterSpacing: '0.18em',
+                      fontSize: '0.625rem', fontWeight: 700,
                       marginBottom: 5,
                       color: isChloe ? 'var(--blue)' : 'rgba(255,255,255,0.35)',
                     }}>
@@ -194,16 +192,14 @@ export const VoiceAIDemo: React.FC = () => {
             background: '#fff',
             borderRadius: 14,
             padding: '14px 18px',
-            boxShadow: '0 8px 28px rgba(0,0,0,0.08)',
             border: '1px solid var(--ls-border)',
           }}
         >
           <div style={{
-            fontSize: '0.5625rem', fontWeight: 800,
-            letterSpacing: '0.2em', textTransform: 'uppercase',
-            color: 'rgba(0,0,0,0.28)', marginBottom: 10,
+            fontSize: '0.75rem', fontWeight: 600,
+            color: 'var(--td3)', marginBottom: 10,
           }}>
-            Automation Log
+            Automation log
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '7px 16px' }}>
             {LOG_STEPS.map(step => {
@@ -214,8 +210,7 @@ export const VoiceAIDemo: React.FC = () => {
                     animate={{
                       background: done ? 'var(--blue)' : '#F1F5F9',
                       borderColor: done ? 'var(--blue)' : '#DDE5F2',
-                      boxShadow: done ? '0 0 10px rgba(79,142,247,0.3)' : 'none',
-                    }}
+                      }}
                     transition={{ duration: 0.3 }}
                     style={{
                       width: 14, height: 14, borderRadius: 4, flexShrink: 0,
@@ -235,7 +230,7 @@ export const VoiceAIDemo: React.FC = () => {
                     )}
                   </motion.div>
                   <span style={{
-                    fontSize: '0.67rem', fontWeight: 700,
+                    fontSize: '0.75rem', fontWeight: 600,
                     color: done ? 'var(--td1)' : '#94A3B8',
                     transition: 'color 0.3s',
                   }}>

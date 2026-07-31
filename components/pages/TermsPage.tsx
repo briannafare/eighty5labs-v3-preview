@@ -26,7 +26,7 @@ export const TermsPage: React.FC = () => (
           display: 'inline-block', fontSize: '0.8125rem', fontWeight: 600,
           color: '#64748B', textDecoration: 'none', marginBottom: 32,
         }}>
-          ← Back to eighty<span style={{ color: '#4F8EF7' }}>5</span>labs
+          Back to eighty<span style={{ color: '#4F8EF7' }}>5</span>labs
         </a>
         <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 800, letterSpacing: '-0.05em', color: '#0F172A', marginBottom: 16 }}>Terms and Conditions</h1>
         <p style={{ fontSize: '0.875rem', color: '#64748B', fontWeight: 500 }}>Last Updated: January 28, 2026</p>

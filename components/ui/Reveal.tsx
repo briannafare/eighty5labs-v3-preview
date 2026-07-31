@@ -1,47 +1,42 @@
 import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 
 interface RevealProps {
   children: React.ReactNode;
   delay?: number;
-  direction?: 'up' | 'left' | 'right' | 'none';
   className?: string;
   style?: React.CSSProperties;
   once?: boolean;
 }
 
+/**
+ * Scroll-in reveal: opacity plus a short rise, and nothing else.
+ *
+ * The previous version also animated a 4px blur, which cost a filter
+ * repaint on every frame and — because `filter` creates a containing
+ * block — quietly broke `position: sticky` for anything nested inside.
+ */
 export const Reveal: React.FC<RevealProps> = ({
   children,
   delay = 0,
-  direction = 'up',
   className,
   style,
   once = true,
 }) => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once, margin: '-60px 0px' });
+  const inView = useInView(ref, { once, margin: '-40px 0px' });
+  const reduceMotion = useReducedMotion();
 
-  const initial = {
-    opacity: 0,
-    y: direction === 'up' ? 30 : 0,
-    x: direction === 'left' ? -24 : direction === 'right' ? 24 : 0,
-    filter: 'blur(4px)',
-  };
-
-  const animate = inView
-    ? { opacity: 1, y: 0, x: 0, filter: 'blur(0px)' }
-    : initial;
+  if (reduceMotion) {
+    return <div ref={ref} className={className} style={style}>{children}</div>;
+  }
 
   return (
     <motion.div
       ref={ref}
-      initial={initial}
-      animate={animate}
-      transition={{
-        duration: 0.6,
-        delay,
-        ease: [0.16, 1, 0.3, 1],
-      }}
+      initial={{ opacity: 0, y: 8 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+      transition={{ duration: 0.35, delay, ease: [0.16, 1, 0.3, 1] }}
       className={className}
       style={style}
     >
@@ -61,7 +56,7 @@ interface StaggerProps {
 export const Stagger: React.FC<StaggerProps> = ({
   children,
   delay = 0,
-  stagger = 0.08,
+  stagger = 0.06,
   className,
   style,
 }) => {

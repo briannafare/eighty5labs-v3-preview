@@ -5,9 +5,9 @@ const data: IndustryPageData = {
   slug: 'medical',
   label: 'Medical & Wellness',
   sub: 'Dental · Chiropractic · Med Spa · Physical Therapy',
-  heroH1: <>Fill Your Schedule.<br />Automate Your Intake.</>,
+  heroH1: <>Fill the schedule without<br />filling the front desk.</>,
   heroCopy: "Patients choose providers based on reviews and search results. eighty5.OS builds your reputation and automates appointment booking — on autopilot.",
-  problemTitle: 'The Medical & Wellness Lead Problem',
+  problemTitle: 'Why practices lose new patients',
   problemBody: [
     "Medical and wellness practices run on appointment volume. New patient acquisition drives growth. Patient retention drives stability. And your front desk — however capable — is being asked to do too much at once: handle check-ins, answer phones, process insurance, manage scheduling, and somehow respond to every new patient inquiry that comes in.",
     "When volume spikes, calls go to voicemail. Web inquiries sit in an inbox until someone has time. New patient follow-up doesn't happen consistently. Every one of those failures is a lost appointment — and in a high-value practice, a lost appointment chain can mean thousands in lifetime patient value.",
@@ -36,7 +36,7 @@ const data: IndustryPageData = {
     "Runs seasonal promotions and new patient offers without you touching a single button",
   ],
   boldClose: "Your patients trust you with their health. eighty5labs makes sure they find you first — and keeps them coming back.",
-  faqTitle: 'Questions About eighty5labs for Medical & Wellness',
+  faqTitle: 'Questions from practice owners',
   faqs: [
     {
       q: 'How do medical practices rank in Google Maps?',
@@ -51,9 +51,9 @@ const data: IndustryPageData = {
       a: "eighty5labs sends a series of personalized reminders via SMS and email before each appointment — 48 hours out, 24 hours out, and same-day morning. Each message includes a direct link to reschedule if needed. The reschedule option captures intent to return rather than just a no-show. Most practices using this sequence see a meaningful reduction in no-show rates within the first 30 days.",
     },
   ],
-  ctaTitle: "Find Out How Many New Patients You're Missing",
+  ctaTitle: "See how many new patients you're missing",
   ctaBody: "Free AI Visibility Audit — we'll show you your Google Maps position, review velocity, and AI search visibility against competing practices in your area.",
-  accentColor: '#A78BFA',
+  accentColor: '#1B4FFF',
 };
 
 export default function MedicalPage() {

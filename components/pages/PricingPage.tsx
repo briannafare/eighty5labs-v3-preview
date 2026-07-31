@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Reveal, Stagger } from '../ui/Reveal';
 import { navigate } from '../../router';
+import {
+  IconCheck, IconDash, IconShield, IconSpeed, IconReply,
+  IconMapPin, IconContent, IconFollowUp, IconArrowRight,
+} from '../ui/Icons';
 
 const PLANS = [
   {
@@ -14,7 +18,7 @@ const PLANS = [
     featured: false,
     note: 'No contracts · Cancel anytime',
     noteGreen: false,
-    cta: 'Get Started →',
+    cta: 'Get started',
     ctaPrimary: false,
     features: [
       { included: true, label: 'Google Business Profile optimization' },
@@ -37,7 +41,7 @@ const PLANS = [
     featured: true,
     note: 'Most clients recover cost within the first week',
     noteGreen: true,
-    cta: 'Start Your Trial Today →',
+    cta: 'Start your trial today',
     ctaPrimary: true,
     features: [
       { included: true, label: 'Everything in Visibility' },
@@ -60,7 +64,7 @@ const PLANS = [
     featured: false,
     note: 'Typically $2,500–$5,000/mo · scoped per engagement',
     noteGreen: false,
-    cta: 'Book a Strategy Call →',
+    cta: 'Book a strategy call',
     ctaPrimary: false,
     features: [
       { included: true, label: 'Everything in Growth' },
@@ -116,8 +120,8 @@ const FAQS = [
 ];
 
 const CellIcon: React.FC<{ val: boolean | string }> = ({ val }) => {
-  if (val === true) return <span style={{ color: '#84CC16', fontWeight: 700 }}>✓</span>;
-  if (val === false) return <span style={{ color: '#DDE5F2' }}>—</span>;
+  if (val === true) return <IconCheck size={15} color="var(--blue)" />;
+  if (val === false) return <IconDash size={14} color="#C5D0E8" />;
   return <span style={{ color: '#4F8EF7', fontSize: '0.8125rem', fontWeight: 600 }}>{val}</span>;
 };
 
@@ -127,7 +131,7 @@ const L = {
   border: '#DDE5F2', blueBorder: '#C7D9FF', blueLt: '#EEF3FF',
   t1: '#0F172A', t2: '#334155', t3: '#64748B', t4: '#94A3B8',
   blue: '#1B4FFF', blue2: '#4F8EF7',
-  greenLt: '#D1FAE5', greenText: '#065F46',
+  saveBg: '#EEF3FF', saveText: '#1B4FFF',
 };
 
 export const PricingPage: React.FC = () => {
@@ -135,17 +139,13 @@ export const PricingPage: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <div style={{ paddingTop: 'var(--nav-h)', background: L.bg, color: L.t1 }}>
+    <div style={{ background: L.bg, color: L.t1 }}>
 
       {/* ═══ HERO ═══ */}
       <section style={{ padding: '72px 48px 0', textAlign: 'center', borderBottom: `1px solid ${L.border}` }}>
         <Reveal>
-          <div className="section-label" style={{ justifyContent: 'center', color: L.blue2 }}>
-            <div style={{ width: 5, height: 5, borderRadius: '50%', background: L.blue2 }} />
-            Transparent Pricing
-          </div>
           <h1 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(2.2rem, 4.5vw, 3.2rem)', letterSpacing: '-0.04em', color: L.t1, marginBottom: 14, lineHeight: 1.07 }}>
-            Simple Plans. Real Results.
+            Pricing
           </h1>
           <p style={{ color: L.t2, fontSize: '1.0625rem', lineHeight: 1.8, maxWidth: 520, marginInline: 'auto', marginBottom: 36 }}>
             Everything you need to close the visibility, reputation, and conversion gaps — fully managed for you.
@@ -158,7 +158,7 @@ export const PricingPage: React.FC = () => {
                 const isActive = (opt === 'Annual') === annual;
                 return (
                   <button key={opt} onClick={() => setAnnual(opt === 'Annual')} style={{
-                    padding: '8px 26px', borderRadius: 100, border: 'none',
+                    padding: '11px 26px', borderRadius: 100, border: 'none',
                     background: isActive ? L.bg : 'transparent',
                     color: isActive ? L.t1 : L.t3,
                     fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '0.8125rem',
@@ -170,7 +170,7 @@ export const PricingPage: React.FC = () => {
             </div>
             {annual && (
               <motion.span initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }}
-                style={{ background: L.greenLt, color: L.greenText, fontSize: '0.65rem', fontWeight: 700, padding: '3px 10px', borderRadius: 100 }}>
+                style={{ background: L.saveBg, color: L.saveText, fontSize: '0.75rem', fontWeight: 700, padding: '3px 10px', borderRadius: 100 }}>
                 Save 20%
               </motion.span>
             )}
@@ -197,14 +197,14 @@ export const PricingPage: React.FC = () => {
                   {plan.featured && (
                     <div style={{
                       position: 'absolute', top: -14, left: '50%', transform: 'translateX(-50%)',
-                      background: L.blue, color: '#fff', fontSize: '0.6rem', fontWeight: 800,
+                      background: L.blue, color: '#fff', fontSize: '0.75rem', fontWeight: 800,
                       letterSpacing: '0.1em', textTransform: 'uppercase',
                       padding: '5px 20px', borderRadius: 100, whiteSpace: 'nowrap',
                       boxShadow: '0 2px 10px rgba(27,79,255,0.3)',
                     }}>Most Popular</div>
                   )}
 
-                  <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: plan.featured ? L.blue2 : L.t4, marginBottom: 7 }}>{plan.tier}</div>
+                  <div style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: plan.featured ? L.blue2 : L.t4, marginBottom: 7 }}>{plan.tier}</div>
                   <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.45rem', color: L.t1, letterSpacing: '-0.03em', marginBottom: 5 }}>{plan.name}</div>
                   <p style={{ fontSize: '0.8125rem', color: L.t2, lineHeight: 1.6, marginBottom: 22, minHeight: 42 }}>{plan.tag}</p>
 
@@ -221,10 +221,10 @@ export const PricingPage: React.FC = () => {
                     ) : (
                       <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '2.8rem', letterSpacing: '-0.04em', color: L.t1 }}>Custom</div>
                     )}
-                    <div style={{ fontSize: '0.74rem', color: L.t4, marginBottom: 3, minHeight: 18 }}>
+                    <div style={{ fontSize: '0.75rem', color: L.t4, marginBottom: 3, minHeight: 18 }}>
                       {annual && plan.annualPrice ? 'Billed annually' : plan.monthlyPrice ? 'Billed monthly' : 'Scoped to your business'}
                     </div>
-                    <div style={{ fontSize: '0.74rem', fontWeight: 600, color: L.greenText, marginBottom: 20, minHeight: 18 }}>
+                    <div style={{ fontSize: '0.75rem', fontWeight: 600, color: L.saveText, marginBottom: 20, minHeight: 18 }}>
                       {annual && plan.annualSave ? `Save ${plan.annualSave}` : ''}
                     </div>
                   </div>
@@ -235,12 +235,9 @@ export const PricingPage: React.FC = () => {
                     {plan.features.map((f, fi) => (
                       <li key={fi} style={{ display: 'flex', alignItems: 'flex-start', gap: 9, fontSize: '0.8125rem', color: f.included ? L.t2 : L.t4, lineHeight: 1.5 }}>
                         <span style={{
-                          width: 17, height: 17, borderRadius: 5, flexShrink: 0,
-                          display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          fontSize: f.included ? '0.65rem' : '0.85rem', fontWeight: 800,
-                          background: f.included ? L.greenLt : L.bg2,
-                          color: f.included ? L.greenText : L.t4, marginTop: 1,
-                        }}>{f.included ? '✓' : '—'}</span>
+                          width: 17, height: 17, flexShrink: 0,
+                          display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 1,
+                        }}>{f.included ? <IconCheck size={13} color={L.blue} /> : <IconDash size={13} color={L.t4} />}</span>
                         {f.label}
                       </li>
                     ))}
@@ -256,7 +253,7 @@ export const PricingPage: React.FC = () => {
                     color: plan.ctaPrimary ? '#fff' : L.t1,
                     boxShadow: plan.ctaPrimary ? '0 4px 16px rgba(27,79,255,0.28)' : 'none',
                   }}>{plan.cta}</button>
-                  <p style={{ fontSize: '0.68rem', color: plan.noteGreen ? L.greenText : L.t4, textAlign: 'center', marginTop: 9, lineHeight: 1.5, fontWeight: plan.noteGreen ? 600 : 400 }}>{plan.note}</p>
+                  <p style={{ fontSize: '0.75rem', color: plan.noteGreen ? L.saveText : L.t4, textAlign: 'center', marginTop: 9, lineHeight: 1.5, fontWeight: plan.noteGreen ? 600 : 400 }}>{plan.note}</p>
                 </motion.div>
               ))}
             </div>
@@ -265,8 +262,16 @@ export const PricingPage: React.FC = () => {
           {/* Trust strip */}
           <Reveal delay={0.2}>
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '12px 40px', marginTop: 32, paddingTop: 28, borderTop: `1px solid ${L.border}` }}>
-              {['🔒 No long-term contracts', '⚡ Setup in 5–7 business days', '🇺🇸 US-based support team', '✓ Cancel anytime, no penalties'].map(item => (
-                <span key={item} style={{ fontSize: '0.8rem', color: L.t3 }}>{item}</span>
+              {[
+                { Icon: IconShield, label: 'No long-term contracts' },
+                { Icon: IconSpeed, label: 'Setup in 5–7 business days' },
+                { Icon: IconReply, label: 'US-based support team' },
+                { Icon: IconCheck, label: 'Cancel anytime, no penalties' },
+              ].map(item => (
+                <span key={item.label} style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '0.8rem', color: L.t3 }}>
+                  <item.Icon size={16} color={L.t4} />
+                  {item.label}
+                </span>
               ))}
             </div>
           </Reveal>
@@ -274,16 +279,12 @@ export const PricingPage: React.FC = () => {
       </section>
 
       {/* ═══ COMPARISON TABLE ═══ */}
-      <section style={{ background: L.bg2, padding: '64px 48px', borderTop: `1px solid ${L.border}` }}>
+      <section style={{ background: L.bg2, padding: '64px clamp(20px, 5vw, 48px)', borderTop: `1px solid ${L.border}` }}>
         <div className="wrap">
           <Reveal>
             <div style={{ textAlign: 'center', marginBottom: 44 }}>
-              <div className="section-label" style={{ justifyContent: 'center', color: L.blue2 }}>
-                <div style={{ width: 5, height: 5, borderRadius: '50%', background: L.blue2 }} />
-                Full Comparison
-              </div>
               <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(1.75rem, 3vw, 2.4rem)', letterSpacing: '-0.04em', color: L.t1, lineHeight: 1.07 }}>
-                What's Included in Each Plan
+                What's included in each plan
               </h2>
             </div>
           </Reveal>
@@ -292,7 +293,7 @@ export const PricingPage: React.FC = () => {
               <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: 0, background: L.bg, borderRadius: 'var(--rl)', overflow: 'hidden', boxShadow: '0 2px 16px rgba(15,23,42,0.06)', fontSize: '0.875rem' }}>
                 <thead>
                   <tr>
-                    <th style={{ textAlign: 'left', padding: '16px 20px', color: L.t3, fontWeight: 500, fontSize: '0.74rem', borderBottom: `2px solid ${L.border}`, width: '38%' }}>Feature</th>
+                    <th style={{ textAlign: 'left', padding: '16px 20px', color: L.t3, fontWeight: 500, fontSize: '0.75rem', borderBottom: `2px solid ${L.border}`, width: '38%' }}>Feature</th>
                     <th style={{ textAlign: 'center', padding: '16px 20px', fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.8125rem', color: L.t1, borderBottom: `2px solid ${L.border}` }}>Visibility</th>
                     <th style={{ textAlign: 'center', padding: '16px 20px', fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.8125rem', color: L.blue, background: L.blueLt, borderBottom: `2px solid ${L.border}` }}>Growth</th>
                     <th style={{ textAlign: 'center', padding: '16px 20px', fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.8125rem', color: L.t1, borderBottom: `2px solid ${L.border}` }}>Dominate</th>
@@ -302,7 +303,7 @@ export const PricingPage: React.FC = () => {
                   {TABLE_ROWS.map(section => (
                     <React.Fragment key={section.group}>
                       <tr>
-                        <td colSpan={4} style={{ padding: '12px 20px 5px', fontSize: '0.58rem', fontWeight: 800, letterSpacing: '0.16em', textTransform: 'uppercase', color: L.t4, background: L.bg2, borderTop: `1px solid ${L.border}` }}>
+                        <td colSpan={4} style={{ padding: '12px 20px 5px', fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.16em', textTransform: 'uppercase', color: L.t4, background: L.bg2, borderTop: `1px solid ${L.border}` }}>
                           {section.group}
                         </td>
                       </tr>
@@ -324,16 +325,12 @@ export const PricingPage: React.FC = () => {
       </section>
 
       {/* ═══ ADD-ONS ═══ */}
-      <section style={{ background: L.bg, padding: '64px 48px', borderTop: `1px solid ${L.border}` }}>
+      <section style={{ background: L.bg, padding: '64px clamp(20px, 5vw, 48px)', borderTop: `1px solid ${L.border}` }}>
         <div className="wrap">
           <Reveal>
             <div style={{ textAlign: 'center', marginBottom: 44 }}>
-              <div className="section-label" style={{ justifyContent: 'center', color: L.blue2 }}>
-                <div style={{ width: 5, height: 5, borderRadius: '50%', background: L.blue2 }} />
-                Optional Add-Ons
-              </div>
               <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(1.75rem, 3vw, 2.4rem)', letterSpacing: '-0.04em', color: L.t1, lineHeight: 1.07 }}>
-                Build Your Own Stack
+                Add modules to any plan
               </h2>
               <p style={{ color: L.t2, marginTop: 12 }}>Add individual modules to any plan. Pay only for what you need.</p>
             </div>
@@ -341,15 +338,14 @@ export const PricingPage: React.FC = () => {
           <Stagger>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }} className="addons-grid">
               {[
-                { icon: '📍', name: 'Additional Location', tag: 'Multi-location coverage', body: 'Full eighty5.OS for each additional business location — separate GBP, reviews AI, Voice AI, and reporting.', price: '$297', per: '/mo per location' },
-                { icon: '✍️', name: 'Content Accelerator', tag: '4× content output', body: 'Daily GBP posts, expanded FAQ library, blog articles, and monthly AI search authority pieces to dominate answer engines.', price: '$197', per: '/mo' },
-                { icon: '🔁', name: 'Re-engagement Campaigns', tag: 'Reactivate past customers', body: 'Automated past-customer outreach, seasonal campaigns, win-back sequences, and referral triggers to re-monetize your list.', price: '$147', per: '/mo' },
+                { Icon: IconMapPin, name: 'Additional Location', tag: 'Multi-location coverage', body: 'Full eighty5.OS for each additional business location — separate GBP, reviews AI, Voice AI, and reporting.', price: '$297', per: '/mo per location' },
+                { Icon: IconContent, name: 'Content Accelerator', tag: '4× content output', body: 'Daily GBP posts, expanded FAQ library, blog articles, and monthly AI search authority pieces to dominate answer engines.', price: '$197', per: '/mo' },
+                { Icon: IconFollowUp, name: 'Re-engagement Campaigns', tag: 'Reactivate past customers', body: 'Automated past-customer outreach, seasonal campaigns, win-back sequences, and referral triggers to re-monetize your list.', price: '$147', per: '/mo' },
               ].map(addon => (
-                <motion.div key={addon.name} whileHover={{ y: -2 }} transition={{ duration: 0.2 }}
-                  style={{ background: L.bg2, border: `1.5px solid ${L.border}`, borderRadius: 'var(--rl)', padding: '26px 24px', transition: 'all 0.2s' }}>
-                  <div style={{ fontSize: '1.25rem', marginBottom: 13 }}>{addon.icon}</div>
+                <motion.div key={addon.name} style={{ background: L.bg2, border: `1px solid ${L.border}`, borderRadius: 'var(--rl)', padding: '26px 24px', transition: 'all 0.2s' }}>
+                  <div style={{ marginBottom: 13, color: L.blue }}><addon.Icon size={22} /></div>
                   <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.975rem', color: L.t1, marginBottom: 3, letterSpacing: '-0.02em' }}>{addon.name}</div>
-                  <div style={{ fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: L.blue2, marginBottom: 9 }}>{addon.tag}</div>
+                  <div style={{ fontSize: '0.75rem', fontWeight: 600, color: L.t3, marginBottom: 9 }}>{addon.tag}</div>
                   <p style={{ fontSize: '0.8125rem', color: L.t2, lineHeight: 1.75, marginBottom: 16 }}>{addon.body}</p>
                   <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.1rem', color: L.t1 }}>
                     {addon.price}<span style={{ fontSize: '0.78rem', color: L.t4, fontWeight: 400 }}>{addon.per}</span>
@@ -362,16 +358,12 @@ export const PricingPage: React.FC = () => {
       </section>
 
       {/* ═══ FAQ ═══ */}
-      <section style={{ background: L.bg2, padding: '64px 48px', borderTop: `1px solid ${L.border}` }}>
+      <section style={{ background: L.bg2, padding: '64px clamp(20px, 5vw, 48px)', borderTop: `1px solid ${L.border}` }}>
         <div style={{ maxWidth: 780, marginInline: 'auto' }}>
           <Reveal>
             <div style={{ textAlign: 'center', marginBottom: 44 }}>
-              <div className="section-label" style={{ justifyContent: 'center', color: L.blue2 }}>
-                <div style={{ width: 5, height: 5, borderRadius: '50%', background: L.blue2 }} />
-                Frequently Asked Questions
-              </div>
               <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(1.75rem, 3vw, 2.4rem)', letterSpacing: '-0.04em', color: L.t1, lineHeight: 1.07 }}>
-                Pricing Questions
+                Pricing questions
               </h2>
             </div>
           </Reveal>
@@ -406,18 +398,18 @@ export const PricingPage: React.FC = () => {
       </section>
 
       {/* ═══ CTA ═══ */}
-      <section style={{ background: 'var(--bg1)', padding: 'clamp(60px, 8vw, 100px) 48px' }}>
+      <section style={{ background: 'var(--bg1)', padding: 'clamp(60px, 8vw, 100px) clamp(20px, 5vw, 48px)' }}>
         <div className="wrap">
           <Reveal>
             <div style={{ textAlign: 'center' }}>
               <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.04em', color: 'var(--t1)', marginBottom: 14 }}>
-                Ready to Close All Three Gaps?
+                Ready to get started?
               </h2>
               <p style={{ color: 'var(--t3)', lineHeight: 1.65, marginBottom: 32, fontSize: '1.0625rem', maxWidth: '45ch', marginInline: 'auto' }}>
                 Start your trial today. No contracts, no setup fees. Most businesses are live in under a week.
               </p>
               <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
-                <button onClick={() => navigate('/audit')} className="btn btn-primary">Start Your Trial Today →</button>
+                <button onClick={() => navigate('/audit')} className="btn btn-primary">Start your trial today</button>
                 <button className="btn btn-ghost">Book a Strategy Call</button>
               </div>
               <p style={{ fontSize: '0.8125rem', color: 'var(--t4)', marginTop: 20 }}>Free audit included · No credit card required to get started</p>

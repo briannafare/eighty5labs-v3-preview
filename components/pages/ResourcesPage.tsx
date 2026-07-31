@@ -23,9 +23,9 @@ interface Resource {
 }
 
 const TYPE_COLOR: Record<string, string> = {
-  'Guide': '#1B4FFF', 'Case Study': '#84CC16', 'Prompt Pack': '#A78BFA',
-  'Webinar': '#F59E0B', 'Press': '#6B7280', 'Glossary': '#EC4899',
-  'Playbook': '#84CC16', 'Deep Dive': '#1B4FFF', 'Free Tool': '#84CC16', 'Checklist': '#F59E0B',
+  'Guide': '#1B4FFF', 'Case Study': '#3D6BE8', 'Prompt Pack': '#64748B',
+  'Webinar': '#3D6BE8', 'Press': '#64748B', 'Glossary': '#64748B',
+  'Playbook': '#3D6BE8', 'Deep Dive': '#1B4FFF', 'Free Tool': '#3D6BE8', 'Checklist': '#64748B',
 };
 
 const RESOURCES: Resource[] = [
@@ -55,7 +55,7 @@ const FEATURED: Resource = {
   type: 'Guide', topic: 'AI Visibility',
   title: 'The Local Business AI Visibility Playbook',
   desc: 'A step-by-step guide to getting your business recommended by ChatGPT, Google SGE, Gemini, and Perplexity — without paid ads. 18-page PDF, free.',
-  meta: '18-page PDF · Free', cta: 'Download Free Guide →', featured: true,
+  meta: '18-page PDF · Free', cta: 'Download the free guide', featured: true,
 };
 
 export default function ResourcesPage() {
@@ -71,15 +71,14 @@ export default function ResourcesPage() {
   }, [activeTopic, search]);
 
   return (
-    <div style={{ paddingTop: 'var(--nav-h)', paddingBottom: 80, background: '#FFFFFF', color: '#0F172A' }}>
+    <div style={{ background: '#FFFFFF', color: '#0F172A' }}>
 
       {/* Hero */}
       <section style={{ padding: 'clamp(48px,5vw,80px) 0 40px', background: '#F7F9FF', borderBottom: '1px solid #DDE5F2' }}>
         <div className="wrap" style={{ maxWidth: 700, textAlign: 'center' }}>
           <Reveal>
-            <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#1B4FFF', marginBottom: 12 }}>Resources</p>
             <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 800, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>
-              Everything You Need to<br />Win in Local Search
+              Guides, checklists, and tools
             </h1>
             <p style={{ color: '#64748B', fontSize: '1rem', lineHeight: 1.7, marginBottom: 24 }}>
               Guides, tools, glossaries, case studies, and playbooks — built for local service businesses navigating AI search, Google Maps, and reputation management.
@@ -94,11 +93,11 @@ export default function ResourcesPage() {
       </section>
 
       {/* Featured */}
-      <section style={{ padding: 'clamp(32px,3vw,48px) 0', background: 'linear-gradient(135deg, rgba(27,79,255,0.06) 0%, rgba(167,139,250,0.04) 100%)', borderBottom: '1px solid #DDE5F2' }}>
+      <section style={{ padding: 'clamp(32px,3vw,48px) 0', background: 'linear-gradient(135deg, rgba(27,79,255,0.06) 0%, rgba(100,116,139,0.04) 100%)', borderBottom: '1px solid #DDE5F2' }}>
         <div className="wrap">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: 32, alignItems: 'center' }}>
             <div>
-              <span style={{ display: 'inline-block', background: 'rgba(27,79,255,0.1)', color: '#1B4FFF', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '4px 10px', borderRadius: 6, marginBottom: 12 }}>⚡ Featured Resource</span>
+              <span style={{ display: 'inline-block', background: 'rgba(27,79,255,0.1)', color: '#1B4FFF', fontSize: '0.75rem', fontWeight: 600, padding: '4px 10px', borderRadius: 6, marginBottom: 12 }}>⚡ Featured Resource</span>
               <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 12 }}>{FEATURED.title}</h2>
               <p style={{ color: '#64748B', lineHeight: 1.7, marginBottom: 20, fontSize: '0.9375rem' }}>{FEATURED.desc}</p>
               <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} className="btn btn-primary">
@@ -113,7 +112,7 @@ export default function ResourcesPage() {
               ].map(s => (
                 <div key={s.val} style={{ textAlign: 'center', padding: '16px 12px', background: '#F7F9FF', border: '1px solid #DDE5F2', borderRadius: 12 }}>
                   <p style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.5rem', color: '#1B4FFF', letterSpacing: '-0.03em', marginBottom: 6 }}>{s.val}</p>
-                  <p style={{ fontSize: '0.7rem', color: '#94A3B8', lineHeight: 1.4 }}>{s.label}</p>
+                  <p style={{ fontSize: '0.75rem', color: '#94A3B8', lineHeight: 1.4 }}>{s.label}</p>
                 </div>
               ))}
             </div>
@@ -131,7 +130,7 @@ export default function ResourcesPage() {
               style={{ flex: '1 1 200px', minWidth: 160, maxWidth: 280, padding: '8px 14px', border: '1.5px solid #DDE5F2', borderRadius: 8, background: '#F7F9FF', color: '#0F172A', fontSize: '0.875rem', outline: 'none' }}
             />
             {search && (
-              <button onClick={() => setSearch('')} style={{ background: 'none', border: 'none', color: '#94A3B8', cursor: 'pointer', fontSize: '0.875rem' }}>✕ Clear</button>
+              <button onClick={() => setSearch('')} style={{ background: 'none', border: 'none', color: '#94A3B8', cursor: 'pointer', fontSize: '0.875rem' }}>Clear</button>
             )}
           </div>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', paddingBottom: 16, overflowX: 'auto' }}>
@@ -162,8 +161,8 @@ export default function ResourcesPage() {
                     onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = TYPE_COLOR[r.type] || '#1B4FFF'; (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 20px ${TYPE_COLOR[r.type]}20`; }}
                     onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = '#DDE5F2'; (e.currentTarget as HTMLElement).style.boxShadow = 'none'; }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: TYPE_COLOR[r.type] || '#1B4FFF', background: `${TYPE_COLOR[r.type] || '#1B4FFF'}14`, padding: '3px 8px', borderRadius: 5 }}>{r.type}</span>
-                      {r.interactive && <span style={{ fontSize: '0.68rem', color: '#94A3B8', background: '#F7F9FF', border: '1px solid #DDE5F2', borderRadius: 4, padding: '2px 7px' }}>Interactive</span>}
+                      <span style={{ fontSize: '0.75rem', fontWeight: 600, color: TYPE_COLOR[r.type] || '#1B4FFF', background: `${TYPE_COLOR[r.type] || '#1B4FFF'}14`, padding: '3px 8px', borderRadius: 5 }}>{r.type}</span>
+                      {r.interactive && <span style={{ fontSize: '0.75rem', color: '#94A3B8', background: '#F7F9FF', border: '1px solid #DDE5F2', borderRadius: 4, padding: '2px 7px' }}>Interactive</span>}
                     </div>
                     <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.9375rem', color: '#0F172A', lineHeight: 1.35, letterSpacing: '-0.01em' }}>{r.title}</h3>
                     <p style={{ fontSize: '0.8375rem', color: '#64748B', lineHeight: 1.6, flex: 1 }}>{r.desc}</p>
@@ -186,10 +185,10 @@ export default function ResourcesPage() {
       <section style={{ padding: 'clamp(48px,5vw,72px) 0', background: '#F7F9FF', borderTop: '1px solid #DDE5F2' }}>
         <div className="wrap" style={{ maxWidth: 560, textAlign: 'center' }}>
           <Reveal>
-            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.125rem)', fontWeight: 800, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 14 }}>Ready to Put This Into Practice?</h2>
+            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.125rem)', fontWeight: 800, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 14 }}>Ready to put this into practice?</h2>
             <p style={{ color: '#64748B', marginBottom: 28, lineHeight: 1.7 }}>Get a free AI Visibility Audit and see exactly where your business is leaking revenue — and what to fix first.</p>
             <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/audit')} className="btn btn-primary">
-              Get Your Free Visibility Audit →
+              Get your free visibility audit
             </motion.button>
             <p style={{ marginTop: 14, fontSize: '0.8125rem', color: '#94A3B8' }}>No contracts · No credit card · Results in 48 hours</p>
           </Reveal>

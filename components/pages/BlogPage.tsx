@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Reveal } from '../ui/Reveal';
 import { navigate } from '../../router';
+import { IconCheck } from '../ui/Icons';
 
 type Tag = 'Google Maps'|'AI Search'|'Voice AI'|'Reviews'|'Lead Capture'|'Strategy';
 
@@ -17,9 +18,9 @@ interface Post {
 
 const TAG_COLOR: Record<Tag, string> = {
   'Google Maps': '#1B4FFF',
-  'AI Search': '#A78BFA',
-  'Voice AI': '#84CC16',
-  'Reviews': '#F59E0B',
+  'AI Search': '#1B4FFF',
+  'Voice AI': '#3D6BE8',
+  'Reviews': '#64748B',
   'Lead Capture': '#EC4899',
   'Strategy': '#6B7280',
 };
@@ -37,7 +38,7 @@ const POPULAR: { title: string; tag: Tag; read: string }[] = [
 const POSTS: Post[] = [
   {
     tag: 'Google Maps',
-    title: "Why You're Not in the Map Pack — And the Exact Fix",
+    title: "Why You're Not in the Map Pack, and the Exact Fix",
     desc: "Three specific reasons most local businesses disappear from the Google Map Pack — and what needs to change in your Google Business Profile to get there within 30–60 days.",
     read: '5 min read',
   },
@@ -85,7 +86,7 @@ const POSTS: Post[] = [
   },
   {
     tag: 'Voice AI',
-    title: 'How Much Revenue Are You Losing to Voicemail? (The Math Will Surprise You)',
+    title: 'How Much Revenue Are You Losing to Voicemail? Run the Math',
     desc: "Most local businesses have no idea how many calls go unanswered. We built a calculator based on 200+ client audits — and the numbers are consistently shocking. Here's how to run the math on your own business.",
     read: '5 min read',
   },
@@ -123,7 +124,7 @@ const POSTS: Post[] = [
 
 const FEATURED_POST: Post = {
   tag: 'AI Search',
-  title: "Why ChatGPT Is Recommending Your Competitor — And How to Change That",
+  title: "Why ChatGPT Recommends Your Competitor, and How to Change It",
   desc: "AI search engines don't rank websites the way Google does. They pull from a completely different set of signals — and most local businesses have zero of them. Here's what ChatGPT, Gemini, and Perplexity actually look for when recommending a local business, and exactly how to build that presence from scratch.",
   read: '8 min read',
   featured: true,
@@ -148,15 +149,14 @@ export default function BlogPage() {
   const filtered = activeTag === 'All' ? POSTS : POSTS.filter(p => p.tag === activeTag);
 
   return (
-    <div style={{ paddingTop: 'var(--nav-h)', paddingBottom: 80, background: '#FFFFFF', color: '#0F172A' }}>
+    <div style={{ background: '#FFFFFF', color: '#0F172A' }}>
 
       {/* Hero */}
       <section style={{ padding: 'clamp(48px,5vw,80px) 0 40px', background: '#F7F9FF', borderBottom: '1px solid #DDE5F2' }}>
         <div className="wrap" style={{ maxWidth: 680, textAlign: 'center' }}>
           <Reveal>
-            <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#1B4FFF', marginBottom: 12 }}>Blog & Resources</p>
             <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 800, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>
-              Insights for Local Businesses<br />That Want to Win.
+              Notes on local search and AI
             </h1>
             <p style={{ color: '#64748B', fontSize: '1rem', lineHeight: 1.7 }}>
               AI search, Google Maps rankings, Voice AI, and everything else your competitors don't know yet.
@@ -179,22 +179,22 @@ export default function BlogPage() {
         </div>
       </div>
 
-      <div className="wrap" style={{ display: 'grid', gridTemplateColumns: '1fr min(300px,30%)', gap: 48, paddingTop: 48, paddingBottom: 48, alignItems: 'start' }}>
+      <div className="wrap blog-layout" style={{ display: 'grid', gridTemplateColumns: '1fr min(300px,30%)', gap: 48, paddingTop: 48, paddingBottom: 48, alignItems: 'start' }}>
 
         {/* Main */}
         <div>
           {/* Featured */}
           {(activeTag === 'All' || activeTag === 'AI Search') && (
             <Reveal>
-              <div style={{ marginBottom: 36, padding: '28px 32px', background: 'linear-gradient(135deg,rgba(167,139,250,0.08) 0%,rgba(27,79,255,0.06) 100%)', border: '1.5px solid rgba(167,139,250,0.25)', borderRadius: 16, position: 'relative', overflow: 'hidden' }}>
-                <div style={{ position: 'absolute', top: 0, right: 0, width: 120, height: 120, borderRadius: '50%', background: 'rgba(167,139,250,0.08)', transform: 'translate(30px,-30px)' }} />
-                <span style={{ display: 'inline-block', background: 'rgba(167,139,250,0.15)', color: '#A78BFA', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', padding: '4px 10px', borderRadius: 6, marginBottom: 14 }}>⭐ Featured Article</span>
+              <div style={{ marginBottom: 36, padding: '28px 32px', background: 'linear-gradient(135deg,rgba(100,116,139,0.08) 0%,rgba(27,79,255,0.06) 100%)', border: '1.5px solid rgba(100,116,139,0.25)', borderRadius: 16, position: 'relative', overflow: 'hidden' }}>
+                <div style={{ position: 'absolute', top: 0, right: 0, width: 120, height: 120, borderRadius: '50%', background: 'rgba(100,116,139,0.08)', transform: 'translate(30px,-30px)' }} />
+                <span style={{ display: 'inline-block', background: 'rgba(27,79,255,0.10)', color: '#1B4FFF', fontSize: '0.75rem', fontWeight: 600, padding: '4px 10px', borderRadius: 6, marginBottom: 14 }}>⭐ Featured Article</span>
                 <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.25rem,2.5vw,1.625rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 12 }}>{FEATURED_POST.title}</h2>
                 <p style={{ color: '#64748B', lineHeight: 1.7, marginBottom: 20, fontSize: '0.9375rem' }}>{FEATURED_POST.desc}</p>
                 <div style={{ display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
                   <span style={{ fontSize: '0.8125rem', color: '#94A3B8' }}>{FEATURED_POST.author} · {FEATURED_POST.read}</span>
-                  <span style={{ display: 'inline-block', background: `${TAG_COLOR['AI Search']}18`, color: TAG_COLOR['AI Search'], fontSize: '0.7rem', fontWeight: 700, padding: '3px 8px', borderRadius: 5 }}>AI Search</span>
-                  <button style={{ background: 'none', border: 'none', color: '#A78BFA', fontWeight: 700, fontSize: '0.875rem', cursor: 'pointer', padding: 0 }}>Read Article →</button>
+                  <span style={{ display: 'inline-block', background: `${TAG_COLOR['AI Search']}18`, color: TAG_COLOR['AI Search'], fontSize: '0.75rem', fontWeight: 700, padding: '3px 8px', borderRadius: 5 }}>AI Search</span>
+                  <button style={{ background: 'none', border: 'none', color: '#1B4FFF', fontWeight: 700, fontSize: '0.875rem', cursor: 'pointer', padding: 0 }}>Read article</button>
                 </div>
                 {FEATURED_POST.stat && (
                   <div style={{ marginTop: 20, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
@@ -218,13 +218,13 @@ export default function BlogPage() {
                   onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = TAG_COLOR[post.tag]}
                   onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = '#DDE5F2'}>
                   <div style={{ display: 'flex', gap: 10, alignItems: 'center', marginBottom: 10 }}>
-                    <span style={{ background: `${TAG_COLOR[post.tag]}18`, color: TAG_COLOR[post.tag], fontSize: '0.7rem', fontWeight: 700, padding: '3px 8px', borderRadius: 5 }}>{post.tag}</span>
+                    <span style={{ background: `${TAG_COLOR[post.tag]}18`, color: TAG_COLOR[post.tag], fontSize: '0.75rem', fontWeight: 700, padding: '3px 8px', borderRadius: 5 }}>{post.tag}</span>
                     <span style={{ fontSize: '0.75rem', color: '#94A3B8' }}>{post.read}</span>
                   </div>
                   <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1rem', color: '#0F172A', lineHeight: 1.35, letterSpacing: '-0.01em', marginBottom: 8 }}>{post.title}</h3>
                   <p style={{ fontSize: '0.875rem', color: '#64748B', lineHeight: 1.65 }}>{post.desc}</p>
                   <button style={{ marginTop: 12, background: 'none', border: 'none', color: TAG_COLOR[post.tag], fontWeight: 700, fontSize: '0.8125rem', cursor: 'pointer', padding: 0 }}>
-                    Read Article →
+                    Read article
                   </button>
                 </motion.div>
               </Reveal>
@@ -237,19 +237,21 @@ export default function BlogPage() {
 
           {/* Newsletter */}
           <div style={{ padding: '24px', background: '#F7F9FF', border: '1.5px solid #DDE5F2', borderRadius: 14 }}>
-            <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1rem', color: '#0F172A', marginBottom: 8, letterSpacing: '-0.02em' }}>Get the AI Edge.</h3>
+            <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1rem', color: '#0F172A', marginBottom: 8, letterSpacing: '-0.02em' }}>Get the weekly note</h3>
             <p style={{ fontSize: '0.8375rem', color: '#64748B', marginBottom: 16, lineHeight: 1.6 }}>Weekly insights on Google Maps, AI search, and local business growth. No fluff.</p>
             {subscribed ? (
-              <p style={{ fontSize: '0.875rem', color: '#84CC16', fontWeight: 600 }}>✓ You're in. Check your inbox.</p>
+              <p style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.875rem', color: '#1B4FFF', fontWeight: 600 }}>
+                <IconCheck size={15} /> You're in. Check your inbox.
+              </p>
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 <input value={email} onChange={e => setEmail(e.target.value)} placeholder="your@email.com"
                   style={{ padding: '9px 12px', border: '1.5px solid #DDE5F2', borderRadius: 8, background: '#F7F9FF', color: '#0F172A', fontSize: '0.875rem', outline: 'none' }} />
                 <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }}
                   onClick={() => email && setSubscribed(true)} className="btn btn-primary">
-                  Subscribe Free →
+                  Subscribe free
                 </motion.button>
-                <p style={{ fontSize: '0.72rem', color: '#94A3B8' }}>Unsubscribe anytime. We don't spam.</p>
+                <p style={{ fontSize: '0.75rem', color: '#94A3B8' }}>Unsubscribe anytime. We don't spam.</p>
               </div>
             )}
           </div>
@@ -278,8 +280,8 @@ export default function BlogPage() {
                   <div>
                     <p style={{ fontSize: '0.8375rem', color: '#334155', fontWeight: 600, lineHeight: 1.4, marginBottom: 4 }}>{p.title}</p>
                     <div style={{ display: 'flex', gap: 8 }}>
-                      <span style={{ background: `${TAG_COLOR[p.tag]}18`, color: TAG_COLOR[p.tag], fontSize: '0.65rem', fontWeight: 700, padding: '2px 6px', borderRadius: 4 }}>{p.tag}</span>
-                      <span style={{ fontSize: '0.72rem', color: '#94A3B8' }}>{p.read}</span>
+                      <span style={{ background: `${TAG_COLOR[p.tag]}18`, color: TAG_COLOR[p.tag], fontSize: '0.75rem', fontWeight: 700, padding: '2px 6px', borderRadius: 4 }}>{p.tag}</span>
+                      <span style={{ fontSize: '0.75rem', color: '#94A3B8' }}>{p.read}</span>
                     </div>
                   </div>
                 </div>
@@ -292,7 +294,7 @@ export default function BlogPage() {
             <p style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.9375rem', color: '#0F172A', marginBottom: 8 }}>Stop Guessing. Get the Audit.</p>
             <p style={{ fontSize: '0.8125rem', color: '#64748B', marginBottom: 16, lineHeight: 1.5 }}>Free AI Visibility Audit — 30 minutes, no pitch.</p>
             <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/audit')} className="btn btn-primary">
-              Book Free Visibility Audit →
+              Book your free visibility audit
             </motion.button>
           </div>
         </aside>
