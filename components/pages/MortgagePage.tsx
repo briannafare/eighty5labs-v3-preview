@@ -5,9 +5,9 @@ const data: IndustryPageData = {
   slug: 'mortgage',
   label: 'Mortgage',
   sub: 'Loan Officers · Mortgage Brokers',
-  heroH1: <>Close More Loans.<br />Miss Zero Leads.</>,
+  heroH1: <>The borrower comparing rates<br />calls three lenders.</>,
   heroCopy: "The borrower comparing rates right now won't wait for a callback. eighty5labs makes sure you're the lender who responds first — and follows up last.",
-  problemTitle: 'The Mortgage Lead Problem',
+  problemTitle: 'Why lenders lose borrowers to speed',
   problemBody: [
     "Mortgage leads are the most time-sensitive in financial services. A borrower comparing rates on a Tuesday afternoon has three tabs open and a short attention span. The lender who responds in under two minutes wins the conversation. The lender who calls back three hours later gets voicemail.",
     "AI search is changing where borrowers start their research. When someone asks ChatGPT \"what lender should I use in [city]\" or \"best mortgage broker near me,\" the platforms recommend lenders with rich content, consistent reviews, and strong Google Business Profiles. Most loan officers have none of that running.",
@@ -36,7 +36,7 @@ const data: IndustryPageData = {
     "Builds landing pages for pre-approval offers, rate campaigns, and purchase vs. refi funnels",
   ],
   boldClose: "The referral business you've built is a goldmine. eighty5labs makes sure you're actually mining it.",
-  faqTitle: 'Questions About eighty5labs for Mortgage',
+  faqTitle: 'Questions from loan officers',
   faqs: [
     {
       q: 'How do mortgage lenders show up in Google Maps?',
@@ -51,7 +51,7 @@ const data: IndustryPageData = {
       a: "The key is timing and relevance. eighty5labs configures follow-up sequences that trigger based on where someone is in the process — new inquiry, submitted application, closing completed, anniversary date. Each message is personalized and contextual. The result feels attentive, not aggressive.",
     },
   ],
-  ctaTitle: "See Exactly Where You're Losing Mortgage Leads",
+  ctaTitle: "See where you're losing borrowers",
   ctaBody: "Free AI Visibility Audit — we'll show you your Map Pack position, review velocity, and AI search visibility against your top local competitors.",
   accentColor: '#1B4FFF',
 };

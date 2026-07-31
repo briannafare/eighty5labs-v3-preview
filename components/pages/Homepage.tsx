@@ -33,7 +33,7 @@ const STEPS = [
     Icon: IconHouseSignal,
     color: 'var(--step1)',
     headline: 'Buyers ask an AI before they ask a friend',
-    body: "\"Best listing agent in [neighborhood]\" now gets answered by ChatGPT, Gemini, and Google's Map Pack — not by your brokerage bio. Those answers are built from your reviews, your local content, and your Google Business Profile. Most agents have none of it in place.",
+    body: "\"Best listing agent in [neighborhood]\" now gets answered by ChatGPT, Gemini, and Google's Map Pack, not by your brokerage bio. Those answers are built from your reviews, your local content, and your Google Business Profile. Most agents have none of it in place.",
     fix: 'Content AI + GBP Optimization',
     flow: ['Search', 'Map Pack', 'Reviews', 'Your profile'],
     stat: '3',
@@ -45,7 +45,7 @@ const STEPS = [
     Icon: IconCall24,
     color: 'var(--step2)',
     headline: "You were at a showing. They called someone else.",
-    body: "A buyer who reaches voicemail does not leave a message — they dial the next agent on the list. Voice AI picks up on the second ring at any hour, answers questions about the listing, qualifies the lead, and books the showing straight into your calendar.",
+    body: "A buyer who reaches voicemail does not leave a message. They dial the next agent on the list. Voice AI picks up on the second ring at any hour, answers questions about the listing, qualifies the lead, and books the showing straight into your calendar.",
     fix: 'Voice AI + Conversation AI',
     flow: ['Inquiry', 'AI answers', 'Qualified', 'Showing booked'],
     stat: '< 2 min',
@@ -88,7 +88,7 @@ const SYSTEMS = [
   },
   {
     step: '03', Icon: IconWorkflow, title: 'Workflow AI',
-    body: 'Sequences by lead type — new buyer, valuation request, open house sign-in, closing anniversary — each running without you scheduling a thing.',
+    body: 'Sequences by lead type: new buyer, valuation request, open house sign-in, closing anniversary. Each runs without you scheduling a thing.',
     features: ['Sequences by lead type', 'Past-client re-engagement', 'Showing + closing reminders'],
   },
   {
@@ -100,7 +100,7 @@ const SYSTEMS = [
 
 const HOW = [
   { num: '01', title: 'Audit', Icon: IconAISearch, body: 'We map your Map Pack position, review velocity, and whether ChatGPT, Gemini, and Perplexity mention you at all for your farm area. Free, and yours to keep.' },
-  { num: '02', title: 'Build', Icon: IconWorkflow, body: 'We configure your OS — a voice agent trained on your listings and market, follow-up sequences by lead type, calendar sync, and review automation.' },
+  { num: '02', title: 'Build', Icon: IconWorkflow, body: 'We configure your OS: a voice agent trained on your listings and market, follow-up sequences by lead type, calendar sync, and review automation.' },
   { num: '03', title: 'Deploy', Icon: IconBooked, body: 'Calls, texts, web chat, and form fills all land in one place and get answered in seconds, whether you are at a closing or asleep.' },
   { num: '04', title: 'Optimize', Icon: IconGrowth, body: 'Monthly review of Map Pack movement, AI search mentions, and lead response times, with the sequences tuned to what actually converted.' },
 ];
@@ -303,10 +303,10 @@ export const Homepage: React.FC = () => {
             style={{
               fontFamily: 'var(--fd)', fontSize: 'clamp(2.2rem, 4.8vw, 3.6rem)', fontWeight: 800,
               letterSpacing: '-0.045em', lineHeight: 1.06, color: 'var(--td1)',
-              textAlign: 'center', maxWidth: '16ch', marginInline: 'auto', marginBottom: 20,
+              textAlign: 'center', maxWidth: '19ch', marginInline: 'auto', marginBottom: 20,
             }}
           >
-            Be the agent who answers first.
+            Be the real estate agent who answers first.
           </motion.h1>
 
           <motion.p
@@ -317,9 +317,9 @@ export const Homepage: React.FC = () => {
               lineHeight: 1.65, maxWidth: '54ch', marginInline: 'auto', marginBottom: 30,
             }}
           >
-            Buyers and sellers call three agents and sign with whoever picks up.
-            eighty5labs answers every call, text, and form in under two minutes —
-            at 9pm, mid-showing, all weekend — and books it straight to your calendar.
+            Buyers and sellers contact three agents and sign with whoever picks up.
+            eighty5labs answers every real estate lead in under two minutes at any hour,
+            qualifies buyer from seller, and books the showing into your calendar.
           </motion.p>
 
           <motion.div
@@ -353,7 +353,7 @@ export const Homepage: React.FC = () => {
       <section style={{ background: '#fff', paddingTop: 40, paddingBottom: 56 }}>
         <div className="wrap">
           <p style={{ textAlign: 'center', fontSize: '0.8rem', color: 'var(--td3)', marginBottom: 22 }}>
-            Where your next client is searching
+            Where buyers and sellers look for an agent now
           </p>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 'clamp(24px, 5vw, 56px)', flexWrap: 'wrap' }}>
             {[
@@ -375,7 +375,7 @@ export const Homepage: React.FC = () => {
       <section className="section-light">
         <div className="wrap">
           <Reveal>
-            <h2 className="section-heading">Three places a deal quietly disappears</h2>
+            <h2 className="section-heading">Three places a real estate deal falls apart</h2>
             <p className="section-sub" style={{ marginBottom: 48 }}>
               Nearly every lost client falls into one of them. eighty5labs covers all three at once.
             </p>
@@ -424,9 +424,9 @@ export const Homepage: React.FC = () => {
       <section className="section-light">
         <div className="wrap">
           <Reveal>
-            <h2 className="section-heading">What you actually get</h2>
+            <h2 className="section-heading">What an agent actually gets</h2>
             <p className="section-sub" style={{ marginBottom: 40 }}>
-              Six systems on eighty5.OS. Each one maps to a step above, and they share the same lead record.
+              Six systems on eighty5.OS, each mapped to a step above, all sharing one lead record.
             </p>
           </Reveal>
           <PlatformTabs />
@@ -485,7 +485,7 @@ export const Homepage: React.FC = () => {
       <section className="section-white">
         <div className="wrap">
           <Reveal>
-            <h2 className="section-heading">What agents see</h2>
+            <h2 className="section-heading">What agents tell us</h2>
             <p className="section-sub" style={{ marginBottom: 40 }}>Three months in, the pattern is usually the same.</p>
           </Reveal>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 14 }}>
@@ -592,7 +592,7 @@ export const Homepage: React.FC = () => {
             </h2>
             <p style={{ color: 'var(--t3)', fontSize: '1rem', lineHeight: 1.7, marginBottom: 36, maxWidth: '48ch', marginInline: 'auto' }}>
               A free visibility audit shows your Map Pack position, review velocity, and whether AI search
-              names you at all — measured against the agents you compete with.
+              names you at all, measured against the agents you compete with.
             </p>
             <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
               <a href="/audit" onClick={e => { e.preventDefault(); navigate('/audit'); }} className="btn btn-solid">

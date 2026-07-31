@@ -5,9 +5,9 @@ const data: IndustryPageData = {
   slug: 'legal',
   label: 'Legal',
   sub: 'Personal Injury · Criminal Defense · Family Law · Estate Planning',
-  heroH1: <>The Firm That Shows Up First<br />Wins the Client.</>,
+  heroH1: <>The firm that answers first<br />signs the client.</>,
   heroCopy: "Clients research attorneys before calling. Being first in local search and AI recommendations — combined with instant intake — is the difference between signing and losing.",
-  problemTitle: 'The Legal Lead Problem',
+  problemTitle: 'Why firms lose cases before the first call back',
   problemBody: [
     "Legal leads operate on a different clock than any other industry. Someone calling about a DUI arrest, a custody situation, or a personal injury isn't comparison shopping calmly — they're in crisis. They're calling multiple firms. The first attorney who responds professionally and immediately wins the retainer. If that call goes to voicemail, the case walks out the door before the tone finishes.",
     "After-hours intake is where law firms lose the most. Criminal defense, DUI, and family law inquiries are disproportionately after-hours calls — emergencies don't keep business hours. A firm that can capture, qualify, and respond to a 10pm DUI inquiry before competing firms open their doors the next morning has an enormous competitive advantage. Most firms aren't doing this.",
@@ -36,7 +36,7 @@ const data: IndustryPageData = {
     "Builds practice-area landing pages that convert paid search traffic into booked consultations",
   ],
   boldClose: "You close cases. eighty5labs closes the gap between 'I need a lawyer' and 'I'm hiring you.'",
-  faqTitle: 'Questions About eighty5labs for Legal',
+  faqTitle: 'Questions from firm owners',
   faqs: [
     {
       q: 'How do law firms rank in Google Maps for practice-area searches?',
@@ -51,7 +51,7 @@ const data: IndustryPageData = {
       a: "Your Voice AI agent is configured specifically for your practice areas — it knows which questions to ask for a DUI vs. a divorce vs. a personal injury matter. It captures the caller's name, contact information, case details, and urgency level, and can schedule a consultation directly into your calendar. You receive an SMS summary the moment the call ends. By the time you wake up, the intake is done and the consultation is booked.",
     },
   ],
-  ctaTitle: "Find Out How Many Cases You're Losing After Hours",
+  ctaTitle: "See how many cases you're losing after hours",
   ctaBody: "Free AI Visibility Audit — we'll show you your Map Pack position, review velocity, and where competing firms are capturing inquiries you're missing.",
   accentColor: '#1B4FFF',
 };

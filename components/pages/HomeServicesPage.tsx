@@ -5,9 +5,9 @@ const data: IndustryPageData = {
   slug: 'homeservices',
   label: 'Home Services',
   sub: 'HVAC · Plumbing · Electrical · Roofing · Landscaping',
-  heroH1: <>Every Missed Call<br />Is a Job for Your Competitor.</>,
+  heroH1: <>Every missed call is a job<br />for your competitor.</>,
   heroCopy: "Voice AI answers 24/7, books appointments, and follows up automatically. You never lose work to voicemail again.",
-  problemTitle: 'The Home Services Lead Problem',
+  problemTitle: 'Why home services companies lose jobs',
   problemBody: [
     "Home service leads are the most time-sensitive in local business. A homeowner whose AC fails in July isn't comparison shopping — they're calling the first number in the Map Pack that picks up. If that's not you, the call takes 30 seconds to find someone else, and you'll never know you missed it.",
     "The Map Pack itself is the battleground. Three businesses show up for every high-intent local search. Getting into those three spots requires consistent Google Business Profile management, regular posts, and a steady stream of fresh reviews. The businesses dominating local Map Pack results aren't spending more on advertising — they're just running the system better.",
@@ -36,7 +36,7 @@ const data: IndustryPageData = {
     "Builds landing pages for free estimate offers and seasonal promotions",
   ],
   boldClose: "Your competitors are answering. Your reviews and your content are the reason customers choose you — or don't. eighty5labs runs both.",
-  faqTitle: 'Questions About eighty5labs for Home Services',
+  faqTitle: 'Questions from home services owners',
   faqs: [
     {
       q: 'How do I get my home service business into the Google Maps top 3?',
@@ -51,7 +51,7 @@ const data: IndustryPageData = {
       a: "When an estimate is marked as sent in your CRM, eighty5labs triggers a follow-up sequence: SMS on Day 1, email on Day 3, SMS on Day 7, final follow-up on Day 14. Each message is personalized and specific to the job — not a generic 'just checking in.' Most contractors follow up once. This sequence follows up four times automatically — and it closes a meaningful percentage of estimates that would otherwise go cold.",
     },
   ],
-  ctaTitle: "Find Out How Many Jobs You're Losing to the Competition",
+  ctaTitle: "See how many jobs you're losing",
   ctaBody: "Free AI Visibility Audit — we'll show you your Map Pack position, review velocity, and which competitors are beating you for the searches that matter most.",
   accentColor: '#1B4FFF',
 };

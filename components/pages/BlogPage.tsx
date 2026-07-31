@@ -38,7 +38,7 @@ const POPULAR: { title: string; tag: Tag; read: string }[] = [
 const POSTS: Post[] = [
   {
     tag: 'Google Maps',
-    title: "Why You're Not in the Map Pack — And the Exact Fix",
+    title: "Why You're Not in the Map Pack, and the Exact Fix",
     desc: "Three specific reasons most local businesses disappear from the Google Map Pack — and what needs to change in your Google Business Profile to get there within 30–60 days.",
     read: '5 min read',
   },
@@ -86,7 +86,7 @@ const POSTS: Post[] = [
   },
   {
     tag: 'Voice AI',
-    title: 'How Much Revenue Are You Losing to Voicemail? (The Math Will Surprise You)',
+    title: 'How Much Revenue Are You Losing to Voicemail? Run the Math',
     desc: "Most local businesses have no idea how many calls go unanswered. We built a calculator based on 200+ client audits — and the numbers are consistently shocking. Here's how to run the math on your own business.",
     read: '5 min read',
   },
@@ -124,7 +124,7 @@ const POSTS: Post[] = [
 
 const FEATURED_POST: Post = {
   tag: 'AI Search',
-  title: "Why ChatGPT Is Recommending Your Competitor — And How to Change That",
+  title: "Why ChatGPT Recommends Your Competitor, and How to Change It",
   desc: "AI search engines don't rank websites the way Google does. They pull from a completely different set of signals — and most local businesses have zero of them. Here's what ChatGPT, Gemini, and Perplexity actually look for when recommending a local business, and exactly how to build that presence from scratch.",
   read: '8 min read',
   featured: true,
@@ -156,7 +156,7 @@ export default function BlogPage() {
         <div className="wrap" style={{ maxWidth: 680, textAlign: 'center' }}>
           <Reveal>
             <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 800, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>
-              Insights for Local Businesses<br />That Want to Win.
+              Notes on local search and AI
             </h1>
             <p style={{ color: '#64748B', fontSize: '1rem', lineHeight: 1.7 }}>
               AI search, Google Maps rankings, Voice AI, and everything else your competitors don't know yet.
@@ -237,7 +237,7 @@ export default function BlogPage() {
 
           {/* Newsletter */}
           <div style={{ padding: '24px', background: '#F7F9FF', border: '1.5px solid #DDE5F2', borderRadius: 14 }}>
-            <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1rem', color: '#0F172A', marginBottom: 8, letterSpacing: '-0.02em' }}>Get the AI Edge.</h3>
+            <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1rem', color: '#0F172A', marginBottom: 8, letterSpacing: '-0.02em' }}>Get the weekly note</h3>
             <p style={{ fontSize: '0.8375rem', color: '#64748B', marginBottom: 16, lineHeight: 1.6 }}>Weekly insights on Google Maps, AI search, and local business growth. No fluff.</p>
             {subscribed ? (
               <p style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.875rem', color: '#1B4FFF', fontWeight: 600 }}>

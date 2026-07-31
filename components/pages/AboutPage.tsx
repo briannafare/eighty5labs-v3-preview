@@ -135,7 +135,7 @@ export const AboutPage: React.FC = () => (
       <div className="wrap">
         <Reveal>
           <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)', letterSpacing: '-0.04em', marginBottom: 8, color: L.t1 }}>
-            Don't Take Our Word For It.
+            What clients say
           </h2>
           <p style={{ color: L.t3, marginBottom: 40 }}>Here's what happens when local businesses close all three gaps and run a real system.</p>
         </Reveal>

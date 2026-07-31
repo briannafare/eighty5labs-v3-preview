@@ -98,7 +98,7 @@ export const OptInPage: React.FC = () => {
             </div>
             <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0F172A', marginBottom: 10 }}>You're Subscribed!</h2>
             <p style={{ color: '#334155', fontSize: '0.875rem', marginBottom: 18, lineHeight: 1.6 }}>
-              Thank you for signing up. You'll start receiving text messages from Aida LLC.
+              Thank you for signing up. You'll start receiving text messages from eighty5labs.
             </p>
             <div style={{ background: 'var(--surface)', borderRadius: 8, padding: '12px 16px', fontSize: '0.875rem', color: '#334155', maxWidth: 280, margin: '0 auto 24px' }}>
               <p style={{ fontWeight: 700, marginBottom: 4 }}>Remember:</p>
@@ -132,10 +132,10 @@ export const OptInPage: React.FC = () => {
         {/* Heading */}
         <div style={{ textAlign: 'center', marginBottom: 24 }}>
           <h1 style={{ fontSize: 'clamp(1.375rem, 3.5vw, 2rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 10 }}>
-            Aida LLC &ndash; Appointment Updates &amp; SMS Alerts
+            eighty5labs &ndash; appointment updates &amp; SMS alerts
           </h1>
           <p style={{ fontSize: '0.875rem', color: '#334155', lineHeight: 1.65, maxWidth: '50ch', marginInline: 'auto' }}>
-            Aida LLC. Use this form to join the Aida LLC SMS program for updates related to our services.
+            Use this form to join the eighty5labs SMS program for updates related to our services.
           </p>
         </div>
 
@@ -197,7 +197,7 @@ export const OptInPage: React.FC = () => {
                 style={{ marginTop: 3, width: 16, height: 16, flexShrink: 0, accentColor: '#1B4FFF' }}
               />
               <label htmlFor="marketingConsent" style={{ fontSize: '0.875rem', color: '#3f3f46', lineHeight: 1.65, cursor: 'pointer' }}>
-                I consent to receive marketing and promotional text messages from Aida LLC, DBA eighty5lab, at the phone number provided via SMS, which include special offers, discounts, and new product updates, among others. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.
+                I consent to receive marketing and promotional text messages from eighty5labs at the phone number provided via SMS, which include special offers, discounts, and new product updates, among others. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.
               </label>
             </div>
 
@@ -211,7 +211,7 @@ export const OptInPage: React.FC = () => {
                 style={{ marginTop: 3, width: 16, height: 16, flexShrink: 0, accentColor: '#1B4FFF' }}
               />
               <label htmlFor="nonMarketingConsent" style={{ fontSize: '0.875rem', color: '#3f3f46', lineHeight: 1.65, cursor: 'pointer' }}>
-                I consent to receive non-marketing text messages from Aida LLC, DBA eighty5lab, which may include account updates, service alerts, and support-related communications. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.
+                I consent to receive non-marketing text messages from eighty5labs, which may include account updates, service alerts, and support-related communications. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.
               </label>
             </div>
 
@@ -258,7 +258,7 @@ export const OptInPage: React.FC = () => {
 
         {/* Contact Info */}
         <div style={{ marginTop: 24, textAlign: 'center', fontSize: '0.875rem', color: '#64748B' }}>
-          <p style={{ fontWeight: 700, color: '#0F172A', marginBottom: 4 }}>Aida LLC</p>
+          <p style={{ fontWeight: 700, color: '#0F172A', marginBottom: 4 }}>eighty5labs</p>
           <p>
             Email:{' '}
             <a href="mailto:bri@eighty5labs.com" style={{ color: '#4F8EF7', textDecoration: 'none' }}>bri@eighty5labs.com</a>

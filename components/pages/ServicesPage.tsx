@@ -126,9 +126,9 @@ const SERVICES = [
 ];
 
 const GAP_GROUPS = [
-  { gap: 1, label: 'Gap 1 — Visibility', subtitle: 'Get Found on Google Maps & AI Search', count: '2 systems', services: SERVICES.filter(s => s.gap === 1) },
-  { gap: 2, label: 'Gap 2 — Reputation', subtitle: 'Get Chosen Over Every Competitor', count: '2 systems', services: SERVICES.filter(s => s.gap === 2) },
-  { gap: 3, label: 'Gap 3 — Conversion', subtitle: 'Never Lose a Lead After the Click', count: '3 systems', services: SERVICES.filter(s => s.gap === 3) },
+  { gap: 1, label: 'Gap 1 — Visibility', subtitle: 'Get found on Google Maps and AI search', count: '2 systems', services: SERVICES.filter(s => s.gap === 1) },
+  { gap: 2, label: 'Gap 2 — Reputation', subtitle: 'Get chosen over the competition', count: '2 systems', services: SERVICES.filter(s => s.gap === 2) },
+  { gap: 3, label: 'Gap 3 — Conversion', subtitle: 'Never lose a lead after the click', count: '3 systems', services: SERVICES.filter(s => s.gap === 3) },
 ];
 
 export const ServicesPage: React.FC = () => {
@@ -144,7 +144,7 @@ export const ServicesPage: React.FC = () => {
         <div className="wrap">
           <Reveal delay={0.08}>
             <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 1.1, color: L.t1, marginBottom: 20 }}>
-              Six AI Systems.<br />Every Gap Closed.
+              Six systems, one lead record
             </h1>
           </Reveal>
           <Reveal delay={0.14}>
@@ -249,7 +249,7 @@ export const ServicesPage: React.FC = () => {
       <section style={{ padding: 'clamp(48px,5vw,72px) 0', background: L.bg2, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
         <div className="wrap">
           <Reveal>
-            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, letterSpacing: '-0.03em', color: L.t1, marginBottom: 8 }}>Three gaps. Six systems. One OS.</h2>
+            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, letterSpacing: '-0.03em', color: L.t1, marginBottom: 8 }}>How the six systems fit together</h2>
             <p style={{ color: L.t3, marginBottom: 40, fontSize: '0.9375rem' }}>Every system targets a specific revenue leak in sequence.</p>
           </Reveal>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))', gap: 16 }}>
@@ -281,7 +281,7 @@ export const ServicesPage: React.FC = () => {
       <section style={{ padding: 'clamp(60px,7vw,96px) 0', textAlign: 'center', background: 'var(--bg1)' }}>
         <div className="wrap" style={{ maxWidth: 640 }}>
           <Reveal>
-            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.75rem,3.5vw,2.5rem)', fontWeight: 800, letterSpacing: '-0.04em', color: 'var(--t1)', marginBottom: 16 }}>Find Out Where You're Leaking Revenue</h2>
+            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.75rem,3.5vw,2.5rem)', fontWeight: 800, letterSpacing: '-0.04em', color: 'var(--t1)', marginBottom: 16 }}>See where your leads are going</h2>
             <p style={{ color: 'var(--t3)', marginBottom: 32, lineHeight: 1.7, fontSize: '0.9375rem' }}>Free AI Visibility Audit — 30 minutes, no pitch, no commitment. Yours to keep regardless of what you decide.</p>
             <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/audit')} className="btn btn-primary">
               Book your free visibility audit

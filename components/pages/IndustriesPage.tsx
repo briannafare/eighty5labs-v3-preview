@@ -64,8 +64,8 @@ export const IndustriesPage: React.FC = () => (
       <div className="wrap" style={{ maxWidth: 720 }}>
         <Reveal>
           <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2.25rem,5vw,3.75rem)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 1.08, color: '#0F172A', marginBottom: 24 }}>
-            Built For<br />
-            <span style={{ color: '#1B4FFF' }}>Your</span>{' '}Market.
+            Built for real estate first —<br />
+            <span style={{ color: '#1B4FFF' }}>and four more</span>{' '}verticals.
           </h1>
         </Reveal>
         <Reveal delay={0.14}>
@@ -104,7 +104,7 @@ export const IndustriesPage: React.FC = () => (
     <section style={{ padding: 'clamp(48px,6vw,80px) 0' }}>
       <div className="wrap">
         <Reveal>
-          <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 12 }}>Every industry has a different problem.</h2>
+          <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 12 }}>Every industry loses leads differently</h2>
           <p style={{ color: '#64748B', fontSize: '0.9375rem', marginBottom: 48 }}>We've built the right solution for each. Click any industry to see exactly how eighty5.OS solves your specific gaps.</p>
         </Reveal>
 
@@ -147,7 +147,7 @@ export const IndustriesPage: React.FC = () => (
     <section style={{ padding: 'clamp(48px,5vw,72px) 0', background: '#F7F9FF', borderTop: '1px solid #DDE5F2' }}>
       <div className="wrap" style={{ maxWidth: 620, textAlign: 'center' }}>
         <Reveal>
-          <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>Not sure which plan fits your industry?</h2>
+          <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>Not sure which plan fits?</h2>
           <p style={{ color: '#64748B', marginBottom: 32, lineHeight: 1.7 }}>Get a free AI Visibility Audit — we'll show you exactly where your business stands across all three gaps.</p>
           <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/audit')} className="btn btn-primary">
             Get your free visibility audit

@@ -78,7 +78,7 @@ export default function ResourcesPage() {
         <div className="wrap" style={{ maxWidth: 700, textAlign: 'center' }}>
           <Reveal>
             <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 800, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>
-              Everything You Need to<br />Win in Local Search
+              Guides, checklists, and tools
             </h1>
             <p style={{ color: '#64748B', fontSize: '1rem', lineHeight: 1.7, marginBottom: 24 }}>
               Guides, tools, glossaries, case studies, and playbooks — built for local service businesses navigating AI search, Google Maps, and reputation management.
@@ -185,7 +185,7 @@ export default function ResourcesPage() {
       <section style={{ padding: 'clamp(48px,5vw,72px) 0', background: '#F7F9FF', borderTop: '1px solid #DDE5F2' }}>
         <div className="wrap" style={{ maxWidth: 560, textAlign: 'center' }}>
           <Reveal>
-            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.125rem)', fontWeight: 800, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 14 }}>Ready to Put This Into Practice?</h2>
+            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.125rem)', fontWeight: 800, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 14 }}>Ready to put this into practice?</h2>
             <p style={{ color: '#64748B', marginBottom: 28, lineHeight: 1.7 }}>Get a free AI Visibility Audit and see exactly where your business is leaking revenue — and what to fix first.</p>
             <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/audit')} className="btn btn-primary">
               Get your free visibility audit

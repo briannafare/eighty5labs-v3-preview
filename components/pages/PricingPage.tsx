@@ -145,7 +145,7 @@ export const PricingPage: React.FC = () => {
       <section style={{ padding: '72px 48px 0', textAlign: 'center', borderBottom: `1px solid ${L.border}` }}>
         <Reveal>
           <h1 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(2.2rem, 4.5vw, 3.2rem)', letterSpacing: '-0.04em', color: L.t1, marginBottom: 14, lineHeight: 1.07 }}>
-            Simple Plans. Real Results.
+            Pricing
           </h1>
           <p style={{ color: L.t2, fontSize: '1.0625rem', lineHeight: 1.8, maxWidth: 520, marginInline: 'auto', marginBottom: 36 }}>
             Everything you need to close the visibility, reputation, and conversion gaps — fully managed for you.
@@ -284,7 +284,7 @@ export const PricingPage: React.FC = () => {
           <Reveal>
             <div style={{ textAlign: 'center', marginBottom: 44 }}>
               <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(1.75rem, 3vw, 2.4rem)', letterSpacing: '-0.04em', color: L.t1, lineHeight: 1.07 }}>
-                What's Included in Each Plan
+                What's included in each plan
               </h2>
             </div>
           </Reveal>
@@ -330,7 +330,7 @@ export const PricingPage: React.FC = () => {
           <Reveal>
             <div style={{ textAlign: 'center', marginBottom: 44 }}>
               <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(1.75rem, 3vw, 2.4rem)', letterSpacing: '-0.04em', color: L.t1, lineHeight: 1.07 }}>
-                Build Your Own Stack
+                Add modules to any plan
               </h2>
               <p style={{ color: L.t2, marginTop: 12 }}>Add individual modules to any plan. Pay only for what you need.</p>
             </div>
@@ -363,7 +363,7 @@ export const PricingPage: React.FC = () => {
           <Reveal>
             <div style={{ textAlign: 'center', marginBottom: 44 }}>
               <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(1.75rem, 3vw, 2.4rem)', letterSpacing: '-0.04em', color: L.t1, lineHeight: 1.07 }}>
-                Pricing Questions
+                Pricing questions
               </h2>
             </div>
           </Reveal>
@@ -403,7 +403,7 @@ export const PricingPage: React.FC = () => {
           <Reveal>
             <div style={{ textAlign: 'center' }}>
               <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.04em', color: 'var(--t1)', marginBottom: 14 }}>
-                Ready to Close All Three Gaps?
+                Ready to get started?
               </h2>
               <p style={{ color: 'var(--t3)', lineHeight: 1.65, marginBottom: 32, fontSize: '1.0625rem', maxWidth: '45ch', marginInline: 'auto' }}>
                 Start your trial today. No contracts, no setup fees. Most businesses are live in under a week.

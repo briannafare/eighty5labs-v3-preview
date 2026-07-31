@@ -11,72 +11,72 @@ const SITE_URL = 'https://www.eighty5labs.com';
 
 const PAGE_META: Record<string, PageMeta> = {
   '/': {
-    title: `${BASE} | AI Lead Response for Real Estate Agents`,
-    description: 'Buyers and sellers sign with whoever answers first. eighty5labs answers every call, text, and form in under two minutes, books the showing, and keeps your past clients warm — so you stop losing deals to speed.',
+    title: 'AI Lead Response for Real Estate Agents | eighty5labs',
+    description: 'Answer every buyer and seller lead in under two minutes, day or night. Voice AI qualifies the lead and books the showing for you.',
   },
   '/services': {
-    title: `AI Services for Local Business — Content, Voice, Reviews & Automation | ${BASE}`,
-    description: 'Six AI-powered services that close every revenue gap: Content AI for search visibility, Voice AI for 24/7 call handling, Reputation AI for reviews, plus capture, workflow, and conversion automation.',
+    title: 'AI Services for Real Estate Agents | eighty5labs',
+    description: 'Six systems on one lead record: voice AI, web chat, Google Business Profile, AI search content, review automation, and follow-up.',
   },
   '/pricing': {
-    title: `Pricing — Month-to-Month AI Plans for Local Business | ${BASE}`,
-    description: 'Flexible month-to-month pricing for eighty5.OS. No long-term contracts. AI search visibility, voice AI, review automation, and marketing automation included. Free Visibility Audit available.',
+    title: 'Pricing — Month-to-Month AI Plans | eighty5labs',
+    description: 'Month-to-month plans for eighty5.OS, no long-term contract. Voice AI, Map Pack ranking, reviews, and automated follow-up included.',
   },
   '/audit': {
-    title: `Free Visibility Audit — Find Your Revenue Gaps in 1 Hour | ${BASE}`,
-    description: 'Get a free AI Visibility Audit showing your Map Pack position, review velocity, AI search presence, and conversion gaps vs. competitors. Results in 1 hour.',
+    title: 'Free Visibility Audit for Agents | eighty5labs',
+    description: 'See your Google Maps position, review velocity, and whether AI search names you, benchmarked against agents in your market.',
   },
   '/industries': {
-    title: `Industries We Serve — HVAC, Med Spa, Legal, Real Estate & More | ${BASE}`,
-    description: 'eighty5labs serves HVAC, plumbing, dental, med spa, law firms, real estate, mortgage, and other local service businesses with industry-specific AI automation.',
-  },
-  '/homeservices': {
-    title: `AI for HVAC & Home Services — Never Miss a Call Again | ${BASE}`,
-    description: 'AI-powered tools built for HVAC, plumbing, electrical, and home service companies. Voice AI answers every call, review automation builds your reputation, and AI search gets you found.',
-  },
-  '/medical': {
-    title: `AI for Med Spas & Medical Practices — Automate Booking & Reviews | ${BASE}`,
-    description: 'HIPAA-aware AI tools for med spas, wellness clinics, and medical practices. Automate appointment booking, review management, and patient follow-up with eighty5.OS.',
-  },
-  '/legal': {
-    title: `AI for Law Firms — Capture After-Hours Leads Automatically | ${BASE}`,
-    description: 'Voice AI captures every after-hours inquiry, qualifies by practice area, and books consultations before competing firms open. Built for personal injury, family law, and criminal defense.',
+    title: 'Industries We Serve | eighty5labs',
+    description: 'Built first for residential real estate, and also serving mortgage, home services, medical and wellness practices, and law firms.',
   },
   '/realestate': {
-    title: `AI for Real Estate Agents — Speed-to-Lead That Wins Deals | ${BASE}`,
-    description: 'AI-powered lead capture and follow-up for real estate agents. Respond to inquiries in seconds, automate showing requests, and never miss a buyer or seller lead.',
+    title: 'AI for Real Estate Agents | eighty5labs',
+    description: 'Voice AI answers every buyer and seller inquiry 24/7, qualifies it, and books the showing. Plus Map Pack ranking and review automation.',
+  },
+  '/homeservices': {
+    title: 'AI for HVAC and Home Services | eighty5labs',
+    description: 'Never send another service call to voicemail. AI answers overflow and after-hours calls, books estimates, and follows up on open quotes.',
+  },
+  '/medical': {
+    title: 'AI for Med Spas and Medical Practices | eighty5labs',
+    description: 'Capture new patient inquiries around the clock, automate review requests after visits, and cut no-shows with smart reminders.',
+  },
+  '/legal': {
+    title: 'AI for Law Firms | eighty5labs',
+    description: 'Capture every after-hours inquiry, qualify by practice area, and book consultations before competing firms open their doors.',
   },
   '/mortgage': {
-    title: `AI for Mortgage Lenders — Automate Follow-Up & Convert More Leads | ${BASE}`,
-    description: 'AI automation for mortgage lenders and loan officers. Automated rate inquiries, follow-up sequences, review management, and 24/7 voice AI that qualifies borrowers.',
+    title: 'AI for Mortgage Lenders and Loan Officers | eighty5labs',
+    description: 'The borrower comparing rates calls three lenders. Answer first, every time, and keep referral partners warm automatically.',
   },
   '/about': {
-    title: `About eighty5labs — Portland AI Company for Local Business | ${BASE}`,
-    description: 'eighty5labs is a Portland, Oregon-based AI company building the operating system for local service businesses. We close the visibility, capture, and conversion gaps with AI.',
+    title: 'About eighty5labs | Portland, Oregon',
+    description: 'A Portland, Oregon company building the operating system local businesses actually need. Founded by people who were the client first.',
   },
   '/blog': {
-    title: `Blog — AI Marketing Insights for Local Business | ${BASE}`,
-    description: 'Insights on AI search visibility, answer engine optimization, voice AI, review management, and marketing automation for local service businesses.',
+    title: 'Blog — Local Search and AI Notes | eighty5labs',
+    description: 'Practical notes on AI search visibility, Google Business Profile, review velocity, voice agents, and speed to lead for local business.',
   },
   '/glossary': {
-    title: `AI Marketing Glossary — Terms & Definitions | ${BASE}`,
-    description: 'Comprehensive glossary of AI marketing, AEO, GEO, voice AI, and local SEO terms. Understand the language of AI-powered business growth.',
+    title: 'AI and Local Search Glossary | eighty5labs',
+    description: 'Plain-language definitions for AEO, GEO, Map Pack, review velocity, RAG, entity optimization, and the rest of the local AI vocabulary.',
   },
   '/resources': {
-    title: `Resources — Guides, Templates & Tools for Local Business AI | ${BASE}`,
-    description: 'Free guides, templates, and tools to help local service businesses leverage AI for search visibility, lead capture, and revenue growth.',
+    title: 'Guides, Checklists, and Tools | eighty5labs',
+    description: 'Free guides and checklists on AI search visibility, Google Business Profile optimization, and lead response for local businesses.',
   },
   '/optin': {
-    title: `Subscribe — AI Insights for Local Business | ${BASE}`,
-    description: 'Get weekly AI marketing insights, strategies, and tools delivered to your inbox. Built for local service business owners.',
+    title: 'SMS Updates | eighty5labs',
+    description: 'Join the eighty5labs SMS program for appointment updates and service alerts. Message frequency varies, reply STOP to opt out.',
   },
   '/privacy': {
-    title: `Privacy Policy | ${BASE}`,
-    description: 'eighty5labs privacy policy. How we collect, use, and protect your data.',
+    title: 'Privacy Policy | eighty5labs',
+    description: 'How eighty5labs collects, uses, stores, and protects your personal information, and the choices you have about how it is used.',
   },
   '/terms': {
-    title: `Terms and Conditions | ${BASE}`,
-    description: 'eighty5labs terms and conditions for use of our services and website.',
+    title: 'Terms and Conditions | eighty5labs',
+    description: 'The terms governing your use of the eighty5labs website and services, including billing, cancellation, and acceptable use.',
   },
 };
 

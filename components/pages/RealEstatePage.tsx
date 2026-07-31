@@ -5,9 +5,9 @@ const data: IndustryPageData = {
   slug: 'realestate',
   label: 'Real Estate',
   sub: 'Agents · Teams · Brokerages',
-  heroH1: <>The First Agent to Respond<br />Gets the Client.</>,
+  heroH1: <>The first agent to respond<br />gets the client.</>,
   heroCopy: "You're showing homes and closing transactions. eighty5labs makes sure every lead gets an instant response — even when you can't pick up the phone.",
-  problemTitle: 'The Real Estate Lead Problem',
+  problemTitle: 'Why agents lose clients to speed',
   problemBody: [
     "Real estate is a speed sport. A buyer or seller who reaches out to three agents is going to work with whoever responds first — not necessarily the most qualified. But agents are out showing homes, in closing meetings, and managing deals. Monitoring every incoming call and inquiry in real time is not realistic. And when a lead hits voicemail at 7pm, they don't leave a message. They call the next agent.",
     "Visibility is the other half of the problem. AI search is changing how buyers and sellers discover agents. When someone asks ChatGPT \"best real estate agent in [neighborhood]\" or Gemini \"who should I use to sell my home in [city],\" the platforms are looking at review profiles, content depth, and GBP optimization to make recommendations. Most agents have none of that infrastructure in place.",
@@ -36,7 +36,7 @@ const data: IndustryPageData = {
     "Builds landing pages for buyer consultations, pre-approval offers, and listing promos",
   ],
   boldClose: "The referral business you've built is a goldmine. eighty5labs makes sure you're actually mining it.",
-  faqTitle: 'Questions About eighty5labs for Real Estate',
+  faqTitle: 'Questions from agents',
   faqs: [
     {
       q: 'How do real estate agents rank higher in Google Maps?',
@@ -51,7 +51,7 @@ const data: IndustryPageData = {
       a: "eighty5labs configures follow-up sequences by lead type: new buyer inquiry, seller valuation request, open house registration, past client anniversary, and referral ask. Each sequence uses SMS and email with personalized, contextual messaging. Your past clients hear from you on their closing anniversary and throughout the year — without you scheduling a single message.",
     },
   ],
-  ctaTitle: "See Where You're Losing Real Estate Leads",
+  ctaTitle: "See where you're losing real estate leads",
   ctaBody: "Free AI Visibility Audit — we'll show you your Google Maps position, review velocity, and AI search visibility against your top competitors in your market.",
   accentColor: '#1B4FFF',
 };

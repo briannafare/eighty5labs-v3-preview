@@ -207,7 +207,7 @@ export const IndustryPage: React.FC<{ data: IndustryPageData }> = ({ data }) => 
             <div>
               <Reveal>
                 <p style={{ fontFamily: 'var(--fd)', fontSize: '0.8rem', fontWeight: 700, color: '#64748B', marginBottom: 8 }}>The solution</p>
-                <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 20 }}>The eighty5.OS Systems Built for {data.label}</h2>
+                <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 20 }}>The systems, applied to {data.label.toLowerCase()}</h2>
               </Reveal>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                 {data.systems.map((sys, i) => (
@@ -243,8 +243,7 @@ export const IndustryPage: React.FC<{ data: IndustryPageData }> = ({ data }) => 
       <section style={{ padding: 'clamp(48px,5vw,72px) 0' }}>
         <div className="wrap" style={{ maxWidth: 760 }}>
           <Reveal>
-            <p style={{ fontFamily: 'var(--fd)', fontSize: '0.8rem', fontWeight: 700, color: '#64748B', marginBottom: 8 }}>Common questions</p>
-            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 32 }}>Questions About eighty5labs for {data.label}</h2>
+            <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 32 }}>{data.faqTitle}</h2>
           </Reveal>
           {data.faqs.map(faq => (
             <FAQItem key={faq.q} q={faq.q} a={faq.a} />
