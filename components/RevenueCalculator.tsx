@@ -1,149 +1,142 @@
 import React, { useState, useMemo } from 'react';
 import { navigate } from '../router';
+import { IconArrowRight } from './ui/Icons';
 
-export const RevenueCalculator: React.FC = () => {
-  const [calls, setCalls] = useState(50);
-  const [missRate, setMissRate] = useState(25);
-  const [ticket, setTicket] = useState(500);
+/* Assumptions behind the estimate. Stated on the card rather than
+   buried, so the number reads as arithmetic instead of a promise. */
+const CAPTURE_RATE = 0.67;  // share of currently-missed inquiries an always-on responder reaches
+const WEEKS_PER_MONTH = 4.33;
 
-  const result = useMemo(() => {
-    const weeklyMissed = calls * (missRate / 100);
-    const monthlyMissed = weeklyMissed * 4.33;
-    const captureRate = 0.67;
-    const recovered = monthlyMissed * captureRate * ticket;
-    return Math.round(recovered);
-  }, [calls, missRate, ticket]);
+export type CalculatorConfig = {
+  volumeLabel: string;
+  volumeDefault: number;
+  volumeMin: number;
+  volumeMax: number;
+  missLabel: string;
+  missDefault: number;
+  valueLabel: string;
+  valueDefault: number;
+  valueMin: number;
+  valueMax: number;
+  valueStep: number;
+  /** Share of recovered inquiries that become paid work. */
+  closeRate: number;
+  closeRateNote: string;
+};
 
-  const missedPct = Math.min((calls * (missRate / 100) * 4.33 * ticket) / 50000 * 100, 100);
-  const capturePct = 67;
-  const recoveryPct = Math.min((result / 20000) * 100, 100);
+/* Residential real estate — the homepage audience. */
+const REAL_ESTATE: CalculatorConfig = {
+  volumeLabel: 'Inquiries per week',
+  volumeDefault: 15,
+  volumeMin: 3,
+  volumeMax: 60,
+  missLabel: 'Share you cannot answer right away',
+  missDefault: 30,
+  valueLabel: 'Your average commission',
+  valueDefault: 9000,
+  valueMin: 2000,
+  valueMax: 30000,
+  valueStep: 500,
+  closeRate: 0.08,
+  closeRateNote: '8% of recovered inquiries reach closing',
+};
+
+export const RevenueCalculator: React.FC<{ config?: CalculatorConfig }> = ({ config = REAL_ESTATE }) => {
+  const [volume, setVolume] = useState(config.volumeDefault);
+  const [missRate, setMissRate] = useState(config.missDefault);
+  const [value, setValue] = useState(config.valueDefault);
+
+  const { missedPerMonth, recoveredLeads, closings, revenue } = useMemo(() => {
+    const missed = volume * (missRate / 100) * WEEKS_PER_MONTH;
+    const recovered = missed * CAPTURE_RATE;
+    const closed = recovered * config.closeRate;
+    return {
+      missedPerMonth: missed,
+      recoveredLeads: recovered,
+      closings: closed,
+      revenue: Math.round(closed * value),
+    };
+  }, [volume, missRate, value, config.closeRate]);
 
   return (
     <div style={{
-      background: '#161E2E',
-      border: '1px solid rgba(255,255,255,0.09)',
-      borderRadius: 22,
+      background: 'var(--bg2)',
+      border: '1px solid rgba(255,255,255,0.10)',
+      borderRadius: 18,
       overflow: 'hidden',
     }}>
-      {/* Top section - sliders */}
-      <div style={{ padding: '26px 26px 22px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-        <div style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: 7,
-          fontSize: '0.68rem',
-          fontWeight: 700,
-          letterSpacing: '0.13em',
-          textTransform: 'uppercase',
-          color: '#93C5FD',
-          marginBottom: 10,
-        }}>
-          <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#4F8EF7', display: 'inline-block' }} />
-          Revenue Recovery Engine
-        </div>
-
+      {/* Inputs */}
+      <div style={{ padding: '26px 26px 24px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
         <h3 style={{
-          fontFamily: "var(--fd, 'Epilogue', sans-serif)",
-          fontWeight: 800,
-          fontSize: '1.2rem',
-          color: '#fff',
-          letterSpacing: '-0.025em',
-          lineHeight: 1.25,
-          marginBottom: 22,
+          fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '1.05rem',
+          color: '#fff', letterSpacing: '-0.025em', lineHeight: 1.3, marginBottom: 22,
         }}>
-          What's it actually worth?<br />Stop guessing.
+          Your numbers, not ours.
         </h3>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
           <SliderRow
-            label="Weekly Calls"
-            value={calls}
-            display={String(calls)}
-            min={10}
-            max={200}
+            label={config.volumeLabel}
+            value={volume}
+            display={String(volume)}
+            min={config.volumeMin}
+            max={config.volumeMax}
             step={1}
-            color="#4F8EF7"
-            onChange={setCalls}
+            onChange={setVolume}
           />
           <SliderRow
-            label="Est. Miss Rate"
+            label={config.missLabel}
             value={missRate}
             display={`${missRate}%`}
             min={5}
-            max={60}
+            max={70}
             step={1}
-            color="#818CF8"
             onChange={setMissRate}
           />
           <SliderRow
-            label="Avg Ticket Value"
-            value={ticket}
-            display={`$${ticket.toLocaleString()}`}
-            min={50}
-            max={2000}
-            step={50}
-            color="#84CC16"
-            onChange={setTicket}
+            label={config.valueLabel}
+            value={value}
+            display={`$${value.toLocaleString()}`}
+            min={config.valueMin}
+            max={config.valueMax}
+            step={config.valueStep}
+            onChange={setValue}
           />
         </div>
       </div>
 
-      {/* Bottom section - result */}
-      <div style={{ padding: '22px 26px' }}>
-        <div style={{
-          fontSize: '0.6rem',
-          fontWeight: 700,
-          letterSpacing: '0.14em',
-          textTransform: 'uppercase',
-          color: '#FFFFFF',
-          marginBottom: 5,
-        }}>Monthly Recovery Potential</div>
+      {/* Result */}
+      <div style={{ padding: '24px 26px' }}>
+        <div style={{ fontSize: '0.78rem', color: 'var(--t3)', marginBottom: 6 }}>
+          Estimated monthly recovery
+        </div>
 
         <div style={{
-          fontFamily: "var(--fd, 'Epilogue', sans-serif)",
-          fontWeight: 800,
-          fontSize: '2.6rem',
-          letterSpacing: '-0.05em',
-          color: '#fff',
-          lineHeight: 1,
-          marginBottom: 5,
+          fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '2.5rem',
+          letterSpacing: '-0.045em', color: '#fff', lineHeight: 1, marginBottom: 18,
         }}>
-          ${result.toLocaleString()} <span style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.7)', fontWeight: 400 }}>/mo</span>
+          ${revenue.toLocaleString()}
+          <span style={{ fontSize: '0.9rem', color: 'var(--t3)', fontWeight: 400, letterSpacing: 0 }}> /mo</span>
         </div>
 
-        <div style={{ fontSize: '0.76rem', color: '#FFFFFF', marginBottom: 18 }}>
-          Based on capturing 67% of currently missed leads
-        </div>
-
-        {/* Bars */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 7, marginBottom: 20 }}>
-          <BarRow label="Missed revenue" fill={missedPct} color="#4F8EF7" />
-          <BarRow label="Capture rate" fill={capturePct} color="#818CF8" />
-          <BarRow label="Recovery est." fill={recoveryPct} color="#84CC16" />
-        </div>
+        {/* The arithmetic, shown */}
+        <dl style={{ display: 'flex', flexDirection: 'column', gap: 7, marginBottom: 20 }}>
+          <MathRow label="Inquiries missed each month" value={missedPerMonth.toFixed(0)} />
+          <MathRow label={`Reached by an always-on responder (${Math.round(CAPTURE_RATE * 100)}%)`} value={recoveredLeads.toFixed(0)} />
+          <MathRow label={config.closeRateNote} value={closings.toFixed(1)} />
+        </dl>
 
         <button
           onClick={() => navigate('/audit')}
-          style={{
-            display: 'block',
-            width: '100%',
-            padding: '13px 18px',
-            background: '#1B4FFF',
-            color: '#fff',
-            border: 'none',
-            borderRadius: 999,
-            cursor: 'pointer',
-            fontFamily: "var(--fd, 'Epilogue', sans-serif)",
-            fontSize: '0.9rem',
-            fontWeight: 800,
-            textAlign: 'center',
-            transition: 'all 0.18s ease',
-          }}
-          onMouseEnter={e => { e.currentTarget.style.background = '#0A3DE6'; e.currentTarget.style.boxShadow = '0 6px 24px rgba(27,79,255,0.40)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-          onMouseLeave={e => { e.currentTarget.style.background = '#1B4FFF'; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.transform = 'none'; }}
+          className="btn btn-solid"
+          style={{ width: '100%', justifyContent: 'center' }}
         >
-          Get Your Free Visibility Audit →
+          Get your free visibility audit <IconArrowRight size={16} />
         </button>
+
+        <p style={{ fontSize: '0.68rem', color: 'var(--t4)', marginTop: 12, lineHeight: 1.5 }}>
+          An estimate from the inputs above, not a projection of your results.
+        </p>
       </div>
     </div>
   );
@@ -156,65 +149,39 @@ const SliderRow: React.FC<{
   min: number;
   max: number;
   step: number;
-  color: string;
   onChange: (v: number) => void;
-}> = ({ label, value, display, min, max, step, color, onChange }) => (
-  <div>
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 7 }}>
-      <span style={{
-        fontSize: '0.62rem',
-        fontWeight: 700,
-        letterSpacing: '0.1em',
-        textTransform: 'uppercase',
-        color: '#FFFFFF',
-      }}>{label}</span>
-      <span style={{
-        fontFamily: "var(--fd, 'Epilogue', sans-serif)",
-        fontSize: '0.9rem',
-        fontWeight: 800,
-        color: '#fff',
-      }}>{display}</span>
+}> = ({ label, value, display, min, max, step, onChange }) => {
+  const pct = ((value - min) / (max - min)) * 100;
+  return (
+    <div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 12, marginBottom: 8 }}>
+        <label htmlFor={`calc-${label}`} style={{ fontSize: '0.8rem', color: 'var(--t2)' }}>{label}</label>
+        <span style={{ fontFamily: 'var(--fd)', fontSize: '0.9rem', fontWeight: 700, color: '#fff' }}>{display}</span>
+      </div>
+      <input
+        id={`calc-${label}`}
+        type="range"
+        min={min}
+        max={max}
+        step={step}
+        value={value}
+        aria-label={label}
+        onChange={e => onChange(Number(e.target.value))}
+        style={{
+          width: '100%', height: 4, cursor: 'pointer', display: 'block',
+          WebkitAppearance: 'none', appearance: 'none',
+          borderRadius: 2, outline: 'none',
+          background: `linear-gradient(to right, var(--blue3) 0%, var(--blue3) ${pct}%, rgba(255,255,255,0.12) ${pct}%, rgba(255,255,255,0.12) 100%)`,
+          accentColor: 'var(--blue3)',
+        }}
+      />
     </div>
-    <input
-      type="range"
-      min={min}
-      max={max}
-      step={step}
-      value={value}
-      aria-label={label}
-      onChange={e => onChange(Number(e.target.value))}
-      style={{
-        width: '100%',
-        height: 4,
-        cursor: 'pointer',
-        WebkitAppearance: 'none',
-        appearance: 'none',
-        borderRadius: 2,
-        outline: 'none',
-        background: `linear-gradient(to right, ${color} 0%, ${color} ${((value - min) / (max - min)) * 100}%, rgba(255,255,255,0.1) ${((value - min) / (max - min)) * 100}%, rgba(255,255,255,0.1) 100%)`,
-        accentColor: color,
-      }}
-    />
-  </div>
-);
+  );
+};
 
-const BarRow: React.FC<{ label: string; fill: number; color: string }> = ({ label, fill, color }) => (
-  <div style={{ display: 'flex', alignItems: 'center', gap: 9 }}>
-    <span style={{ fontSize: '0.6rem', color: '#FFFFFF', width: 86, flexShrink: 0 }}>{label}</span>
-    <div style={{
-      flex: 1,
-      height: 4,
-      background: 'rgba(255,255,255,0.07)',
-      borderRadius: 2,
-      overflow: 'hidden',
-    }}>
-      <div style={{
-        height: '100%',
-        borderRadius: 2,
-        width: `${fill}%`,
-        background: color,
-        transition: 'width 0.45s ease',
-      }} />
-    </div>
+const MathRow: React.FC<{ label: string; value: string }> = ({ label, value }) => (
+  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 12 }}>
+    <dt style={{ fontSize: '0.75rem', color: 'var(--t3)' }}>{label}</dt>
+    <dd style={{ fontFamily: 'var(--fd)', fontSize: '0.8rem', fontWeight: 700, color: 'var(--t2)' }}>{value}</dd>
   </div>
 );

@@ -53,7 +53,7 @@ const data: IndustryPageData = {
   ],
   ctaTitle: "Find Out How Many Cases You're Losing After Hours",
   ctaBody: "Free AI Visibility Audit — we'll show you your Map Pack position, review velocity, and where competing firms are capturing inquiries you're missing.",
-  accentColor: '#F59E0B',
+  accentColor: '#1B4FFF',
 };
 
 export default function LegalPage() {

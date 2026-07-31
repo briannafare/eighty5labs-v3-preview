@@ -53,7 +53,7 @@ const data: IndustryPageData = {
   ],
   ctaTitle: "Find Out How Many New Patients You're Missing",
   ctaBody: "Free AI Visibility Audit — we'll show you your Google Maps position, review velocity, and AI search visibility against competing practices in your area.",
-  accentColor: '#A78BFA',
+  accentColor: '#1B4FFF',
 };
 
 export default function MedicalPage() {

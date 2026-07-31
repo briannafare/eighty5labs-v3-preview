@@ -11,8 +11,8 @@ const SITE_URL = 'https://www.eighty5labs.com';
 
 const PAGE_META: Record<string, PageMeta> = {
   '/': {
-    title: `${BASE} | AI Operating System for Local Business`,
-    description: 'eighty5labs closes the visibility, lead capture, and conversion gaps for local service businesses using AI. Get found in AI search. Dominate Google Maps. Never miss a call.',
+    title: `${BASE} | AI Lead Response for Real Estate Agents`,
+    description: 'Buyers and sellers sign with whoever answers first. eighty5labs answers every call, text, and form in under two minutes, books the showing, and keeps your past clients warm — so you stop losing deals to speed.',
   },
   '/services': {
     title: `AI Services for Local Business — Content, Voice, Reviews & Automation | ${BASE}`,

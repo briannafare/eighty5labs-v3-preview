@@ -101,17 +101,8 @@ export const Navbar: React.FC = () => {
 
           {/* Desktop right */}
           <div className="hide-mobile" style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-            <a
-              href="#"
-              style={{
-                fontSize: '0.875rem', fontWeight: 600, color: 'var(--td3)',
-                textDecoration: 'none', transition: 'color 0.2s',
-              }}
-              onMouseEnter={e => (e.currentTarget.style.color = 'var(--blue)')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'var(--td3)')}
-            >
-              Log in
-            </a>
+            {/* Client "Log in" link removed — it pointed at href="#".
+                Restore it here once the client portal URL is confirmed. */}
             <a
               href="/audit"
               onClick={e => { e.preventDefault(); navigate('/audit'); }}
@@ -184,7 +175,7 @@ export const Navbar: React.FC = () => {
                 className="btn btn-primary"
                 style={{ width: '100%', justifyContent: 'center' }}
               >
-                Get Free Visibility Audit →
+                Get your free visibility audit
               </a>
             </div>
           </motion.div>

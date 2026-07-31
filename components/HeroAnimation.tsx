@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const SEARCH_QUERIES = [
-  "Who is the best local contractor for home remodeling?",
-  "Find a top-rated emergency plumber near me",
-  "Best HVAC repair service with good reviews",
-  "Top-rated med spa with great reviews near me",
+  "Who's the best listing agent in Brookfield?",
+  "Find a real estate agent who knows the north side",
+  "Top-rated realtor near me for first-time buyers",
+  "Which agent should I use to sell my house?",
 ];
 
 export const HeroAnimation: React.FC = () => {
@@ -42,7 +42,7 @@ export const HeroAnimation: React.FC = () => {
       marginInline: 'auto',
       background: '#fff',
       borderRadius: 20,
-      boxShadow: '0 20px 60px rgba(15,23,42,0.12), 0 1px 3px rgba(15,23,42,0.06)',
+      boxShadow: '0 12px 40px rgba(15,23,42,0.08)',
       overflow: 'hidden',
       border: '1px solid var(--ls-border)',
       display: 'flex',
@@ -129,7 +129,7 @@ export const HeroAnimation: React.FC = () => {
                   <motion.div animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}>
                     <SparklesIcon size={16} color="var(--blue)" />
                   </motion.div>
-                  Analyzing local businesses...
+                  Comparing local agents…
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column' as const, gap: 14 }}>
                   {[100, 83, 66].map((w, i) => (
@@ -155,24 +155,24 @@ export const HeroAnimation: React.FC = () => {
                 <div style={{ display: 'flex', gap: 14 }}>
                   <div style={{
                     width: 32, height: 32, borderRadius: '50%',
-                    background: 'rgba(27,79,255,0.08)', display: 'flex',
+                    background: 'var(--blue-lt)', display: 'flex',
                     alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 2,
                   }}>
                     <SparklesIcon size={16} color="var(--blue)" />
                   </div>
                   <div>
                     <p style={{ fontSize: '0.875rem', color: 'var(--td2)', lineHeight: 1.6, marginBottom: 18 }}>
-                      Based on customer reviews, response times, and local authority,{' '}
-                      <strong style={{ color: 'var(--blue)', background: 'rgba(27,79,255,0.06)', padding: '2px 6px', borderRadius: 4 }}>
-                        Your Brand
+                      Based on client reviews, response times, and neighborhood coverage,{' '}
+                      <strong style={{ color: 'var(--blue)', background: 'var(--blue-lt)', padding: '2px 6px', borderRadius: 4 }}>
+                        Your Name Here
                       </strong>{' '}
-                      is the top recommendation. They have a 4.9/5 rating and consistently respond to inquiries within minutes.
+                      is the top recommendation — 4.9/5 across 128 reviews, and replies to new inquiries within minutes.
                     </p>
 
                     <div style={{
                       background: '#fff', border: '1px solid var(--ls-border)', borderRadius: 14,
                       padding: 16, display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                      boxShadow: '0 2px 8px rgba(0,0,0,0.04)', cursor: 'pointer',
+                      cursor: 'pointer',
                       transition: 'border-color 0.2s',
                     }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
@@ -183,7 +183,7 @@ export const HeroAnimation: React.FC = () => {
                           <GlobeIcon />
                         </div>
                         <div>
-                          <div style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--td1)' }}>Your Brand</div>
+                          <div style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--td1)' }}>Your Name Here</div>
                           <div style={{ fontSize: '0.75rem', color: 'var(--td3)', display: 'flex', alignItems: 'center', gap: 4, marginTop: 2 }}>
                             <StarIcon /> 4.9 (128 reviews)
                           </div>

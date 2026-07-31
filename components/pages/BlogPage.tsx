@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Reveal } from '../ui/Reveal';
 import { navigate } from '../../router';
+import { IconCheck } from '../ui/Icons';
 
 type Tag = 'Google Maps'|'AI Search'|'Voice AI'|'Reviews'|'Lead Capture'|'Strategy';
 
@@ -17,9 +18,9 @@ interface Post {
 
 const TAG_COLOR: Record<Tag, string> = {
   'Google Maps': '#1B4FFF',
-  'AI Search': '#A78BFA',
-  'Voice AI': '#84CC16',
-  'Reviews': '#F59E0B',
+  'AI Search': '#1B4FFF',
+  'Voice AI': '#3D6BE8',
+  'Reviews': '#64748B',
   'Lead Capture': '#EC4899',
   'Strategy': '#6B7280',
 };
@@ -148,13 +149,12 @@ export default function BlogPage() {
   const filtered = activeTag === 'All' ? POSTS : POSTS.filter(p => p.tag === activeTag);
 
   return (
-    <div style={{ paddingTop: 'var(--nav-h)', paddingBottom: 80, background: '#FFFFFF', color: '#0F172A' }}>
+    <div style={{ background: '#FFFFFF', color: '#0F172A' }}>
 
       {/* Hero */}
       <section style={{ padding: 'clamp(48px,5vw,80px) 0 40px', background: '#F7F9FF', borderBottom: '1px solid #DDE5F2' }}>
         <div className="wrap" style={{ maxWidth: 680, textAlign: 'center' }}>
           <Reveal>
-            <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#1B4FFF', marginBottom: 12 }}>Blog & Resources</p>
             <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 800, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>
               Insights for Local Businesses<br />That Want to Win.
             </h1>
@@ -186,15 +186,15 @@ export default function BlogPage() {
           {/* Featured */}
           {(activeTag === 'All' || activeTag === 'AI Search') && (
             <Reveal>
-              <div style={{ marginBottom: 36, padding: '28px 32px', background: 'linear-gradient(135deg,rgba(167,139,250,0.08) 0%,rgba(27,79,255,0.06) 100%)', border: '1.5px solid rgba(167,139,250,0.25)', borderRadius: 16, position: 'relative', overflow: 'hidden' }}>
-                <div style={{ position: 'absolute', top: 0, right: 0, width: 120, height: 120, borderRadius: '50%', background: 'rgba(167,139,250,0.08)', transform: 'translate(30px,-30px)' }} />
-                <span style={{ display: 'inline-block', background: 'rgba(167,139,250,0.15)', color: '#A78BFA', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', padding: '4px 10px', borderRadius: 6, marginBottom: 14 }}>⭐ Featured Article</span>
+              <div style={{ marginBottom: 36, padding: '28px 32px', background: 'linear-gradient(135deg,rgba(100,116,139,0.08) 0%,rgba(27,79,255,0.06) 100%)', border: '1.5px solid rgba(100,116,139,0.25)', borderRadius: 16, position: 'relative', overflow: 'hidden' }}>
+                <div style={{ position: 'absolute', top: 0, right: 0, width: 120, height: 120, borderRadius: '50%', background: 'rgba(100,116,139,0.08)', transform: 'translate(30px,-30px)' }} />
+                <span style={{ display: 'inline-block', background: 'rgba(27,79,255,0.10)', color: '#1B4FFF', fontSize: '0.7rem', fontWeight: 600, padding: '4px 10px', borderRadius: 6, marginBottom: 14 }}>⭐ Featured Article</span>
                 <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.25rem,2.5vw,1.625rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 12 }}>{FEATURED_POST.title}</h2>
                 <p style={{ color: '#64748B', lineHeight: 1.7, marginBottom: 20, fontSize: '0.9375rem' }}>{FEATURED_POST.desc}</p>
                 <div style={{ display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
                   <span style={{ fontSize: '0.8125rem', color: '#94A3B8' }}>{FEATURED_POST.author} · {FEATURED_POST.read}</span>
                   <span style={{ display: 'inline-block', background: `${TAG_COLOR['AI Search']}18`, color: TAG_COLOR['AI Search'], fontSize: '0.7rem', fontWeight: 700, padding: '3px 8px', borderRadius: 5 }}>AI Search</span>
-                  <button style={{ background: 'none', border: 'none', color: '#A78BFA', fontWeight: 700, fontSize: '0.875rem', cursor: 'pointer', padding: 0 }}>Read Article →</button>
+                  <button style={{ background: 'none', border: 'none', color: '#1B4FFF', fontWeight: 700, fontSize: '0.875rem', cursor: 'pointer', padding: 0 }}>Read article</button>
                 </div>
                 {FEATURED_POST.stat && (
                   <div style={{ marginTop: 20, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
@@ -224,7 +224,7 @@ export default function BlogPage() {
                   <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1rem', color: '#0F172A', lineHeight: 1.35, letterSpacing: '-0.01em', marginBottom: 8 }}>{post.title}</h3>
                   <p style={{ fontSize: '0.875rem', color: '#64748B', lineHeight: 1.65 }}>{post.desc}</p>
                   <button style={{ marginTop: 12, background: 'none', border: 'none', color: TAG_COLOR[post.tag], fontWeight: 700, fontSize: '0.8125rem', cursor: 'pointer', padding: 0 }}>
-                    Read Article →
+                    Read article
                   </button>
                 </motion.div>
               </Reveal>
@@ -240,14 +240,16 @@ export default function BlogPage() {
             <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1rem', color: '#0F172A', marginBottom: 8, letterSpacing: '-0.02em' }}>Get the AI Edge.</h3>
             <p style={{ fontSize: '0.8375rem', color: '#64748B', marginBottom: 16, lineHeight: 1.6 }}>Weekly insights on Google Maps, AI search, and local business growth. No fluff.</p>
             {subscribed ? (
-              <p style={{ fontSize: '0.875rem', color: '#84CC16', fontWeight: 600 }}>✓ You're in. Check your inbox.</p>
+              <p style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.875rem', color: '#1B4FFF', fontWeight: 600 }}>
+                <IconCheck size={15} /> You're in. Check your inbox.
+              </p>
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 <input value={email} onChange={e => setEmail(e.target.value)} placeholder="your@email.com"
                   style={{ padding: '9px 12px', border: '1.5px solid #DDE5F2', borderRadius: 8, background: '#F7F9FF', color: '#0F172A', fontSize: '0.875rem', outline: 'none' }} />
                 <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }}
                   onClick={() => email && setSubscribed(true)} className="btn btn-primary">
-                  Subscribe Free →
+                  Subscribe free
                 </motion.button>
                 <p style={{ fontSize: '0.72rem', color: '#94A3B8' }}>Unsubscribe anytime. We don't spam.</p>
               </div>
@@ -292,7 +294,7 @@ export default function BlogPage() {
             <p style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.9375rem', color: '#0F172A', marginBottom: 8 }}>Stop Guessing. Get the Audit.</p>
             <p style={{ fontSize: '0.8125rem', color: '#64748B', marginBottom: 16, lineHeight: 1.5 }}>Free AI Visibility Audit — 30 minutes, no pitch.</p>
             <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/audit')} className="btn btn-primary">
-              Book Free Visibility Audit →
+              Book your free visibility audit
             </motion.button>
           </div>
         </aside>

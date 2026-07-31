@@ -70,7 +70,7 @@ const RevenueCalc: React.FC = () => {
 
   return (
     <div style={{ padding: 'clamp(28px,3vw,36px)', background: '#F7F9FF', border: '1.5px solid #DDE5F2', borderRadius: 'var(--rdl)' }}>
-      <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: '#94A3B8', marginBottom: 6 }}>Revenue Recovery Calculator</p>
+      <p style={{ fontFamily: 'var(--fd)', fontSize: '0.8rem', fontWeight: 700, color: '#64748B', marginBottom: 6 }}>What a missed call costs you</p>
       <h3 style={{ fontFamily: 'var(--fd)', fontSize: '1.125rem', fontWeight: 800, color: '#0F172A', letterSpacing: '-0.02em', marginBottom: 24 }}>What's it actually worth?</h3>
 
       {slider('Monthly leads', leads, setLeads, 20, 500, 5, v => `${v}`)}
@@ -80,9 +80,9 @@ const RevenueCalc: React.FC = () => {
       <div style={{ borderTop: '1px solid #DDE5F2', paddingTop: 20, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
         {[
           { label: 'Leads Missed / mo', val: missed, color: '#EF4444' },
-          { label: 'Recoverable Leads', val: recoverable, color: '#84CC16' },
+          { label: 'Recoverable Leads', val: recoverable, color: '#1B4FFF' },
           { label: 'Lost Revenue / mo', val: `$${lostRev.toLocaleString()}`, color: '#EF4444' },
-          { label: 'Recovered / mo', val: `$${recoveredRev.toLocaleString()}`, color: '#84CC16' },
+          { label: 'Recovered / mo', val: `$${recoveredRev.toLocaleString()}`, color: '#1B4FFF' },
         ].map(row => (
           <div key={row.label} style={{ background: '#F7F9FF', borderRadius: 10, padding: '14px 16px' }}>
             <p style={{ fontSize: '0.7rem', color: '#94A3B8', marginBottom: 4 }}>{row.label}</p>
@@ -97,7 +97,7 @@ const RevenueCalc: React.FC = () => {
         </div>
         <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/audit')}
           style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.8125rem', color: 'white', background: '#1B4FFF', border: 'none', borderRadius: 8, padding: '10px 16px', cursor: 'pointer', whiteSpace: 'nowrap' as const }}>
-          Get My Analysis →
+          Get my analysis
         </motion.button>
       </div>
     </div>
@@ -128,12 +128,12 @@ export const IndustryPage: React.FC<{ data: IndustryPageData }> = ({ data }) => 
   const accent = data.accentColor ?? 'var(--blue)';
 
   return (
-    <div style={{ paddingTop: 'var(--nav-h)', background: '#FFFFFF', color: '#0F172A', paddingBottom: 80 }}>
+    <div style={{ background: '#FFFFFF', color: '#0F172A' }}>
 
       {/* Back link */}
       <div className="wrap" style={{ padding: '20px var(--wrap-px) 0' }}>
         <button onClick={() => navigate('/industries')} style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6, color: '#94A3B8', fontSize: '0.8125rem', fontWeight: 500 }}>
-          ← All Industries
+          All industries
         </button>
       </div>
 
@@ -142,12 +142,6 @@ export const IndustryPage: React.FC<{ data: IndustryPageData }> = ({ data }) => 
         <div className="wrap">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(320px,1fr))', gap: 48, alignItems: 'center' }}>
             <div>
-              <Reveal>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: accent, marginBottom: 20 }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: accent, display: 'inline-block' }} />
-                  Industries — {data.label}
-                </span>
-              </Reveal>
               <Reveal delay={0.08}>
                 <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 1.08, color: '#0F172A', marginBottom: 20 }}>
                   {data.heroH1}
@@ -159,7 +153,7 @@ export const IndustryPage: React.FC<{ data: IndustryPageData }> = ({ data }) => 
               <Reveal delay={0.18}>
                 <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' as const }}>
                   <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/audit')} className="btn btn-primary">
-                    Get Your Free Visibility Audit →
+                    Get your free visibility audit
                   </motion.button>
                 </div>
               </Reveal>
@@ -193,7 +187,7 @@ export const IndustryPage: React.FC<{ data: IndustryPageData }> = ({ data }) => 
             {/* Problem */}
             <div>
               <Reveal>
-                <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: '#94A3B8', marginBottom: 8 }}>The Problem</p>
+                <p style={{ fontFamily: 'var(--fd)', fontSize: '0.8rem', fontWeight: 700, color: '#64748B', marginBottom: 8 }}>The problem</p>
                 <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 20 }}>{data.problemTitle}</h2>
               </Reveal>
               {data.problemBody.map((para, i) => (
@@ -212,7 +206,7 @@ export const IndustryPage: React.FC<{ data: IndustryPageData }> = ({ data }) => 
             {/* Systems */}
             <div>
               <Reveal>
-                <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: '#94A3B8', marginBottom: 8 }}>The Solution</p>
+                <p style={{ fontFamily: 'var(--fd)', fontSize: '0.8rem', fontWeight: 700, color: '#64748B', marginBottom: 8 }}>The solution</p>
                 <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 20 }}>The eighty5.OS Systems Built for {data.label}</h2>
               </Reveal>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -236,7 +230,7 @@ export const IndustryPage: React.FC<{ data: IndustryPageData }> = ({ data }) => 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: '12px 40px', marginBottom: 28 }}>
             {data.bullets.map((b, i) => (
               <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-                <span style={{ color: accent, fontSize: '0.75rem', paddingTop: 4, minWidth: 12 }}>✦</span>
+                <span aria-hidden="true" style={{ width: 5, height: 5, borderRadius: '50%', background: accent, marginTop: 8, flexShrink: 0 }} />
                 <p style={{ fontSize: '0.9rem', color: '#334155', lineHeight: 1.55 }}>{b}</p>
               </div>
             ))}
@@ -249,7 +243,7 @@ export const IndustryPage: React.FC<{ data: IndustryPageData }> = ({ data }) => 
       <section style={{ padding: 'clamp(48px,5vw,72px) 0' }}>
         <div className="wrap" style={{ maxWidth: 760 }}>
           <Reveal>
-            <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: '#94A3B8', marginBottom: 8 }}>Common Questions</p>
+            <p style={{ fontFamily: 'var(--fd)', fontSize: '0.8rem', fontWeight: 700, color: '#64748B', marginBottom: 8 }}>Common questions</p>
             <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 32 }}>Questions About eighty5labs for {data.label}</h2>
           </Reveal>
           {data.faqs.map(faq => (
@@ -265,7 +259,7 @@ export const IndustryPage: React.FC<{ data: IndustryPageData }> = ({ data }) => 
             <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>{data.ctaTitle}</h2>
             <p style={{ color: '#64748B', marginBottom: 32, lineHeight: 1.7, fontSize: '0.9375rem' }}>{data.ctaBody}</p>
             <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/audit')} className="btn btn-primary">
-              Book Your Free Visibility Audit →
+              Book your free visibility audit
             </motion.button>
             <p style={{ marginTop: 16, fontSize: '0.8125rem', color: '#94A3B8' }}>We take on a limited number of new audits each month. No pressure — just clarity.</p>
           </Reveal>

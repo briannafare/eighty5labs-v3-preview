@@ -90,7 +90,7 @@ export const OptInPage: React.FC = () => {
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
             <div style={{
               width: 64, height: 64, borderRadius: '50%',
-              background: 'rgba(16,185,129,0.1)',
+              background: 'rgba(27,79,255,0.1)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               margin: '0 auto 20px',
             }}>
@@ -194,7 +194,7 @@ export const OptInPage: React.FC = () => {
                 type="checkbox"
                 checked={formData.marketingConsent}
                 onChange={e => setFormData({ ...formData, marketingConsent: e.target.checked })}
-                style={{ marginTop: 3, width: 16, height: 16, flexShrink: 0, accentColor: '#f36421' }}
+                style={{ marginTop: 3, width: 16, height: 16, flexShrink: 0, accentColor: '#1B4FFF' }}
               />
               <label htmlFor="marketingConsent" style={{ fontSize: '0.875rem', color: '#3f3f46', lineHeight: 1.65, cursor: 'pointer' }}>
                 I consent to receive marketing and promotional text messages from Aida LLC, DBA eighty5lab, at the phone number provided via SMS, which include special offers, discounts, and new product updates, among others. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.
@@ -208,7 +208,7 @@ export const OptInPage: React.FC = () => {
                 type="checkbox"
                 checked={formData.nonMarketingConsent}
                 onChange={e => setFormData({ ...formData, nonMarketingConsent: e.target.checked })}
-                style={{ marginTop: 3, width: 16, height: 16, flexShrink: 0, accentColor: '#f36421' }}
+                style={{ marginTop: 3, width: 16, height: 16, flexShrink: 0, accentColor: '#1B4FFF' }}
               />
               <label htmlFor="nonMarketingConsent" style={{ fontSize: '0.875rem', color: '#3f3f46', lineHeight: 1.65, cursor: 'pointer' }}>
                 I consent to receive non-marketing text messages from Aida LLC, DBA eighty5lab, which may include account updates, service alerts, and support-related communications. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.

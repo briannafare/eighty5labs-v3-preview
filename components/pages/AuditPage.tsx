@@ -98,15 +98,15 @@ export const AuditPage: React.FC = () => {
   /* ── Success screen ── */
   if (submitted) {
     return (
-      <div style={{ paddingTop: 'var(--nav-h)', minHeight: '90vh', background: '#fff', display: 'flex', alignItems: 'center' }}>
+      <div style={{ minHeight: '90vh', background: '#fff', display: 'flex', alignItems: 'center' }}>
         <div className="wrap" style={{ maxWidth: 1040, marginInline: 'auto', padding: 'clamp(40px, 6vw, 80px) 24px' }}>
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(40px, 5vw, 72px)', alignItems: 'start' }} className="hero-grid"
           >
             {/* LEFT — confirmation */}
             <div>
-              <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'rgba(132,204,22,0.12)', border: '2px solid rgba(132,204,22,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 24 }}>
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#84CC16" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'rgba(27,79,255,0.12)', border: '2px solid rgba(27,79,255,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 24 }}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1B4FFF" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <h1 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', letterSpacing: '-0.04em', marginBottom: 14, color: '#0F172A', lineHeight: 1.1 }}>
                 We're On It.
@@ -118,7 +118,7 @@ export const AuditPage: React.FC = () => {
                 We're analyzing your Map Pack position, review velocity, AI search visibility, and conversion gaps against your top local competitors.
               </p>
               <a href="/" onClick={e => { e.preventDefault(); navigate('/'); }} style={{ color: '#94A3B8', textDecoration: 'none', fontSize: '0.875rem' }}>
-                ← Back to eighty5labs
+                Back to eighty5labs
               </a>
             </div>
 
@@ -145,8 +145,8 @@ export const AuditPage: React.FC = () => {
                   'Custom recommendations you can implement yourself or we do for you',
                 ].map((item, i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
-                    <div style={{ width: 18, height: 18, borderRadius: 5, background: 'rgba(132,204,22,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 2 }}>
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#84CC16" strokeWidth="3"><path d="M20 6L9 17l-5-5"/></svg>
+                    <div style={{ width: 18, height: 18, borderRadius: 5, background: 'rgba(27,79,255,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 2 }}>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#1B4FFF" strokeWidth="3"><path d="M20 6L9 17l-5-5"/></svg>
                     </div>
                     <span style={{ fontSize: '0.875rem', color: '#334155', lineHeight: 1.5 }}>{item}</span>
                   </div>
@@ -178,18 +178,18 @@ export const AuditPage: React.FC = () => {
 
   /* ── Main quiz ── */
   return (
-    <div style={{ paddingTop: 'var(--nav-h)', minHeight: '100vh', background: '#fff', color: '#0F172A' }}>
+    <div style={{ minHeight: '100vh', background: '#fff', color: '#0F172A' }}>
       <div style={{ maxWidth: 560, marginInline: 'auto', padding: 'clamp(40px, 6vw, 72px) 24px 60px' }}>
 
         {/* Progress */}
         <div style={{ marginBottom: 40 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 10 }}>
-            <span style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '0.7rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#94A3B8' }}>Step {step + 1} of {total}</span>
+            <span style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '0.75rem', color: '#64748B' }}>Step {step + 1} of {total}</span>
             <span style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.75rem', color: '#1B4FFF' }}>{Math.round(pct)}%</span>
           </div>
           <div style={{ height: 6, background: '#EEF2FB', borderRadius: 3, overflow: 'hidden' }}>
             <motion.div animate={{ width: `${pct}%` }} transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              style={{ height: '100%', borderRadius: 3, background: 'linear-gradient(90deg, #1B4FFF, #84CC16)' }} />
+              style={{ height: '100%', borderRadius: 3, background: '#1B4FFF' }} />
           </div>
         </div>
 
@@ -281,17 +281,17 @@ export const AuditPage: React.FC = () => {
               background: 'transparent', border: '1.5px solid #DDE5F2', borderRadius: 999,
               padding: '12px 24px', fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '0.875rem',
               color: '#64748B', cursor: 'pointer',
-            }}>← Back</button>
+            }}>Back</button>
           )}
           <div style={{ flex: 1 }} />
           {step < total - 1 ? (
             <motion.button onClick={next} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn btn-primary" style={{ padding: '12px 32px', fontSize: '0.9375rem' }}>
-              Continue →
+              Continue
             </motion.button>
           ) : (
             <motion.button onClick={submit} disabled={loading} whileHover={{ scale: loading ? 1 : 1.02 }} whileTap={{ scale: loading ? 1 : 0.98 }}
               className="btn btn-primary" style={{ padding: '14px 36px', fontSize: '1rem', opacity: loading ? 0.7 : 1 }}>
-              {loading ? 'Building Your Audit…' : 'Get My Free Visibility Audit →'}
+              {loading ? 'Building your audit…' : 'Get my free visibility audit'}
             </motion.button>
           )}
         </div>

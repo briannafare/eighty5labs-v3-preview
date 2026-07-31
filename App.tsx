@@ -38,9 +38,9 @@ const NotFoundPage: React.FC = () => (
     minHeight: '80vh', display: 'flex', flexDirection: 'column', alignItems: 'center',
     justifyContent: 'center', gap: 16, textAlign: 'center', padding: '0 24px',
   }}>
-    <span style={{ fontSize: '4rem', fontWeight: 900, fontFamily: 'var(--fd)', color: 'var(--blue)' }}>404</span>
+    <span style={{ fontSize: '4rem', fontWeight: 900, fontFamily: 'var(--fd)', color: 'var(--td1)' }}>404</span>
     <p style={{ color: 'var(--t3)', maxWidth: 400 }}>This page doesn't exist. Might be a broken link or you typed something creative.</p>
-    <a href="/" style={{ color: 'var(--blue)', textDecoration: 'none', fontWeight: 600 }}>← Back to home</a>
+    <a href="/" style={{ color: 'var(--blue)', textDecoration: 'none', fontWeight: 600 }}>Back to home</a>
   </div>
 );
 
@@ -67,8 +67,10 @@ const App: React.FC = () => {
   const showFooter = !NO_FOOTER_ROUTES.includes(pathname);
   const fullBleed = FULL_BLEED_ROUTES.includes(pathname);
 
+  // Light shell. This used to be var(--bg0), which showed through as a dark
+  // band under the fixed nav on every non-full-bleed route.
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--bg0)' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--ls0)' }}>
       <ScrollToTop />
       <Navbar />
       <main id="main-content" role="main" style={{ flex: 1, paddingTop: fullBleed ? 0 : 'var(--nav-h)' }}>
