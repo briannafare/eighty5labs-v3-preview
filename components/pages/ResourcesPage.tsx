@@ -97,7 +97,7 @@ export default function ResourcesPage() {
         <div className="wrap">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: 32, alignItems: 'center' }}>
             <div>
-              <span style={{ display: 'inline-block', background: 'rgba(27,79,255,0.1)', color: '#1B4FFF', fontSize: '0.7rem', fontWeight: 600, padding: '4px 10px', borderRadius: 6, marginBottom: 12 }}>⚡ Featured Resource</span>
+              <span style={{ display: 'inline-block', background: 'rgba(27,79,255,0.1)', color: '#1B4FFF', fontSize: '0.75rem', fontWeight: 600, padding: '4px 10px', borderRadius: 6, marginBottom: 12 }}>⚡ Featured Resource</span>
               <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.375rem,2.5vw,1.875rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 12 }}>{FEATURED.title}</h2>
               <p style={{ color: '#64748B', lineHeight: 1.7, marginBottom: 20, fontSize: '0.9375rem' }}>{FEATURED.desc}</p>
               <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} className="btn btn-primary">
@@ -112,7 +112,7 @@ export default function ResourcesPage() {
               ].map(s => (
                 <div key={s.val} style={{ textAlign: 'center', padding: '16px 12px', background: '#F7F9FF', border: '1px solid #DDE5F2', borderRadius: 12 }}>
                   <p style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.5rem', color: '#1B4FFF', letterSpacing: '-0.03em', marginBottom: 6 }}>{s.val}</p>
-                  <p style={{ fontSize: '0.7rem', color: '#94A3B8', lineHeight: 1.4 }}>{s.label}</p>
+                  <p style={{ fontSize: '0.75rem', color: '#94A3B8', lineHeight: 1.4 }}>{s.label}</p>
                 </div>
               ))}
             </div>
@@ -161,8 +161,8 @@ export default function ResourcesPage() {
                     onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = TYPE_COLOR[r.type] || '#1B4FFF'; (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 20px ${TYPE_COLOR[r.type]}20`; }}
                     onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = '#DDE5F2'; (e.currentTarget as HTMLElement).style.boxShadow = 'none'; }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '0.7rem', fontWeight: 600, color: TYPE_COLOR[r.type] || '#1B4FFF', background: `${TYPE_COLOR[r.type] || '#1B4FFF'}14`, padding: '3px 8px', borderRadius: 5 }}>{r.type}</span>
-                      {r.interactive && <span style={{ fontSize: '0.68rem', color: '#94A3B8', background: '#F7F9FF', border: '1px solid #DDE5F2', borderRadius: 4, padding: '2px 7px' }}>Interactive</span>}
+                      <span style={{ fontSize: '0.75rem', fontWeight: 600, color: TYPE_COLOR[r.type] || '#1B4FFF', background: `${TYPE_COLOR[r.type] || '#1B4FFF'}14`, padding: '3px 8px', borderRadius: 5 }}>{r.type}</span>
+                      {r.interactive && <span style={{ fontSize: '0.75rem', color: '#94A3B8', background: '#F7F9FF', border: '1px solid #DDE5F2', borderRadius: 4, padding: '2px 7px' }}>Interactive</span>}
                     </div>
                     <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '0.9375rem', color: '#0F172A', lineHeight: 1.35, letterSpacing: '-0.01em' }}>{r.title}</h3>
                     <p style={{ fontSize: '0.8375rem', color: '#64748B', lineHeight: 1.6, flex: 1 }}>{r.desc}</p>

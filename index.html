@@ -395,6 +395,9 @@
 
         /* ── Layout */
         --max-w: 1140px;
+        /* Single source of truth for the page gutter — .wrap and any
+           component that needs to line up with it both read this. */
+        --wrap-px: clamp(20px, 5vw, 48px);
         /* The nav is a floating pill at top:16 — clearance is its height
            plus that offset, not the bar height. Doubles as the sticky
            offset for in-page filter bars. */
@@ -421,7 +424,7 @@
       .wrap {
         max-width: var(--max-w);
         margin-inline: auto;
-        padding-inline: clamp(20px, 5vw, 48px);
+        padding-inline: var(--wrap-px);
         width: 100%;
       }
 
@@ -751,6 +754,105 @@
       /* Override for dark sections */
       .section-dark .section-sub { color: var(--t3); }
 
+
+      /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         FOOTER
+         Four columns on desktop, two on tablet, two on phone.
+         The old build stacked to a single column below 768px, which
+         made an ~800px wall of one-per-row links on a phone.
+         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+      .site-footer {
+        background: #000000;
+        padding: clamp(40px, 7vw, 56px) clamp(20px, 5vw, 48px) 28px;
+      }
+      .footer-inner { max-width: 1100px; margin-inline: auto; }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 1fr 1fr;
+        gap: clamp(28px, 4vw, 48px);
+        padding-bottom: 32px;
+        border-bottom: 1px solid rgba(255,255,255,0.09);
+      }
+      .footer-logo {
+        font-family: var(--fl);
+        font-size: 1.1rem; font-weight: 900; letter-spacing: -0.04em;
+        color: #fff; text-decoration: none; display: inline-block; margin-bottom: 10px;
+      }
+      .footer-blurb {
+        font-size: 0.8125rem; color: rgba(255,255,255,0.62);
+        line-height: 1.7; max-width: 30ch; margin-bottom: 18px;
+      }
+      .footer-socials { display: flex; gap: 8px; flex-wrap: wrap; }
+      .footer-social {
+        width: 40px; height: 40px; border-radius: 9px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.10);
+        display: inline-flex; align-items: center; justify-content: center;
+        color: rgba(255,255,255,0.60);
+        transition: background 0.18s, border-color 0.18s, color 0.18s;
+      }
+      .footer-social:hover {
+        background: rgba(79,142,247,0.16);
+        border-color: rgba(79,142,247,0.38);
+        color: #93C5FD;
+      }
+
+      .footer-col-title {
+        font-family: var(--fd);
+        font-size: 0.8125rem; font-weight: 700; letter-spacing: -0.01em;
+        color: #FFFFFF; margin-bottom: 6px;
+      }
+      .footer-col ul { list-style: none; }
+      .footer-col a {
+        display: block;
+        /* 40px min row keeps neighbouring links from being mis-tapped */
+        padding: 10px 0;
+        font-size: 0.8125rem;
+        line-height: 1.35;
+        color: rgba(255,255,255,0.62);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .footer-col a:hover { color: #fff; }
+
+      .footer-bottom {
+        padding-top: 22px;
+        display: flex; align-items: center; justify-content: space-between;
+        flex-wrap: wrap; gap: 10px 24px;
+        font-size: 0.75rem; color: rgba(255,255,255,0.55);
+      }
+      .footer-place {
+        display: inline-flex; align-items: center; gap: 6px;
+        padding: 8px 0;
+        color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.15s;
+      }
+      .footer-place:hover { color: rgba(255,255,255,0.85); }
+      .footer-legal { display: flex; gap: 20px; }
+      .footer-legal a {
+        color: rgba(255,255,255,0.55); text-decoration: none;
+        padding: 10px 0; transition: color 0.15s;
+      }
+      .footer-legal a:hover { color: rgba(255,255,255,0.85); }
+
+      /* Blog: the article/sidebar grid never collapsed, leaving a ~100px
+         sidebar column whose contents ran past the viewport edge. */
+      @media (max-width: 860px) {
+        .blog-layout { grid-template-columns: 1fr !important; gap: 32px !important; }
+        .blog-layout > aside { position: static !important; }
+      }
+
+      @media (max-width: 900px) {
+        .footer-grid { grid-template-columns: repeat(3, 1fr); }
+        .footer-brand { grid-column: 1 / -1; }
+      }
+      @media (max-width: 560px) {
+        .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px 20px; }
+        .footer-blurb { max-width: none; }
+        .footer-bottom { justify-content: flex-start; gap: 12px; }
+        .footer-legal { width: 100%; gap: 24px; }
+      }
+
       /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
          CARDS
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
@@ -851,7 +953,6 @@
         .ind-grid { grid-template-columns: repeat(2, 1fr) !important; }
         .ind-grid > :last-child { grid-column: span 2; }
         .ind-panel-grid { grid-template-columns: 1fr !important; }
-        .footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
         /* Gap card grids */
         .gap-card-grid { grid-template-columns: 1fr !important; }
         .gap-card-grid > div:last-child { text-align: left !important; margin-top: 8px; }

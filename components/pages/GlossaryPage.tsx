@@ -79,7 +79,7 @@ function TermCard({ term }: { term: Term }) {
       <button onClick={() => setOpen(o => !o)}
         style={{ width: '100%', padding: '18px 20px', background: open ? `${color}08` : '#F7F9FF', border: 'none', textAlign: 'left', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 16 }}>
         <div style={{ flex: 1 }}>
-          <span style={{ display: 'inline-block', background: `${color}18`, color, fontSize: '0.68rem', fontWeight: 600, padding: '2px 7px', borderRadius: 4, marginBottom: 8 }}>{term.badge}</span>
+          <span style={{ display: 'inline-block', background: `${color}18`, color, fontSize: '0.75rem', fontWeight: 600, padding: '2px 7px', borderRadius: 4, marginBottom: 8 }}>{term.badge}</span>
           <p style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '0.9375rem', color: '#0F172A', lineHeight: 1.4, letterSpacing: '-0.01em', margin: 0 }}>{term.q}</p>
         </div>
         <motion.span animate={{ rotate: open ? 45 : 0 }} transition={{ duration: 0.2 }}
@@ -129,7 +129,7 @@ export default function GlossaryPage() {
       <section style={{ padding: 'clamp(48px,5vw,80px) 0 40px', background: '#F7F9FF', borderBottom: '1px solid #DDE5F2' }}>
         <div className="wrap" style={{ maxWidth: 680, textAlign: 'center' }}>
           <Reveal>
-            <span style={{ display: 'inline-block', background: 'rgba(100,116,139,0.1)', color: '#64748B', fontSize: '0.72rem', fontWeight: 600, padding: '5px 12px', borderRadius: 6, marginBottom: 16 }}>2026 Edition · Published by eighty5labs</span>
+            <span style={{ display: 'inline-block', background: 'rgba(100,116,139,0.1)', color: '#64748B', fontSize: '0.75rem', fontWeight: 600, padding: '5px 12px', borderRadius: 6, marginBottom: 16 }}>2026 Edition · Published by eighty5labs</span>
             <h1 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 800, letterSpacing: '-0.04em', color: '#0F172A', marginBottom: 16 }}>
               AI and local search glossary
             </h1>
@@ -156,7 +156,7 @@ export default function GlossaryPage() {
               const active = activeCategory === cat;
               return (
                 <button key={cat} onClick={() => setActiveCategory(cat)}
-                  style={{ padding: '5px 14px', borderRadius: 20, border: '1.5px solid', borderColor: active ? color : '#DDE5F2', background: active ? `${color}18` : 'transparent', color: active ? color : '#94A3B8', fontSize: '0.8rem', fontWeight: active ? 700 : 400, cursor: 'pointer', whiteSpace: 'nowrap', transition: 'all 0.15s' }}>
+                  style={{ padding: '9px 16px', borderRadius: 20, border: '1px solid', borderColor: active ? color : '#DDE5F2', background: active ? `${color}18` : 'transparent', color: active ? color : '#94A3B8', fontSize: '0.8rem', fontWeight: active ? 700 : 400, cursor: 'pointer', whiteSpace: 'nowrap', transition: 'all 0.15s' }}>
                   {cat}
                 </button>
               );

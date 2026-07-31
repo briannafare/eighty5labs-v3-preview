@@ -134,7 +134,7 @@ export const RevenueCalculator: React.FC<{ config?: CalculatorConfig }> = ({ con
           Get your free visibility audit <IconArrowRight size={16} />
         </button>
 
-        <p style={{ fontSize: '0.68rem', color: 'var(--t4)', marginTop: 12, lineHeight: 1.5 }}>
+        <p style={{ fontSize: '0.75rem', color: 'var(--t4)', marginTop: 12, lineHeight: 1.5 }}>
           An estimate from the inputs above, not a projection of your results.
         </p>
       </div>

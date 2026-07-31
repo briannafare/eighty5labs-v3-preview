@@ -50,7 +50,7 @@ export const AboutPage: React.FC = () => (
     </section>
 
     {/* Origin */}
-    <section style={{ padding: 'clamp(60px,8vw,100px) 48px' }}>
+    <section style={{ padding: 'clamp(60px,8vw,100px) clamp(20px, 5vw, 48px)' }}>
       <div className="wrap" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 56 }}>
         <Reveal>
           <div>
@@ -96,7 +96,7 @@ export const AboutPage: React.FC = () => (
     </section>
 
     {/* Team */}
-    <section style={{ padding: 'clamp(60px,8vw,100px) 48px', background: L.bg2, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
+    <section style={{ padding: 'clamp(60px,8vw,100px) clamp(20px, 5vw, 48px)', background: L.bg2, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
       <div className="wrap">
         <Stagger>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 28 }}>
@@ -131,7 +131,7 @@ export const AboutPage: React.FC = () => (
     </section>
 
     {/* Proof / Stats */}
-    <section style={{ padding: 'clamp(60px,8vw,100px) 48px' }}>
+    <section style={{ padding: 'clamp(60px,8vw,100px) clamp(20px, 5vw, 48px)' }}>
       <div className="wrap">
         <Reveal>
           <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)', letterSpacing: '-0.04em', marginBottom: 8, color: L.t1 }}>

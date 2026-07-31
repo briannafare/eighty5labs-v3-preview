@@ -296,7 +296,7 @@ export const AuditPage: React.FC = () => {
           )}
         </div>
 
-        <p style={{ fontSize: '0.72rem', color: '#94A3B8', textAlign: 'center', marginTop: 24, lineHeight: 1.55 }}>
+        <p style={{ fontSize: '0.75rem', color: '#94A3B8', textAlign: 'center', marginTop: 24, lineHeight: 1.55 }}>
           Your data stays private. We don't sell it, ever.
         </p>
       </div>

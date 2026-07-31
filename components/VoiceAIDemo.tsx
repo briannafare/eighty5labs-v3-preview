@@ -84,8 +84,8 @@ export const VoiceAIDemo: React.FC = () => {
               key={key}
               onClick={() => { if (!active) setActiveScene(key); }}
               style={{
-                fontSize: '0.7rem', fontWeight: 700,
-                padding: '5px 14px', borderRadius: 100, cursor: 'pointer',
+                fontSize: '0.75rem', fontWeight: 600,
+                padding: '9px 16px', borderRadius: 100, cursor: 'pointer',
                 border: `1px solid ${active ? 'var(--blue)' : 'var(--ls-border)'}`,
                 background: active ? 'var(--blue)' : '#fff',
                 color: active ? '#fff' : 'var(--td3)',
@@ -196,7 +196,7 @@ export const VoiceAIDemo: React.FC = () => {
           }}
         >
           <div style={{
-            fontSize: '0.7rem', fontWeight: 600,
+            fontSize: '0.75rem', fontWeight: 600,
             color: 'var(--td3)', marginBottom: 10,
           }}>
             Automation log
@@ -230,7 +230,7 @@ export const VoiceAIDemo: React.FC = () => {
                     )}
                   </motion.div>
                   <span style={{
-                    fontSize: '0.67rem', fontWeight: 700,
+                    fontSize: '0.75rem', fontWeight: 600,
                     color: done ? 'var(--td1)' : '#94A3B8',
                     transition: 'color 0.3s',
                   }}>

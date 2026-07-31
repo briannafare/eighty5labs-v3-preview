@@ -188,7 +188,7 @@ export const ServicesPage: React.FC = () => {
 
               {/* Header card */}
               <div style={{ padding: 'clamp(28px,4vw,40px)', background: L.bg2, border: `1.5px solid ${L.border}`, borderRadius: 'var(--rdl)', marginBottom: 3 }}>
-                <span style={{ display: 'inline-block', fontSize: '0.7rem', fontWeight: 700, color, background: `${color}12`, border: `1px solid ${color}30`, borderRadius: 6, padding: '4px 10px', marginBottom: 16 }}>
+                <span style={{ display: 'inline-block', fontSize: '0.75rem', fontWeight: 700, color, background: `${color}12`, border: `1px solid ${color}30`, borderRadius: 6, padding: '4px 10px', marginBottom: 16 }}>
                   Closes {GAP_LABELS[svc.gap]}
                 </span>
                 <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.5rem,2.5vw,2rem)', fontWeight: 800, letterSpacing: '-0.03em', color: L.t1, marginBottom: 12 }}>{svc.name}</h2>
@@ -258,7 +258,7 @@ export const ServicesPage: React.FC = () => {
               return (
                 <Reveal key={g.gap}>
                   <div style={{ padding: '28px 32px', background: L.bg, border: `1.5px solid ${c}25`, borderRadius: 'var(--rdl)', boxShadow: '0 1px 4px rgba(15,23,42,0.04)' }}>
-                    <span style={{ display: 'inline-block', fontSize: '0.7rem', fontWeight: 700, color: c, background: `${c}12`, border: `1px solid ${c}30`, borderRadius: 6, padding: '3px 8px', marginBottom: 16 }}>{g.label}</span>
+                    <span style={{ display: 'inline-block', fontSize: '0.75rem', fontWeight: 700, color: c, background: `${c}12`, border: `1px solid ${c}30`, borderRadius: 6, padding: '3px 8px', marginBottom: 16 }}>{g.label}</span>
                     <h3 style={{ fontFamily: 'var(--fd)', fontSize: '1.125rem', fontWeight: 800, color: L.t1, marginBottom: 6, letterSpacing: '-0.02em' }}>{g.subtitle}</h3>
                     <p style={{ fontSize: '0.8125rem', color: L.t4, marginBottom: 20 }}>{g.count}</p>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>

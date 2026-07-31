@@ -145,7 +145,7 @@ const StepFramework: React.FC = () => (
                 <step.Icon size={22} />
               </div>
               <div>
-                <div style={{ fontFamily: 'var(--fd)', fontSize: '0.72rem', fontWeight: 700, color: 'var(--td3)', marginBottom: 2 }}>Step {step.num}</div>
+                <div style={{ fontFamily: 'var(--fd)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--td3)', marginBottom: 2 }}>Step {step.num}</div>
                 <div style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '1.05rem', color: 'var(--td1)', letterSpacing: '-0.02em', lineHeight: 1.2 }}>{step.label}</div>
               </div>
             </div>
@@ -162,7 +162,7 @@ const StepFramework: React.FC = () => (
                     padding: '3px 8px', borderRadius: 6,
                     background: j === step.flow.length - 1 ? 'var(--blue-lt)' : 'var(--ls1)',
                     border: `1px solid ${j === step.flow.length - 1 ? 'var(--blue-border)' : 'var(--ls-border)'}`,
-                    fontFamily: 'var(--fd)', fontWeight: 600, fontSize: '0.63rem',
+                    fontFamily: 'var(--fd)', fontWeight: 600, fontSize: '0.75rem',
                     color: j === step.flow.length - 1 ? 'var(--blue)' : 'var(--td3)',
                     whiteSpace: 'nowrap',
                   }}>{node}</div>
@@ -173,7 +173,7 @@ const StepFramework: React.FC = () => (
             <div style={{ marginTop: 'auto', paddingTop: 18, borderTop: '1px solid var(--ls-border)' }}>
               <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 12 }}>
                 <span style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '1.35rem', lineHeight: 1, letterSpacing: '-0.03em', color: 'var(--td1)', whiteSpace: 'nowrap' }}>{step.stat}</span>
-                <span style={{ fontSize: '0.72rem', color: 'var(--td3)', lineHeight: 1.4 }}>{step.statLabel}</span>
+                <span style={{ fontSize: '0.75rem', color: 'var(--td3)', lineHeight: 1.4 }}>{step.statLabel}</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 7, color: 'var(--blue)' }}>
                 <IconCheck size={13} strokeWidth={2.5} />
@@ -453,7 +453,7 @@ export const Homepage: React.FC = () => {
                 <div className="card-light" style={{ height: '100%' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
                     <step.Icon size={20} color="var(--blue)" />
-                    <span style={{ fontFamily: 'var(--fd)', fontSize: '0.72rem', fontWeight: 700, color: 'var(--td3)' }}>{step.num}</span>
+                    <span style={{ fontFamily: 'var(--fd)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--td3)' }}>{step.num}</span>
                   </div>
                   <div style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '1rem', color: 'var(--td1)', marginBottom: 8, letterSpacing: '-0.02em' }}>{step.title}</div>
                   <p style={{ fontSize: '0.82rem', color: 'var(--td2)', lineHeight: 1.7 }}>{step.body}</p>
@@ -493,7 +493,7 @@ export const Homepage: React.FC = () => {
               <Reveal key={t.author} delay={i * 0.07}>
                 <figure className="card-light" style={{ height: '100%' }}>
                   <div style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: '1.6rem', letterSpacing: '-0.035em', marginBottom: 3, color: 'var(--td1)' }}>{t.metric}</div>
-                  <div style={{ fontSize: '0.72rem', color: 'var(--td3)', marginBottom: 18 }}>{t.metricLabel}</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--td3)', marginBottom: 18 }}>{t.metricLabel}</div>
                   <blockquote style={{ fontSize: '0.9rem', color: 'var(--td2)', lineHeight: 1.65, marginBottom: 22 }}>“{t.quote}”</blockquote>
                   <figcaption style={{ paddingTop: 16, borderTop: '1px solid var(--ls-border)' }}>
                     <div style={{ fontWeight: 600, color: 'var(--td1)', fontSize: '0.85rem' }}>{t.author}</div>
@@ -514,7 +514,7 @@ export const Homepage: React.FC = () => {
               Also built for
             </h2>
             <a href="/industries" onClick={e => { e.preventDefault(); navigate('/industries'); }}
-              style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--blue)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+              style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--blue)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6, padding: '10px 0' }}>
               All industries <IconArrowRight size={14} />
             </a>
           </div>
@@ -530,7 +530,7 @@ export const Homepage: React.FC = () => {
                 <ind.Icon size={20} color="var(--td3)" />
                 <span>
                   <span style={{ display: 'block', fontFamily: 'var(--fd)', fontWeight: 600, fontSize: '0.875rem', color: 'var(--td1)' }}>{ind.label}</span>
-                  <span style={{ display: 'block', fontSize: '0.72rem', color: 'var(--td3)', marginTop: 2 }}>{ind.sub}</span>
+                  <span style={{ display: 'block', fontSize: '0.75rem', color: 'var(--td3)', marginTop: 2 }}>{ind.sub}</span>
                 </span>
               </a>
             ))}

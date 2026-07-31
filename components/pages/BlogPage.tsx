@@ -179,7 +179,7 @@ export default function BlogPage() {
         </div>
       </div>
 
-      <div className="wrap" style={{ display: 'grid', gridTemplateColumns: '1fr min(300px,30%)', gap: 48, paddingTop: 48, paddingBottom: 48, alignItems: 'start' }}>
+      <div className="wrap blog-layout" style={{ display: 'grid', gridTemplateColumns: '1fr min(300px,30%)', gap: 48, paddingTop: 48, paddingBottom: 48, alignItems: 'start' }}>
 
         {/* Main */}
         <div>
@@ -188,12 +188,12 @@ export default function BlogPage() {
             <Reveal>
               <div style={{ marginBottom: 36, padding: '28px 32px', background: 'linear-gradient(135deg,rgba(100,116,139,0.08) 0%,rgba(27,79,255,0.06) 100%)', border: '1.5px solid rgba(100,116,139,0.25)', borderRadius: 16, position: 'relative', overflow: 'hidden' }}>
                 <div style={{ position: 'absolute', top: 0, right: 0, width: 120, height: 120, borderRadius: '50%', background: 'rgba(100,116,139,0.08)', transform: 'translate(30px,-30px)' }} />
-                <span style={{ display: 'inline-block', background: 'rgba(27,79,255,0.10)', color: '#1B4FFF', fontSize: '0.7rem', fontWeight: 600, padding: '4px 10px', borderRadius: 6, marginBottom: 14 }}>⭐ Featured Article</span>
+                <span style={{ display: 'inline-block', background: 'rgba(27,79,255,0.10)', color: '#1B4FFF', fontSize: '0.75rem', fontWeight: 600, padding: '4px 10px', borderRadius: 6, marginBottom: 14 }}>⭐ Featured Article</span>
                 <h2 style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.25rem,2.5vw,1.625rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0F172A', marginBottom: 12 }}>{FEATURED_POST.title}</h2>
                 <p style={{ color: '#64748B', lineHeight: 1.7, marginBottom: 20, fontSize: '0.9375rem' }}>{FEATURED_POST.desc}</p>
                 <div style={{ display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
                   <span style={{ fontSize: '0.8125rem', color: '#94A3B8' }}>{FEATURED_POST.author} · {FEATURED_POST.read}</span>
-                  <span style={{ display: 'inline-block', background: `${TAG_COLOR['AI Search']}18`, color: TAG_COLOR['AI Search'], fontSize: '0.7rem', fontWeight: 700, padding: '3px 8px', borderRadius: 5 }}>AI Search</span>
+                  <span style={{ display: 'inline-block', background: `${TAG_COLOR['AI Search']}18`, color: TAG_COLOR['AI Search'], fontSize: '0.75rem', fontWeight: 700, padding: '3px 8px', borderRadius: 5 }}>AI Search</span>
                   <button style={{ background: 'none', border: 'none', color: '#1B4FFF', fontWeight: 700, fontSize: '0.875rem', cursor: 'pointer', padding: 0 }}>Read article</button>
                 </div>
                 {FEATURED_POST.stat && (
@@ -218,7 +218,7 @@ export default function BlogPage() {
                   onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = TAG_COLOR[post.tag]}
                   onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = '#DDE5F2'}>
                   <div style={{ display: 'flex', gap: 10, alignItems: 'center', marginBottom: 10 }}>
-                    <span style={{ background: `${TAG_COLOR[post.tag]}18`, color: TAG_COLOR[post.tag], fontSize: '0.7rem', fontWeight: 700, padding: '3px 8px', borderRadius: 5 }}>{post.tag}</span>
+                    <span style={{ background: `${TAG_COLOR[post.tag]}18`, color: TAG_COLOR[post.tag], fontSize: '0.75rem', fontWeight: 700, padding: '3px 8px', borderRadius: 5 }}>{post.tag}</span>
                     <span style={{ fontSize: '0.75rem', color: '#94A3B8' }}>{post.read}</span>
                   </div>
                   <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1rem', color: '#0F172A', lineHeight: 1.35, letterSpacing: '-0.01em', marginBottom: 8 }}>{post.title}</h3>
@@ -251,7 +251,7 @@ export default function BlogPage() {
                   onClick={() => email && setSubscribed(true)} className="btn btn-primary">
                   Subscribe free
                 </motion.button>
-                <p style={{ fontSize: '0.72rem', color: '#94A3B8' }}>Unsubscribe anytime. We don't spam.</p>
+                <p style={{ fontSize: '0.75rem', color: '#94A3B8' }}>Unsubscribe anytime. We don't spam.</p>
               </div>
             )}
           </div>
@@ -280,8 +280,8 @@ export default function BlogPage() {
                   <div>
                     <p style={{ fontSize: '0.8375rem', color: '#334155', fontWeight: 600, lineHeight: 1.4, marginBottom: 4 }}>{p.title}</p>
                     <div style={{ display: 'flex', gap: 8 }}>
-                      <span style={{ background: `${TAG_COLOR[p.tag]}18`, color: TAG_COLOR[p.tag], fontSize: '0.65rem', fontWeight: 700, padding: '2px 6px', borderRadius: 4 }}>{p.tag}</span>
-                      <span style={{ fontSize: '0.72rem', color: '#94A3B8' }}>{p.read}</span>
+                      <span style={{ background: `${TAG_COLOR[p.tag]}18`, color: TAG_COLOR[p.tag], fontSize: '0.75rem', fontWeight: 700, padding: '2px 6px', borderRadius: 4 }}>{p.tag}</span>
+                      <span style={{ fontSize: '0.75rem', color: '#94A3B8' }}>{p.read}</span>
                     </div>
                   </div>
                 </div>

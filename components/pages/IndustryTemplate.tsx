@@ -85,14 +85,14 @@ const RevenueCalc: React.FC = () => {
           { label: 'Recovered / mo', val: `$${recoveredRev.toLocaleString()}`, color: '#1B4FFF' },
         ].map(row => (
           <div key={row.label} style={{ background: '#F7F9FF', borderRadius: 10, padding: '14px 16px' }}>
-            <p style={{ fontSize: '0.7rem', color: '#94A3B8', marginBottom: 4 }}>{row.label}</p>
+            <p style={{ fontSize: '0.75rem', color: '#94A3B8', marginBottom: 4 }}>{row.label}</p>
             <p style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.125rem', color: row.color }}>{row.val}</p>
           </div>
         ))}
       </div>
       <div style={{ marginTop: 12, background: 'rgba(27,79,255,0.08)', border: '1px solid rgba(27,79,255,0.25)', borderRadius: 10, padding: '16px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
-          <p style={{ fontSize: '0.7rem', color: '#94A3B8', marginBottom: 4 }}>Annual Upside</p>
+          <p style={{ fontSize: '0.75rem', color: '#94A3B8', marginBottom: 4 }}>Annual Upside</p>
           <p style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.5rem', color: '#1B4FFF', letterSpacing: '-0.03em' }}>${annualUpside.toLocaleString()}</p>
         </div>
         <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/audit')}
@@ -132,7 +132,7 @@ export const IndustryPage: React.FC<{ data: IndustryPageData }> = ({ data }) => 
 
       {/* Back link */}
       <div className="wrap" style={{ padding: '20px var(--wrap-px) 0' }}>
-        <button onClick={() => navigate('/industries')} style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6, color: '#94A3B8', fontSize: '0.8125rem', fontWeight: 500 }}>
+        <button onClick={() => navigate('/industries')} style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6, color: '#64748B', fontSize: '0.8125rem', fontWeight: 500, padding: '10px 0' }}>
           All industries
         </button>
       </div>
