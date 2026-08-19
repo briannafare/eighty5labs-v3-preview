@@ -5,6 +5,7 @@ import { navigate } from '../router';
 
 const NAV_LINKS = [
   { label: 'Services', route: '/services' },
+  { label: 'Work', route: '/work' },
   { label: 'Industries', route: '/industries' },
   { label: 'Pricing', route: '/pricing' },
   { label: 'Resources', route: '/resources' },

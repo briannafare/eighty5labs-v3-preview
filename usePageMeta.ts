@@ -58,6 +58,10 @@ const PAGE_META: Record<string, PageMeta> = {
     title: `Blog — AI Marketing Insights for Local Business | ${BASE}`,
     description: 'Insights on AI search visibility, answer engine optimization, voice AI, review management, and marketing automation for local service businesses.',
   },
+  '/work': {
+    title: `Our Work — Websites Built for Local Businesses | ${BASE}`,
+    description: 'Live websites eighty5labs has designed and built: real estate, mortgage, home services, event venues, and more. Every site custom-designed and wired into AI-powered lead capture.',
+  },
   '/glossary': {
     title: `AI Marketing Glossary — Terms & Definitions | ${BASE}`,
     description: 'Comprehensive glossary of AI marketing, AEO, GEO, voice AI, and local SEO terms. Understand the language of AI-powered business growth.',

@@ -25,6 +25,7 @@ const LegalPage      = lazy(() => import('./components/pages/LegalPage'));
 const ResourcesPage  = lazy(() => import('./components/pages/ResourcesPage'));
 const BlogPage       = lazy(() => import('./components/pages/BlogPage'));
 const GlossaryPage   = lazy(() => import('./components/pages/GlossaryPage'));
+const WorkPage       = lazy(() => import('./components/pages/WorkPage').then(m => ({ default: m.WorkPage })));
 
 const PageLoader: React.FC = () => (
   <div style={{
@@ -87,6 +88,7 @@ const App: React.FC = () => {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/glossary" element={<GlossaryPage />} />
+            <Route path="/work" element={<WorkPage />} />
             <Route path="/audit" element={<AuditPage />} />
             <Route path="/optin" element={<OptInPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
