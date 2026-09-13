@@ -4,13 +4,13 @@ import { navigate } from '../../router';
 
 // filled from ~/brain/strategy/quick-cash-2026-09-12/stripe-links.json
 const LINKS = {
-  leadResponder: '',
-  audit: '',
-  receptionistSetup: '',
-  receptionistMonthly: '',
-  newsletter: '',
-  leadKitPdf: '',
-  closerPdf: '',
+  leadResponder: 'https://buy.stripe.com/bJecN58LN93l1uAaC59bO0v',
+  audit: 'https://buy.stripe.com/4gM8wPaTV7Zhehm6lP9bO0w',
+  receptionistSetup: 'https://buy.stripe.com/fZucN5d23gvN6OUaC59bO0u',
+  receptionistMonthly: 'https://buy.stripe.com/6oU28rbXZ6Vdb5aaC59bO0x',
+  newsletter: 'https://buy.stripe.com/fZu4gz5zB1ATflqdOh9bO0y',
+  leadKitPdf: 'https://buy.stripe.com/28E00jaTVfrJ3CI4dH9bO0z',
+  closerPdf: 'https://buy.stripe.com/9B628r8LN0wP7SY25z9bO0A',
 };
 
 /* Light tokens, same as WorkPage */
