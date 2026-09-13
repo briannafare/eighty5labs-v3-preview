@@ -57,6 +57,7 @@ export const Footer: React.FC = () => {
         <FooterCol title="Company" links={[
           { label: 'About 85', route: '/about' },
           { label: 'Work', route: '/work' },
+          { label: 'Start', route: '/start' },
           { label: 'Blog', route: '/blog' },
           { label: 'Pricing', route: '/pricing' },
           { label: 'Press', route: '/resources' },

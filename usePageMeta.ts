@@ -62,6 +62,26 @@ const PAGE_META: Record<string, PageMeta> = {
     title: `Our Work — Websites Built for Local Businesses | ${BASE}`,
     description: 'Live websites eighty5labs has designed and built: real estate, mortgage, home services, event venues, and more. Every site custom-designed and wired into AI-powered lead capture.',
   },
+  '/start': {
+    title: `Start here | ${BASE}`,
+    description: 'Five small jobs, each with a fixed price and a delivery date. Lead responder, GoHighLevel account audit, AI receptionist, neighborhood letter, and the two manuals as PDFs.',
+  },
+  '/start/lead-kit': {
+    title: `The first-reply prompt, free | ${BASE}`,
+    description: 'Part one of Never Let a Lead Go Cold: the prompt for the AI message a new lead gets back inside GoHighLevel, with the four slots you fill in once.',
+  },
+  '/start/thanks': {
+    title: `You're in. Here's what happens next. | ${BASE}`,
+    description: 'What happens after your purchase from eighty5labs.',
+  },
+  '/start/closer-thanks': {
+    title: `Your copy of The AI Real Estate Closer | ${BASE}`,
+    description: 'Download page for The AI Real Estate Closer.',
+  },
+  '/start/lead-kit-thanks': {
+    title: `Your copy of Never Let a Lead Go Cold | ${BASE}`,
+    description: 'Download page for Never Let a Lead Go Cold.',
+  },
   '/glossary': {
     title: `AI Marketing Glossary — Terms & Definitions | ${BASE}`,
     description: 'Comprehensive glossary of AI marketing, AEO, GEO, voice AI, and local SEO terms. Understand the language of AI-powered business growth.',

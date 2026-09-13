@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /files/
+Disallow: /start/thanks
+Disallow: /start/closer-thanks
+Disallow: /start/lead-kit-thanks
 Sitemap: https://www.eighty5labs.com/sitemap.xml
 
 User-agent: GPTBot

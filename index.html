@@ -748,6 +748,19 @@
         .scroll-peek-wrap { margin-top: 32px; }
       }
 
+      /* ── /start offer rows */
+      .start-offer {
+        display: grid;
+        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+        gap: 48px;
+        padding: 52px 0;
+        border-top: 1px solid var(--ls-border);
+      }
+      .start-prose p + p { margin-top: 16px; }
+      @media (max-width: 760px) {
+        .start-offer { grid-template-columns: 1fr; gap: 20px; padding: 40px 0; }
+      }
+
       /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
          Dark (.section-dark) and light (.section, .section-light)
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
