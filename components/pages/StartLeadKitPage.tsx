@@ -5,6 +5,8 @@ import { navigate } from '../../router';
 const WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/n21oYUwglqe3bTsxL2RS/webhook-trigger/94bbb4c3-cab5-4aef-98f3-754b9e225ae8';
 const OPENED_KEY = 'e5l-lead-kit-open';
 
+// Gate copy: ~/brain/strategy/quick-cash-2026-09-12/copy/start-page.md (rewrite 2). The revealed Prompt below is unchanged.
+
 /* Light tokens, same as WorkPage */
 const L = {
   bg: '#FFFFFF', bg2: '#F7F9FF',
@@ -188,12 +190,16 @@ export const StartLeadKitPage: React.FC = () => {
         </h1>
         <div className="start-prose" style={{ marginTop: 20, fontSize: '1.05rem', lineHeight: 1.7, color: L.t2, maxWidth: 640 }}>
           <p>
-            This is part one of Never Let a Lead Go Cold: the prompt for the AI message a new lead gets back inside GoHighLevel, with the four slots you fill in once. It reads what the person wrote and answers it, so the first thing they hear from you sounds like somebody paid attention.
+            This is the message a new lead gets back from your GoHighLevel, written so it reads what they said and answers it. Four slots to fill in once, then it's yours.
           </p>
           <p>
-            It's free because the message is the easy half. The half that takes a Saturday is what happens after the message goes out: the workflow that stops the sequence when the person replies, the one that ends it when they say stop, the one that handles a bounce, and the one that hands a deal that's stopped moving to a human as a task instead of firing another text at it. Those four guardrails, written out as GoHighLevel workflows you rebuild by hand, are the paid kit. It's $49.
+            I give it away because writing the message is the small part. The part that takes a Saturday is what happens after it goes out: stopping the sequence when the person replies, ending it when they say stop, catching a bounce, and handing a deal that's gone quiet to a human instead of firing another text at it. Those four workflows, written out so you can rebuild them, are the $49 kit at{' '}
+            <a href="/start" onClick={e => { e.preventDefault(); navigate('/start'); }} style={{ color: L.blue, fontWeight: 600, textDecoration: 'none' }}>
+              eighty5labs.com/start
+            </a>
+            .
           </p>
-          {!opened && <p>Put your email in and the prompt page opens.</p>}
+          {!opened && <p>Put your name and email in and the prompt opens on this page.</p>}
         </div>
       </div>
 
@@ -230,13 +236,6 @@ export const StartLeadKitPage: React.FC = () => {
                   {submitting ? 'Opening' : 'Open the prompt'}
                 </button>
               </div>
-              <p style={{ fontSize: '0.875rem', lineHeight: 1.6, color: L.t3 }}>
-                The page opens as soon as you press it. The kit with the four guardrails is at{' '}
-                <a href="/start" onClick={e => { e.preventDefault(); navigate('/start'); }} style={{ color: L.blue, fontWeight: 600, textDecoration: 'none' }}>
-                  eighty5labs.com/start
-                </a>
-                .
-              </p>
             </form>
           </div>
         </div>

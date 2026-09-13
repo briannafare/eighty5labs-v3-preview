@@ -49,13 +49,15 @@ const DownloadButton: React.FC<{ href: string }> = ({ href }) => (
   </p>
 );
 
+// Copy: ~/brain/strategy/quick-cash-2026-09-12/copy/start-page.md (rewrite 2)
+
 export const StartThanksPage: React.FC = () => (
   <Shell title="You're in. Here's what happens next.">
     <p>
-      The next thing you'll see is an email from me, Bri, with the two or three things I need to start. For most of these jobs that's a user login to your GoHighLevel and a few questions about how you want to sound. Reply to that email with the answers and the delivery clock starts from your purchase, so the sooner they come back the more of that window I get to use.
+      The next thing you'll see is an email from me, Bri, asking for the two or three things I need to start. For most of these that's a user login to your GoHighLevel and a few questions about how you want to sound. The deadline starts when your answers land, so send them back as soon as you can.
     </p>
     <p>
-      If you'd rather talk it through first, book fifteen minutes with me here:{' '}
+      If you'd rather talk first, book fifteen minutes with me:{' '}
       <a
         href={CALENDAR_URL}
         target="_blank"
@@ -67,7 +69,7 @@ export const StartThanksPage: React.FC = () => (
       .
     </p>
     <p>
-      Your card statement will show EIGHTY5LABS. If anything looks off, reply to the receipt and it comes straight to me.
+      Your card will show EIGHTY5LABS. Reply to the receipt if anything looks off and it comes straight to me.
     </p>
   </Shell>
 );
@@ -75,12 +77,11 @@ export const StartThanksPage: React.FC = () => (
 export const CloserThanksPage: React.FC = () => (
   <Shell title="Your copy of The AI Real Estate Closer">
     <DownloadButton href={CLOSER_PDF} />
-    <p>Save it somewhere you'll find it again. This page is the only place the link lives.</p>
     <p>
-      Fill in the six slots before you paste anything. An empty slot is where an AI starts inventing. This prompt is written to skip rather than guess, so it needs your team name, your market, and who a warm lead gets handed to before it can do its job. Then run the test the PDF describes before you point it at a real person.
+      Fill in the six slots before you paste anything into your account. An empty slot is where an AI starts inventing, and this prompt is written to skip rather than guess, so it needs your team name, your market, and who a warm lead gets handed to. Then run the test in the PDF against yourself before you point it at a real person.
     </p>
     <p>
-      If you'd rather have it installed for you, with the reply, stop, bounce and stalled-deal guardrails around it, that's the 24-Hour Lead Responder at <StartLink />. $297, done inside a day.
+      If you'd rather I install it, with the reply, stop, bounce and quiet-deal guardrails around it, that's the 24-Hour Lead Responder at <StartLink />.
     </p>
   </Shell>
 );
@@ -88,12 +89,11 @@ export const CloserThanksPage: React.FC = () => (
 export const LeadKitThanksPage: React.FC = () => (
   <Shell title="Your copy of Never Let a Lead Go Cold">
     <DownloadButton href={LEAD_KIT_PDF} />
-    <p>Save it somewhere you'll find it again. This page is the only place the link lives.</p>
     <p>
-      Read the guardrails before the prompt. The prompt is the half you could already get free, and the four workflows are the half worth your Saturday. Two of them have no customer-facing words in them at all, so you can build those two tonight.
+      Read the guardrails before the prompt. The prompt is the part you could have had free. The four workflows are the part you paid for, and two of them have no customer-facing words at all, so you can build those two tonight.
     </p>
     <p>
-      If you'd rather I install the whole thing in your account, that's the 24-Hour Lead Responder at <StartLink />. $297, done inside a day, with a five-minute Loom of where everything lives.
+      If you'd rather I install the whole thing, that's the 24-Hour Lead Responder at <StartLink />. $297, done inside a day, with a five-minute video of where everything lives.
     </p>
   </Shell>
 );
