@@ -59,7 +59,7 @@ const Prompt: React.FC = () => (
       Never Let a Lead Go Cold
     </h2>
     <p style={{ marginTop: 10, color: L.t3 }}>
-      Part one of the kit, free: a copy-paste GoHighLevel automation pattern for the first message a lead hears back, before anyone on your team has time to call.
+      Part one of the kit, free: copy and paste this in, and it becomes the first thing a lead hears back, before anyone on your team has had time to call.
     </p>
 
     <p>
@@ -68,10 +68,10 @@ const Prompt: React.FC = () => (
 
     <H3>Where it goes</H3>
     <p>
-      Inside your Website Form Leads workflow, right after your AI Summary step or wherever the form data first gets processed, add one AI Agent action with two tools connected: Send Email and Send SMS. The agent writes and sends both itself, in one step, no separate template actions downstream.
+      Find whatever runs when a lead comes off your website form, and go to the point just after the form answers have been read in. Add a single AI step there and give it the ability to send both an email and a text. It writes and sends both itself, so you don't need separate template steps sitting after it.
     </p>
 
-    <H3>The prompt, fill in the brand slots</H3>
+    <H3>The instructions, with four blanks to fill in</H3>
     <pre style={{
       background: L.ink, color: L.paper, borderRadius: 'var(--rd)',
       padding: '20px 22px', overflowX: 'auto',
@@ -108,15 +108,15 @@ just X but Y," buzzwords, manufactured urgency, or exclamation-point energy.`}
 
     <H3>Before you turn it on</H3>
     <p>
-      Confirm your Send Email tool lets the agent set subject and body freely, no locked template. Run one live test submission and read both outputs in the contact's conversation history. Check that the email actually sends before the text, so the SMS line "just emailed a few thoughts" is telling the truth. Then read the first few real outputs out loud. If any line makes you cringe, tighten the prompt, the prompt holds the line, but the real outputs tell you what's actually wrong with it.
+      Check that it's allowed to write its own subject line and body rather than being locked to a template. Then send yourself a test lead and read both messages the way the lead will see them. Make sure the email goes before the text, so the line about having just emailed them is true. Read the first few real ones out loud, and tighten the wording anywhere you'd wince. The instructions hold the line, but the real replies are what tell you which line needs changing.
     </p>
 
     <H3>The half this page doesn't cover</H3>
     <p>
-      That's the message. What decides whether it embarrasses you is the machinery around it: what your account does when the lead replies, when someone texts "stop", when an email bounces, and when a deal sits in the same stage for a fortnight. While scoping a client build we read every workflow in sixteen GoHighLevel sub-accounts, 386 of them, and all 386 were built to send. One account had anything handling a bounce or an unsubscribe, and those three workflows had arrived inside a snapshot rather than being built by anyone who worked there. Not one had a rule that stopped the sending when the person wrote back.
+      That's the message. What decides whether it embarrasses you is everything around it: what happens when the lead replies, when someone texts "stop", when an email bounces, and when a deal sits untouched for a fortnight. While scoping a client build we read all 386 automations across sixteen businesses. Every one of them was built to send. Exactly one business had anything at all handling a bounce or an unsubscribe, and even that had arrived in a bundle somebody imported rather than being built by anyone who worked there. Not one of the 386 stopped sending when the person wrote back.
     </p>
     <p>
-      The full kit is the four guardrail workflows that fix that, the rule that keeps the AI from inventing a number, and the throttle that decides how often the sequence is allowed to speak. There's one thing on this page you can go and do tonight without any of it, though. Open your workflow list, filter it to published, and read what each one triggers on. In that sweep we found two live workflows firing every time anybody added a note to any contact, and one of them was posting contact details to a Zapier endpoint belonging to whoever had built the snapshot.
+      The full kit is the four things that fix that, the rule that keeps it from inventing a number, and the limit on how often it's allowed to speak at all. There's one thing on this page you can go and do tonight without any of it, though. Open your list of live automations and read what sets each one off. In that same sweep we found two firing every time anybody added a note to any contact, and one of those was quietly sending customer details out to whoever had built the bundle it came in.
     </p>
 
     <p style={{ marginTop: 40, paddingTop: 20, borderTop: `1px solid ${L.border}`, fontSize: '0.9rem', color: L.t3 }}>
