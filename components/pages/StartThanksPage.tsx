@@ -49,15 +49,15 @@ const DownloadButton: React.FC<{ href: string }> = ({ href }) => (
   </p>
 );
 
-// Copy: ~/brain/strategy/quick-cash-2026-09-12/copy/start-page.md (rewrite 2)
+// Copy: ~/brain/strategy/quick-cash-2026-09-12/copy/start-page.md (rewrite 3, outcome-led)
 
 export const StartThanksPage: React.FC = () => (
   <Shell title="You're in. Here's what happens next.">
     <p>
-      The next thing you'll see is an email from me, Bri, asking for the two or three things I need to start. For most of these that's a user login to your GoHighLevel and a few questions about how you want to sound. The deadline starts when your answers land, so send them back as soon as you can.
+      The next thing you'll get is an email from me, Bri, asking for the two or three things I need to start. Usually that's access to your system and a few questions about how you want to sound. Your date starts when your answers land, so send them back as soon as you can.
     </p>
     <p>
-      If you'd rather talk first, book fifteen minutes with me:{' '}
+      If you'd rather talk it through first, book fifteen minutes with me:{' '}
       <a
         href={CALENDAR_URL}
         target="_blank"
@@ -78,10 +78,10 @@ export const CloserThanksPage: React.FC = () => (
   <Shell title="Your copy of The AI Real Estate Closer">
     <DownloadButton href={CLOSER_PDF} />
     <p>
-      Fill in the six slots before you paste anything into your account. An empty slot is where an AI starts inventing, and this prompt is written to skip rather than guess, so it needs your team name, your market, and who a warm lead gets handed to. Then run the test in the PDF against yourself before you point it at a real person.
+      Fill in the six blanks before you put it to work. Those blanks are the difference between an assistant that sounds like your team and one that makes things up, so it needs your name, your area, and who a serious lead should be handed to. Then test it on yourself before you let it talk to a real person.
     </p>
     <p>
-      If you'd rather I install it, with the reply, stop, bounce and quiet-deal guardrails around it, that's the 24-Hour Lead Responder at <StartLink />.
+      If you'd rather I set the whole thing up for you, with everything that keeps it from pestering people, that's the $297 job at <StartLink />.
     </p>
   </Shell>
 );
@@ -90,10 +90,10 @@ export const LeadKitThanksPage: React.FC = () => (
   <Shell title="Your copy of Never Let a Lead Go Cold">
     <DownloadButton href={LEAD_KIT_PDF} />
     <p>
-      Read the guardrails before the prompt. The prompt is the part you could have had free. The four workflows are the part you paid for, and two of them have no customer-facing words at all, so you can build those two tonight.
+      Read the second half first. The first half is the message, which you could have had free. The second half is what keeps that message from running over a real person, and two of those four things you can put in place tonight.
     </p>
     <p>
-      If you'd rather I install the whole thing, that's the 24-Hour Lead Responder at <StartLink />. $297, done inside a day, with a five-minute video of where everything lives.
+      If you'd rather I did all of it, that's the $297 job at <StartLink />, live within a day, with a short video of how to change anything yourself.
     </p>
   </Shell>
 );

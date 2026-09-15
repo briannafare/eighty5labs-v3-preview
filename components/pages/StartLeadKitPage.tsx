@@ -5,7 +5,7 @@ import { navigate } from '../../router';
 const WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/n21oYUwglqe3bTsxL2RS/webhook-trigger/94bbb4c3-cab5-4aef-98f3-754b9e225ae8';
 const OPENED_KEY = 'e5l-lead-kit-open';
 
-// Gate copy: ~/brain/strategy/quick-cash-2026-09-12/copy/start-page.md (rewrite 2). The revealed Prompt below is unchanged.
+// Gate copy: ~/brain/strategy/quick-cash-2026-09-12/copy/start-page.md (rewrite 3, outcome-led). The revealed Prompt below is unchanged.
 
 /* Light tokens, same as WorkPage */
 const L = {
@@ -186,20 +186,20 @@ export const StartLeadKitPage: React.FC = () => {
           fontFamily: 'var(--fd)', fontWeight: 800, color: L.t1,
           fontSize: 'clamp(2.2rem, 5vw, 3.4rem)', maxWidth: 760,
         }}>
-          The first-reply prompt, free.
+          The first answer a new lead gets, free.
         </h1>
         <div className="start-prose" style={{ marginTop: 20, fontSize: '1.05rem', lineHeight: 1.7, color: L.t2, maxWidth: 640 }}>
           <p>
-            This is the message a new lead gets back from your GoHighLevel, written so it reads what they said and answers it. Four slots to fill in once, then it's yours.
+            This is what a new lead hears back from you, written so it answers their question instead of thanking them for reaching out. Fill in four blanks once and it's yours.
           </p>
           <p>
-            I give it away because writing the message is the small part. The part that takes a Saturday is what happens after it goes out: stopping the sequence when the person replies, ending it when they say stop, catching a bounce, and handing a deal that's gone quiet to a human instead of firing another text at it. Those four workflows, written out so you can rebuild them, are the $49 kit at{' '}
+            I give it away because writing the message is the easy half. The hard half is everything that sits around it, so that it stops when someone replies, leaves alone anyone who asks it to, and hands a real conversation to you. That half is the $49 manual at{' '}
             <a href="/start" onClick={e => { e.preventDefault(); navigate('/start'); }} style={{ color: L.blue, fontWeight: 600, textDecoration: 'none' }}>
               eighty5labs.com/start
             </a>
             .
           </p>
-          {!opened && <p>Put your name and email in and the prompt opens on this page.</p>}
+          {!opened && <p>Put your name and email in and it opens on this page.</p>}
         </div>
       </div>
 
@@ -233,7 +233,7 @@ export const StartLeadKitPage: React.FC = () => {
               )}
               <div>
                 <button type="submit" disabled={submitting} className="btn btn-primary" style={{ opacity: submitting ? 0.7 : 1 }}>
-                  {submitting ? 'Opening' : 'Open the prompt'}
+                  {submitting ? 'Opening' : 'Show me the message'}
                 </button>
               </div>
             </form>

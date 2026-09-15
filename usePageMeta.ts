@@ -64,11 +64,11 @@ const PAGE_META: Record<string, PageMeta> = {
   },
   '/start': {
     title: `Start here | ${BASE}`,
-    description: 'Five small jobs, each with a fixed price and a delivery date. Lead responder, GoHighLevel account audit, AI receptionist, neighborhood letter, and the two manuals as PDFs.',
+    description: "Three things I'll fix this week, each with a price and a date: every lead gets a real answer, find out what's broken, and your phone gets answered every time. Plus two manuals if you'd rather do it yourself.",
   },
   '/start/lead-kit': {
-    title: `The first-reply prompt, free | ${BASE}`,
-    description: 'Part one of Never Let a Lead Go Cold: the prompt for the AI message a new lead gets back inside GoHighLevel, with the four slots you fill in once.',
+    title: `The first answer a new lead gets, free | ${BASE}`,
+    description: "Part one of Never Let a Lead Go Cold: what a new lead hears back from you, written so it answers their question instead of thanking them for reaching out. Fill in four blanks once and it's yours.",
   },
   '/start/thanks': {
     title: `You're in. Here's what happens next. | ${BASE}`,

@@ -20,7 +20,7 @@ const L = {
   blue: '#1B4FFF',
 };
 
-// Copy: ~/brain/strategy/quick-cash-2026-09-12/copy/start-page.md (rewrite 2)
+// Copy: ~/brain/strategy/quick-cash-2026-09-12/copy/start-page.md (rewrite 3, outcome-led)
 
 const BuyButton: React.FC<{ label: string; href: string }> = ({ label, href }) => {
   if (!href) {
@@ -58,15 +58,16 @@ const Buttons: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   </div>
 );
 
-/* One hairline row. Left column: heading, price line, button. Right column: the paragraphs. */
-const OfferBlock: React.FC<{ n: number; name: string; aside: React.ReactNode; children: React.ReactNode }> = ({ n, name, aside, children }) => (
-  <section className="start-offer" aria-labelledby={`offer-${n}`}>
+/* One hairline row. Left column: heading, price line, button. Right column: the paragraphs.
+   `n` is optional: the three priced jobs are numbered, the manuals section is not. */
+const OfferBlock: React.FC<{ id: string; n?: number; name: string; aside: React.ReactNode; children: React.ReactNode }> = ({ id, n, name, aside, children }) => (
+  <section className="start-offer" aria-labelledby={`offer-${id}`}>
     <div>
-      <h2 id={`offer-${n}`} style={{
+      <h2 id={`offer-${id}`} style={{
         fontFamily: 'var(--fd)', fontWeight: 800, color: L.t1,
         fontSize: 'clamp(1.35rem, 2.4vw, 1.7rem)', letterSpacing: '-0.03em', lineHeight: 1.15,
       }}>
-        <span style={{ color: L.t3, fontWeight: 700, marginRight: 8 }}>{n}.</span>
+        {n !== undefined && <span style={{ color: L.t3, fontWeight: 700, marginRight: 8 }}>{n}.</span>}
         {name}
       </h2>
       {aside}
@@ -85,19 +86,19 @@ export const StartPage: React.FC = () => (
           fontFamily: 'var(--fd)', fontWeight: 800, color: L.t1,
           fontSize: 'clamp(2.2rem, 5vw, 3.4rem)', maxWidth: 760,
         }}>
-          Four jobs I'll do inside your GoHighLevel this week, each with a price and a deadline.
+          Three things I'll fix this week, each with a price and a date.
         </h1>
       </Reveal>
       <Reveal delay={0.08}>
         <div className="start-prose" style={{ marginTop: 20, fontSize: '1.05rem', lineHeight: 1.7, color: L.t2, maxWidth: 640 }}>
           <p>
-            A mortgage team I work with had nine workflows built for their website leads, with eighteen alert steps written out: subject lines, email bodies, text messages. Every one of those steps was set to ring a bell inside the app and nothing else. For weeks a lead would fill in the form and nobody on the team got an email or a text. Nothing errored. From the outside it looked like a working system.
+            A mortgage team I work with had alerts set up for every lead that came off their website. Somebody had written the subject lines and the text messages, all of it. For weeks, not one of those alerts reached a human being. Leads filled in the form, and the team found out days later, if at all. Nothing broke loudly. From the outside it looked like a working business.
           </p>
           <p>
-            I've now read six accounts that closely, and four of them had something like that in them. The people paying for them hadn't been told, because a CRM doesn't get read again after the day it's set up. So this page is the reading, and the fixing, priced.
+            I've now gone through six companies' systems that closely, and four of them had something like that sitting in the middle of it. Not one of the owners knew. Nobody checks a system again after the day it's turned on.
           </p>
           <p>
-            These are the jobs I can scope without a call. I do them myself, one at a time, in the order they're paid for, and each one has a deadline that starts when you send me a login.
+            That's what I do. Below are the three jobs I can price without a meeting, because I've done each of them enough times to know what they take. I do them myself, one at a time, and the date starts when you give me access.
           </p>
         </div>
       </Reveal>
@@ -106,96 +107,99 @@ export const StartPage: React.FC = () => (
     <div className="wrap" style={{ paddingBottom: 24 }}>
 
       <OfferBlock
+        id="1"
         n={1}
-        name="The 24-Hour Lead Responder"
+        name="Every lead gets a real answer, day or night"
         aside={
           <>
-            <PriceLine>$297, once. For realtors and loan officers on their own account or their brokerage's.</PriceLine>
+            <PriceLine>$297, once. For realtors and loan officers.</PriceLine>
             {/* ⚑ Bri decides: guarantee. Switch on by uncommenting.
             <p style={{ marginTop: 14, fontSize: '1rem', lineHeight: 1.7, color: L.t2 }}>
-              If it isn't live 24 hours after I get your login, you get the $297 back.
+              If it isn't live 24 hours after I have access, you get the $297 back.
             </p>
             */}
             <Buttons>
-              <BuyButton label="Install it in my account" href={LINKS.leadResponder} />
+              <BuyButton label="Fix my lead response" href={LINKS.leadResponder} />
             </Buttons>
           </>
         }
       >
         <p>
-          A lead fills in your form at 9:40 on a Tuesday night. Your account sends them something. If it's "Thanks for reaching out, someone will be in touch," they've learned nothing, and they still have Zillow open in the next tab.
+          You paid for the lead. Then they filled in your form at 9:40 on a Tuesday night and got "Thanks for reaching out, someone will be in touch," which told them nothing, so they kept clicking. Whoever answered them properly first is the one having the conversation now.
         </p>
         <p>
-          I replace that with a message that reads what they wrote and answers it, in your name. Then I put four guardrails around it so the follow-up can't run over a real person: it stops the moment they reply, it ends when they say stop, it notices a bounce, and when a deal has gone quiet it hands you a task instead of sending the lead another automated text.
+          I fix the first thing they hear from you. It reads what they wrote and answers that question, in your voice, in seconds, at any hour. When they write back it steps aside so you can take over, and it never keeps texting someone who has already replied or asked you to stop. When a conversation stops, you get told, instead of a lead going cold without anyone noticing.
         </p>
         <p>
-          Ylopo, a real-estate voice-AI company, has published results across 25 million lead conversations: 58% of first contacts were handled start to finish by the AI. I'm not promising you that number. Your leads and your market decide it. What I can promise is what writes back, what it says, and that it's live within a day.
+          You're not buying more leads. You're keeping the ones you're already paying for. A company in this field published results across 25 million lead conversations and found 58% were handled from start to finish without a person stepping in. I'm not promising you that number, your market decides it, but that's the size of the thing being left on the table.
         </p>
         <p>
-          You send me a user login for your GoHighLevel and ten minutes of answers about how you want to sound. Inside 24 hours of that it's installed, tested against a fake lead, and I've recorded a five-minute video of where each piece lives so you can change it without me.
+          Give me access and ten minutes on how you like to sound. It's live within 24 hours, tested, and I send you a short video of how to change anything yourself.
         </p>
       </OfferBlock>
 
       <OfferBlock
+        id="2"
         n={2}
-        name="The GoHighLevel Account Audit"
+        name="Find out what's broken before it costs you again"
         aside={
           <>
             <PriceLine>$197, once.</PriceLine>
             {/* ⚑ Bri decides: audit credit. Switch on by uncommenting.
             <p style={{ marginTop: 14, fontSize: '1rem', lineHeight: 1.7, color: L.t2 }}>
-              If you have me fix what it finds, the $197 comes off that job.
+              If you have me fix what I find, the $197 comes off that job.
             </p>
             */}
             <Buttons>
-              <BuyButton label="Audit my account" href={LINKS.audit} />
+              <BuyButton label="Show me what's broken" href={LINKS.audit} />
             </Buttons>
           </>
         }
       >
         <p>
-          This is the reading I described at the top, done on your account, the same day, in plain words.
+          This is the read I described at the top, done on your business, the same day, in plain English.
         </p>
         <p>
-          I open each workflow, calendar and custom field and look for five things. Alerts with the email and text written out that only ever ring an in-app bell. Workflows on a broad trigger with no conditions, which fire on every contact forever. Workflows marked Published that have no trigger and can never run. Calendars where a lead can book a slot and nobody is told. And the list of custom fields a live workflow depends on, so you know which ones you can't rename.
+          You're paying every month for something that was set up once and never checked since, and these failures don't announce themselves. It's an alert that never reaches you, or a booking nobody gets told about, or a follow-up that goes to people it should have left alone. Every one of those is a deal you'll never know you lost, and you'll put it down to the market.
         </p>
         <p>
-          I ran it on my own account first: 51 workflows, 238 fields. It found one alert that never sends, two workflows firing on everything, seven that were published and could never run, and 20 fields I'd have broken something by touching. If yours was inherited, or came in on a snapshot, you'll find out what arrived with it.
+          I go through the whole thing and send you a written list of what isn't working, in order of what it's costing you, with enough detail that you or anyone you hire can fix it. Nothing changes while I'm in there, so there's no risk to what's running. I did this to my own business first and found seven things that looked live and weren't. If yours is clean, I'll tell you that, and that's worth knowing too.
         </p>
         <p>
-          It's read-only. Nothing changes. You add me as a user (or share a private integration token) and the report is in your inbox the same day, with the workflow name and the step name on every finding, so you can hand it to whoever fixes things. If the account is clean, the report says so, and that's worth knowing too.
+          Same day. If yours was set up by someone else, or came bundled from somewhere, this is how you find out what you own.
         </p>
       </OfferBlock>
 
       <OfferBlock
+        id="3"
         n={3}
-        name="The AI Receptionist"
+        name="Your phone gets answered, every time"
         aside={
           <>
-            <PriceLine>$497 to build. $97 a month while it's answering. Live within 48 hours of a login and a voice memo of you answering the phone.</PriceLine>
+            <PriceLine>$497 to set up. $97 a month while it's answering.</PriceLine>
             <Buttons>
-              <BuyButton label="Build my receptionist" href={LINKS.receptionistSetup} />
+              <BuyButton label="Get my phone answered" href={LINKS.receptionistSetup} />
             </Buttons>
           </>
         }
       >
         <p>
-          You're up a ladder. The phone rings, goes to voicemail, and by the time you're down they've called the next company.
+          You're up a ladder. The phone rings, goes to voicemail, and by the time you're down they've called the next company on the list. That's not a small leak. For most of the owners I talk to, it's the single biggest one.
         </p>
         <p>
-          I build a voice agent on your own GoHighLevel that picks up each call, sends the spam away, answers the questions you get all day (do you do this kind of job, how soon can you come out, roughly what does it cost), and either books the job onto your calendar or transfers the call to you. Its script comes from yours. I ask how you answer the phone today, what you say when someone wants a price, and what you never promise before you've seen the job. It never invents a number, because I don't give it any to invent with.
+          I give you something that answers every call, day or night, in the way you'd answer it. It gets rid of the spam calls before they reach you. It answers what people ask all day, when can you come out, do you do this kind of work, roughly what does it cost. Then it books the job straight onto your calendar, or puts the caller through to you when it's someone you'd want to talk to. It never makes up a price, because I don't give it the room to.
         </p>
         <p>
-          The one on houselabteam.com is mine. Her name is Lucy, she's been answering questions for a Portland real-estate team since August, and you can talk to her right now.
+          Mine is answering right now at houselabteam.com. Her name is Lucy, she's been doing it for a Portland team since August, and you can go talk to her before you decide anything.
         </p>
         <p>
-          The standalone products cost $49 to $449 a month and live in their own dashboard, away from where your jobs and your calendar live. This one lives in the CRM you already run, and you own it when I'm done.
+          You get your evenings back and you stop losing work to voicemail. Give me access and a voice memo of how you answer the phone. It's live within 48 hours.
         </p>
       </OfferBlock>
 
       <OfferBlock
-        n={4}
-        name="The two manuals"
+        id="manuals"
+        name="If you'd rather do it yourself"
         aside={
           <Buttons>
             <BuyButton label="Buy Never Let a Lead Go Cold, $49" href={LINKS.leadKitPdf} />
@@ -204,16 +208,16 @@ export const StartPage: React.FC = () => (
         }
       >
         <p>
-          If you'd rather build it yourself, buy the instructions and skip me.
+          Two manuals, written so you can build this without me.
         </p>
         <p>
-          Never Let a Lead Go Cold is the first-reply prompt with its four slots, plus the four guardrail workflows above, written out step by step so you can rebuild them in an afternoon. $49.
+          Never Let a Lead Go Cold is how to make a lead's first answer a real one, and the four things to put around it so it never runs over a person who has already replied. $49.
         </p>
         <p>
-          The AI Real Estate Closer is the system prompt for the AI that talks to a new lead before you can get to the phone: six slots you fill in, the rules about what it must never say, and where it goes in the CRM you already pay for. $199.
+          The AI Real Estate Closer is the full set of instructions for the assistant that talks to a new lead before you can get to the phone, including everything it must never say. $199.
         </p>
         <p>
-          Both are PDFs. The page after checkout has your download.
+          Both come as a download on the page right after you pay.
         </p>
       </OfferBlock>
 
@@ -222,7 +226,7 @@ export const StartPage: React.FC = () => (
     <div className="wrap" style={{ paddingBottom: 96 }}>
       <div className="start-prose" style={{ borderTop: `1px solid ${L.border}`, paddingTop: 36, fontSize: '1rem', lineHeight: 1.7, color: L.t2 }}>
         <p style={{ maxWidth: 640 }}>
-          The first-reply prompt is free at{' '}
+          The first-answer instructions are free at{' '}
           <a
             href="/start/lead-kit"
             onClick={e => { e.preventDefault(); navigate('/start/lead-kit'); }}
@@ -230,11 +234,11 @@ export const StartPage: React.FC = () => (
           >
             eighty5labs.com/start/lead-kit
           </a>
-          . It's the same one I install in the $297 job. Every charge shows on your card as EIGHTY5LABS, and you can reply to the receipt and reach me.
+          , and they're the same ones I use in the $297 job. Every charge shows on your card as EIGHTY5LABS, and replying to the receipt reaches me.
         </p>
         {/* ⚑ Bri decides: launch discount. Switch on by uncommenting.
         <p style={{ maxWidth: 640 }}>
-          The first five people to buy anything on this page get $50 off it, in exchange for one honest sentence about how it went that I can put here with your name.
+          The first five people to buy anything on this page get $50 off, in exchange for one honest sentence afterwards that I can put here with your name.
         </p>
         */}
       </div>
