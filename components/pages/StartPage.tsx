@@ -8,7 +8,6 @@ const LINKS = {
   audit: 'https://buy.stripe.com/4gM8wPaTV7Zhehm6lP9bO0w',
   receptionistSetup: 'https://buy.stripe.com/fZucN5d23gvN6OUaC59bO0u',
   receptionistMonthly: 'https://buy.stripe.com/6oU28rbXZ6Vdb5aaC59bO0x',
-  newsletter: 'https://buy.stripe.com/fZu4gz5zB1ATflqdOh9bO0y',
   leadKitPdf: 'https://buy.stripe.com/28E00jaTVfrJ3CI4dH9bO0z',
   closerPdf: 'https://buy.stripe.com/9B628r8LN0wP7SY25z9bO0A',
 };
@@ -86,7 +85,7 @@ export const StartPage: React.FC = () => (
           fontFamily: 'var(--fd)', fontWeight: 800, color: L.t1,
           fontSize: 'clamp(2.2rem, 5vw, 3.4rem)', maxWidth: 760,
         }}>
-          Five jobs I'll do inside your GoHighLevel this week, each with a price and a deadline.
+          Four jobs I'll do inside your GoHighLevel this week, each with a price and a deadline.
         </h1>
       </Reveal>
       <Reveal delay={0.08}>
@@ -196,29 +195,6 @@ export const StartPage: React.FC = () => (
 
       <OfferBlock
         n={4}
-        name="The Neighborhood Letter"
-        aside={
-          <>
-            <PriceLine>$149 a month. The first issue is in your CRM within 48 hours of your office address.</PriceLine>
-            <Buttons>
-              <BuyButton label="Start my first issue" href={LINKS.newsletter} />
-            </Buttons>
-          </>
-        }
-      >
-        <p>
-          The people in your sphere forget you between deals. The only time they hear from you is when you want something.
-        </p>
-        <p>
-          Once a month I sweep every event source within ten miles of your office, keep only the events with a date and a street address on the organizer's own page, and write the issue as you would, sorted for the groups you name. Then it goes into your CRM as a draft you press send on. The first run, for an agent east of Portland, pulled 27 sources and came out with 21 verified events inside the radius, plus a short list of what I cut and why.
-        </p>
-        <p>
-          Your people get one note a month from you about their own town, and it asks nothing of them.
-        </p>
-      </OfferBlock>
-
-      <OfferBlock
-        n={5}
         name="The two manuals"
         aside={
           <Buttons>
