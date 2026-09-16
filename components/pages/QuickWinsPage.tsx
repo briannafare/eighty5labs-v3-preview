@@ -173,12 +173,12 @@ export const QuickWinsPage: React.FC = () => (
       <OfferBlock
         id="3"
         n={3}
-        name="Your phone gets answered, every time"
+        name="Never lose the caller"
         aside={
           <>
             <PriceLine>$497 today. Then $97 a month to keep it answering, starting thirty days from now, so you don't pay a maintenance fee on something that isn't live yet. You'll see both lines before you pay.</PriceLine>
             <Buttons>
-              <BuyButton label="Get my phone answered" href={LINKS.receptionist} />
+              <BuyButton label="Stop losing callers" href={LINKS.receptionist} />
             </Buttons>
           </>
         }
@@ -187,13 +187,16 @@ export const QuickWinsPage: React.FC = () => (
           You're up a ladder. The phone rings, goes to voicemail, and by the time you're down they've called the next company on the list. That's not a small leak. For most of the owners I talk to, it's the single biggest one.
         </p>
         <p>
-          I give you something that answers every call, day or night, in the way you'd answer it. It gets rid of the spam calls before they reach you. It answers what people ask all day, when can you come out, do you do this kind of work, roughly what does it cost. Then it books the job straight onto your calendar, or puts the caller through to you when it's someone you'd want to talk to. It never makes up a price, because I don't give it the room to.
+          So the first thing I build is the part that costs you nothing to accept: a missed call sends that person a text from your number within seconds, in your words, and it books them or gets them a callback. No bot picks up. They just stop being lost.
         </p>
         <p>
-          Mine is answering right now at houselabteam.com. Her name is Lucy, she's been doing it for a Portland team since August, and you can go talk to her before you decide anything.
+          If you want something answering after hours as well, that is a choice you make separately, and it comes with three things I will not build it without. The caller reaches a human in one step, any time they ask. It only answers from what you tell it about your own business, so it never invents a price or a promise. And your customer list stays in your account.
         </p>
         <p>
-          You get your evenings back and you stop losing work to voicemail. Give me access and a voice memo of how you answer the phone. It's live within 48 hours.
+          You can hear one before you decide. Lucy has been taking calls for a Portland team since August, at houselabteam.com. Judge it yourself, and if it is not how you want your phone answered, take the text-back half and leave the rest.
+        </p>
+        <p>
+          Give me access and a voice memo of how you answer the phone now. It is working within 48 hours.
         </p>
       </OfferBlock>
 
