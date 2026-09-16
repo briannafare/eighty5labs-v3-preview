@@ -6,8 +6,8 @@ import { navigate } from '../../router';
 const LINKS = {
   leadResponder: 'https://buy.stripe.com/bJecN58LN93l1uAaC59bO0v',
   audit: 'https://buy.stripe.com/4gM8wPaTV7Zhehm6lP9bO0w',
-  receptionistSetup: 'https://buy.stripe.com/fZucN5d23gvN6OUaC59bO0u',
-  receptionistMonthly: 'https://buy.stripe.com/6oU28rbXZ6Vdb5aaC59bO0x',
+  // One checkout: $497 today, and the $97/mo attaches with a 30-day trial so it starts on day 31.
+  receptionist: 'https://buy.stripe.com/cNi3cvaTVcfxc9edOh9bO0B',
   leadKitPdf: 'https://buy.stripe.com/28E00jaTVfrJ3CI4dH9bO0z',
   closerPdf: 'https://buy.stripe.com/9B628r8LN0wP7SY25z9bO0A',
 };
@@ -176,9 +176,9 @@ export const QuickWinsPage: React.FC = () => (
         name="Your phone gets answered, every time"
         aside={
           <>
-            <PriceLine>$497 to set up. $97 a month while it's answering.</PriceLine>
+            <PriceLine>$497 today. Then $97 a month to keep it answering, starting thirty days from now, so you don't pay a maintenance fee on something that isn't live yet. You'll see both lines before you pay.</PriceLine>
             <Buttons>
-              <BuyButton label="Get my phone answered" href={LINKS.receptionistSetup} />
+              <BuyButton label="Get my phone answered" href={LINKS.receptionist} />
             </Buttons>
           </>
         }
