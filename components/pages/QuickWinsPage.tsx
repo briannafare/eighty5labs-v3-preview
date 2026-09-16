@@ -6,8 +6,8 @@ import { navigate } from '../../router';
 const LINKS = {
   leadResponder: 'https://buy.stripe.com/bJecN58LN93l1uAaC59bO0v',
   audit: 'https://buy.stripe.com/4gM8wPaTV7Zhehm6lP9bO0w',
-  // One checkout: $497 today, and the $97/mo attaches with a 30-day trial so it starts on day 31.
-  receptionist: 'https://buy.stripe.com/cNi3cvaTVcfxc9edOh9bO0B',
+  // One checkout: $497 today, and the $297/mo attaches with a 30-day trial so it starts on day 31 (price approved 2026-09-16).
+  receptionist: 'https://buy.stripe.com/00w14n7HJ0wP8X2cKd9bO0C',
   leadKitPdf: 'https://buy.stripe.com/28E00jaTVfrJ3CI4dH9bO0z',
   closerPdf: 'https://buy.stripe.com/9B628r8LN0wP7SY25z9bO0A',
 };
@@ -176,7 +176,7 @@ export const QuickWinsPage: React.FC = () => (
         name="Never lose the caller"
         aside={
           <>
-            <PriceLine>$497 today. Then $97 a month to keep it answering, starting thirty days from now, so you don't pay a maintenance fee on something that isn't live yet. You'll see both lines before you pay.</PriceLine>
+            <PriceLine>$497 today. Then $297 a month to keep it answering, starting thirty days from now, so you don't pay a maintenance fee on something that isn't live yet. You'll see both lines before you pay.</PriceLine>
             <Buttons>
               <BuyButton label="Stop losing callers" href={LINKS.receptionist} />
             </Buttons>
@@ -194,6 +194,9 @@ export const QuickWinsPage: React.FC = () => (
         </p>
         <p>
           You can hear one before you decide. Lucy has been taking calls for a Portland team since August, at houselabteam.com. Judge it yourself, and if it is not how you want your phone answered, take the text-back half and leave the rest.
+        </p>
+        <p>
+          The monthly is the work that keeps it right after the first week. Each month I listen to a sample of your calls and fix what it got wrong. When your hours or prices change, it knows that same day. After any change I run the same ten test calls again, so fixing one thing never breaks another. If a transfer fails or a booking doesn't land, I find out before you do. And once a month you get one page: what came in, what went to a person, and what I changed.
         </p>
         <p>
           Give me access and a voice memo of how you answer the phone now. It is working within 48 hours.
