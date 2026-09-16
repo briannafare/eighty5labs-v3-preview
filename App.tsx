@@ -26,11 +26,11 @@ const ResourcesPage  = lazy(() => import('./components/pages/ResourcesPage'));
 const BlogPage       = lazy(() => import('./components/pages/BlogPage'));
 const GlossaryPage   = lazy(() => import('./components/pages/GlossaryPage'));
 const WorkPage       = lazy(() => import('./components/pages/WorkPage').then(m => ({ default: m.WorkPage })));
-const StartPage      = lazy(() => import('./components/pages/StartPage').then(m => ({ default: m.StartPage })));
-const StartLeadKitPage = lazy(() => import('./components/pages/StartLeadKitPage').then(m => ({ default: m.StartLeadKitPage })));
-const StartThanksPage = lazy(() => import('./components/pages/StartThanksPage').then(m => ({ default: m.StartThanksPage })));
-const CloserThanksPage = lazy(() => import('./components/pages/StartThanksPage').then(m => ({ default: m.CloserThanksPage })));
-const LeadKitThanksPage = lazy(() => import('./components/pages/StartThanksPage').then(m => ({ default: m.LeadKitThanksPage })));
+const QuickWinsPage      = lazy(() => import('./components/pages/QuickWinsPage').then(m => ({ default: m.QuickWinsPage })));
+const QuickWinsLeadKitPage = lazy(() => import('./components/pages/QuickWinsLeadKitPage').then(m => ({ default: m.QuickWinsLeadKitPage })));
+const QuickWinsThanksPage = lazy(() => import('./components/pages/QuickWinsThanksPage').then(m => ({ default: m.QuickWinsThanksPage })));
+const CloserThanksPage = lazy(() => import('./components/pages/QuickWinsThanksPage').then(m => ({ default: m.CloserThanksPage })));
+const LeadKitThanksPage = lazy(() => import('./components/pages/QuickWinsThanksPage').then(m => ({ default: m.LeadKitThanksPage })));
 
 const PageLoader: React.FC = () => (
   <div style={{
@@ -94,11 +94,11 @@ const App: React.FC = () => {
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/glossary" element={<GlossaryPage />} />
             <Route path="/work" element={<WorkPage />} />
-            <Route path="/start" element={<StartPage />} />
-            <Route path="/start/lead-kit" element={<StartLeadKitPage />} />
-            <Route path="/start/thanks" element={<StartThanksPage />} />
-            <Route path="/start/closer-thanks" element={<CloserThanksPage />} />
-            <Route path="/start/lead-kit-thanks" element={<LeadKitThanksPage />} />
+            <Route path="/quick-wins" element={<QuickWinsPage />} />
+            <Route path="/quick-wins/lead-kit" element={<QuickWinsLeadKitPage />} />
+            <Route path="/quick-wins/thanks" element={<QuickWinsThanksPage />} />
+            <Route path="/quick-wins/closer-thanks" element={<CloserThanksPage />} />
+            <Route path="/quick-wins/lead-kit-thanks" element={<LeadKitThanksPage />} />
             <Route path="/audit" element={<AuditPage />} />
             <Route path="/optin" element={<OptInPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />

@@ -62,23 +62,23 @@ const PAGE_META: Record<string, PageMeta> = {
     title: `Our Work — Websites Built for Local Businesses | ${BASE}`,
     description: 'Live websites eighty5labs has designed and built: real estate, mortgage, home services, event venues, and more. Every site custom-designed and wired into AI-powered lead capture.',
   },
-  '/start': {
-    title: `Start here | ${BASE}`,
+  '/quick-wins': {
+    title: `Quick Wins | ${BASE}`,
     description: "Three things I'll fix this week, each with a price and a date: every lead gets a real answer, find out what's broken, and your phone gets answered every time. Plus two manuals if you'd rather do it yourself.",
   },
-  '/start/lead-kit': {
+  '/quick-wins/lead-kit': {
     title: `The first answer a new lead gets, free | ${BASE}`,
     description: "Part one of Never Let a Lead Go Cold: what a new lead hears back from you, written so it answers their question instead of thanking them for reaching out. Fill in four blanks once and it's yours.",
   },
-  '/start/thanks': {
+  '/quick-wins/thanks': {
     title: `You're in. Here's what happens next. | ${BASE}`,
     description: 'What happens after your purchase from eighty5labs.',
   },
-  '/start/closer-thanks': {
+  '/quick-wins/closer-thanks': {
     title: `Your copy of The AI Real Estate Closer | ${BASE}`,
     description: 'Download page for The AI Real Estate Closer.',
   },
-  '/start/lead-kit-thanks': {
+  '/quick-wins/lead-kit-thanks': {
     title: `Your copy of Never Let a Lead Go Cold | ${BASE}`,
     description: 'Download page for Never Let a Lead Go Cold.',
   },

@@ -20,7 +20,7 @@ const L = {
   blue: '#1B4FFF',
 };
 
-// Copy: ~/brain/strategy/quick-cash-2026-09-12/copy/start-page.md (rewrite 3, outcome-led)
+// Copy: ~/brain/strategy/quick-cash-2026-09-12/copy/quick-wins-page.md (rewrite 3, outcome-led)
 
 const BuyButton: React.FC<{ label: string; href: string }> = ({ label, href }) => {
   if (!href) {
@@ -61,7 +61,7 @@ const Buttons: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 /* One hairline row. Left column: heading, price line, button. Right column: the paragraphs.
    `n` is optional: the three priced jobs are numbered, the manuals section is not. */
 const OfferBlock: React.FC<{ id: string; n?: number; name: string; aside: React.ReactNode; children: React.ReactNode }> = ({ id, n, name, aside, children }) => (
-  <section className="start-offer" aria-labelledby={`offer-${id}`}>
+  <section className="qw-offer" aria-labelledby={`offer-${id}`}>
     <div>
       <h2 id={`offer-${id}`} style={{
         fontFamily: 'var(--fd)', fontWeight: 800, color: L.t1,
@@ -72,13 +72,13 @@ const OfferBlock: React.FC<{ id: string; n?: number; name: string; aside: React.
       </h2>
       {aside}
     </div>
-    <div className="start-prose" style={{ fontSize: '1rem', lineHeight: 1.7, color: L.t2 }}>
+    <div className="qw-prose" style={{ fontSize: '1rem', lineHeight: 1.7, color: L.t2 }}>
       {children}
     </div>
   </section>
 );
 
-export const StartPage: React.FC = () => (
+export const QuickWinsPage: React.FC = () => (
   <div style={{ background: L.bg, paddingTop: 'calc(var(--nav-h) + 64px)' }}>
     <div className="wrap" style={{ paddingBottom: 56 }}>
       <Reveal>
@@ -90,7 +90,7 @@ export const StartPage: React.FC = () => (
         </h1>
       </Reveal>
       <Reveal delay={0.08}>
-        <div className="start-prose" style={{ marginTop: 20, fontSize: '1.05rem', lineHeight: 1.7, color: L.t2, maxWidth: 640 }}>
+        <div className="qw-prose" style={{ marginTop: 20, fontSize: '1.05rem', lineHeight: 1.7, color: L.t2, maxWidth: 640 }}>
           <p>
             A mortgage team I work with had alerts set up for every lead that came off their website. Somebody had written the subject lines and the text messages, all of it. For weeks, not one of those alerts reached a human being. Leads filled in the form, and the team found out days later, if at all. Nothing broke loudly. From the outside it looked like a working business.
           </p>
@@ -224,15 +224,15 @@ export const StartPage: React.FC = () => (
     </div>
 
     <div className="wrap" style={{ paddingBottom: 96 }}>
-      <div className="start-prose" style={{ borderTop: `1px solid ${L.border}`, paddingTop: 36, fontSize: '1rem', lineHeight: 1.7, color: L.t2 }}>
+      <div className="qw-prose" style={{ borderTop: `1px solid ${L.border}`, paddingTop: 36, fontSize: '1rem', lineHeight: 1.7, color: L.t2 }}>
         <p style={{ maxWidth: 640 }}>
           The first-answer instructions are free at{' '}
           <a
-            href="/start/lead-kit"
-            onClick={e => { e.preventDefault(); navigate('/start/lead-kit'); }}
+            href="/quick-wins/lead-kit"
+            onClick={e => { e.preventDefault(); navigate('/quick-wins/lead-kit'); }}
             style={{ color: L.blue, fontWeight: 600, textDecoration: 'none' }}
           >
-            eighty5labs.com/start/lead-kit
+            eighty5labs.com/quick-wins/lead-kit
           </a>
           , and they're the same ones I use in the $297 job. Every charge shows on your card as EIGHTY5LABS, and replying to the receipt reaches me.
         </p>
@@ -246,4 +246,4 @@ export const StartPage: React.FC = () => (
   </div>
 );
 
-export default StartPage;
+export default QuickWinsPage;

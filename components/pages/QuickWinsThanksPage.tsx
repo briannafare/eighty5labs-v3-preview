@@ -24,20 +24,20 @@ const Shell: React.FC<{ title: string; children: React.ReactNode }> = ({ title, 
       }}>
         {title}
       </h1>
-      <div className="start-prose" style={{ marginTop: 24, fontSize: '1.05rem', lineHeight: 1.7, color: L.t2, maxWidth: 640 }}>
+      <div className="qw-prose" style={{ marginTop: 24, fontSize: '1.05rem', lineHeight: 1.7, color: L.t2, maxWidth: 640 }}>
         {children}
       </div>
     </div>
   </div>
 );
 
-const StartLink: React.FC = () => (
+const QuickWinsLink: React.FC = () => (
   <a
-    href="/start"
-    onClick={e => { e.preventDefault(); navigate('/start'); }}
+    href="/quick-wins"
+    onClick={e => { e.preventDefault(); navigate('/quick-wins'); }}
     style={{ color: L.blue, fontWeight: 600, textDecoration: 'none' }}
   >
-    eighty5labs.com/start
+    eighty5labs.com/quick-wins
   </a>
 );
 
@@ -49,9 +49,9 @@ const DownloadButton: React.FC<{ href: string }> = ({ href }) => (
   </p>
 );
 
-// Copy: ~/brain/strategy/quick-cash-2026-09-12/copy/start-page.md (rewrite 3, outcome-led)
+// Copy: ~/brain/strategy/quick-cash-2026-09-12/copy/quick-wins-page.md (rewrite 3, outcome-led)
 
-export const StartThanksPage: React.FC = () => (
+export const QuickWinsThanksPage: React.FC = () => (
   <Shell title="You're in. Here's what happens next.">
     <p>
       The next thing you'll get is an email from me, Bri, asking for the two or three things I need to start. Usually that's access to your system and a few questions about how you want to sound. Your date starts when your answers land, so send them back as soon as you can.
@@ -81,7 +81,7 @@ export const CloserThanksPage: React.FC = () => (
       Fill in the six blanks before you put it to work. Those blanks are the difference between an assistant that sounds like your team and one that makes things up, so it needs your name, your area, and who a serious lead should be handed to. Then test it on yourself before you let it talk to a real person.
     </p>
     <p>
-      If you'd rather I set the whole thing up for you, with everything that keeps it from pestering people, that's the $297 job at <StartLink />.
+      If you'd rather I set the whole thing up for you, with everything that keeps it from pestering people, that's the $297 job at <QuickWinsLink />.
     </p>
   </Shell>
 );
@@ -93,9 +93,9 @@ export const LeadKitThanksPage: React.FC = () => (
       Read the second half first. The first half is the message, which you could have had free. The second half is what keeps that message from running over a real person, and two of those four things you can put in place tonight.
     </p>
     <p>
-      If you'd rather I did all of it, that's the $297 job at <StartLink />, live within a day, with a short video of how to change anything yourself.
+      If you'd rather I did all of it, that's the $297 job at <QuickWinsLink />, live within a day, with a short video of how to change anything yourself.
     </p>
   </Shell>
 );
 
-export default StartThanksPage;
+export default QuickWinsThanksPage;

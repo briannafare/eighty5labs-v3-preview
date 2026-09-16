@@ -5,7 +5,7 @@ import { navigate } from '../../router';
 const WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/n21oYUwglqe3bTsxL2RS/webhook-trigger/94bbb4c3-cab5-4aef-98f3-754b9e225ae8';
 const OPENED_KEY = 'e5l-lead-kit-open';
 
-// Gate copy: ~/brain/strategy/quick-cash-2026-09-12/copy/start-page.md (rewrite 3, outcome-led). The revealed Prompt below is unchanged.
+// Gate copy: ~/brain/strategy/quick-cash-2026-09-12/copy/quick-wins-page.md (rewrite 3, outcome-led). The revealed Prompt below is unchanged.
 
 /* Light tokens, same as WorkPage */
 const L = {
@@ -51,7 +51,7 @@ const Slot: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 );
 
 const Prompt: React.FC = () => (
-  <div id="prompt" className="start-prose" style={{ fontSize: '1.05rem', lineHeight: 1.7, color: L.t2, maxWidth: 680 }}>
+  <div id="prompt" className="qw-prose" style={{ fontSize: '1.05rem', lineHeight: 1.7, color: L.t2, maxWidth: 680 }}>
     <h2 style={{
       fontFamily: 'var(--fd)', fontWeight: 800, color: L.t1,
       fontSize: 'clamp(1.6rem, 3.5vw, 2.2rem)', letterSpacing: '-0.03em',
@@ -121,15 +121,15 @@ just X but Y," buzzwords, manufactured urgency, or exclamation-point energy.`}
 
     <p style={{ marginTop: 40, paddingTop: 20, borderTop: `1px solid ${L.border}`, fontSize: '0.9rem', color: L.t3 }}>
       Automation pattern from <strong style={{ color: L.t1 }}>eighty5labs</strong>, proven across live client accounts before we wrote it down. The kit with the four guardrails is at{' '}
-      <a href="/start" onClick={e => { e.preventDefault(); navigate('/start'); }} style={{ color: L.blue, fontWeight: 600, textDecoration: 'none' }}>
-        eighty5labs.com/start
+      <a href="/quick-wins" onClick={e => { e.preventDefault(); navigate('/quick-wins'); }} style={{ color: L.blue, fontWeight: 600, textDecoration: 'none' }}>
+        eighty5labs.com/quick-wins
       </a>
       .
     </p>
   </div>
 );
 
-export const StartLeadKitPage: React.FC = () => {
+export const QuickWinsLeadKitPage: React.FC = () => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
@@ -188,14 +188,14 @@ export const StartLeadKitPage: React.FC = () => {
         }}>
           The first answer a new lead gets, free.
         </h1>
-        <div className="start-prose" style={{ marginTop: 20, fontSize: '1.05rem', lineHeight: 1.7, color: L.t2, maxWidth: 640 }}>
+        <div className="qw-prose" style={{ marginTop: 20, fontSize: '1.05rem', lineHeight: 1.7, color: L.t2, maxWidth: 640 }}>
           <p>
             This is what a new lead hears back from you, written so it answers their question instead of thanking them for reaching out. Fill in four blanks once and it's yours.
           </p>
           <p>
             I give it away because writing the message is the easy half. The hard half is everything that sits around it, so that it stops when someone replies, leaves alone anyone who asks it to, and hands a real conversation to you. That half is the $49 manual at{' '}
-            <a href="/start" onClick={e => { e.preventDefault(); navigate('/start'); }} style={{ color: L.blue, fontWeight: 600, textDecoration: 'none' }}>
-              eighty5labs.com/start
+            <a href="/quick-wins" onClick={e => { e.preventDefault(); navigate('/quick-wins'); }} style={{ color: L.blue, fontWeight: 600, textDecoration: 'none' }}>
+              eighty5labs.com/quick-wins
             </a>
             .
           </p>
@@ -252,4 +252,4 @@ export const StartLeadKitPage: React.FC = () => {
   );
 };
 
-export default StartLeadKitPage;
+export default QuickWinsLeadKitPage;
