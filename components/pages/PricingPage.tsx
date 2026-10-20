@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { PRICING_FAQS } from '../../seo/faqs';
 import { Reveal, Stagger } from '../ui/Reveal';
 import { navigate } from '../../router';
+import { lastUpdated } from '../../seo/format';
 
 const PLANS = [
   {
@@ -141,9 +142,10 @@ export const PricingPage: React.FC = () => {
           <h1 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(2.2rem, 4.5vw, 3.2rem)', letterSpacing: '-0.04em', color: L.t1, marginBottom: 14, lineHeight: 1.07 }}>
             Simple Plans. Real Results.
           </h1>
-          <p style={{ color: L.t2, fontSize: '1.0625rem', lineHeight: 1.8, maxWidth: 520, marginInline: 'auto', marginBottom: 36 }}>
-            Everything you need to close the visibility, reputation, and conversion gaps — fully managed for you.
+          <p style={{ color: L.t2, fontSize: '1.0625rem', lineHeight: 1.8, maxWidth: 640, marginInline: 'auto', marginBottom: 36 }}>
+            eighty5labs costs $414 a month for Visibility or $831 for Growth, which adds Voice AI and follow-up. Both are billed annually, or $497 and $997 month to month, with no setup fee. Larger or multi-location businesses are quoted, typically $2,500 to $5,000 a month. Cancel with 30 days notice.
           </p>
+          <p style={{ fontSize: '0.75rem', color: L.t2, margin: '-24px 0 32px' }}>{lastUpdated('/pricing')}</p>
 
           {/* Toggle */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14, marginBottom: 52 }}>

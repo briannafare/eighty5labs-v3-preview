@@ -164,6 +164,7 @@ export const jsonLdFor = (pathname: string): Json[] => {
         inLanguage: 'en-US',
       },
       breadcrumb(pathname),
+      ...(post.faqs.length ? [faqPage(post.faqs)] : []),
     ];
   }
 

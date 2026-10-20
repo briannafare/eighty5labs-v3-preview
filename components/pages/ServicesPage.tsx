@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Reveal, Stagger } from '../ui/Reveal';
 import { navigate } from '../../router';
+import { lastUpdated } from '../../seo/format';
 
 const GAP_COLORS: Record<number, string> = { 1: '#84CC16', 2: '#1B4FFF', 3: '#A78BFA' };
 const GAP_LABELS: Record<number, string> = { 1: 'Gap 1 — Visibility', 2: 'Gap 2 — Reputation', 3: 'Gap 3 — Conversion' };
@@ -155,8 +156,9 @@ export const ServicesPage: React.FC = () => {
           </Reveal>
           <Reveal delay={0.14}>
             <p style={{ fontSize: 'clamp(1rem,1.5vw,1.125rem)', color: L.t3, maxWidth: 600, margin: '0 auto', lineHeight: 1.7 }}>
-              eighty5.OS is built from six purpose-built AI systems — each targeting a specific revenue leak. Together, they make sure you get found, get chosen, and never lose a lead.
+              eighty5labs runs six services for local businesses, and we set up and manage all of them. Content AI gets you found, Reviews AI gets you chosen, and Voice AI, Conversation AI, Workflow AI and Funnel AI make sure no call or lead slips through.
             </p>
+            <p style={{ fontSize: '0.75rem', color: L.t3, margin: '12px auto 0' }}>{lastUpdated('/services')}</p>
           </Reveal>
         </div>
       </section>

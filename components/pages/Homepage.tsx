@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { HOME_FAQS } from '../../seo/faqs';
+import { lastUpdated } from '../../seo/format';
 import { Reveal, Stagger } from '../ui/Reveal';
 import { navigate } from '../../router';
 import { VoiceAIDemo } from '../VoiceAIDemo';
@@ -99,7 +100,7 @@ const GAPS_DATA = [
   },
   {
     num: '02', label: 'Capture the Lead', color: '#8B5CF6',
-    stat: 'Voicemail', statLabel: 'is where unanswered calls end up',
+    stat: '24/7', statLabel: 'call answering instead of voicemail',
     headline: 'They Found You — Then Went to Voicemail',
     body: "A missed call is a lost customer. Voice AI answers every inquiry instantly, 24/7 — qualifying leads and booking directly to your calendar.",
     fix: 'Voice AI + Conversation AI',
@@ -554,8 +555,9 @@ export const Homepage: React.FC = () => {
 
           <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.18 }}
             style={{ textAlign: 'center', fontSize: 'clamp(0.9rem, 1.4vw, 1.05rem)', color: 'var(--td2)', lineHeight: 1.6, maxWidth: '50ch', marginInline: 'auto', marginBottom: 28 }}>
-            Local businesses bleed revenue at three points — visibility, lead capture, and conversion. eighty5labs finds every gap and closes it automatically.
+            eighty5labs is a done-for-you service for local service businesses. We get you found on Google Maps and in AI search, pick up calls and texts you can't get to, ask your customers for reviews, and follow up on estimates. A person is always one step from the caller.
           </motion.p>
+          <p style={{ textAlign: 'center', fontSize: '0.75rem', color: '#94A3B8', margin: '-18px 0 26px' }}>{lastUpdated('/')}</p>
 
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.24 }}
             style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const, marginBottom: 8 }}>
