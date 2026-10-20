@@ -1,5 +1,5 @@
 // Per-route JSON-LD. Pure data builders, safe to run on server and client.
-import { PAGE_META, SITE_URL, canonicalFor } from './routes';
+import { PAGE_META, SITE_URL, canonicalFor, postByPath } from './routes';
 
 type Json = Record<string, unknown>;
 
@@ -254,6 +254,23 @@ export const jsonLdFor = (pathname: string): Json[] => {
   if (pathname === '/') return HOME_BLOCKS;
   const meta = PAGE_META[pathname];
   if (!meta) return [];
+  const post = postByPath(pathname);
+  if (post) {
+    return [{
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      '@id': canonicalFor(pathname) + '#article',
+      headline: post.title,
+      description: post.description,
+      url: canonicalFor(pathname),
+      mainEntityOfPage: canonicalFor(pathname),
+      author: { '@type': 'Organization', name: 'eighty5labs', url: SITE_URL },
+      publisher: { '@id': SITE_URL + '/#organization' },
+      datePublished: post.datePublished,
+      dateModified: post.dateModified,
+      inLanguage: 'en-US',
+    }];
+  }
   return [{
     '@context': 'https://schema.org',
     '@type': 'WebPage',

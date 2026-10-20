@@ -45,7 +45,7 @@ function buildPage({ routePath, meta, canonical, bodyHtml, indexable, ld }) {
   return html;
 }
 
-const routes = Object.keys(PAGE_META);
+const routes = Object.keys(PAGE_META);  // includes /blog/<slug> for every post file
 const written = [];
 
 for (const routePath of routes) {

@@ -28,7 +28,7 @@ export const usePageMeta = () => {
     document.title = meta.title;
     setMeta('description', meta.description);
     setCanonical(url);
-    setMeta('robots', known
+    setMeta('robots', known && !known.noindex
       ? 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
       : 'noindex, follow');
 

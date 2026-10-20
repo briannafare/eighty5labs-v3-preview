@@ -1,14 +1,18 @@
 // Single source of truth for per-route SEO metadata.
 // Used by the client (usePageMeta), the server entry and the build scripts.
+import { POSTS, postByPath } from './posts';
+
 export interface PageMeta {
   title: string;
   description: string;
+  /** Keep the page out of search indexes (and out of the sitemap). */
+  noindex?: boolean;
 }
 
 export const BASE = 'eighty5labs';
 export const SITE_URL = 'https://www.eighty5labs.com';
 
-export const PAGE_META: Record<string, PageMeta> = {
+const STATIC_META: Record<string, PageMeta> = {
   '/': {
     title: `${BASE} | AI Operating System for Local Business`,
     description: 'eighty5labs closes the visibility, lead capture, and conversion gaps for local service businesses using AI. Get found in AI search. Dominate Google Maps. Never miss a call.',
@@ -82,6 +86,20 @@ export const PAGE_META: Record<string, PageMeta> = {
     description: 'eighty5labs terms and conditions for use of our services and website.',
   },
 };
+
+// /blog has no posts until a file exists in content/posts/: keep the empty index out of search.
+const BLOG_INDEX: PageMeta = { ...STATIC_META['/blog'], noindex: POSTS.length === 0 };
+
+export const PAGE_META: Record<string, PageMeta> = {
+  ...STATIC_META,
+  '/blog': BLOG_INDEX,
+  ...Object.fromEntries(POSTS.map(p => [p.path, {
+    title: `${p.title} | ${BASE}`,
+    description: p.description,
+  } as PageMeta])),
+};
+
+export { postByPath };
 
 export const NOT_FOUND_META: PageMeta = {
   title: `Page not found | ${BASE}`,
