@@ -29,7 +29,10 @@ export function htmlToMd(html, baseUrl) {
   const re = /<(\/?)([a-zA-Z][a-zA-Z0-9]*)((?:[^>"']|"[^"]*"|'[^']*')*)>|([^<]+)/g;
   let m;
 
+  let tbl = null;         // { rows: string[][], row: string[] } while inside a <table>
+
   const flush = () => {
+    if (tbl) { buf += ' '; return; }
     const text = buf.replace(/\s+/g, ' ').trim();
     buf = '';
     if (!text) return;
@@ -69,6 +72,26 @@ export function htmlToMd(html, baseUrl) {
       }
     }
 
+    if (tag === 'table') {
+      if (!closing) { flush(); tbl = { rows: [], row: null }; continue; }
+      const rows = tbl ? tbl.rows.filter((r) => r.length) : [];
+      tbl = null;
+      if (rows.length) {
+        const n = Math.max(...rows.map((r) => r.length));
+        const fmt = (r) => `| ${Array.from({ length: n }, (_, i) => r[i] ?? '').join(' | ')} |`;
+        out.push([fmt(rows[0]), `|${' --- |'.repeat(n)}`, ...rows.slice(1).map(fmt)].join('\n'));
+      }
+      continue;
+    }
+    if (tbl) {
+      if (tag === 'tr') { if (!closing) tbl.row = []; else if (tbl.row) { tbl.rows.push(tbl.row); tbl.row = null; } continue; }
+      if (tag === 'td' || tag === 'th') {
+        if (closing && tbl.row) { tbl.row.push(buf.replace(/\s+/g, ' ').trim().replace(/\|/g, '\\|')); }
+        buf = '';
+        continue;
+      }
+    }
+
     if (/^h[1-6]$/.test(tag)) { flush(); heading = closing ? 0 : Number(tag[1]); continue; }
     if (tag === 'button') { flush(); heading = closing ? 0 : 3; continue; }
     if (tag === 'ul' || tag === 'ol') {
@@ -96,7 +119,6 @@ export function htmlToMd(html, baseUrl) {
       continue;
     }
     if (tag === 'strong' || tag === 'b') { buf += '**'; continue; }
-    if ((tag === 'td' || tag === 'th') && closing) { buf += ' | '; continue; }
     if (BLOCK.has(tag)) { flush(); continue; }
   }
   flush();
