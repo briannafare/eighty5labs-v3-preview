@@ -112,7 +112,7 @@ export const RevenueCalculator: React.FC = () => {
         </div>
 
         <div style={{ fontSize: '0.76rem', color: '#FFFFFF', marginBottom: 18 }}>
-          Based on capturing 67% of currently missed leads
+          Example estimate. Assumes 67% of the leads you miss are captured; your results will differ.
         </div>
 
         {/* Bars */}

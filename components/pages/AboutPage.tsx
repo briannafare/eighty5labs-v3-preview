@@ -10,28 +10,6 @@ const L = {
   blue: '#1B4FFF', blue2: '#4F8EF7', blue3: '#93C5FD',
 };
 
-const STATS = [
-  { stat: 'Top 3', context: 'Map Pack placement for clients within 30–90 days of launch' },
-  { stat: '100%', context: 'of inbound calls answered after Voice AI is deployed — including after hours' },
-  { stat: '<2min', context: 'average lead response time once Workflow AI is live' },
-  { stat: '5→50+', context: 'Google reviews in 90 days — typical result with Reviews AI' },
-];
-
-const TESTIMONIALS = [
-  {
-    quote: '"I was skeptical. I\'ve tried the tools. I\'ve paid for the platforms. Nothing ever stuck because I was the one who had to run it. eighty5labs was different — it was running before I finished onboarding. Within 30 days I had more Google reviews than I\'d collected in the previous two years."',
-    by: '— HVAC Owner, Portland OR',
-  },
-  {
-    quote: '"Our missed-call rate was 40% after hours. Now it\'s zero. Every call gets answered, every appointment gets booked. We recovered our monthly subscription cost in the first 48 hours."',
-    by: '— Med Spa Founder, Phoenix AZ',
-  },
-  {
-    quote: '"We went from page 2 to the Map Pack top 3 in six weeks. Bri\'s team built content pages for every neighborhood we serve. The AI search citations started showing up in ChatGPT within a month."',
-    by: '— Plumbing Company, Denver CO',
-  },
-];
-
 export const AboutPage: React.FC = () => (
   <div style={{ paddingTop: 'var(--nav-h)', background: L.bg, color: L.t1 }}>
     {/* Hero */}
@@ -90,7 +68,7 @@ export const AboutPage: React.FC = () => (
                 ['Freelancers on 3 platforms', 'Connected: GBP + Reviews + Voice + Content + Follow-up'],
                 ['Build it yourself', 'Done-for-you. No learning curve, no tools to manage'],
                 ['Promises + decks', 'Monthly reports with actual Map Pack ranking movement'],
-                ['12-month contracts', 'Month-to-month. Results are the retention strategy'],
+                ['Long-term contracts', 'Month-to-month. Results are the retention strategy'],
               ].map(([left, right], i) => (
                 <div key={i} style={{
                   display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16,
@@ -126,7 +104,7 @@ export const AboutPage: React.FC = () => (
               },
               {
                 initials: 'BL', name: 'Bri Lindley',
-                role: 'Co-Founder — Technology & Marketing Systems', cred: 'Founder, Lindley Team — #1 Google ranking + AI search',
+                role: 'Co-Founder — Technology & Marketing Systems', cred: 'Founder, Lindley Team',
                 bio1: '10+ years in mortgage, with deep expertise in Google Ads, Facebook Ads, SEO, and building the kind of content infrastructure that actually generates qualified inbound traffic. Bri built the Lindley Team from scratch into a top-ranked local operation — first achieving Google Maps and organic rankings, then adapting the entire content strategy as AI search changed the rules.',
                 bio2: 'She\'s not theorizing about AI search optimization. She\'s done it for her own business and replicated it for clients. Fair warning: obsessive, OCD, neurotic about client commitments. If she says it will be done, it will be done. Even at 2am.',
               },
@@ -152,33 +130,10 @@ export const AboutPage: React.FC = () => (
       <div className="wrap">
         <Reveal>
           <h2 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)', letterSpacing: '-0.04em', marginBottom: 8, color: L.t1 }}>
-            Don't Take Our Word For It.
+            See where you stand.
           </h2>
-          <p style={{ color: L.t3, marginBottom: 40 }}>Here's what happens when local businesses close all three gaps and run a real system.</p>
+          <p style={{ color: L.t3, marginBottom: 40 }}>The free Visibility Audit shows where your business is losing calls, reviews and leads.</p>
         </Reveal>
-
-        <Stagger>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 20, marginBottom: 56 }}>
-            {STATS.map(item => (
-              <div key={item.stat} style={{ background: L.bg2, border: `1.5px solid ${L.border}`, borderRadius: 'var(--rl)', padding: '24px 20px' }}>
-                <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '2.25rem', letterSpacing: '-0.05em', color: L.blue, marginBottom: 8 }}>{item.stat}</div>
-                <div style={{ fontSize: '0.8125rem', color: L.t3, lineHeight: 1.6 }}>{item.context}</div>
-              </div>
-            ))}
-          </div>
-        </Stagger>
-
-        <Stagger>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
-            {TESTIMONIALS.map((t, i) => (
-              <div key={i} style={{ background: L.bg2, border: `1.5px solid ${L.border}`, borderRadius: 'var(--rl)', padding: 28 }}>
-                <div style={{ color: '#F59E0B', fontSize: '0.875rem', marginBottom: 14 }}>★★★★★</div>
-                <p style={{ color: L.t2, fontSize: '0.9rem', lineHeight: 1.7, marginBottom: 18, fontStyle: 'italic' }}>{t.quote}</p>
-                <div style={{ fontSize: '0.8125rem', color: L.t4, fontWeight: 600 }}>{t.by}</div>
-              </div>
-            ))}
-          </div>
-        </Stagger>
 
         <Reveal delay={0.2}>
           <div style={{ textAlign: 'center', marginTop: 56 }}>

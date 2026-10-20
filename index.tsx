@@ -1,5 +1,5 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import { createRoot, hydrateRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
@@ -9,8 +9,16 @@ if (window.location.hash.startsWith('#/')) {
   window.history.replaceState(null, '', path);
 }
 
-createRoot(document.getElementById('root')!).render(
+const container = document.getElementById('root')!;
+const app = (
   <BrowserRouter>
     <App />
   </BrowserRouter>
 );
+
+// Built pages ship prerendered HTML: attach to it. In dev the root is empty.
+if (container.hasChildNodes()) {
+  hydrateRoot(container, app);
+} else {
+  createRoot(container).render(app);
+}

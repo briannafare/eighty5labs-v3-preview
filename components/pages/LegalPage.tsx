@@ -1,4 +1,5 @@
 import React from 'react';
+import { INDUSTRY_FAQS } from '../../seo/faqs';
 import { IndustryPage, IndustryPageData } from './IndustryTemplate';
 
 const data: IndustryPageData = {
@@ -13,11 +14,10 @@ const data: IndustryPageData = {
     "After-hours intake is where law firms lose the most. Criminal defense, DUI, and family law inquiries are disproportionately after-hours calls — emergencies don't keep business hours. A firm that can capture, qualify, and respond to a 10pm DUI inquiry before competing firms open their doors the next morning has an enormous competitive advantage. Most firms aren't doing this.",
     "Visibility is equally high-stakes. Practice-area searches — \"personal injury lawyer in [city],\" \"DUI attorney near me,\" \"divorce lawyer [neighborhood]\" — are high-intent and high-value. AI search platforms are beginning to influence these queries in the same way Google Maps does. Firms with strong review profiles, authoritative practice-area content, and optimized GBP listings are being recommended. Most firms have none of that infrastructure running.",
   ],
-  quote: "A DUI call at 9pm that hits voicemail is a retainer walking out the door. We were losing cases every single night.",
   stats: [
-    { value: '100%', label: 'of after-hours inquiries captured and responded to' },
+    { value: '24/7', label: 'after-hours inquiry capture and response' },
     { value: 'Auto', label: 'lead qualification by practice area' },
-    { value: 'Top 3', label: 'Map Pack for practice area keywords' },
+    { value: 'Map Pack', label: 'visibility work for practice area keywords' },
   ],
   systems: [
     { name: 'Voice AI', desc: "Answers every inquiry immediately — 24/7. Captures case details by practice area, qualifies urgency, and schedules consultations directly into your calendar. A DUI call at 10pm gets a professional response before any competing firm is open." },
@@ -37,20 +37,7 @@ const data: IndustryPageData = {
   ],
   boldClose: "You close cases. eighty5labs closes the gap between 'I need a lawyer' and 'I'm hiring you.'",
   faqTitle: 'Questions About eighty5labs for Legal',
-  faqs: [
-    {
-      q: 'How do law firms rank in Google Maps for practice-area searches?',
-      a: "Google Maps ranks firms based on relevance to the specific search, distance, and prominence. For practice-area searches like 'personal injury lawyer [city],' your GBP primary category, services listed, and review profile all need to be optimized specifically for that practice area. Firms that maintain regular GBP posts, earn consistent reviews, and respond to every review systematically outrank competitors who treat their profile as static.",
-    },
-    {
-      q: 'Can AI search platforms generate legal leads?',
-      a: "Yes — and the volume is growing. Prospective clients increasingly ask ChatGPT, Gemini, and Perplexity questions like 'best DUI attorney in [city]' or 'who should I hire for a personal injury case in [neighborhood].' These platforms recommend firms with strong review profiles, authoritative practice-area content, and consistent GBP activity. Firms building this infrastructure now are capturing cases before competing firms are even in the conversation.",
-    },
-    {
-      q: 'How does after-hours intake actually work with Voice AI?',
-      a: "Your Voice AI agent is configured specifically for your practice areas — it knows which questions to ask for a DUI vs. a divorce vs. a personal injury matter. It captures the caller's name, contact information, case details, and urgency level, and can schedule a consultation directly into your calendar. You receive an SMS summary the moment the call ends. By the time you wake up, the intake is done and the consultation is booked.",
-    },
-  ],
+  faqs: INDUSTRY_FAQS.legal,
   ctaTitle: "Find Out How Many Cases You're Losing After Hours",
   ctaBody: "Free AI Visibility Audit — we'll show you your Map Pack position, review velocity, and where competing firms are capturing inquiries you're missing.",
   accentColor: '#F59E0B',

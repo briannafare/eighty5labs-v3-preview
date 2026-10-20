@@ -1,4 +1,5 @@
 import React from 'react';
+import { INDUSTRY_FAQS } from '../../seo/faqs';
 import { IndustryPage, IndustryPageData } from './IndustryTemplate';
 
 const data: IndustryPageData = {
@@ -11,13 +12,12 @@ const data: IndustryPageData = {
   problemBody: [
     "Medical and wellness practices run on appointment volume. New patient acquisition drives growth. Patient retention drives stability. And your front desk — however capable — is being asked to do too much at once: handle check-ins, answer phones, process insurance, manage scheduling, and somehow respond to every new patient inquiry that comes in.",
     "When volume spikes, calls go to voicemail. Web inquiries sit in an inbox until someone has time. New patient follow-up doesn't happen consistently. Every one of those failures is a lost appointment — and in a high-value practice, a lost appointment chain can mean thousands in lifetime patient value.",
-    "Reputation is equally important. Patients searching for a dentist, chiropractor, or med spa on Google look at reviews before they call anyone. A practice with 12 reviews and a 4.1 rating loses patients every day to competitors with 80 reviews and a 4.8. And AI search is making this worse — platforms recommend practices that appear most credible and consistent online.",
+    "Reputation is equally important. Patients searching for a dentist, chiropractor, or med spa on Google look at reviews before they call anyone. A practice with few reviews and a middling rating loses patients to competitors with many reviews and a high rating. And AI search is making this worse — platforms recommend practices that appear most credible and consistent online.",
   ],
-  quote: "My front desk can't handle calls, check-ins, and insurance questions all at once. New patient inquiries fall through every single day.",
   stats: [
     { value: '24/7', label: 'new patient inquiry capture, no staff required' },
     { value: 'Auto', label: 'review requests after every visit' },
-    { value: 'Top 3', label: 'Google Maps for key practice area terms' },
+    { value: 'Map Pack', label: 'visibility work for key practice area terms' },
   ],
   systems: [
     { name: 'Voice AI', desc: "Answers every call 24/7 — including during appointments when the front desk can't pick up. Captures new patient details, answers common questions, and books appointments directly into your scheduling system." },
@@ -37,20 +37,7 @@ const data: IndustryPageData = {
   ],
   boldClose: "Your patients trust you with their health. eighty5labs makes sure they find you first — and keeps them coming back.",
   faqTitle: 'Questions About eighty5labs for Medical & Wellness',
-  faqs: [
-    {
-      q: 'How do medical practices rank in Google Maps?',
-      a: "Google Maps ranks practices based on relevance, distance, and prominence. Your GBP needs to be optimized with the right primary category (be specific — 'dental clinic' outperforms 'healthcare'), services listed, consistent NAP, and a steady stream of recent reviews with responses. Practices that post weekly GBP updates and maintain review velocity consistently outrank competitors with static profiles.",
-    },
-    {
-      q: 'Are patients using AI search to find healthcare providers?',
-      a: "Yes, and it's accelerating. Patients ask ChatGPT and Perplexity questions like 'best chiropractor near me' or 'top-rated med spa in [city].' These platforms recommend practices with strong review profiles, educational FAQ content that answers patient questions, and consistent GBP activity. Practices building this infrastructure now are capturing patients before competitors even know the search happened.",
-    },
-    {
-      q: 'How does automated appointment follow-up reduce no-shows?',
-      a: "eighty5labs sends a series of personalized reminders via SMS and email before each appointment — 48 hours out, 24 hours out, and same-day morning. Each message includes a direct link to reschedule if needed. The reschedule option captures intent to return rather than just a no-show. Most practices using this sequence see a meaningful reduction in no-show rates within the first 30 days.",
-    },
-  ],
+  faqs: INDUSTRY_FAQS.medical,
   ctaTitle: "Find Out How Many New Patients You're Missing",
   ctaBody: "Free AI Visibility Audit — we'll show you your Google Maps position, review velocity, and AI search visibility against competing practices in your area.",
   accentColor: '#A78BFA',

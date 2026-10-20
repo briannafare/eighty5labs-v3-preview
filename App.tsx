@@ -2,6 +2,7 @@ import React, { Suspense, lazy, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { setNavigateRef } from './router';
 import { usePageMeta } from './usePageMeta';
+import { postByPath } from './seo/posts';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 
@@ -24,6 +25,7 @@ const MedicalPage    = lazy(() => import('./components/pages/MedicalPage'));
 const LegalPage      = lazy(() => import('./components/pages/LegalPage'));
 const ResourcesPage  = lazy(() => import('./components/pages/ResourcesPage'));
 const BlogPage       = lazy(() => import('./components/pages/BlogPage'));
+const BlogPostPage   = lazy(() => import('./components/pages/BlogPostPage'));
 const GlossaryPage   = lazy(() => import('./components/pages/GlossaryPage'));
 const WorkPage       = lazy(() => import('./components/pages/WorkPage').then(m => ({ default: m.WorkPage })));
 
@@ -44,6 +46,12 @@ const NotFoundPage: React.FC = () => (
     <a href="/" style={{ color: 'var(--blue)', textDecoration: 'none', fontWeight: 600 }}>← Back to home</a>
   </div>
 );
+
+// /blog/:slug exists only for posts that have a file; anything else is a 404.
+const BlogPostRoute: React.FC = () => {
+  const { pathname } = useLocation();
+  return postByPath(pathname) ? <BlogPostPage /> : <NotFoundPage />;
+};
 
 const NO_FOOTER_ROUTES = ['/optin'];
 const FULL_BLEED_ROUTES = ['/', '/optin'];
@@ -87,6 +95,7 @@ const App: React.FC = () => {
             <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:slug" element={<BlogPostRoute />} />
             <Route path="/glossary" element={<GlossaryPage />} />
             <Route path="/work" element={<WorkPage />} />
             <Route path="/audit" element={<AuditPage />} />

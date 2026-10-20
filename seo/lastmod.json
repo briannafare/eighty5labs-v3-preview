@@ -1,0 +1,36 @@
+{
+  "pages": {
+    "/": "2026-10-19",
+    "/services": "2026-10-19",
+    "/pricing": "2026-10-19",
+    "/industries": "2026-10-19",
+    "/homeservices": "2026-10-19",
+    "/medical": "2026-10-19",
+    "/legal": "2026-10-19",
+    "/realestate": "2026-10-19",
+    "/mortgage": "2026-10-19",
+    "/about": "2026-10-19",
+    "/blog": "2026-10-19",
+    "/work": "2026-08-19",
+    "/glossary": "2026-10-19",
+    "/resources": "2026-10-19",
+    "/audit": "2026-10-19",
+    "/optin": "2026-03-07",
+    "/privacy": "2026-03-07",
+    "/terms": "2026-03-07"
+  },
+  "posts": {
+    "eighty5labs-vs-local-seo-agency": {
+      "published": "2026-10-19",
+      "modified": "2026-10-19"
+    },
+    "is-it-worth-it-pricing": {
+      "published": "2026-10-19",
+      "modified": "2026-10-19"
+    },
+    "voice-ai-vs-live-receptionist": {
+      "published": "2026-10-19",
+      "modified": "2026-10-19"
+    }
+  }
+}

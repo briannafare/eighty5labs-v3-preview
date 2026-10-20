@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { HOME_FAQS } from '../../seo/faqs';
+import { lastUpdated } from '../../seo/format';
 import { Reveal, Stagger } from '../ui/Reveal';
 import { navigate } from '../../router';
 import { VoiceAIDemo } from '../VoiceAIDemo';
@@ -90,7 +92,7 @@ const IconTool = () => (
 const GAPS_DATA = [
   {
     num: '01', label: 'Get Found', color: '#4F8EF7',
-    stat: '73%', statLabel: 'of buyers never scroll past the first 3 results',
+    stat: 'Seen first', statLabel: 'gets chosen first',
     headline: "They Can't Hire You If They Can't Find You",
     body: "You're invisible on Google Maps, ChatGPT, Gemini, and Perplexity. Your competitors aren't better — they're just more findable.",
     fix: 'AI Search + GBP Optimization',
@@ -98,7 +100,7 @@ const GAPS_DATA = [
   },
   {
     num: '02', label: 'Capture the Lead', color: '#8B5CF6',
-    stat: '62%', statLabel: 'of after-hours calls go unanswered',
+    stat: '24/7', statLabel: 'call answering instead of voicemail',
     headline: 'They Found You — Then Went to Voicemail',
     body: "A missed call is a lost customer. Voice AI answers every inquiry instantly, 24/7 — qualifying leads and booking directly to your calendar.",
     fix: 'Voice AI + Conversation AI',
@@ -106,7 +108,7 @@ const GAPS_DATA = [
   },
   {
     num: '03', label: 'Convert the Lead', color: '#84CC16',
-    stat: '88%', statLabel: 'of leads require 5+ follow-ups to close',
+    stat: 'Follow-up', statLabel: 'is where leads are won or lost',
     headline: 'You Captured Them — Then Let Them Go Cold',
     body: 'No follow-up. No nurture sequence. The lead goes cold and signs with your competitor. Workflow AI keeps every lead warm — automatically.',
     fix: 'Workflow AI + Reviews AI',
@@ -117,7 +119,7 @@ const GAPS_DATA = [
 const SERVICES = [
   { gap: '01', gapLabel: 'Get Found', gapColor: '#4F8EF7', icon: <IconSearch />, title: 'Content AI', body: 'Publishes structured content that gets your business cited by ChatGPT, Gemini, and Perplexity. Weekly GBP posts, FAQ content, and local authority pages — automated.', features: ['Weekly GBP content posts', 'AI citation optimization', 'Local authority schema markup'] },
   { gap: '01', gapLabel: 'Get Found', gapColor: '#4F8EF7', icon: <IconMap />, title: 'GBP Optimization', body: 'Full profile optimization built to dominate local Map Pack results and appear when buyers search your area.', features: ['Map Pack ranking strategy', 'Category + keyword optimization', 'Competitor gap analysis'] },
-  { gap: '02', gapLabel: 'Capture the Lead', gapColor: '#8B5CF6', icon: <IconPhone />, title: 'Voice AI', body: 'Answers every inbound call 24/7. Qualifies the lead, books directly into your calendar. Zero calls to voicemail.', features: ['24/7 call answering', 'Live calendar booking', 'AI lead qualification'] },
+  { gap: '02', gapLabel: 'Capture the Lead', gapColor: '#8B5CF6', icon: <IconPhone />, title: 'Voice AI', body: 'Answers every inbound call 24/7. Qualifies the lead, books directly into your calendar. Calls get answered instead of going to voicemail.', features: ['24/7 call answering', 'Live calendar booking', 'AI lead qualification'] },
   { gap: '02', gapLabel: 'Capture the Lead', gapColor: '#8B5CF6', icon: <IconChat />, title: 'Conversation AI', body: 'Engages website visitors the moment they land, captures leads, books appointments, follows up via SMS and email.', features: ['Instant website lead capture', 'SMS + email follow-up', 'Automated appointment booking'] },
   { gap: '03', gapLabel: 'Convert the Lead', gapColor: '#84CC16', icon: <IconZap />, title: 'Workflow AI', body: 'Follow-up sequences, re-engagement campaigns, appointment reminders, past client touches. Runs 24/7.', features: ['Smart follow-up sequences', 'Re-engagement campaigns', 'Appointment reminders'] },
   { gap: '03', gapLabel: 'Convert the Lead', gapColor: '#84CC16', icon: <IconStar />, title: 'Reviews AI', body: 'Requests reviews from every customer automatically. Responds within minutes. Builds the velocity Google rewards.', features: ['Automated review requests', 'AI-powered instant responses', 'Review velocity monitoring'] },
@@ -126,35 +128,23 @@ const SERVICES = [
 const INDUSTRIES = [
   { label: 'Law Firms', sub: 'Personal Injury · Criminal Defense · Family Law', route: '/legal', icon: <IconBriefcase />,
     detail: 'A DUI call at 9pm that hits voicemail is a retainer for your competitor. Voice AI captures every after-hours inquiry, qualifies by practice area, and books consultations — before competing firms open their doors.',
-    stats: [{ val: '100%', label: 'after-hours capture' }, { val: '< 2 min', label: 'intake response' }, { val: 'Top 3', label: 'Map Pack placement' }] },
+    stats: [{ val: '24/7', label: 'after-hours capture' }, { val: 'Fast', label: 'intake response' }, { val: 'Map Pack', label: 'visibility work' }] },
   { label: 'Home Services', sub: 'HVAC · Plumbing · Electrical · Roofing', route: '/homeservices', icon: <IconTool />,
     detail: "Every missed call is a job for your competitor. During peak season, AI answers overflow and after-hours calls, books estimates, and follows up on unbooked quotes automatically at Day 1, 3, 7, and 14.",
-    stats: [{ val: '0', label: 'missed calls' }, { val: 'Auto', label: 'review requests' }, { val: '40%', label: 'more call volume handled' }] },
+    stats: [{ val: '24/7', label: 'call answering' }, { val: 'Auto', label: 'review requests' }, { val: 'Overflow', label: 'calls handled' }] },
   { label: 'Real Estate', sub: 'Agents · Teams · Brokerages', route: '/realestate', icon: <IconTag />,
-    detail: "78% of buyers work with the first agent who responds. While you're showing homes, Voice AI answers every inquiry instantly, captures buyer intent, and keeps your sphere of influence warm on autopilot.",
-    stats: [{ val: '< 2 min', label: 'lead response' }, { val: '+30%', label: 'referral business' }, { val: '24/7', label: 'coverage' }] },
+    detail: "Buyers tend to work with the first agent who responds. While you're showing homes, Voice AI answers every inquiry instantly, captures buyer intent, and keeps your sphere of influence warm on autopilot.",
+    stats: [{ val: 'Fast', label: 'lead response' }, { val: 'Auto', label: 'referral follow-up' }, { val: '24/7', label: 'coverage' }] },
   { label: 'Mortgage', sub: 'Loan Officers · Mortgage Brokers', route: '/mortgage', icon: <IconHome />,
     detail: "The borrower comparing rates right now has three tabs open. The lender who responds in under two minutes wins the conversation. AI captures every inquiry during closings and keeps referral partners warm automatically.",
-    stats: [{ val: '100%', label: 'calls answered' }, { val: '< 2 min', label: 'response time' }, { val: 'Top 3', label: 'Map Pack' }] },
+    stats: [{ val: '24/7', label: 'call answering' }, { val: 'Fast', label: 'response time' }, { val: 'Map Pack', label: 'visibility work' }] },
   { label: 'Medical & Wellness', sub: 'Dental · Med Spa · Chiropractic · PT', route: '/medical', icon: <IconHeart />,
     detail: "When volume spikes, the front desk can't handle calls, check-ins, and insurance simultaneously. AI captures new patient inquiries 24/7, automates review requests post-visit, and reduces no-shows with smart reminders.",
-    stats: [{ val: '24/7', label: 'patient capture' }, { val: 'Auto', label: 'review requests' }, { val: '-40%', label: 'no-shows' }] },
+    stats: [{ val: '24/7', label: 'patient capture' }, { val: 'Auto', label: 'review requests' }, { val: 'Smart', label: 'appointment reminders' }] },
 ];
 
-const TESTIMONIALS = [
-  { metric: '64%', metricLabel: 'online booking rate (vs 25% avg)', quote: 'We were at 25% online bookings. Within 90 days of deploying eighty5.OS, we hit 64%. The Voice AI alone paid for itself in the first week.', author: 'Sarah M.', role: 'Med Spa Owner, Austin TX' },
-  { metric: '3.1x', metricLabel: 'lead volume increase', quote: "I was skeptical AI could handle real estate client conversations. Now I never miss a lead, even during showings. My close rate went up because I'm always the first to respond.", author: 'Marcus D.', role: 'Real Estate Agent, Phoenix AZ' },
-  { metric: '0', metricLabel: 'calls to voicemail', quote: 'Peak season used to mean overwhelmed phones and missed jobs. This summer we handled 40% more call volume with zero extra staff. Every call got answered.', author: 'Tom R.', role: 'HVAC Owner, Dallas TX' },
-];
 
-const FAQS = [
-  { q: 'How long does it take to set up eighty5labs?', a: 'Most businesses are fully deployed in 5-7 business days. Voice AI and review automation can be running within 48 hours.' },
-  { q: 'Does eighty5labs integrate with my existing CRM and phone system?', a: 'Yes. eighty5.OS integrates with your existing CRM, calendar, and phone system. We layer on top — no rip-and-replace.' },
-  { q: 'How does AI search optimization work for local businesses?', a: "When someone asks ChatGPT, Gemini, or Perplexity for a recommendation in your market, does your business appear? Our Content AI ensures it does, with structured data that AI engines can cite and recommend." },
-  { q: 'Does eighty5labs require a long-term contract?', a: 'No. Month-to-month after any initial commitment period. We earn your business every month.' },
-  { q: 'Can I use eighty5labs Voice AI if I already have a receptionist?', a: "Voice AI handles overflow and after-hours — it doesn't replace your team, it catches what they miss. Most businesses use it as a safety net that pays for itself in recovered leads." },
-  { q: 'What makes eighty5labs different from other AI marketing platforms?', a: "We don't sell individual tools. eighty5.OS is a complete system that closes all three revenue gaps — visibility, capture, and conversion — with everything connected. One dashboard, one team, one system." },
-];
+const FAQS = HOME_FAQS;;
 
 /* ═══════════════════════════════════════════════════
    GAP CARDS — compact horizontal tabs, above fold
@@ -565,8 +555,9 @@ export const Homepage: React.FC = () => {
 
           <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.18 }}
             style={{ textAlign: 'center', fontSize: 'clamp(0.9rem, 1.4vw, 1.05rem)', color: 'var(--td2)', lineHeight: 1.6, maxWidth: '50ch', marginInline: 'auto', marginBottom: 28 }}>
-            Local businesses bleed revenue at three points — visibility, lead capture, and conversion. eighty5labs finds every gap and closes it automatically.
+            eighty5labs is a done-for-you service for local service businesses. We get you found on Google Maps and in AI search, pick up calls and texts you can't get to, ask your customers for reviews, and follow up on estimates. A person is always one step from the caller.
           </motion.p>
+          <p style={{ textAlign: 'center', fontSize: '0.75rem', color: '#94A3B8', margin: '-18px 0 26px' }}>{lastUpdated('/')}</p>
 
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.24 }}
             style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const, marginBottom: 8 }}>
@@ -673,7 +664,7 @@ export const Homepage: React.FC = () => {
                 <p className="section-sub" style={{ marginBottom: 28 }}>This is what happens when a customer calls your business after hours. No voicemail. No missed lead. AI answers, qualifies, and books — instantly.</p>
                 <div style={{ display: 'flex', flexDirection: 'column' as const, gap: 11, marginBottom: 32 }}>
                   {[
-                    'Answers in under 2 rings, 24/7',
+                    'Answers every call, 24/7',
                     'Qualifies lead and captures contact info',
                     'Books directly to your calendar',
                     'Sends confirmation automatically',
@@ -804,33 +795,6 @@ export const Homepage: React.FC = () => {
               </motion.a>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      {/* ═══════ TESTIMONIALS ═══════ */}
-      <section className="section-light" style={{ position: 'relative', overflow: 'hidden' }}>
-        <AmbientGlow color1="rgba(139,92,246,0.14)" color2="rgba(27,79,255,0.14)" color3="rgba(132,204,22,0.10)" />
-        <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
-          <Reveal>
-            <div className="section-label">Results</div>
-            <h2 className="section-heading">Don't Take Our Word For It.</h2>
-            <p className="section-sub" style={{ marginBottom: 44 }}>Here's what happens when local businesses close all three gaps.</p>
-          </Reveal>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 14 }}>
-            {TESTIMONIALS.map((t, i) => (
-              <Reveal key={i} delay={i * 0.1}>
-                <div className="card-light" style={{ height: '100%' }}>
-                  <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.7rem', letterSpacing: '-0.04em', marginBottom: 3, color: 'var(--blue)' }}>{t.metric}</div>
-                  <div style={{ fontSize: '0.72rem', color: 'var(--td3)', marginBottom: 18 }}>{t.metricLabel}</div>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--td2)', lineHeight: 1.6, marginBottom: 22, fontStyle: 'italic' }}>"{t.quote}"</p>
-                  <div style={{ paddingTop: 16, borderTop: '1px solid var(--ls-border)' }}>
-                    <div style={{ fontWeight: 600, color: 'var(--td1)', fontSize: '0.85rem' }}>{t.author}</div>
-                    <div style={{ fontSize: '0.78rem', color: 'var(--td3)', marginTop: 2 }}>{t.role}</div>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 

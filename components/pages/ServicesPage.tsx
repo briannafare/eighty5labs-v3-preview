@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Reveal, Stagger } from '../ui/Reveal';
 import { navigate } from '../../router';
+import { lastUpdated } from '../../seo/format';
 
 const GAP_COLORS: Record<number, string> = { 1: '#84CC16', 2: '#1B4FFF', 3: '#A78BFA' };
 const GAP_LABELS: Record<number, string> = { 1: 'Gap 1 — Visibility', 2: 'Gap 2 — Reputation', 3: 'Gap 3 — Conversion' };
@@ -37,7 +38,7 @@ const SERVICES = [
     id: 'reviews', gap: 2,
     name: 'Reviews AI',
     tagline: 'Never miss a review. Never leave one unanswered. Watch your rankings climb.',
-    body: "A prospect finds you on Google Maps. You have 14 reviews. Your competitor has 94 — all recent, all answered, all 4.9 stars. They call them. Reviews AI makes sure you're never that business again. Review requests go out automatically after every job, appointment, and transaction via SMS — without you touching anything. Every review gets a professional AI-generated response in seconds. Your rating climbs. Your Map Pack ranking follows.",
+    body: "A prospect finds you on Google Maps. You have a handful of reviews. Your competitor has dozens — all recent, all answered, all highly rated. They call them. Reviews AI makes sure you're never that business again. Review requests go out automatically after every job, appointment, and transaction via SMS — without you touching anything. Every review gets a professional AI-generated response in seconds. Your rating climbs. Your Map Pack ranking follows.",
     steps: [
       { num: '01', title: 'Automatic review requests after every transaction', body: "The moment a job is marked complete, an appointment ends, or a transaction closes — a personalized SMS review request goes out. No manual sending. No forgetting. Every customer, every time." },
       { num: '02', title: 'AI-generated responses to every review', body: "Every 5-star review gets a warm, specific acknowledgment. Every 1-star review gets a professional, de-escalating response. All within minutes. Responding to reviews is a direct ranking signal — Reviews AI never lets one go unanswered." },
@@ -155,8 +156,9 @@ export const ServicesPage: React.FC = () => {
           </Reveal>
           <Reveal delay={0.14}>
             <p style={{ fontSize: 'clamp(1rem,1.5vw,1.125rem)', color: L.t3, maxWidth: 600, margin: '0 auto', lineHeight: 1.7 }}>
-              eighty5.OS is built from six purpose-built AI systems — each targeting a specific revenue leak. Together, they make sure you get found, get chosen, and never lose a lead.
+              eighty5labs runs six services for local businesses, and we set up and manage all of them. Content AI gets you found, Reviews AI gets you chosen, and Voice AI, Conversation AI, Workflow AI and Funnel AI make sure no call or lead slips through.
             </p>
+            <p style={{ fontSize: '0.75rem', color: L.t3, margin: '12px auto 0' }}>{lastUpdated('/services')}</p>
           </Reveal>
         </div>
       </section>
@@ -250,6 +252,17 @@ export const ServicesPage: React.FC = () => {
           </AnimatePresence>
         </div>
       </section>
+
+      {/* The other five systems stay in the page text (tab panels, hidden until chosen) so the full copy is in the HTML */}
+      {SERVICES.filter(s => s.id !== svc.id).map(s => (
+        <div key={s.id} role="tabpanel" hidden>
+          <h2>{s.name}</h2>
+          <p>{s.tagline}</p>
+          <p>{s.body}</p>
+          <ol>{s.steps.map(st => <li key={st.num}><strong>{st.title}</strong> {st.body}</li>)}</ol>
+          <ul>{s.features.map(f => <li key={f.label}><strong>{f.label}</strong> {f.desc}</li>)}</ul>
+        </div>
+      ))}
 
       {/* Gap Overview */}
       <section style={{ padding: 'clamp(48px,5vw,72px) 0', background: L.bg2, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>

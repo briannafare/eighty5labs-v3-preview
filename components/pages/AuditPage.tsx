@@ -132,7 +132,7 @@ export const AuditPage: React.FC = () => {
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B4FFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 </div>
                 <h3 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.15rem', color: '#0F172A', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
-                  Want 10x more value from your audit?
+                  Want to get more from your audit?
                 </h3>
               </div>
               <p style={{ fontSize: '0.9rem', color: '#334155', lineHeight: 1.7, marginBottom: 14 }}>

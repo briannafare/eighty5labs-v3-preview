@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { PRICING_FAQS } from '../../seo/faqs';
 import { Reveal, Stagger } from '../ui/Reveal';
 import { navigate } from '../../router';
+import { lastUpdated } from '../../seo/format';
 
 const PLANS = [
   {
@@ -10,7 +12,7 @@ const PLANS = [
     tag: 'Get found in Google Maps + AI search. Close Gap 1.',
     monthlyPrice: 497,
     annualPrice: 414,
-    annualSave: '$994/yr',
+    annualSave: '$996/yr',
     featured: false,
     note: 'No contracts · Cancel anytime',
     noteGreen: false,
@@ -33,9 +35,9 @@ const PLANS = [
     tag: 'All three gaps closed. The complete eighty5.OS — managed for you.',
     monthlyPrice: 997,
     annualPrice: 831,
-    annualSave: '$1,994/yr',
+    annualSave: '$1,992/yr',
     featured: true,
-    note: 'Most clients recover cost within the first week',
+    note: 'No contracts · Cancel anytime',
     noteGreen: true,
     cta: 'Start Your Trial Today →',
     ctaPrimary: true,
@@ -106,14 +108,7 @@ const TABLE_ROWS = [
   ]},
 ];
 
-const FAQS = [
-  { q: 'Is there a setup fee?', a: 'No setup fees on Visibility or Growth plans. Enterprise includes a custom onboarding and build process scoped into the monthly retainer. You pay for results, not for getting started.' },
-  { q: 'What happens if I cancel?', a: 'Cancel anytime with 30 days notice — no penalties. Your GBP optimizations, reviews, and content remain yours. Annual clients receive a prorated refund for unused months.' },
-  { q: 'How long until I see results?', a: 'Review velocity and GBP improvements typically show within 30 days. Map Pack movement is visible in 45–60 days. Voice AI and lead capture produce results from day one — every call that would\'ve gone to voicemail now gets answered.' },
-  { q: 'Can I upgrade my plan later?', a: 'Yes — upgrade anytime. We prorate the difference and extend your billing cycle. Most clients start on Visibility and upgrade to Growth within 60–90 days after seeing early results.' },
-  { q: 'Do I need to sign a contract?', a: 'No contracts required. Month-to-month or annual (save 20%). We\'re confident enough in results that we don\'t need to lock you in.' },
-  { q: "What's included in the free audit?", a: 'Your free AI Visibility Audit covers GBP health, Map Pack rankings, review velocity, website AI-readability, and your current presence across ChatGPT, Gemini, and Perplexity. Yours to keep regardless of whether you sign up.' },
-];
+const FAQS = PRICING_FAQS;
 
 const CellIcon: React.FC<{ val: boolean | string }> = ({ val }) => {
   if (val === true) return <span style={{ color: '#84CC16', fontWeight: 700 }}>✓</span>;
@@ -147,9 +142,10 @@ export const PricingPage: React.FC = () => {
           <h1 style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 'clamp(2.2rem, 4.5vw, 3.2rem)', letterSpacing: '-0.04em', color: L.t1, marginBottom: 14, lineHeight: 1.07 }}>
             Simple Plans. Real Results.
           </h1>
-          <p style={{ color: L.t2, fontSize: '1.0625rem', lineHeight: 1.8, maxWidth: 520, marginInline: 'auto', marginBottom: 36 }}>
-            Everything you need to close the visibility, reputation, and conversion gaps — fully managed for you.
+          <p style={{ color: L.t2, fontSize: '1.0625rem', lineHeight: 1.8, maxWidth: 640, marginInline: 'auto', marginBottom: 36 }}>
+            eighty5labs costs $414 a month for Visibility or $831 for Growth, which adds Voice AI and follow-up. Both are billed annually, or $497 and $997 month to month, with no setup fee. Larger or multi-location businesses are quoted, typically $2,500 to $5,000 a month. Cancel with 30 days notice.
           </p>
+          <p style={{ fontSize: '0.75rem', color: L.t2, margin: '-24px 0 32px' }}>{lastUpdated('/pricing')}</p>
 
           {/* Toggle */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14, marginBottom: 52 }}>
@@ -171,7 +167,7 @@ export const PricingPage: React.FC = () => {
             {annual && (
               <motion.span initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }}
                 style={{ background: L.greenLt, color: L.greenText, fontSize: '0.65rem', fontWeight: 700, padding: '3px 10px', borderRadius: 100 }}>
-                Save 20%
+                Save 17%
               </motion.span>
             )}
           </div>
@@ -342,7 +338,7 @@ export const PricingPage: React.FC = () => {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }} className="addons-grid">
               {[
                 { icon: '📍', name: 'Additional Location', tag: 'Multi-location coverage', body: 'Full eighty5.OS for each additional business location — separate GBP, reviews AI, Voice AI, and reporting.', price: '$297', per: '/mo per location' },
-                { icon: '✍️', name: 'Content Accelerator', tag: '4× content output', body: 'Daily GBP posts, expanded FAQ library, blog articles, and monthly AI search authority pieces to dominate answer engines.', price: '$197', per: '/mo' },
+                { icon: '✍️', name: 'Content Accelerator', tag: 'More content, more often', body: 'Daily GBP posts, expanded FAQ library, blog articles, and monthly AI search authority pieces to dominate answer engines.', price: '$197', per: '/mo' },
                 { icon: '🔁', name: 'Re-engagement Campaigns', tag: 'Reactivate past customers', body: 'Automated past-customer outreach, seasonal campaigns, win-back sequences, and referral triggers to re-monetize your list.', price: '$147', per: '/mo' },
               ].map(addon => (
                 <motion.div key={addon.name} whileHover={{ y: -2 }} transition={{ duration: 0.2 }}
@@ -379,7 +375,7 @@ export const PricingPage: React.FC = () => {
             {FAQS.map((faq, i) => (
               <Reveal key={i} delay={i * 0.04}>
                 <div style={{ border: `1px solid ${L.border}`, borderRadius: 'var(--rd)', overflow: 'hidden', background: L.bg, transition: 'border-color 0.2s' }}>
-                  <button onClick={() => setOpenFaq(openFaq === i ? null : i)} style={{
+                  <button onClick={() => setOpenFaq(openFaq === i ? null : i)} aria-expanded={openFaq === i} style={{
                     width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                     padding: '18px 22px', background: 'none', border: 'none', color: L.t1,
                     textAlign: 'left', cursor: 'pointer', fontFamily: 'var(--fd)',
@@ -389,15 +385,11 @@ export const PricingPage: React.FC = () => {
                     <motion.span animate={{ rotate: openFaq === i ? 45 : 0 }} transition={{ duration: 0.2 }}
                       style={{ fontSize: '1.25rem', flexShrink: 0, color: L.blue2, fontWeight: 300 }}>+</motion.span>
                   </button>
-                  <AnimatePresence initial={false}>
-                    {openFaq === i && (
-                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25, ease: 'easeInOut' }}
-                        style={{ overflow: 'hidden' }}>
-                        <p style={{ padding: '0 22px 18px', color: L.t2, fontSize: '0.875rem', lineHeight: 1.8 }}>{faq.a}</p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  {/* Always in the DOM (collapsed by height) so the answer is in the prerendered HTML */}
+                  <motion.div initial={false} animate={{ height: openFaq === i ? 'auto' : 0, opacity: openFaq === i ? 1 : 0 }}
+                    transition={{ duration: 0.25, ease: 'easeInOut' }} style={{ overflow: 'hidden' }}>
+                    <p style={{ padding: '0 22px 18px', color: L.t2, fontSize: '0.875rem', lineHeight: 1.8 }}>{faq.a}</p>
+                  </motion.div>
                 </div>
               </Reveal>
             ))}
