@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "node scripts/update-lastmod.mjs && vite build && vite build --ssr entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs && node scripts/build-ai-files.mjs && node scripts/build-sitemap.mjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.0.0",
