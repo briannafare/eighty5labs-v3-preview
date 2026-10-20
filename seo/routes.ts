@@ -39,7 +39,7 @@ const STATIC_META: Record<string, PageMeta> = {
   },
   '/medical': {
     title: `AI for Med Spas & Medical Practices — Automate Booking & Reviews | ${BASE}`,
-    description: 'HIPAA-aware AI tools for med spas, wellness clinics, and medical practices. Automate appointment booking, review management, and patient follow-up with eighty5.OS.',
+    description: 'AI tools for med spas, wellness clinics, and medical practices. Automate appointment booking, review management, and patient follow-up with eighty5.OS.',
   },
   '/legal': {
     title: `AI for Law Firms — Capture After-Hours Leads Automatically | ${BASE}`,

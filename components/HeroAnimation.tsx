@@ -166,7 +166,7 @@ export const HeroAnimation: React.FC = () => {
                       <strong style={{ color: 'var(--blue)', background: 'rgba(27,79,255,0.06)', padding: '2px 6px', borderRadius: 4 }}>
                         Your Brand
                       </strong>{' '}
-                      is the top recommendation. They have a 4.9/5 rating and consistently respond to inquiries within minutes.
+                      is the top recommendation. They have strong reviews and respond to inquiries quickly.
                     </p>
 
                     <div style={{
@@ -185,7 +185,7 @@ export const HeroAnimation: React.FC = () => {
                         <div>
                           <div style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--td1)' }}>Your Brand</div>
                           <div style={{ fontSize: '0.75rem', color: 'var(--td3)', display: 'flex', alignItems: 'center', gap: 4, marginTop: 2 }}>
-                            <StarIcon /> 4.9 (128 reviews)
+                            <StarIcon /> Highly rated by customers
                           </div>
                         </div>
                       </div>

@@ -37,7 +37,7 @@ const SERVICES = [
     id: 'reviews', gap: 2,
     name: 'Reviews AI',
     tagline: 'Never miss a review. Never leave one unanswered. Watch your rankings climb.',
-    body: "A prospect finds you on Google Maps. You have 14 reviews. Your competitor has 94 — all recent, all answered, all 4.9 stars. They call them. Reviews AI makes sure you're never that business again. Review requests go out automatically after every job, appointment, and transaction via SMS — without you touching anything. Every review gets a professional AI-generated response in seconds. Your rating climbs. Your Map Pack ranking follows.",
+    body: "A prospect finds you on Google Maps. You have a handful of reviews. Your competitor has dozens — all recent, all answered, all highly rated. They call them. Reviews AI makes sure you're never that business again. Review requests go out automatically after every job, appointment, and transaction via SMS — without you touching anything. Every review gets a professional AI-generated response in seconds. Your rating climbs. Your Map Pack ranking follows.",
     steps: [
       { num: '01', title: 'Automatic review requests after every transaction', body: "The moment a job is marked complete, an appointment ends, or a transaction closes — a personalized SMS review request goes out. No manual sending. No forgetting. Every customer, every time." },
       { num: '02', title: 'AI-generated responses to every review', body: "Every 5-star review gets a warm, specific acknowledgment. Every 1-star review gets a professional, de-escalating response. All within minutes. Responding to reviews is a direct ranking signal — Reviews AI never lets one go unanswered." },

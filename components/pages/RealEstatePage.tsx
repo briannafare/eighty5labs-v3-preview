@@ -14,11 +14,10 @@ const data: IndustryPageData = {
     "Visibility is the other half of the problem. AI search is changing how buyers and sellers discover agents. When someone asks ChatGPT \"best real estate agent in [neighborhood]\" or Gemini \"who should I use to sell my home in [city],\" the platforms are looking at review profiles, content depth, and GBP optimization to make recommendations. Most agents have none of that infrastructure in place.",
     "And then there's the referral engine — the single most valuable business development asset in real estate. Most agents manage it manually, which means inconsistently. Past clients hear from you around the holidays if you remember. Sphere of influence gets touched when you have time. eighty5labs runs all of it on autopilot.",
   ],
-  quote: "The first agent to respond wins the client — but I'm showing homes and closing transactions all day.",
   stats: [
-    { value: '100%', label: 'of calls answered, even at midnight' },
-    { value: '< 2 min', label: 'average lead response time' },
-    { value: '+30%', label: 'referral business in one quarter' },
+    { value: '24/7', label: 'call answering, even at midnight' },
+    { value: 'Fast', label: 'lead response' },
+    { value: 'Auto', label: 'referral follow-up' },
   ],
   systems: [
     { name: 'Voice AI', desc: "Answers every inbound call instantly and captures buyer and seller lead details — after hours, weekends, during showings. Every lead qualified and logged before you ever know it came in." },
@@ -30,7 +29,7 @@ const data: IndustryPageData = {
   ],
   bullets: [
     "Answers every inbound call and captures buyer and seller leads instantly — after hours, weekends, always",
-    "Follows up with every lead in under 2 minutes via AI-powered text and email",
+    "Follows up with every lead right away via AI-powered text and email",
     "Creates and optimizes content that gets your services found on Google and recommended by AI search",
     "Automates review collection after every closing to build your Map Pack ranking and AI search authority",
     "Keeps your database warm with past client campaigns that run without you touching anything",

@@ -72,6 +72,9 @@ export const VoiceAIDemo: React.FC = () => {
 
   return (
     <div>
+      <p style={{ fontSize: '0.72rem', color: 'var(--td3)', margin: '0 4px 10px' }}>
+        Example conversation. Scripted for illustration; not a recording of a real call.
+      </p>
       {/* Scene selector */}
       <div style={{
         display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 16,

@@ -1,11 +1,11 @@
 // FAQ copy shared by the pages that show it and by the FAQPage JSON-LD,
 // so the schema can never list a question the page does not display.
 export const HOME_FAQS: { q: string; a: string }[] = [
-  { q: 'How long does it take to set up eighty5labs?', a: 'Most businesses are fully deployed in 5-7 business days. Voice AI and review automation can be running within 48 hours.' },
+  { q: 'How long does it take to set up eighty5labs?', a: 'Full setup takes 5-7 business days. Voice AI and review automation can be running within 48 hours.' },
   { q: 'Does eighty5labs integrate with my existing CRM and phone system?', a: 'Yes. eighty5.OS integrates with your existing CRM, calendar, and phone system. We layer on top — no rip-and-replace.' },
   { q: 'How does AI search optimization work for local businesses?', a: "When someone asks ChatGPT, Gemini, or Perplexity for a recommendation in your market, does your business appear? Our Content AI ensures it does, with structured data that AI engines can cite and recommend." },
   { q: 'Does eighty5labs require a long-term contract?', a: 'No. Month-to-month after any initial commitment period. We earn your business every month.' },
-  { q: 'Can I use eighty5labs Voice AI if I already have a receptionist?', a: "Voice AI handles overflow and after-hours — it doesn't replace your team, it catches what they miss. Most businesses use it as a safety net that pays for itself in recovered leads." },
+  { q: 'Can I use eighty5labs Voice AI if I already have a receptionist?', a: "Voice AI handles overflow and after-hours — it doesn't replace your team, it catches what they miss." },
   { q: 'What makes eighty5labs different from other AI marketing platforms?', a: "We don't sell individual tools. eighty5.OS is a complete system that closes all three revenue gaps — visibility, capture, and conversion — with everything connected. One dashboard, one team, one system." },
 ];
 
@@ -13,7 +13,7 @@ export const INDUSTRY_FAQS: Record<string, { q: string; a: string }[]> = {
   homeservices: [
     {
       q: 'How do I get my home service business into the Google Maps top 3?',
-      a: "Google Maps top-3 ranking (the Map Pack) requires three things: a fully optimized Google Business Profile with the right primary category and services listed, consistent review velocity with recent and responded-to reviews, and regular posting activity that signals your business is active and relevant. Most home service businesses are missing at least two of these. eighty5labs runs all three systematically.",
+      a: "Google Maps top-3 ranking (the Map Pack) requires three things: a fully optimized Google Business Profile with the right primary category and services listed, consistent review velocity with recent and responded-to reviews, and regular posting activity that signals your business is active and relevant. eighty5labs runs all three systematically.",
     },
     {
       q: 'Does AI search send leads to home service businesses?',
@@ -35,7 +35,7 @@ export const INDUSTRY_FAQS: Record<string, { q: string; a: string }[]> = {
     },
     {
       q: 'How does automated appointment follow-up reduce no-shows?',
-      a: "eighty5labs sends a series of personalized reminders via SMS and email before each appointment — 48 hours out, 24 hours out, and same-day morning. Each message includes a direct link to reschedule if needed. The reschedule option captures intent to return rather than just a no-show. Most practices using this sequence see a meaningful reduction in no-show rates within the first 30 days.",
+      a: "eighty5labs sends a series of personalized reminders via SMS and email before each appointment — 48 hours out, 24 hours out, and same-day morning. Each message includes a direct link to reschedule if needed. The reschedule option captures intent to return rather than just a no-show.",
     },
   ],
   legal: [
@@ -85,8 +85,8 @@ export const INDUSTRY_FAQS: Record<string, { q: string; a: string }[]> = {
 export const PRICING_FAQS: { q: string; a: string }[] = [
   { q: 'Is there a setup fee?', a: 'No setup fees on Visibility or Growth plans. Enterprise includes a custom onboarding and build process scoped into the monthly retainer. You pay for results, not for getting started.' },
   { q: 'What happens if I cancel?', a: 'Cancel anytime with 30 days notice — no penalties. Your GBP optimizations, reviews, and content remain yours. Annual clients receive a prorated refund for unused months.' },
-  { q: 'How long until I see results?', a: 'Review velocity and GBP improvements typically show within 30 days. Map Pack movement is visible in 45–60 days. Voice AI and lead capture produce results from day one — every call that would\'ve gone to voicemail now gets answered.' },
-  { q: 'Can I upgrade my plan later?', a: 'Yes — upgrade anytime. We prorate the difference and extend your billing cycle. Most clients start on Visibility and upgrade to Growth within 60–90 days after seeing early results.' },
-  { q: 'Do I need to sign a contract?', a: 'No contracts required. Month-to-month or annual (save 20%). We\'re confident enough in results that we don\'t need to lock you in.' },
+  { q: 'How long until I see results?', a: 'Results depend on your market and where you start. Voice AI and lead capture produce results from day one — every call that would\'ve gone to voicemail now gets answered.' },
+  { q: 'Can I upgrade my plan later?', a: 'Yes — upgrade anytime. We prorate the difference and extend your billing cycle.' },
+  { q: 'Do I need to sign a contract?', a: 'No contracts required. Month-to-month or annual (save 17%). We\'re confident enough in results that we don\'t need to lock you in.' },
   { q: "What's included in the free audit?", a: 'Your free AI Visibility Audit covers GBP health, Map Pack rankings, review velocity, website AI-readability, and your current presence across ChatGPT, Gemini, and Perplexity. Yours to keep regardless of whether you sign up.' },
 ];

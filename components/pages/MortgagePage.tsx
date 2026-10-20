@@ -10,15 +10,14 @@ const data: IndustryPageData = {
   heroCopy: "The borrower comparing rates right now won't wait for a callback. eighty5labs makes sure you're the lender who responds first — and follows up last.",
   problemTitle: 'The Mortgage Lead Problem',
   problemBody: [
-    "Mortgage leads are the most time-sensitive in financial services. A borrower comparing rates on a Tuesday afternoon has three tabs open and a short attention span. The lender who responds in under two minutes wins the conversation. The lender who calls back three hours later gets voicemail.",
+    "Mortgage leads are the most time-sensitive in financial services. A borrower comparing rates on a Tuesday afternoon has three tabs open and a short attention span. The lender who responds first wins the conversation. The lender who calls back three hours later gets voicemail.",
     "AI search is changing where borrowers start their research. When someone asks ChatGPT \"what lender should I use in [city]\" or \"best mortgage broker near me,\" the platforms recommend lenders with rich content, consistent reviews, and strong Google Business Profiles. Most loan officers have none of that running.",
     "On the back end, referral partners and past clients represent the highest-quality and lowest-cost leads you'll ever get — but only if your follow-up system keeps those relationships warm consistently, not just when you remember to reach out.",
   ],
-  quote: "I'm on calls closing loans all day. When a lead doesn't hear back within an hour, they've already called someone else.",
   stats: [
-    { value: '100%', label: 'of calls answered, even during closings' },
-    { value: '< 2 min', label: 'average lead response time' },
-    { value: 'Top 3', label: 'Map Pack placement in 30–90 days' },
+    { value: '24/7', label: 'call answering, even during closings' },
+    { value: 'Fast', label: 'lead response' },
+    { value: 'Map Pack', label: 'visibility work for loan officers' },
   ],
   systems: [
     { name: 'Voice AI', desc: "Answers every inbound call 24/7 — during closings, evenings, weekends. Captures full borrower details, qualifies by loan type, and books consultations directly into your calendar." },
@@ -30,7 +29,7 @@ const data: IndustryPageData = {
   ],
   bullets: [
     "Answers every inbound inquiry instantly — after hours, weekends, always — and captures full borrower details automatically",
-    "Follows up with every lead in under 2 minutes via AI-powered text and email so no opportunity goes cold",
+    "Follows up with every lead right away via AI-powered text and email so no opportunity goes cold",
     "Creates content that gets your services found on Google and recommended by AI when borrowers compare lenders",
     "Automates review collection after every closing to build your Map Pack ranking and AI search authority",
     "Keeps your past client database warm with automated campaigns that generate referrals on schedule",

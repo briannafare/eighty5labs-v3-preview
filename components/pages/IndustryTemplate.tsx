@@ -28,7 +28,6 @@ export interface IndustryPageData {
   heroCopy: string;
   problemTitle: string;
   problemBody: string[];
-  quote: string;
   stats: IndustryStat[];
   systems: IndustrySystem[];
   bullets: string[];
@@ -76,6 +75,7 @@ const RevenueCalc: React.FC = () => {
       {slider('Monthly leads', leads, setLeads, 20, 500, 5, v => `${v}`)}
       {slider('Average deal value', dealValue, setDealValue, 500, 25000, 500, v => `$${v.toLocaleString()}`)}
       {slider('Current close rate', closeRate, setCloseRate, 5, 60, 5, v => `${v}%`)}
+      <p style={{ fontSize: '0.75rem', color: '#94A3B8', lineHeight: 1.5, marginBottom: 16 }}>Example estimate. Assumes {Math.round(missRate * 100)}% of leads are missed and {Math.round(recoverRate * 100)}% of those are recovered. Your results will differ.</p>
 
       <div style={{ borderTop: '1px solid #DDE5F2', paddingTop: 20, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
         {[
@@ -201,12 +201,6 @@ export const IndustryPage: React.FC<{ data: IndustryPageData }> = ({ data }) => 
                   <p style={{ fontSize: '0.9375rem', color: '#64748B', lineHeight: 1.75, marginBottom: 16 }}>{para}</p>
                 </Reveal>
               ))}
-              <Reveal delay={0.15}>
-                <div style={{ marginTop: 24, padding: '20px 24px', background: '#F7F9FF', border: `1px solid ${accent}30`, borderLeft: `3px solid ${accent}`, borderRadius: 10 }}>
-                  <p style={{ fontSize: '0.875rem', color: '#334155', fontStyle: 'italic', lineHeight: 1.6 }}>"{data.quote}"</p>
-                  <p style={{ fontSize: '0.75rem', color: '#94A3B8', marginTop: 10 }}>In Their Own Words</p>
-                </div>
-              </Reveal>
             </div>
 
             {/* Systems */}

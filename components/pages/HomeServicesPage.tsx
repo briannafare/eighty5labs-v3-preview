@@ -14,10 +14,9 @@ const data: IndustryPageData = {
     "The Map Pack itself is the battleground. Three businesses show up for every high-intent local search. Getting into those three spots requires consistent Google Business Profile management, regular posts, and a steady stream of fresh reviews. The businesses dominating local Map Pack results aren't spending more on advertising — they're just running the system better.",
     "After the click is where most money disappears. Leads come in through calls, web forms, and chat — and fall through when response is slow, follow-up is inconsistent, or estimates don't convert. A homeowner who got three quotes but didn't book immediately will go with whoever follows up first. Most contractors follow up once and move on. eighty5labs follows up automatically until they say yes or no.",
   ],
-  quote: "If nobody answers when a homeowner calls, they're calling the next number before my phone stops ringing.",
   stats: [
-    { value: '0', label: 'missed calls, including after hours and weekends' },
-    { value: 'Top 3', label: 'Map Pack for high-intent service keywords' },
+    { value: '24/7', label: 'call answering, including after hours and weekends' },
+    { value: 'Map Pack', label: 'visibility work for high-intent service keywords' },
     { value: 'Auto', label: 'review requests after every completed job' },
   ],
   systems: [

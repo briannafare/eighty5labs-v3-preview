@@ -11,7 +11,7 @@ const PLANS = [
     tag: 'Get found in Google Maps + AI search. Close Gap 1.',
     monthlyPrice: 497,
     annualPrice: 414,
-    annualSave: '$994/yr',
+    annualSave: '$996/yr',
     featured: false,
     note: 'No contracts · Cancel anytime',
     noteGreen: false,
@@ -34,9 +34,9 @@ const PLANS = [
     tag: 'All three gaps closed. The complete eighty5.OS — managed for you.',
     monthlyPrice: 997,
     annualPrice: 831,
-    annualSave: '$1,994/yr',
+    annualSave: '$1,992/yr',
     featured: true,
-    note: 'Most clients recover cost within the first week',
+    note: 'No contracts · Cancel anytime',
     noteGreen: true,
     cta: 'Start Your Trial Today →',
     ctaPrimary: true,
@@ -165,7 +165,7 @@ export const PricingPage: React.FC = () => {
             {annual && (
               <motion.span initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }}
                 style={{ background: L.greenLt, color: L.greenText, fontSize: '0.65rem', fontWeight: 700, padding: '3px 10px', borderRadius: 100 }}>
-                Save 20%
+                Save 17%
               </motion.span>
             )}
           </div>
@@ -336,7 +336,7 @@ export const PricingPage: React.FC = () => {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }} className="addons-grid">
               {[
                 { icon: '📍', name: 'Additional Location', tag: 'Multi-location coverage', body: 'Full eighty5.OS for each additional business location — separate GBP, reviews AI, Voice AI, and reporting.', price: '$297', per: '/mo per location' },
-                { icon: '✍️', name: 'Content Accelerator', tag: '4× content output', body: 'Daily GBP posts, expanded FAQ library, blog articles, and monthly AI search authority pieces to dominate answer engines.', price: '$197', per: '/mo' },
+                { icon: '✍️', name: 'Content Accelerator', tag: 'More content, more often', body: 'Daily GBP posts, expanded FAQ library, blog articles, and monthly AI search authority pieces to dominate answer engines.', price: '$197', per: '/mo' },
                 { icon: '🔁', name: 'Re-engagement Campaigns', tag: 'Reactivate past customers', body: 'Automated past-customer outreach, seasonal campaigns, win-back sequences, and referral triggers to re-monetize your list.', price: '$147', per: '/mo' },
               ].map(addon => (
                 <motion.div key={addon.name} whileHover={{ y: -2 }} transition={{ duration: 0.2 }}

@@ -3,13 +3,6 @@ import { motion } from 'framer-motion';
 import { Reveal, Stagger } from '../ui/Reveal';
 import { navigate } from '../../router';
 
-const STATS = [
-  { value: '<2min', label: 'Avg. Lead Response Time' },
-  { value: '100%', label: 'Review Response Rate' },
-  { value: 'Top 3', label: 'Map Pack Results' },
-  { value: '5→50+', label: 'Reviews in 90 Days' },
-];
-
 const INDUSTRIES = [
   {
     route: '/mortgage',
@@ -18,7 +11,7 @@ const INDUSTRIES = [
     gap1: '#84CC16',
     desc: "Mortgage leads move fast and don't wait for callbacks. We make sure every inquiry is captured, followed up, and closed — while your referral engine runs on autopilot.",
     icon: '🏦',
-    keyStats: ['Avg. 47% of mortgage inquiries go unresponded within 1 hour', 'Speed-to-lead is the #1 conversion factor in mortgage', 'AI follow-up recovers 30–40% of cold leads'],
+    keyStats: ['Every inquiry is captured and followed up', 'Referral partners and past clients stay warm automatically', 'Cold leads are re-engaged on a schedule'],
   },
   {
     route: '/realestate',
@@ -27,7 +20,7 @@ const INDUSTRIES = [
     gap1: '#84CC16',
     desc: "Speed wins in real estate. The first agent to respond gets the client. eighty5.OS makes you that agent — automatically, 24/7, even when you're showing homes.",
     icon: '🏡',
-    keyStats: ['78% of buyers work with the first agent who responds', 'Avg. agent response time: 15+ hours', 'AI cuts response time to under 2 minutes'],
+    keyStats: ['Inquiries are answered while you are showing homes', 'Buyer and seller leads get immediate follow-up', 'Your sphere of influence stays warm automatically'],
   },
   {
     route: '/homeservices',
@@ -36,7 +29,7 @@ const INDUSTRIES = [
     gap1: '#84CC16',
     desc: "Every missed call is a job for your competitor. Voice AI answers 24/7, books appointments, and follows up — so you never lose work to voicemail again.",
     icon: '🔧',
-    keyStats: ['Home service businesses miss 30–60% of calls during peak seasons', 'After-hours calls convert at 3x the rate of callbacks', 'Avg. missed call value: $300–$800'],
+    keyStats: ['Overflow and after-hours calls are answered', 'Unbooked estimates are followed up automatically', 'Missed calls get a text back'],
   },
   {
     route: '/medical',
@@ -45,7 +38,7 @@ const INDUSTRIES = [
     gap1: '#84CC16',
     desc: "Patients choose providers based on reviews and search results. eighty5.OS builds your digital reputation and automates appointment intake — filling your schedule on autopilot.",
     icon: '🏥',
-    keyStats: ['77% of patients check online reviews before choosing a provider', 'Practices with 50+ reviews get 3x more new patients', 'AI intake reduces no-shows by up to 40%'],
+    keyStats: ['New patient inquiries are captured around the clock', 'Review requests go out after every visit', 'Appointment reminders go out automatically'],
   },
   {
     route: '/legal',
@@ -54,7 +47,7 @@ const INDUSTRIES = [
     gap1: '#84CC16',
     desc: "Clients research attorneys extensively before calling. Being first in local search and AI recommendations — combined with instant intake response — is the difference between signing a client and losing them to the firm down the street.",
     icon: '⚖️',
-    keyStats: ['Legal clients consult an avg. of 4.1 firms before retaining', 'AI search is now a top 3 source for attorney discovery', 'Instant response increases retention rate by 60%'],
+    keyStats: ['After-hours inquiries are captured and answered', 'Intake follow-up goes out right away', 'Local search and AI recommendation work for your practice areas'],
   },
 ];
 
@@ -91,20 +84,6 @@ export const IndustriesPage: React.FC = () => (
             </motion.button>
           </div>
         </Reveal>
-      </div>
-    </section>
-
-    {/* Stats strip */}
-    <section style={{ background: '#F7F9FF', borderTop: '1px solid #DDE5F2', borderBottom: '1px solid #DDE5F2', padding: '24px 0' }}>
-      <div className="wrap">
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(140px,1fr))', gap: '16px 32px', textAlign: 'center' }}>
-          {STATS.map(s => (
-            <div key={s.value}>
-              <p style={{ fontFamily: 'var(--fd)', fontSize: 'clamp(1.25rem,2.5vw,1.75rem)', fontWeight: 800, color: '#1B4FFF', letterSpacing: '-0.03em', marginBottom: 4 }}>{s.value}</p>
-              <p style={{ fontSize: '0.8rem', color: '#94A3B8', letterSpacing: '0.01em' }}>{s.label}</p>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
 

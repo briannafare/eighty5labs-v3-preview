@@ -12,13 +12,12 @@ const data: IndustryPageData = {
   problemBody: [
     "Medical and wellness practices run on appointment volume. New patient acquisition drives growth. Patient retention drives stability. And your front desk — however capable — is being asked to do too much at once: handle check-ins, answer phones, process insurance, manage scheduling, and somehow respond to every new patient inquiry that comes in.",
     "When volume spikes, calls go to voicemail. Web inquiries sit in an inbox until someone has time. New patient follow-up doesn't happen consistently. Every one of those failures is a lost appointment — and in a high-value practice, a lost appointment chain can mean thousands in lifetime patient value.",
-    "Reputation is equally important. Patients searching for a dentist, chiropractor, or med spa on Google look at reviews before they call anyone. A practice with 12 reviews and a 4.1 rating loses patients every day to competitors with 80 reviews and a 4.8. And AI search is making this worse — platforms recommend practices that appear most credible and consistent online.",
+    "Reputation is equally important. Patients searching for a dentist, chiropractor, or med spa on Google look at reviews before they call anyone. A practice with few reviews and a middling rating loses patients to competitors with many reviews and a high rating. And AI search is making this worse — platforms recommend practices that appear most credible and consistent online.",
   ],
-  quote: "My front desk can't handle calls, check-ins, and insurance questions all at once. New patient inquiries fall through every single day.",
   stats: [
     { value: '24/7', label: 'new patient inquiry capture, no staff required' },
     { value: 'Auto', label: 'review requests after every visit' },
-    { value: 'Top 3', label: 'Google Maps for key practice area terms' },
+    { value: 'Map Pack', label: 'visibility work for key practice area terms' },
   ],
   systems: [
     { name: 'Voice AI', desc: "Answers every call 24/7 — including during appointments when the front desk can't pick up. Captures new patient details, answers common questions, and books appointments directly into your scheduling system." },

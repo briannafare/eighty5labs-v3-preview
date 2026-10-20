@@ -14,11 +14,10 @@ const data: IndustryPageData = {
     "After-hours intake is where law firms lose the most. Criminal defense, DUI, and family law inquiries are disproportionately after-hours calls — emergencies don't keep business hours. A firm that can capture, qualify, and respond to a 10pm DUI inquiry before competing firms open their doors the next morning has an enormous competitive advantage. Most firms aren't doing this.",
     "Visibility is equally high-stakes. Practice-area searches — \"personal injury lawyer in [city],\" \"DUI attorney near me,\" \"divorce lawyer [neighborhood]\" — are high-intent and high-value. AI search platforms are beginning to influence these queries in the same way Google Maps does. Firms with strong review profiles, authoritative practice-area content, and optimized GBP listings are being recommended. Most firms have none of that infrastructure running.",
   ],
-  quote: "A DUI call at 9pm that hits voicemail is a retainer walking out the door. We were losing cases every single night.",
   stats: [
-    { value: '100%', label: 'of after-hours inquiries captured and responded to' },
+    { value: '24/7', label: 'after-hours inquiry capture and response' },
     { value: 'Auto', label: 'lead qualification by practice area' },
-    { value: 'Top 3', label: 'Map Pack for practice area keywords' },
+    { value: 'Map Pack', label: 'visibility work for practice area keywords' },
   ],
   systems: [
     { name: 'Voice AI', desc: "Answers every inquiry immediately — 24/7. Captures case details by practice area, qualifies urgency, and schedules consultations directly into your calendar. A DUI call at 10pm gets a professional response before any competing firm is open." },

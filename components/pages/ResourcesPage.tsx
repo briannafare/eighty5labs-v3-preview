@@ -5,8 +5,8 @@ import { navigate } from '../../router';
 
 const TOPICS = [
   'All Topics','Google Business Profile','Business Listings','Online Reputation',
-  'AI Visibility','AI Prompts','Social Media','Case Studies','Webinars',
-  'Press','Glossary','Voice Agents','Workflows','SMS Marketing','LLMs','Tools',
+  'AI Visibility','AI Prompts','Social Media','Webinars',
+  'Glossary','Voice Agents','Workflows','SMS Marketing','LLMs','Tools',
 ];
 
 type ResourceType = 'Guide'|'Case Study'|'Prompt Pack'|'Webinar'|'Press'|'Glossary'|'Playbook'|'Deep Dive'|'Free Tool'|'Checklist';
@@ -37,14 +37,11 @@ const RESOURCES: Resource[] = [
   { type:'Guide', topic:'AI Visibility', title:'AEO vs SEO vs GEO: What\'s the Difference and Why It Matters', desc:'Answer Engine Optimization, Search Engine Optimization, and Generative Engine Optimization — what each is and which you should prioritize.', meta:'10 min read', cta:'Read guide →' },
   { type:'Prompt Pack', topic:'AI Prompts', title:'50 AI Prompts Every Local Business Owner Should Be Using', desc:'Copy-paste prompts for writing GBP posts, review responses, FAQs, social captions, email follow-ups, and more — using ChatGPT or Claude.', meta:'Free download', cta:'Get prompt pack →' },
   { type:'Guide', topic:'Social Media', title:'Social Media for Local Service Businesses: What Actually Works in 2025', desc:'Most local businesses are wasting time on the wrong platforms. This guide cuts through the noise — what to post, where, and how often.', meta:'14 min read', cta:'Read guide →' },
-  { type:'Case Study', topic:'Case Studies', title:'How a Portland Plumber Recovered $4,200/mo in Missed Call Revenue', desc:'A local plumbing company was losing 34% of inbound calls to voicemail. Here\'s the before/after after deploying Voice AI and Workflow AI.', meta:'8 min read', cta:'Read case study →' },
-  { type:'Case Study', topic:'Case Studies', title:'From Page 3 to Top 3: A Mortgage Broker\'s GBP Turnaround', desc:'60-day before/after showing how GBP recategorization, weekly posting, and review velocity pushed a broker into the Local 3-Pack.', meta:'10 min read', cta:'Read case study →' },
   { type:'Webinar', topic:'Webinars', title:'AI Search for Local Business: How the Game Changed in 2024', desc:'Recorded 60-minute deep dive covering how ChatGPT, Gemini, and SGE are reshaping local discovery — and what to do about it.', meta:'60 min', cta:'Watch recording →' },
-  { type:'Press', topic:'Press', title:'Portland Business Journal: "The AI Tools Helping Local Businesses Fight Back Against Big Brands"', desc:'eighty5labs featured in coverage on how Portland-based startups are using AI to level the playing field for independent service businesses.', meta:'External link', cta:'Read coverage →' },
-  { type:'Glossary', topic:'Glossary', title:'The Local AI Marketing Glossary: AEO, GEO, LLMs, RAG, and More', desc:'Plain-English definitions for every AI marketing term your agency or competitor might throw at you — from LLMs to vector search to generative AI.', meta:'60+ terms', cta:'Browse glossary →' },
+  { type:'Glossary', topic:'Glossary', title:'The Local AI Marketing Glossary: AEO, GEO, LLMs, RAG, and More', desc:'Plain-English definitions for every AI marketing term your agency or competitor might throw at you — from LLMs to vector search to generative AI.', meta:'Glossary', cta:'Browse glossary →' },
   { type:'Guide', topic:'Voice Agents', title:'AI Voice Agents for Local Business: How They Work and When to Use Them', desc:'Everything you need to know about deploying a Voice AI to answer calls, qualify leads, and book appointments — 24 hours a day.', meta:'16 min read', cta:'Read guide →' },
   { type:'Playbook', topic:'Workflows', title:'5 Automation Workflows Every Local Business Needs in 2025', desc:'Missed call text-back, review request, lead nurture, re-engagement, and appointment reminder — the five workflows that recover the most revenue.', meta:'13 min read', cta:'Read playbook →' },
-  { type:'Guide', topic:'SMS Marketing', title:'SMS Marketing for Local Service Businesses: Rules, Templates, and Results', desc:'98% open rate, 3-minute average response time. A complete guide to compliant SMS campaigns — from opt-ins to re-engagement sequences.', meta:'11 min read', cta:'Read guide →' },
+  { type:'Guide', topic:'SMS Marketing', title:'SMS Marketing for Local Service Businesses: Rules, Templates, and Results', desc:'A complete guide to SMS campaigns for local service businesses, from opt-ins to re-engagement sequences.', meta:'11 min read', cta:'Read guide →' },
   { type:'Deep Dive', topic:'LLMs', title:'How LLMs Decide Which Local Businesses to Recommend', desc:'A non-technical breakdown of how large language models like GPT-4 and Gemini source, rank, and recommend local service providers in conversations.', meta:'20 min read', cta:'Read deep dive →' },
   { type:'Free Tool', topic:'Tools', title:'Revenue Recovery Calculator', desc:'Enter your weekly calls, miss rate, and average customer value — see exactly how much revenue you\'re losing every month to missed calls.', meta:'Free · No signup', cta:'Use calculator →', interactive: true },
   { type:'Checklist', topic:'Tools', title:'The 27-Point AI Visibility Audit Checklist', desc:'A printable checklist covering every factor that affects your visibility in Google Maps, traditional search, and AI-powered answer engines.', meta:'Free PDF', cta:'Download checklist →' },
@@ -54,8 +51,8 @@ const RESOURCES: Resource[] = [
 const FEATURED: Resource = {
   type: 'Guide', topic: 'AI Visibility',
   title: 'The Local Business AI Visibility Playbook',
-  desc: 'A step-by-step guide to getting your business recommended by ChatGPT, Google SGE, Gemini, and Perplexity — without paid ads. 18-page PDF, free.',
-  meta: '18-page PDF · Free', cta: 'Download Free Guide →', featured: true,
+  desc: 'A step-by-step guide to getting your business recommended by ChatGPT, Google SGE, Gemini, and Perplexity — without paid ads. Free.',
+  meta: 'Free', cta: 'Download Free Guide →', featured: true,
 };
 
 export default function ResourcesPage() {
@@ -85,9 +82,6 @@ export default function ResourcesPage() {
               Guides, tools, glossaries, case studies, and playbooks — built for local service businesses navigating AI search, Google Maps, and reputation management.
             </p>
             <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap', fontSize: '0.8125rem', color: '#94A3B8' }}>
-              <span>Last updated: February 25, 2026</span>
-              <span>·</span>
-              <span>20 resources · Actively maintained</span>
             </div>
           </Reveal>
         </div>
@@ -104,18 +98,6 @@ export default function ResourcesPage() {
               <motion.button whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.98 }} className="btn btn-primary">
                 {FEATURED.cta}
               </motion.button>
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16 }}>
-              {[
-                { val: '65%', label: 'of local searches now return AI-generated answers before organic results' },
-                { val: '4.2×', label: 'more likely to be recommended in AI search with optimized GBP + content' },
-                { val: '$1,200', label: 'average monthly revenue recovered from missed calls alone' },
-              ].map(s => (
-                <div key={s.val} style={{ textAlign: 'center', padding: '16px 12px', background: '#F7F9FF', border: '1px solid #DDE5F2', borderRadius: 12 }}>
-                  <p style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: '1.5rem', color: '#1B4FFF', letterSpacing: '-0.03em', marginBottom: 6 }}>{s.val}</p>
-                  <p style={{ fontSize: '0.7rem', color: '#94A3B8', lineHeight: 1.4 }}>{s.label}</p>
-                </div>
-              ))}
             </div>
           </div>
         </div>
