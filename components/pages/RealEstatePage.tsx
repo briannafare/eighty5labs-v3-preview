@@ -1,4 +1,5 @@
 import React from 'react';
+import { INDUSTRY_FAQS } from '../../seo/faqs';
 import { IndustryPage, IndustryPageData } from './IndustryTemplate';
 
 const data: IndustryPageData = {
@@ -37,20 +38,7 @@ const data: IndustryPageData = {
   ],
   boldClose: "The referral business you've built is a goldmine. eighty5labs makes sure you're actually mining it.",
   faqTitle: 'Questions About eighty5labs for Real Estate',
-  faqs: [
-    {
-      q: 'How do real estate agents rank higher in Google Maps?',
-      a: "Google Maps ranks agents based on relevance, distance, and prominence. Your GBP needs to be optimized with the right primary category, service areas, photos, posts, and a steady stream of recent reviews. Agents who consistently publish local content and earn reviews systematically outrank competitors who treat their profile as a static listing.",
-    },
-    {
-      q: 'Will AI search platforms recommend my real estate services?',
-      a: "AI platforms like ChatGPT and Perplexity recommend agents who have strong review profiles, neighborhood-specific content, and optimized GBP listings. An agent who publishes educational content about local markets, maintains a 4.8+ rating with fresh reviews, and has consistent business information across the web will be recommended. Most agents aren't building that — which is an opportunity.",
-    },
-    {
-      q: 'What does automated follow-up look like for real estate?',
-      a: "eighty5labs configures follow-up sequences by lead type: new buyer inquiry, seller valuation request, open house registration, past client anniversary, and referral ask. Each sequence uses SMS and email with personalized, contextual messaging. Your past clients hear from you on their closing anniversary and throughout the year — without you scheduling a single message.",
-    },
-  ],
+  faqs: INDUSTRY_FAQS.realestate,
   ctaTitle: "See Where You're Losing Real Estate Leads",
   ctaBody: "Free AI Visibility Audit — we'll show you your Google Maps position, review velocity, and AI search visibility against your top competitors in your market.",
   accentColor: '#1B4FFF',

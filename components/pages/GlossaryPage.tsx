@@ -76,7 +76,7 @@ function TermCard({ term }: { term: Term }) {
 
   return (
     <div style={{ border: '1.5px solid #DDE5F2', borderRadius: 12, overflow: 'hidden', transition: 'border-color 0.2s', borderColor: open ? color : '#DDE5F2' }}>
-      <button onClick={() => setOpen(o => !o)}
+      <button onClick={() => setOpen(o => !o)} aria-expanded={open}
         style={{ width: '100%', padding: '18px 20px', background: open ? `${color}08` : '#F7F9FF', border: 'none', textAlign: 'left', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 16 }}>
         <div style={{ flex: 1 }}>
           <span style={{ display: 'inline-block', background: `${color}18`, color, fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', padding: '2px 7px', borderRadius: 4, marginBottom: 8 }}>{term.badge}</span>
@@ -85,18 +85,15 @@ function TermCard({ term }: { term: Term }) {
         <motion.span animate={{ rotate: open ? 45 : 0 }} transition={{ duration: 0.2 }}
           style={{ color, fontSize: '1.25rem', fontWeight: 300, lineHeight: 1, flexShrink: 0, marginTop: 2 }}>+</motion.span>
       </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25 }}
-            style={{ overflow: 'hidden' }}>
-            <div style={{ padding: '0 20px 20px', borderTop: `1px solid ${color}25` }}>
-              {term.a.split('\n\n').map((para, i) => (
-                <p key={i} style={{ fontSize: '0.8875rem', color: '#64748B', lineHeight: 1.75, marginTop: 14, margin: i === 0 ? '14px 0 0' : '12px 0 0' }}>{para}</p>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Always in the DOM (collapsed by height) so the answer text is in the prerendered HTML */}
+      <motion.div initial={false} animate={{ height: open ? 'auto' : 0, opacity: open ? 1 : 0 }} transition={{ duration: 0.25 }}
+        style={{ overflow: 'hidden' }}>
+        <div style={{ padding: '0 20px 20px', borderTop: `1px solid ${color}25` }}>
+          {term.a.split('\n\n').map((para, i) => (
+            <p key={i} style={{ fontSize: '0.8875rem', color: '#64748B', lineHeight: 1.75, marginTop: 14, margin: i === 0 ? '14px 0 0' : '12px 0 0' }}>{para}</p>
+          ))}
+        </div>
+      </motion.div>
     </div>
   );
 }

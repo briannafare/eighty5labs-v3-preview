@@ -1,4 +1,5 @@
 import React from 'react';
+import { INDUSTRY_FAQS } from '../../seo/faqs';
 import { IndustryPage, IndustryPageData } from './IndustryTemplate';
 
 const data: IndustryPageData = {
@@ -37,20 +38,7 @@ const data: IndustryPageData = {
   ],
   boldClose: "Your competitors are answering. Your reviews and your content are the reason customers choose you — or don't. eighty5labs runs both.",
   faqTitle: 'Questions About eighty5labs for Home Services',
-  faqs: [
-    {
-      q: 'How do I get my home service business into the Google Maps top 3?',
-      a: "Google Maps top-3 ranking (the Map Pack) requires three things: a fully optimized Google Business Profile with the right primary category and services listed, consistent review velocity with recent and responded-to reviews, and regular posting activity that signals your business is active and relevant. Most home service businesses are missing at least two of these. eighty5labs runs all three systematically.",
-    },
-    {
-      q: 'Does AI search send leads to home service businesses?',
-      a: "Increasingly yes. Homeowners ask ChatGPT, Gemini, and Perplexity questions like 'best plumber in [city]' or 'who should I call for emergency HVAC repair near me.' These platforms look at your GBP, review profile, website content, and online consistency to make recommendations. Businesses with rich, structured content and strong review profiles are being recommended daily. Most contractors aren't building that — which is an opportunity.",
-    },
-    {
-      q: 'How does automated estimate follow-up work?',
-      a: "When an estimate is marked as sent in your CRM, eighty5labs triggers a follow-up sequence: SMS on Day 1, email on Day 3, SMS on Day 7, final follow-up on Day 14. Each message is personalized and specific to the job — not a generic 'just checking in.' Most contractors follow up once. This sequence follows up four times automatically — and it closes a meaningful percentage of estimates that would otherwise go cold.",
-    },
-  ],
+  faqs: INDUSTRY_FAQS.homeservices,
   ctaTitle: "Find Out How Many Jobs You're Losing to the Competition",
   ctaBody: "Free AI Visibility Audit — we'll show you your Map Pack position, review velocity, and which competitors are beating you for the searches that matter most.",
   accentColor: '#84CC16',

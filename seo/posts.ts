@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 // Blog posts: one markdown file per post in content/posts/<slug>.md.
 // A card without a body does not exist; no file, no post, no URL.
 import lastmod from './lastmod.json';

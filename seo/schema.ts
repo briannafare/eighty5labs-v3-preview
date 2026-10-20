@@ -1,284 +1,203 @@
 // Per-route JSON-LD. Pure data builders, safe to run on server and client.
+// Rule: describe only what the page itself shows. No Review or AggregateRating
+// (there is no verifiable review source on the site).
 import { PAGE_META, SITE_URL, canonicalFor, postByPath } from './routes';
+import { HOME_FAQS, INDUSTRY_FAQS, PRICING_FAQS } from './faqs';
+import lastmod from './lastmod.json';
 
 type Json = Record<string, unknown>;
+const CTX = 'https://schema.org';
+const ORG_ID = `${SITE_URL}/#organization`;
+const SITE_ID = `${SITE_URL}/#website`;
 
-const HOME_BLOCKS: Json[] = [
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://www.eighty5labs.com/#organization",
-    "name": "eighty5labs",
-    "alternateName": "eighty5 labs",
-    "url": "https://www.eighty5labs.com",
-    "logo": "https://www.eighty5labs.com/logo.png",
-    "description": "eighty5labs is an AI operating system for local service businesses, closing the visibility, reputation, and conversion gaps through AI-powered automation built on eighty5.OS.",
-    "foundingDate": "2024",
-    "foundingLocation": {
-      "@type": "Place",
-      "name": "Portland, Oregon, US"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "United States"
-    },
-    "knowsAbout": [
-      "AI Search Visibility",
-      "Answer Engine Optimization",
-      "Generative Engine Optimization",
-      "Google Business Profile Optimization",
-      "Online Reputation Management",
-      "Voice AI for Local Business",
-      "Marketing Automation",
-      "Local SEO",
-      "Lead Capture Automation",
-      "Conversion Rate Optimization"
-    ],
-    "sameAs": [
-      "https://www.facebook.com/eighty5labs/",
-      "https://www.instagram.com/eighty5labs/",
-      "https://www.youtube.com/@eighty5labs",
-      "https://www.linkedin.com/company/eighty5labs",
-      "https://x.com/eighty5labs",
-      "https://share.google/4EpBRm13SY89EdhkK"
-    ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": "https://www.eighty5labs.com/#website",
-    "name": "eighty5labs \u2014 AI Operating System for Local Business",
-    "description": "eighty5labs helps local service businesses close the visibility, reputation, and conversion gaps using AI-powered tools built on eighty5.OS.",
-    "url": "https://www.eighty5labs.com",
-    "publisher": {
-      "@id": "https://www.eighty5labs.com/#organization"
-    },
-    "inLanguage": "en-US",
-    "datePublished": "2025-11-01",
-    "dateModified": "2026-03-06"
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "@id": "https://www.eighty5labs.com/#service",
-    "name": "eighty5labs",
-    "description": "AI-powered operating system that closes the visibility, lead capture, and conversion gaps for local service businesses. Includes AI search optimization, voice AI, review automation, and full marketing automation.",
-    "url": "https://www.eighty5labs.com",
-    "provider": {
-      "@id": "https://www.eighty5labs.com/#organization"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "United States"
-    },
-    "serviceType": [
-      "AI Search Visibility Optimization",
-      "Google Business Profile Management",
-      "Voice AI Receptionist",
-      "Review Management Automation",
-      "Lead Capture Automation",
-      "Marketing Automation",
-      "Answer Engine Optimization",
-      "Generative Engine Optimization"
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "eighty5.OS Plans",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Free Visibility Audit",
-            "description": "Comprehensive analysis of AI search visibility, Google Maps position, review velocity, and conversion gaps against local competitors."
-          }
-        }
-      ]
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How long does it take to set up eighty5labs?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Most businesses are fully deployed in 5-7 business days. Voice AI and review automation can be running within 48 hours."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does eighty5labs integrate with my existing CRM and phone system?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. eighty5.OS integrates with your existing CRM, calendar, and phone system. We layer on top \u2014 no rip-and-replace."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How does AI search optimization work for local businesses?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "When someone asks ChatGPT, Gemini, or Perplexity for a recommendation in your market, does your business appear? Our Content AI ensures it does, with structured data that AI engines can cite and recommend."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does eighty5labs require a long-term contract?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. Month-to-month after any initial commitment period. We earn your business every month."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I use eighty5labs Voice AI if I already have a receptionist?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Voice AI handles overflow and after-hours \u2014 it doesn't replace your team, it catches what they miss. Most businesses use it as a safety net that pays for itself in recovered leads."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What makes eighty5labs different from other AI marketing platforms?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "eighty5labs doesn't sell individual tools. eighty5.OS is a complete system that closes all three revenue gaps \u2014 visibility, capture, and conversion \u2014 with everything connected. One dashboard, one team, one system."
-        }
-      }
-    ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": "https://www.eighty5labs.com/#service-contentai",
-    "name": "Content AI \u2014 AEO & GEO Optimization",
-    "description": "AI-powered content creation engine that structures website pages, blog posts, Google Business Profile updates, and FAQ content for Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO). Ensures local businesses are the answer ChatGPT, Gemini, and Perplexity recommend.",
-    "provider": {
-      "@id": "https://www.eighty5labs.com/#organization"
-    },
-    "serviceType": "Answer Engine Optimization",
-    "areaServed": {
-      "@type": "Country",
-      "name": "United States"
-    },
-    "category": "AI Search Visibility"
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": "https://www.eighty5labs.com/#service-voiceai",
-    "name": "Voice AI \u2014 24/7 AI Receptionist",
-    "description": "AI-powered voice agent that answers every call, qualifies leads by service type, books appointments, and handles after-hours inquiries. Sounds natural, integrates with existing phone systems and CRMs. Pays for itself in recovered leads from missed calls.",
-    "provider": {
-      "@id": "https://www.eighty5labs.com/#organization"
-    },
-    "serviceType": "Voice AI Receptionist",
-    "areaServed": {
-      "@type": "Country",
-      "name": "United States"
-    },
-    "category": "Lead Capture"
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": "https://www.eighty5labs.com/#service-reputationai",
-    "name": "Reputation AI \u2014 Review Management Automation",
-    "description": "Automated review request system that builds Google review velocity, responds to reviews with AI within minutes, and monitors reputation across platforms. Optimizes Google Business Profile for local Map Pack dominance.",
-    "provider": {
-      "@id": "https://www.eighty5labs.com/#organization"
-    },
-    "serviceType": "Online Reputation Management",
-    "areaServed": {
-      "@type": "Country",
-      "name": "United States"
-    },
-    "category": "Reputation & Visibility"
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://www.eighty5labs.com/#localbusiness",
-    "name": "eighty5labs",
-    "description": "AI-powered operating system for local service businesses in the Portland metro area and nationwide. Closes visibility, lead capture, and conversion gaps through automation.",
-    "url": "https://www.eighty5labs.com",
-    "telephone": "",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Portland",
-      "addressRegion": "OR",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 45.5152,
-      "longitude": -122.6784
-    },
-    "areaServed": [
-      {
-        "@type": "Country",
-        "name": "United States"
-      },
-      {
-        "@type": "City",
-        "name": "Portland"
-      }
-    ],
-    "priceRange": "$$",
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
-      "opens": "09:00",
-      "closes": "17:00"
-    },
-    "sameAs": [
-      "https://www.facebook.com/eighty5labs/",
-      "https://www.instagram.com/eighty5labs/",
-      "https://www.youtube.com/@eighty5labs",
-      "https://www.linkedin.com/company/eighty5labs",
-      "https://x.com/eighty5labs"
-    ]
-  }
+const pageDates = lastmod.pages as Record<string, string>;
+const siteModified = Object.values(pageDates).sort().pop();
+
+// Both are published on the live site (/privacy and /optin).
+const EMAIL = 'bri@eighty5labs.com';
+const PHONE = '+1-503-704-3755';
+
+const SAME_AS = [
+  'https://www.facebook.com/eighty5labs/',
+  'https://www.instagram.com/eighty5labs/',
+  'https://www.youtube.com/@eighty5labs',
+  'https://www.linkedin.com/company/eighty5labs',
+  'https://x.com/eighty5labs',
 ];
 
-export const jsonLdFor = (pathname: string): Json[] => {
-  if (pathname === '/') return HOME_BLOCKS;
-  const meta = PAGE_META[pathname];
-  if (!meta) return [];
+const organization = (): Json => ({
+  '@context': CTX,
+  '@type': 'Organization',
+  '@id': ORG_ID,
+  name: 'eighty5labs',
+  alternateName: 'eighty5 labs',
+  url: SITE_URL,
+  logo: `${SITE_URL}/icon-192.png`,
+  description: 'eighty5labs is a Portland, Oregon-based AI company building the operating system for local service businesses. We close the visibility, capture, and conversion gaps with AI.',
+  address: { '@type': 'PostalAddress', addressLocality: 'Portland', addressRegion: 'OR', addressCountry: 'US' },
+  areaServed: { '@type': 'Country', name: 'United States' },
+  founder: [
+    { '@type': 'Person', name: 'David Chandler', jobTitle: 'Co-Founder — Strategy & Client Relations', url: `${SITE_URL}/about` },
+    { '@type': 'Person', name: 'Bri Lindley', jobTitle: 'Co-Founder — Technology & Marketing Systems', url: `${SITE_URL}/about` },
+  ],
+  contactPoint: { '@type': 'ContactPoint', contactType: 'customer service', email: EMAIL, telephone: PHONE, areaServed: 'US', availableLanguage: 'English' },
+  sameAs: SAME_AS,
+});
+
+const website = (): Json => ({
+  '@context': CTX,
+  '@type': 'WebSite',
+  '@id': SITE_ID,
+  name: 'eighty5labs',
+  url: SITE_URL,
+  publisher: { '@id': ORG_ID },
+  inLanguage: 'en-US',
+  ...(siteModified ? { dateModified: siteModified } : {}),
+});
+
+const localBusiness = (): Json => ({
+  '@context': CTX,
+  '@type': 'LocalBusiness',
+  '@id': `${SITE_URL}/#localbusiness`,
+  name: 'eighty5labs',
+  url: SITE_URL,
+  telephone: PHONE,
+  email: EMAIL,
+  address: { '@type': 'PostalAddress', addressLocality: 'Portland', addressRegion: 'OR', addressCountry: 'US' },
+  areaServed: { '@type': 'Country', name: 'United States' },
+  parentOrganization: { '@id': ORG_ID },
+});
+
+const NAMES: Record<string, string> = {
+  '/services': 'Services', '/pricing': 'Pricing', '/industries': 'Industries', '/audit': 'Free Visibility Audit',
+  '/homeservices': 'Home Services', '/medical': 'Medical & Wellness', '/legal': 'Legal',
+  '/realestate': 'Real Estate', '/mortgage': 'Mortgage', '/about': 'About', '/blog': 'Blog',
+  '/work': 'Our Work', '/glossary': 'Glossary', '/resources': 'Resources', '/optin': 'Subscribe',
+  '/privacy': 'Privacy Policy', '/terms': 'Terms and Conditions',
+};
+const INDUSTRY_PATHS = ['/homeservices', '/medical', '/legal', '/realestate', '/mortgage'];
+
+const breadcrumb = (pathname: string): Json => {
   const post = postByPath(pathname);
-  if (post) {
-    return [{
-      '@context': 'https://schema.org',
-      '@type': 'Article',
-      '@id': canonicalFor(pathname) + '#article',
-      headline: post.title,
-      description: post.description,
-      url: canonicalFor(pathname),
-      mainEntityOfPage: canonicalFor(pathname),
-      author: { '@type': 'Organization', name: 'eighty5labs', url: SITE_URL },
-      publisher: { '@id': SITE_URL + '/#organization' },
-      datePublished: post.datePublished,
-      dateModified: post.dateModified,
-      inLanguage: 'en-US',
-    }];
-  }
-  return [{
-    '@context': 'https://schema.org',
+  const trail: [string, string][] = [['Home', `${SITE_URL}/`]];
+  if (INDUSTRY_PATHS.includes(pathname)) trail.push(['Industries', canonicalFor('/industries')]);
+  if (post) trail.push(['Blog', canonicalFor('/blog')]);
+  trail.push([post ? post.title : NAMES[pathname], canonicalFor(pathname)]);
+  return {
+    '@context': CTX,
+    '@type': 'BreadcrumbList',
+    itemListElement: trail.map(([name, item], i) => ({ '@type': 'ListItem', position: i + 1, name, item })),
+  };
+};
+
+const webPage = (pathname: string): Json => {
+  const meta = PAGE_META[pathname];
+  const dm = pageDates[pathname];
+  return {
+    '@context': CTX,
     '@type': 'WebPage',
-    '@id': canonicalFor(pathname) + '#webpage',
+    '@id': `${canonicalFor(pathname)}#webpage`,
     url: canonicalFor(pathname),
     name: meta.title,
     description: meta.description,
-    isPartOf: { '@id': SITE_URL + '/#website' },
-    publisher: { '@id': SITE_URL + '/#organization' },
-  }];
+    isPartOf: { '@id': SITE_ID },
+    publisher: { '@id': ORG_ID },
+    inLanguage: 'en-US',
+    ...(dm ? { dateModified: dm } : {}),
+  };
+};
+
+const service = (name: string, description: string, extra: Json = {}): Json => ({
+  '@context': CTX,
+  '@type': 'Service',
+  name,
+  description,
+  provider: { '@id': ORG_ID },
+  areaServed: { '@type': 'Country', name: 'United States' },
+  ...extra,
+});
+
+const faqPage = (faqs: { q: string; a: string }[]): Json => ({
+  '@context': CTX,
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+});
+
+// Descriptions are the taglines shown on /services.
+const SERVICE_LIST: [string, string][] = [
+  ['Content AI', 'Be the answer Google and AI give when your customers are searching.'],
+  ['Reviews AI', 'Never miss a review. Never leave one unanswered. Watch your rankings climb.'],
+  ['Funnel AI', 'One offer. One action. One path from click to customer.'],
+  ['Voice AI', 'Never miss a call. Answer, qualify, and book — instantly.'],
+  ['Conversation AI', 'Engage, qualify, and close — the moment they land. Day or night.'],
+  ['Workflow AI', 'Automations that run smarter, faster, and without you touching anything.'],
+];
+
+// Plan prices as shown on /pricing (monthly, and per month when billed annually).
+const PLANS: [string, number, number][] = [['Visibility', 497, 414], ['Growth', 997, 831]];
+const offer = (name: string, price: number, how: string): Json => ({
+  '@type': 'Offer',
+  name: `${name} ${how}`,
+  priceSpecification: { '@type': 'UnitPriceSpecification', price, priceCurrency: 'USD', unitText: 'MONTH' },
+  url: canonicalFor('/pricing'),
+});
+
+export const jsonLdFor = (pathname: string): Json[] => {
+  const meta = PAGE_META[pathname];
+  if (!meta) return [];
+
+  const post = postByPath(pathname);
+  if (post) {
+    return [
+      {
+        '@context': CTX,
+        '@type': 'Article',
+        '@id': `${canonicalFor(pathname)}#article`,
+        headline: post.title,
+        description: post.description,
+        url: canonicalFor(pathname),
+        mainEntityOfPage: canonicalFor(pathname),
+        author: { '@type': 'Organization', name: 'eighty5labs', url: SITE_URL },
+        publisher: { '@id': ORG_ID },
+        datePublished: post.datePublished,
+        dateModified: post.dateModified,
+        inLanguage: 'en-US',
+      },
+      breadcrumb(pathname),
+    ];
+  }
+
+  if (pathname === '/') {
+    return [organization(), website(), localBusiness(), webPage('/'), faqPage(HOME_FAQS)];
+  }
+
+  const out: Json[] = [webPage(pathname)];
+  switch (pathname) {
+    case '/about':
+      out.push(organization());
+      break;
+    case '/services':
+      SERVICE_LIST.forEach(([n, d]) => out.push(service(n, d)));
+      break;
+    case '/pricing':
+      out.push(service('eighty5labs plans', 'Month-to-month AI plans for local service businesses.', {
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: 'eighty5labs plans',
+          itemListElement: PLANS.flatMap(([n, m, a]) => [offer(n, m, 'monthly'), offer(n, a, 'per month, billed annually')]),
+        },
+      }));
+      out.push(faqPage(PRICING_FAQS));
+      break;
+    case '/audit':
+      out.push(service('Free Visibility Audit', meta.description));
+      break;
+    case '/homeservices': out.push(service('AI for HVAC & Home Services', meta.description), faqPage(INDUSTRY_FAQS.homeservices)); break;
+    case '/medical': out.push(service('AI for Med Spas & Medical Practices', meta.description), faqPage(INDUSTRY_FAQS.medical)); break;
+    case '/legal': out.push(service('AI for Law Firms', meta.description), faqPage(INDUSTRY_FAQS.legal)); break;
+    case '/realestate': out.push(service('AI for Real Estate Agents', meta.description), faqPage(INDUSTRY_FAQS.realestate)); break;
+    case '/mortgage': out.push(service('AI for Mortgage Lenders', meta.description), faqPage(INDUSTRY_FAQS.mortgage)); break;
+  }
+  if (pathname !== '/') out.push(breadcrumb(pathname));
+  return out;
 };

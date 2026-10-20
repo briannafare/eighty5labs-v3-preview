@@ -1,4 +1,5 @@
 import React from 'react';
+import { INDUSTRY_FAQS } from '../../seo/faqs';
 import { IndustryPage, IndustryPageData } from './IndustryTemplate';
 
 const data: IndustryPageData = {
@@ -37,20 +38,7 @@ const data: IndustryPageData = {
   ],
   boldClose: "Your patients trust you with their health. eighty5labs makes sure they find you first — and keeps them coming back.",
   faqTitle: 'Questions About eighty5labs for Medical & Wellness',
-  faqs: [
-    {
-      q: 'How do medical practices rank in Google Maps?',
-      a: "Google Maps ranks practices based on relevance, distance, and prominence. Your GBP needs to be optimized with the right primary category (be specific — 'dental clinic' outperforms 'healthcare'), services listed, consistent NAP, and a steady stream of recent reviews with responses. Practices that post weekly GBP updates and maintain review velocity consistently outrank competitors with static profiles.",
-    },
-    {
-      q: 'Are patients using AI search to find healthcare providers?',
-      a: "Yes, and it's accelerating. Patients ask ChatGPT and Perplexity questions like 'best chiropractor near me' or 'top-rated med spa in [city].' These platforms recommend practices with strong review profiles, educational FAQ content that answers patient questions, and consistent GBP activity. Practices building this infrastructure now are capturing patients before competitors even know the search happened.",
-    },
-    {
-      q: 'How does automated appointment follow-up reduce no-shows?',
-      a: "eighty5labs sends a series of personalized reminders via SMS and email before each appointment — 48 hours out, 24 hours out, and same-day morning. Each message includes a direct link to reschedule if needed. The reschedule option captures intent to return rather than just a no-show. Most practices using this sequence see a meaningful reduction in no-show rates within the first 30 days.",
-    },
-  ],
+  faqs: INDUSTRY_FAQS.medical,
   ctaTitle: "Find Out How Many New Patients You're Missing",
   ctaBody: "Free AI Visibility Audit — we'll show you your Google Maps position, review velocity, and AI search visibility against competing practices in your area.",
   accentColor: '#A78BFA',

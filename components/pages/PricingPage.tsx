@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { PRICING_FAQS } from '../../seo/faqs';
 import { Reveal, Stagger } from '../ui/Reveal';
 import { navigate } from '../../router';
 
@@ -106,14 +107,7 @@ const TABLE_ROWS = [
   ]},
 ];
 
-const FAQS = [
-  { q: 'Is there a setup fee?', a: 'No setup fees on Visibility or Growth plans. Enterprise includes a custom onboarding and build process scoped into the monthly retainer. You pay for results, not for getting started.' },
-  { q: 'What happens if I cancel?', a: 'Cancel anytime with 30 days notice — no penalties. Your GBP optimizations, reviews, and content remain yours. Annual clients receive a prorated refund for unused months.' },
-  { q: 'How long until I see results?', a: 'Review velocity and GBP improvements typically show within 30 days. Map Pack movement is visible in 45–60 days. Voice AI and lead capture produce results from day one — every call that would\'ve gone to voicemail now gets answered.' },
-  { q: 'Can I upgrade my plan later?', a: 'Yes — upgrade anytime. We prorate the difference and extend your billing cycle. Most clients start on Visibility and upgrade to Growth within 60–90 days after seeing early results.' },
-  { q: 'Do I need to sign a contract?', a: 'No contracts required. Month-to-month or annual (save 20%). We\'re confident enough in results that we don\'t need to lock you in.' },
-  { q: "What's included in the free audit?", a: 'Your free AI Visibility Audit covers GBP health, Map Pack rankings, review velocity, website AI-readability, and your current presence across ChatGPT, Gemini, and Perplexity. Yours to keep regardless of whether you sign up.' },
-];
+const FAQS = PRICING_FAQS;
 
 const CellIcon: React.FC<{ val: boolean | string }> = ({ val }) => {
   if (val === true) return <span style={{ color: '#84CC16', fontWeight: 700 }}>✓</span>;
@@ -379,7 +373,7 @@ export const PricingPage: React.FC = () => {
             {FAQS.map((faq, i) => (
               <Reveal key={i} delay={i * 0.04}>
                 <div style={{ border: `1px solid ${L.border}`, borderRadius: 'var(--rd)', overflow: 'hidden', background: L.bg, transition: 'border-color 0.2s' }}>
-                  <button onClick={() => setOpenFaq(openFaq === i ? null : i)} style={{
+                  <button onClick={() => setOpenFaq(openFaq === i ? null : i)} aria-expanded={openFaq === i} style={{
                     width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                     padding: '18px 22px', background: 'none', border: 'none', color: L.t1,
                     textAlign: 'left', cursor: 'pointer', fontFamily: 'var(--fd)',
@@ -389,15 +383,11 @@ export const PricingPage: React.FC = () => {
                     <motion.span animate={{ rotate: openFaq === i ? 45 : 0 }} transition={{ duration: 0.2 }}
                       style={{ fontSize: '1.25rem', flexShrink: 0, color: L.blue2, fontWeight: 300 }}>+</motion.span>
                   </button>
-                  <AnimatePresence initial={false}>
-                    {openFaq === i && (
-                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25, ease: 'easeInOut' }}
-                        style={{ overflow: 'hidden' }}>
-                        <p style={{ padding: '0 22px 18px', color: L.t2, fontSize: '0.875rem', lineHeight: 1.8 }}>{faq.a}</p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  {/* Always in the DOM (collapsed by height) so the answer is in the prerendered HTML */}
+                  <motion.div initial={false} animate={{ height: openFaq === i ? 'auto' : 0, opacity: openFaq === i ? 1 : 0 }}
+                    transition={{ duration: 0.25, ease: 'easeInOut' }} style={{ overflow: 'hidden' }}>
+                    <p style={{ padding: '0 22px 18px', color: L.t2, fontSize: '0.875rem', lineHeight: 1.8 }}>{faq.a}</p>
+                  </motion.div>
                 </div>
               </Reveal>
             ))}

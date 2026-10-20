@@ -110,7 +110,7 @@ const FAQItem: React.FC<{ q: string; a: string }> = ({ q, a }) => {
   const [open, setOpen] = useState(false);
   return (
     <div style={{ borderBottom: '1px solid #DDE5F2' }}>
-      <button onClick={() => setOpen(o => !o)}
+      <button onClick={() => setOpen(o => !o)} aria-expanded={open}
         style={{ width: '100%', textAlign: 'left', background: 'none', border: 'none', padding: '20px 0', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 16 }}>
         <span style={{ fontWeight: 600, color: '#0F172A', fontSize: '0.9375rem', lineHeight: 1.4 }}>{q}</span>
         <span style={{ color: '#1B4FFF', fontSize: '1.125rem', minWidth: 20, paddingTop: 1, transition: 'transform 0.2s', transform: open ? 'rotate(45deg)' : 'rotate(0)' }}>+</span>

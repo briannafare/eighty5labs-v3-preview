@@ -251,6 +251,17 @@ export const ServicesPage: React.FC = () => {
         </div>
       </section>
 
+      {/* The other five systems stay in the page text (tab panels, hidden until chosen) so the full copy is in the HTML */}
+      {SERVICES.filter(s => s.id !== svc.id).map(s => (
+        <div key={s.id} role="tabpanel" hidden>
+          <h2>{s.name}</h2>
+          <p>{s.tagline}</p>
+          <p>{s.body}</p>
+          <ol>{s.steps.map(st => <li key={st.num}><strong>{st.title}</strong> {st.body}</li>)}</ol>
+          <ul>{s.features.map(f => <li key={f.label}><strong>{f.label}</strong> {f.desc}</li>)}</ul>
+        </div>
+      ))}
+
       {/* Gap Overview */}
       <section style={{ padding: 'clamp(48px,5vw,72px) 0', background: L.bg2, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
         <div className="wrap">

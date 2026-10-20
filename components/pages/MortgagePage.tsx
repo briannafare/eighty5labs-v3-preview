@@ -1,4 +1,5 @@
 import React from 'react';
+import { INDUSTRY_FAQS } from '../../seo/faqs';
 import { IndustryPage, IndustryPageData } from './IndustryTemplate';
 
 const data: IndustryPageData = {
@@ -37,20 +38,7 @@ const data: IndustryPageData = {
   ],
   boldClose: "The referral business you've built is a goldmine. eighty5labs makes sure you're actually mining it.",
   faqTitle: 'Questions About eighty5labs for Mortgage',
-  faqs: [
-    {
-      q: 'How do mortgage lenders show up in Google Maps?',
-      a: "Google Maps ranks lenders based on relevance, distance, and prominence. Your Google Business Profile needs to be fully optimized with the right primary category, services listed, consistent NAP information, and a steady stream of recent reviews. Most lenders treat their GBP as an afterthought — which is exactly why ranking in the top 3 is achievable for businesses that take it seriously.",
-    },
-    {
-      q: 'Can AI search really generate mortgage leads?',
-      a: "Yes — and it's growing fast. Borrowers increasingly start their search by asking ChatGPT or Perplexity questions like 'best mortgage lender in [city]' or 'who has the best rates for first-time buyers near me.' AI platforms recommend lenders with strong review profiles, educational content, and optimized GBP listings. eighty5labs builds that infrastructure for you.",
-    },
-    {
-      q: 'How does automated follow-up work without feeling spammy?',
-      a: "The key is timing and relevance. eighty5labs configures follow-up sequences that trigger based on where someone is in the process — new inquiry, submitted application, closing completed, anniversary date. Each message is personalized and contextual. The result feels attentive, not aggressive.",
-    },
-  ],
+  faqs: INDUSTRY_FAQS.mortgage,
   ctaTitle: "See Exactly Where You're Losing Mortgage Leads",
   ctaBody: "Free AI Visibility Audit — we'll show you your Map Pack position, review velocity, and AI search visibility against your top local competitors.",
   accentColor: '#1B4FFF',
