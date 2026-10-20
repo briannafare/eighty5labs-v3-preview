@@ -2,18 +2,6 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
-  "redirects": [
-    {
-      "source": "/start",
-      "destination": "/quick-wins",
-      "permanent": true
-    },
-    {
-      "source": "/start/:path*",
-      "destination": "/quick-wins/:path*",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/llms.txt",
