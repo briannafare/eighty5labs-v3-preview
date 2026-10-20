@@ -89,7 +89,7 @@ export function htmlToMd(html, baseUrl) {
           const text = buf.slice(l.start).trim();
           if (text) {
             const url = l.href.startsWith('/') ? baseUrl + l.href : l.href;
-            buf = buf.slice(0, l.start) + `[${text}](${url})`;
+            buf = buf.slice(0, l.start) + `[${text}](${url}) `;
           }
         }
       }
