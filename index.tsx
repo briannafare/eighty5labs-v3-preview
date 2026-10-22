@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import App from './App';
 
 // Redirect legacy hash URLs → real paths (one-time on load)
@@ -13,6 +14,7 @@ const container = document.getElementById('root')!;
 const app = (
   <BrowserRouter>
     <App />
+    <Analytics />
   </BrowserRouter>
 );
 
